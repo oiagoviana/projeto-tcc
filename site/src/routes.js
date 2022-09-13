@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Routes, Routes} from 'react-router-dom'
 import Landing from './pages/landingpage'
-import Login from './pages/login'
+import Login from './pages/usuario/login'
 
 export default function Index() {
     return (
