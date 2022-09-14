@@ -1,0 +1,53 @@
+
+
+.comp-menu{
+
+
+    .card-menu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #F3C3A3;
+        width: 25vw;
+        height: 100vh;
+    }
+
+    .logo {
+        width: 13em;
+        margin-top: 3em;
+        margin-left: -2em;
+
+    }
+
+    .botoes {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5em;
+        
+        
+       
+    }
+
+    button {
+        font-size: 1.5em;
+        width: 25vh;
+        height: 4vw ;
+        border-radius: 0.4em;
+        background-color: #F3C3A3;
+        border-color: #6F4528;
+    }
+
+    .botao-final {
+        display: flex;
+        margin-left: 1em;
+    }
+
+    .bo-final{
+        width: 2.4em;
+        height: 3em;
+    }
+
+    .b-final {
+        border: none;
+    }
+}
