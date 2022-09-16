@@ -1,6 +1,7 @@
 import './index.scss'
+import '../../common/common.scss'
 
-export default function menuAdm() {
+export default function menuAdm(){
     
 
     return(
@@ -11,10 +12,10 @@ export default function menuAdm() {
                 </div>
 
                 <div className="botoes">
-                    <button>Home</button>
-                    <button>Publicações</button>
-                    <button>Profissionais</button>
-                    <button>Indicações</button>
+                    <button className="hb">Home</button>
+                    <button className="pb">Publicações</button>
+                    <button className="prb">Profissionais</button>
+                    <button className="ib">Indicações</button>
                 </div>
 
                 <div className="botao-final">
