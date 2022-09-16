@@ -13,7 +13,7 @@
     }
 
     .logo {
-        width: 13em;
+        width: 11em;
         margin-top: 3em;
         margin-left: -2em;
 
@@ -22,29 +22,63 @@
     .botoes {
         display: flex;
         flex-direction: column;
-        margin-top: 5em;
-        
+        margin-top: 3em;
+    
         
        
     }
 
     button {
-        font-size: 1.5em;
+        font-size: 1em;
         width: 25vh;
-        height: 4vw ;
+        height: 3.8vw ;
         border-radius: 0.4em;
         background-color: #F3C3A3;
         border-color: #6F4528;
+        color: #6F4528;
+        font-family: "Poppins5";
+        cursor: pointer;
+        
+
+    }
+
+    button::after {
+        background-color: #6F4528;
+    } 
+
+    .hb {
+        margin-top: 2.2em;
+
+    }
+
+    .pb {
+        margin-top: 2.2em;
+    }
+
+    .prb{
+        margin-top: 2.2em;
+
+    }
+
+    .ib{
+        margin-top: 2.2em ;
     }
 
     .botao-final {
         display: flex;
-        margin-left: 1em;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 9em;
+        margin-right: 3.4em;
+        width: 5vh;
+
+
     }
 
     .bo-final{
-        width: 2.4em;
-        height: 3em;
+        width: 2em;
+        height: 2em;
+        
     }
 
     .b-final {

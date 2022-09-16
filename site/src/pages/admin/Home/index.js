@@ -5,7 +5,7 @@ export default function HomeAdm(){
 
     return(
         <main>
-            Oi
+            <MenuAdm />
         </main>
     );
 }
