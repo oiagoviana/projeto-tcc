@@ -58,3 +58,10 @@ CREATE TABLE tb_login_psicologo(
     
     foreign key (id_psicologo) references tb_psicologo(id_psicologo)
 );
+
+
+CREATE TABLE tb_admin(
+    id_admin                int primary key auto_increment,
+    ds_email                varchar(40),
+    ds_senha                varchar(40)
+);

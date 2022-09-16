@@ -9,10 +9,20 @@ server.post('/admin/login', async (req, resp) => {
         const { email, senha } = req.body;
 
         const resposta = await Login(email, senha);
-        if (!resposta) 
+
+        
+        
+        if (!email.trim())
+            throw new Error('Email é obrigatório')
+
+        else if (!senha.trim())
+            throw new Error('Senha é obrigatório')
+
+        else if(!resposta) 
             throw new Error('Usuário inválido!');
 
-        resp.send(resposta);
+        else
+            resp.send(resposta);
     } 
     
     catch(err) {
