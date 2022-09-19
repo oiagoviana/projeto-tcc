@@ -4,7 +4,7 @@ import Componente from './components/menuadm'
 
 //Admin
 
-import LoginAdm from './pages/admin/loginAdm'
+import LoginAdm from './pages/admin/LoginAdm'
 
 import Indicações from './pages/admin/indicacao'
 
