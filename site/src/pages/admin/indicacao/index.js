@@ -1,4 +1,6 @@
 import './index.scss'
+import Menu from '../../../components/menuadm'
+
 
 export default function Indicações () {
     
@@ -6,45 +8,64 @@ export default function Indicações () {
         <main>
 
             <div>
+                <Menu/>
+                
                 
             </div>
 
             <div>
 
-                <h4>
-                    Nome do Local: <input type= "text"/>
+                <div>
+                    <label>Nome do Local:</label> 
+                    <input type= "text"/>
                 
-                </h4>
+                </div>
 
 
-                <h4>
-                    Nome da Cidade: <input type= "text"/>
+                <div>
+                    <label>Nome da Cidade:</label> 
+                    <input type= "text" />
                 
-                </h4>
+                </div>
 
                 
-                <h4>
-                    Categoria do Local: <input type= "number"/>
+                <div>
+                    <label>Categoria do Local:</label> 
+                    
+                    <select>
+                        <option disabled selected hidden> Selecione </option>
+                        <option>Hospital</option>
+                        <option>Brinquedoteca</option>
+                    </select>
                 
-                </h4>
+                </div>
 
                 
-                <h4>
-                    Horário de Atendimento: <input type= "time" /> <input type= "time"/>
+                <div>
+                    <label>Horário de Atendimento:</label> 
+                    <input type= "text" />
                 
-                </h4>
+                </div>
+
+                <div>
+                    <label>Classificação do Local:</label>
+                    <input type="text" />
+
+                </div>
 
             </div>
 
 
             <div>
-                <h4>
-                    Endereço: <input type= "text"/>
-                </h4>
+                <div>
+                    <label>Endereço:</label> 
+                    <input placeholder="Digite o Endereço"type= "text"/>
+                </div>
 
-                <h4>
-                    Cep: <input type= ""/>
-                </h4>
+                <div>
+                    <label>Cep:</label> 
+                    <input placeholder="Digite o CEP'" type= "text" />
+                </div>
 
 
                 <button> Publicar Indicação</button>

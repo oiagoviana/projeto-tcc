@@ -6,6 +6,7 @@
     .card-menu{
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
         align-items: center;
         background-color: #F3C3A3;
         width: 25vw;
@@ -13,28 +14,29 @@
     }
 
     .logo {
-        width: 11em;
-        margin-top: 3em;
-        margin-left: -2em;
+        width:15em;
+        height: 6em;
+        margin-left: -1em;
 
     }
 
     .botoes {
         display: flex;
         flex-direction: column;
-        margin-top: 3em;
-    
-        
+        //border: 1px solid red;
+        height: 52vh;
+        justify-content: space-between;
+
        
     }
 
     button {
-        font-size: 1em;
-        width: 25vh;
+        font-size: 1.4em;
+        width: 20vh;
         height: 3.8vw ;
-        border-radius: 0.4em;
+        border-radius: 0.5em;
         background-color: #F3C3A3;
-        border-color: #6F4528;
+        border: 2.5px solid #6F4528;
         color: #6F4528;
         font-family: "Poppins5";
         cursor: pointer;
@@ -42,33 +44,11 @@
 
     }
 
-    button::after {
-        background-color: #6F4528;
-    } 
-
-    .hb {
-        margin-top: 2.2em;
-
-    }
-
-    .pb {
-        margin-top: 2.2em;
-    }
-
-    .prb{
-        margin-top: 2.2em;
-
-    }
-
-    .ib{
-        margin-top: 2.2em ;
-    }
-
     .botao-final {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-top: 9em;
+        align-items: center;
         margin-right: 3.4em;
         width: 5vh;
 

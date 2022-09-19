@@ -8,14 +8,14 @@ export default function menuAdm(){
         <main className="comp-menu">
             <div className="card-menu">
                 <div>
-                    <img className= "logo" src='/assets/images/logomenuadm.png' alt='' />
+                    <img className= "logo" src='/assets/images/logo-mae.png' alt='' />
                 </div>
 
                 <div className="botoes">
-                    <button className="hb">Home</button>
-                    <button className="pb">Publicações</button>
-                    <button className="prb">Profissionais</button>
-                    <button className="ib">Indicações</button>
+                    <button >Home</button>
+                    <button >Publicações</button>
+                    <button >Profissionais</button>
+                    <button >Indicações</button>
                 </div>
 
                 <div className="botao-final">
