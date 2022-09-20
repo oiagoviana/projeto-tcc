@@ -8,7 +8,9 @@ export default function Indicações () {
         <main className="principal">
 
             <div>
-                <Menu/>
+                <Menu 
+                pagina='indicacao'
+                />
             </div>
 
 
@@ -18,13 +20,13 @@ export default function Indicações () {
 
                     <div>
                         <label>Nome do Local:</label> 
-                        <input type= "text"/>
+                        <input type= "text" className="input-indicacao"/>
 
                     </div>
 
                     <div>
                         <label>Nome da Cidade:</label> 
-                        <input type= "text" />
+                        <input type= "text" className="input-indicacao"/>
                     </div>
 
                     <div>
@@ -41,12 +43,12 @@ export default function Indicações () {
 
                     <div>
                         <label>Horário de Atendimento:</label> 
-                        <input type= "text" />
+                        <input type= "text" className="input-indicacao" />
                     </div>
 
                     <div>
                         <label>Classificação do Local:</label>
-                        <input type="text" />
+                        <input type="text" className="input-indicacao" />
                     </div>
 
                 </div>
@@ -54,12 +56,12 @@ export default function Indicações () {
                 <div className="container-esquerda">
                         <div>
                             <label>Endereço:</label> 
-                            <input placeholder="Digite o Endereço"type= "text"/>
+                            <input placeholder="Digite o Endereço"type= "text" className="input-indicacao"/>
                         </div>
 
                         <div>
                             <label>CEP:</label> 
-                            <input placeholder="Digite o CEP" type= "text" />
+                            <input placeholder="Digite o CEP" type= "text" className="input-indicacao"/>
                         </div>
 
                 </div>

@@ -2,39 +2,57 @@
 
     display: flex;
     flex-direction: row;
+    border: 1px solid red;
+    
     
     .segunda-principal{
      display: flex;
-     justify-content: space-between;
-     align-items: center;
-
+     flex-direction: row;
+     //justify-content: space-between;
+     margin: 7em 0em 0em 7em; 
+     //border: 1px solid red;
     }
 
     .container-direita{
      display: flex;
      flex-direction: column;
      justify-content: space-between;
-     align-items: center;
-     width: 40vw;
-     height: 45vh;
+     
+     width: 25vw;
+     height: 60vh;
+     
     
+     //border: 1px solid red ;
     }
 
     .container-esquerda {
         display: flex;
         flex-direction: column;
+        
         justify-content: space-evenly;
-        align-items: flex-start;
-        width: 25vw;
-        height: 45vh;
+        
+        width: 20vw;
+        height: 25vh;
+        //margin-bottom: 25em;
         //border: 1px solid red ;
     
     }
 
     label {
         font-family: 'Abhaya5';
-        font-size: 1.5em;
+        font-size: 1.3em;
         color: #6F4528;
+    }
+
+    .input-indicacao {
+
+        
+        box-shadow: 0px 0px 40px rgba(34, 34, 34, 0.25);
+
+        //border-radius: .4em;
+        border: 2.5px solid #fff;
+        height: 4vh;
+        width: 18vw;
     }
 
 

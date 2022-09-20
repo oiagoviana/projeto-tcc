@@ -1,7 +1,7 @@
 import './index.scss'
 import '../../common/common.scss'
 
-export default function menuAdm(){
+export default function menuAdm({pagina}){
     
 
     return(
@@ -12,10 +12,10 @@ export default function menuAdm(){
                 </div>
 
                 <div className="botoes">
-                    <button >Home</button>
-                    <button >Publicações</button>
-                    <button >Profissionais</button>
-                    <button >Indicações</button>
+                    <button className={pagina === 'home' ? 'selected' : ''}>Home</button>
+                    <button className={pagina === 'publicacao' ? 'selected' : ''}>Publicações</button>
+                    <button className={pagina === 'profisionais' ? 'selected' : ''}>Profissionais</button>
+                    <button className={pagina === 'indicacao' ? 'selected' : ''}>Indicações</button>
                 </div>
 
                 <div className="botao-final">
