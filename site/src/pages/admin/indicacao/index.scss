@@ -1,0 +1,64 @@
+.principal {
+
+    display: flex;
+    flex-direction: row;
+    
+    .segunda-principal{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+
+    }
+
+    .container-direita{
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+     width: 40vw;
+     height: 45vh;
+    
+    }
+
+    .container-esquerda {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        width: 25vw;
+        height: 45vh;
+        //border: 1px solid red ;
+    
+    }
+
+    label {
+        font-family: 'Abhaya5';
+        font-size: 1.5em;
+        color: #6F4528;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
