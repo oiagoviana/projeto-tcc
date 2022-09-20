@@ -1,5 +1,6 @@
 import 'dotenv/config'
-import admController from './controller/admController.js'
+import admController from './controller/admController.js';
+import indicacaoController from './controller/indicacaoController.js'
 
 import express from 'express'
 
@@ -14,3 +15,4 @@ server.listen(process.env.PORT, () =>
 
 
 server.use(admController);
+server.use(indicacaoController);
