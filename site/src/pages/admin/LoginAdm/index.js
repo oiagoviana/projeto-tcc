@@ -12,7 +12,6 @@ export default function LoginAdm() {
 
     const[email, setEmail] = useState('');
     const[senha, setSenha] = useState('');
-    const[erro, setErro] = useState('');
     const[carregando, setCarregando] = useState(false);
     const ref = useRef();
     const navigate = useNavigate();
@@ -41,8 +40,7 @@ export default function LoginAdm() {
             ref.current.complete();  
             setCarregando(false);
             if(err.response.status === 401){
-                setErro(err.response.data.erro);
-                toast.error(erro);                
+                toast.error(err.response.data.erro);                
             }    
                 
         }

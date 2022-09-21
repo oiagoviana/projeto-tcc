@@ -13,10 +13,10 @@ server.post('/admin/login', async (req, resp) => {
         
         
         if (!email.trim())
-            throw new Error('Email é obrigatório')
+            throw new Error('Email é obrigatório!')
 
         else if (!senha.trim())
-            throw new Error('Senha é obrigatório')
+            throw new Error('Senha é obrigatória!')
 
         else if(!resposta) 
             throw new Error('Usuário inválido!');
