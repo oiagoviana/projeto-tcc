@@ -5,7 +5,8 @@ export async function inserirIndicacao(indicacao) {
     INSERT INTO tb_indicacao (nm_clinica, nm_cidade, ds_cep, ds_endereco, ds_classificacao, ds_atendimento, id_indicacao_categoria)
                       values (?,?,?,?,?,?,?)`
 
-    const [resposta] = await con.query(comando, [indicacao.nome, 
+    const [resposta] = await con.query(comando, [
+        indicacao.nome, 
         indicacao.cidade, 
         indicacao.cep, 
         indicacao.endereco, 
