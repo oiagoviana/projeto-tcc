@@ -40,3 +40,12 @@ export async function deletarIndicacao(id) {
     const [resposta] = await con.query(comando, [id])
     return resposta.affectedRows;
 }
+
+export async function Imagem(imagem, id){
+    const comando = `
+    UPDATE tb_indicacao 
+    SET img_clinica = ?
+    WHERE id_indicacao = ?`
+    const [resposta] = await con.query(comando, [imagem, id])
+    return resposta.affectedRows;
+}
