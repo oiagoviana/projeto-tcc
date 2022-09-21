@@ -20,19 +20,19 @@ export default function Indicações () {
 
                     <div>
                         <label>Nome do Local:</label> 
-                        <input type= "text" className="input-indicacao"/>
+                        <input placeholder="Fleury"type= "text" className="input-indicacao"/>
 
                     </div>
 
                     <div>
                         <label>Nome da Cidade:</label> 
-                        <input type= "text" className="input-indicacao"/>
+                        <input placeholder="São Paulo - SP"type= "text" className="input-indicacao"/>
                     </div>
 
                     <div>
                         <label>Categoria do Local:</label> 
                     
-                        <select>
+                        <select className="categoria">
                             <option disabled selected hidden> Selecione </option>
                             <option>Hospital</option>
                             <option>Espaço para Crianças</option>
@@ -43,12 +43,12 @@ export default function Indicações () {
 
                     <div>
                         <label>Horário de Atendimento:</label> 
-                        <input type= "text" className="input-indicacao" />
+                        <input placeholder="Segunda a Sexta..."type= "text" className="input-indicacao" />
                     </div>
 
                     <div>
                         <label>Classificação do Local:</label>
-                        <input type="text" className="input-indicacao" />
+                        <input placeholder="4.8"type="text" className="input-indicacao" />
                     </div>
 
                 </div>
@@ -60,11 +60,20 @@ export default function Indicações () {
                         </div>
 
                         <div>
-                            <label>CEP:</label> 
-                            <input placeholder="Digite o CEP" type= "text" className="input-indicacao"/>
+                            <label className="div-cep">CEP:</label> 
+                            <input placeholder="00000-000" type= "text" className="input-indicacao"/>
                         </div>
 
+                        <h4>
+                        Adicionar Imagem da Indicação
+                    </h4>
+                    
+                    <img/>
+
+                    <button>Publicar Indicação</button>
+
                 </div>
+
 
             </div>
 
