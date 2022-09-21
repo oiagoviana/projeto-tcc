@@ -97,4 +97,22 @@ server.delete('/api/indicacao/:id', async (req, resp) => {
     }
 })
 
+server.put('/indicacao/imagem', upload.single('indicacao'), async (req,resp) => {
+    try{
+		if(!req.file) throw new Error('Escolha a capa da indicação!')
+        const { id } = req.params;
+        const imagem = req.file.path;
+		
+        const resposta = await alterarImagem(imagem, id)
+        if(resposta != 1) 
+			throw new Error('A imagem não pôde ser salva.')
+        resp.status(204).send();
+    } catch(err){
+		console.log(err)
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
 export default server;
