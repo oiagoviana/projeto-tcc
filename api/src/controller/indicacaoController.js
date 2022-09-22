@@ -29,6 +29,9 @@ server.post('/api/indicacao', async (req, resp) => {
             
         if (!novaIndicacao.atendimento)
             throw new Error('Horario de atendimento da Indicação é obrigatório!');
+
+        if (!novaIndicacao.categoria)
+            throw new Error('Categoria da Indicação é obrigatória!');
             
         
         const indicacaoInserida = await inserirIndicacao(novaIndicacao);
