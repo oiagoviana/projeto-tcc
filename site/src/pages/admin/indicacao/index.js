@@ -1,39 +1,61 @@
 import './index.scss'
 import Menu from '../../../components/menuadm'
-import { addProduto } from '../../../api/produtoApi'
+import { addProduto, alterarImagemIndicacao, listarCategoria } from '../../../api/produtoApi'
 import { toast } from 'react-toastify'
 
-import { useEffect, useRef,useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 
-export default function Indicações () {
+export default function Indicações() {
 
-    const[nome, setNome] = useState('');
-    const[cidade, setCidade] = useState('');
-    const[cep, setCep] = useState('');
-    const[endereco, setEndereco] = useState('');
-    const[classificacao, setClassificacao] = useState(0);
-    const[atendimento, setAtendimento] = useState('');
-    const[categoria, setCategoria] = useState('');
-    const[imagem, setImagem] = useState();
+    const [nome, setNome] = useState('');
+    const [cidade, setCidade] = useState('');
+    const [cep, setCep] = useState('');
+    const [endereco, setEndereco] = useState('');
+    const [classificacao, setClassificacao] = useState(0);
+    const [atendimento, setAtendimento] = useState('');
+    const [idCategoria, setIdCategoria] = useState();
+    const [categoria, setCategoria] = useState([]);
+    const [imagem, setImagem] = useState();
+    const [id, setId] = useState(0);
 
     async function adicionarProduto() {
         try {
-            const resposta = await addProduto(nome, cidade, cep, endereco, classificacao, atendimento, categoria);
-            toast.dark('tudo certo!');
+            const indicacao = await addProduto(nome, cidade, cep, endereco, classificacao, atendimento, idCategoria);
+            const indicacaoImagem = await alterarImagemIndicacao(indicacao.id, imagem);
+            setId(indicacao.id);
+            toast.dark('Indicação cadastrada com sucesso!');
 
-        } catch(err) {
-            if(err.response.status)
+        } catch (err) {
+            if (err.response.status)
                 toast.error(err.response.data.erro);
         }
     }
-    
+
+    async function carregarCategoria() {
+        const resposta = await listarCategoria();
+        setCategoria(resposta);
+    }
+
+    function escolherImagem() {
+        document.getElementById('imagem-oculta').click();
+    }
+
+    function mostrarImagem() {
+        return URL.createObjectURL(imagem);
+    }
+
+
+    useEffect(() => {
+        carregarCategoria();
+    }, [])
+
     return (
         <main className="principal">
 
             <div>
-                <Menu 
-                pagina='indicacao'
+                <Menu
+                    pagina='indicacao'
                 />
             </div>
 
@@ -43,58 +65,64 @@ export default function Indicações () {
                 <div className="container-direita">
 
                     <div>
-                        <label>Nome do Local:</label> 
-                        <input placeholder="Fleury"type= "text" className="input-indicacao" value={nome} onChange={e => setNome(e.target.value)} />
+                        <label>Nome do Local:</label>
+                        <input type="text" className="input-indicacao" value={nome} onChange={e => setNome(e.target.value)} />
 
                     </div>
 
                     <div>
-                        <label>Nome da Cidade:</label> 
-                        <input placeholder="São Paulo - SP"type= "text" className="input-indicacao" value={cidade} onChange={e => setCidade(e.target.value)}/>
+                        <label>Nome da Cidade:</label>
+                        <input type="text" className="input-indicacao" value={cidade} onChange={e => setCidade(e.target.value)} />
                     </div>
 
                     <div>
-                        <label>Categoria do Local:</label> 
-                    
-                        <select className="categoria" value={categoria} onChange={e => setCategoria(e.target.value)}>
+                        <label>Categoria do Local:</label>
+
+                        <select className="categoria" value={idCategoria} onChange={e => setIdCategoria(e.target.value)}>
                             <option disabled selected hidden> Selecione </option>
-                            <option>Hospital</option>
-                            <option>Espaço para Crianças</option>
-                            <option>Saúde Materna</option>
-                            <option>Lazer</option>
+                            {categoria.map(item =>
+                                <option value={item.id}> {item.categoria} </option>
+                            )}
                         </select>
                     </div>
 
                     <div>
-                        <label>Horário de Atendimento:</label> 
-                        <input placeholder="Segunda a Sexta..."type= "text" className="input-indicacao" value={atendimento} onChange={e => setAtendimento(e.target.value)} />
+                        <label>Horário de Atendimento:</label>
+                        <input placeholder="Segunda a Sexta..." type="text" className="input-indicacao" value={atendimento} onChange={e => setAtendimento(e.target.value)} />
                     </div>
 
                     <div>
                         <label>Classificação do Local:</label>
-                        <input placeholder="4.8"type="text" className="input-indicacao" value={classificacao} onChange={e => setClassificacao(e.target.value)} />
+                        <input type="Number" min='1' max='5' className="input-indicacao" value={classificacao} onChange={e => setClassificacao(e.target.value)} />
                     </div>
 
                 </div>
 
                 <div className="container-esquerda">
-                        <div>
-                            <label>Endereço:</label> 
-                            <input placeholder="Digite o Endereço"type= "text" className="input-indicacao" value={endereco} onChange={e => setEndereco(e.target.value)} />
-                        </div>
+                    <div>
+                        <label>Endereço:</label>
+                        <input type="text" className="input-indicacao" value={endereco} onChange={e => setEndereco(e.target.value)} />
+                    </div>
 
-                        <div>
-                            <label className="div-cep">CEP:</label> 
-                            <input placeholder="00000-000" type= "text" className="input-indicacao" value={cep} onChange={e => setCep(e.target.value)}/>
-                        </div>
+                    <div>
+                        <label className="div-cep">CEP:</label>
+                        <input placeholder="00000-000" type="text" className="input-indicacao" value={cep} onChange={e => setCep(e.target.value)} />
+                    </div>
 
-                        <h4>
-                            Adicionar Imagem da Indicação
-                        </h4>
+                    <div className='imagem-indicacao' onClick={escolherImagem}>
+                        {!imagem &&
+                            <img src='/assets/images/icon-upload.svg' alt='' />
+                        }
+
+                        {imagem &&
+                            <img className='imagem-capa' src={mostrarImagem()} alt=' ' />
+                        }
                         
-                        <img/>
+                        <input type='file' id='imagem-oculta' onChange={e => setImagem(e.target.files[0])} />
+                    </div>
+                    
 
-                        <button onClick={adicionarProduto}>Publicar Indicação</button>
+                    <button className='botao-publicar' onClick={adicionarProduto}>Publicar Indicação</button>
 
                 </div>
 

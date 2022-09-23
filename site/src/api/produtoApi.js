@@ -17,3 +17,19 @@ export async function addProduto(nome, cidade, cep, endereco, classificacao, ate
 
     return resposta.data;
 }
+
+export async function alterarImagemIndicacao(id, imagem) {
+    const formData = new FormData();
+    formData.append('indicacao', imagem);
+    const resposta = await api.put(`/api/indicacao/${id}/imagem`, formData, {
+        headers: {
+            "Content-Type":"multipart/form/data"
+        },
+    })
+    return resposta.status; 
+}
+
+export async function listarCategoria() {
+    const resposta = await api.get('/api/categoria');
+    return resposta.data;
+}   

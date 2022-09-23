@@ -2,40 +2,29 @@
 
     display: flex;
     flex-direction: row;
-    border: 1px solid red;
+    
     
     
     .segunda-principal{
      display: flex;
      flex-direction: row;
-     //justify-content: space-between;
      margin: 7em 0em 0em 7em; 
-     //border: 1px solid red;
     }
 
     .container-direita{
      display: flex;
      flex-direction: column;
      justify-content: space-between;
-     
      width: 25vw;
-     height: 60vh;
-     
-    
-     //border: 1px solid red ;
+     height: 60vh; 
     }
 
     .container-esquerda {
         display: flex;
         flex-direction: column;
-        
         justify-content: space-between;
-        align-items: flex-start;
         width: 20vw;
-        height: 45vh;
-        //margin-bottom: 25em;
-        //border: 1px solid red ;
-    
+        height: 60vh;
     }
 
     label {
@@ -51,10 +40,7 @@
     }
 
     .input-indicacao {
-
-        
         box-shadow: 0px 0px 40px rgba(34, 34, 34, 0.25);
-
         border-radius: .4em;
         border: 2.3px solid #fff;
         height: 4vh;
@@ -78,6 +64,43 @@
     
     }
 
+    .imagem-indicacao{
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            border: 1px solid #DFDFDF;
+            border-radius: 3px;
+            height: 25vh;
+            width: 18.5vw;
+            margin-top: 1em;
+            filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.3));
+            cursor: pointer;
+    }
+
+    #imagem-oculta{
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .botao-publicar{
+        background-color: #6F4528;
+        border: none;
+        width: 15vw;
+        height: 5vh;
+        margin-left: 25px;
+        border-radius: 10px;
+        color: #fff;
+        font-family: 'Poppins5';
+        
+    }
+
+    .imagem-capa{
+        height: 25vh;
+        width: 18.5vw;
+        border-radius: 3px;
+    }
 
 
 

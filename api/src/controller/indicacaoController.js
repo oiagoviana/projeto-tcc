@@ -1,4 +1,4 @@
-import { inserirIndicacao, atualizarIndicacao, deletarIndicacao } from '../repository/indicacaoRepository.js'
+import { inserirIndicacao, atualizarIndicacao, deletarIndicacao, alterarImagem, listarCategoria } from '../repository/indicacaoRepository.js'
 import { Router } from 'express'
 import multer from 'multer'
 
@@ -66,7 +66,7 @@ server.put('/api/indicacao/:id', async (req, resp) => {
             throw new Error('Classificação da Indicação é obrigatório!');
         
         if (indicacao.classificacao > 5)
-            throw new Error('Classificação até 5')
+            throw new Error('Classificação limite até 5')
             
         if (!indicacao.atendimento)
             throw new Error('Horario de atendimento da Indicação é obrigatório!');
@@ -100,9 +100,10 @@ server.delete('/api/indicacao/:id', async (req, resp) => {
     }
 })
 
-server.put('/indicacao/imagem', upload.single('indicacao'), async (req,resp) => {
+server.put('/api/indicacao/:id/imagem', upload.single('indicacao'), async (req,resp) => {
     try{
-		if(!req.file) throw new Error('Escolha a capa da indicação!')
+        if (!req.file)
+            throw new Error('Escolha a capa da indicação!')
         const { id } = req.params;
         const imagem = req.file.path;
 		
@@ -112,6 +113,18 @@ server.put('/indicacao/imagem', upload.single('indicacao'), async (req,resp) => 
         resp.status(204).send();
     } catch(err){
 		console.log(err)
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+
+server.get('/api/categoria', async (req, resp) => {
+    try {
+        const resposta = await listarCategoria();
+        resp.send(resposta);
+    } catch (err) {
         resp.status(400).send({
             erro: err.message
         })
