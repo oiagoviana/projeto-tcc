@@ -88,7 +88,7 @@ export default function Indicações() {
 
                     <div>
                         <label>Horário de Atendimento:</label>
-                        <input placeholder="Segunda a Sexta..." type="text" className="input-indicacao" value={atendimento} onChange={e => setAtendimento(e.target.value)} />
+                        <input  type="text" className="input-indicacao" value={atendimento} onChange={e => setAtendimento(e.target.value)} />
                     </div>
 
                     <div>
@@ -106,7 +106,7 @@ export default function Indicações() {
 
                     <div>
                         <label className="div-cep">CEP:</label>
-                        <input placeholder="00000-000" type="text" className="input-indicacao" value={cep} onChange={e => setCep(e.target.value)} />
+                        <input type="text" className="input-indicacao" value={cep} onChange={e => setCep(e.target.value)} />
                     </div>
 
                     <div className='imagem-indicacao' onClick={escolherImagem}>

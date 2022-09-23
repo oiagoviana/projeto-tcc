@@ -23,7 +23,7 @@ export default function Index() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/admin/login' element={<LoginAdm />}/>
                 <Route path='/componente' element={< Componente/>}/>
-                <Route path='/admin/indicacoes' element={< Indicações/>}/>
+                <Route path='/admin/indicacao' element={< Indicações/>}/>
             </Routes>
         </BrowserRouter>
     )

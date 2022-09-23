@@ -32,7 +32,7 @@ export default function LoginAdm() {
             storage('adm-logado', resposta);
 
             setTimeout(() => {
-                navigate('/login');    
+                navigate('/admin/indicacao');    
             }, 3000 )
 
         } 
