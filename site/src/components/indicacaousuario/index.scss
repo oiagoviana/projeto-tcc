@@ -1,0 +1,22 @@
+.comp-indicacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    .card-indicacao {
+        text-align: center;
+        height: auto;
+        width: 40vw;
+        border: 3px solid #6F4528;
+        border-radius: 10px;
+
+        padding: 15px;
+    }
+
+    .img-hospital {
+        width: 50vw;
+        height: 25vh;
+    }
+}
