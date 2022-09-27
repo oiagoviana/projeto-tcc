@@ -7,6 +7,7 @@ import Componente from './components/menuadm'
 import LoginAdm from './pages/admin/LoginAdm'
 
 import Indicações from './pages/admin/indicacao'
+import IndicaçõesCard from './pages/admin/indicacaoCard'
 
 
 //Usuário
@@ -24,6 +25,7 @@ export default function Index() {
                 <Route path='/admin/login' element={<LoginAdm />}/>
                 <Route path='/componente' element={< Componente/>}/>
                 <Route path='/admin/indicacao' element={< Indicações/>}/>
+                <Route path='/admin/indicacaoCard' element={< IndicaçõesCard/>}/>
             </Routes>
         </BrowserRouter>
     )
