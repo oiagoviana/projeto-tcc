@@ -7,8 +7,9 @@
     
 
     .div-direita{
-        border: 1px solid red;
-        width: 60%;
+        //border: 1px solid red;
+        width: 70%;
+        height: 70vh;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -17,20 +18,45 @@
         
     }
 
-    .card-indicacao {
-
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-
-    }
-
     .card-principal {
         display: flex;
-        flex-direction: row;
-        width: 60%;
+        align-items: center;
+        width: 50vw;
+        height: 35vh;
+        border-radius: 5px;
+        box-shadow: 3px 3px 6px 0 rgba(50, 50, 50, 0.25);
+        
         border: 1px solid red;
     }
+
+    .card-principal:hover {
+        transform: translateY(-5px);
+    }
+
+    h4 {
+        font-size: 1em;
+        font-family: 'Poppins5';
+        align-items: center;
+        letter-spacing: 1px;    }
+
+    p {
+        font-size: 0.9em;
+        font-family: 'Poppins6';
+    }
+
+
+    .card-indicacao {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        
+    
+        
+
+    }
+
+    
 
 
 
