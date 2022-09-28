@@ -1,6 +1,6 @@
 import './index.scss'
 import Menu from '../../../components/menuadm'
-import { addProduto, alterarImagemIndicacao, listarCategoria } from '../../../api/produtoApi'
+import { addIndicacao, alterarImagemIndicacao, listarCategoria } from '../../../api/indicacaoApi'
 import { toast } from 'react-toastify'
 
 import { useEffect, useRef, useState } from 'react'
@@ -19,9 +19,9 @@ export default function Indicações() {
     const [imagem, setImagem] = useState();
     const [id, setId] = useState(0);
 
-    async function adicionarProduto() {
+    async function adicionarIndicacao() {
         try {
-            const indicacao = await addProduto(nome, cidade, cep, endereco, classificacao, atendimento, idCategoria);
+            const indicacao = await addIndicacao(nome, cidade, cep, endereco, classificacao, atendimento, idCategoria);
             const indicacaoImagem = await alterarImagemIndicacao(indicacao.id, imagem);
             setId(indicacao.id);
             toast.dark('Indicação cadastrada com sucesso!');
@@ -122,7 +122,7 @@ export default function Indicações() {
                     </div>
                     
 
-                    <button className='botao-publicar' onClick={adicionarProduto}>Publicar Indicação</button>
+                    <button className='botao-publicar' onClick={adicionarIndicacao}>Publicar Indicação</button>
 
                 </div>
 

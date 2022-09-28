@@ -35,7 +35,7 @@ export default function LoginAdm() {
                 navigate('/admin/indicacao');    
             }, 3000 )
 
-        } 
+        }   
         catch(err) {
             ref.current.complete();  
             setCarregando(false);

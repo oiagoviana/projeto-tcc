@@ -15,22 +15,22 @@
         height: 100vh;
     }
 
-    .logo {
-        width:15em;
-        height: 6em;
-        margin-left: -1em;
+    
 
+    .logo {
+        width:19vw;
+        height: 11vh;
+        margin-left: -1em;
     }
 
     .botoes {
         display: flex;
         flex-direction: column;
-        //border: 1px solid red;
         height: 52vh;
         justify-content: space-between;
-
-       
     }
+
+    
 
     button {
         font-size: 1.3em;
@@ -41,9 +41,6 @@
         border: 2.5px solid #6F4528;
         color: #6F4528;
         font-family: "Poppins5";
-        cursor: pointer;
-        
-
     }
 
     .botao-final {
@@ -53,8 +50,10 @@
         align-items: center;
         margin-right: 3.4em;
         width: 5vh;
+    }
 
-
+    .botao-final:hover{
+        cursor: pointer;
     }
 
     .bo-final{
@@ -65,5 +64,9 @@
 
     .b-final {
         border: none;
+    }
+
+    button:hover{
+        cursor: pointer;
     }
 }

@@ -1,14 +1,30 @@
 import Menu from '../../../components/menuadm'
 import './index.scss'
+import { useNavigate } from 'react-router-dom'
+import LoadingBar from 'react-top-loading-bar'
+import { useRef } from 'react'
+import { deletarIndicacao } from '../../../api/indicacaoApi'
 
+export default function IndicacaoCard() {
+    const navigate = useNavigate();
+    const ref= useRef();
 
-export default function indicacaoCard() {
+    function adicionar () {
+        setTimeout(() => {
+            navigate('/admin/indicacao');    
+        }, 500 )
 
+    }
+
+   async function deletarIndicacao (id){
+    const resposta = await deletarIndicacao (id);
+   }
 
     return (
         <main className='page-indicacao'>
+            <LoadingBar color='#6F4528' ref={ref} />
             <div>
-                <Menu />
+                <Menu  pagina='indicacao'/>
             </div>
 
             <div className="div-direita">
@@ -17,48 +33,46 @@ export default function indicacaoCard() {
                 </div>
 
                 <div >
-                    <img src="/assets/images/adicionarindicacao.svg" />
+                    <img onClick={adicionar} src="/assets/images/adicionarindicacao.svg"   />
                 </div>
 
                 <div className="card-principal">
 
                     <div>
                         <img src="/assets/images/indicar.png" />
-
                     </div>
 
                     <div className='card-indicacao'>
-                        <div>
-                            <h4>Nome do Local</h4>
-                            <p>Fleury</p>
+                        <div className='div-alinhamentos'>
+                            <span className='span-titulo'>Nome do Local</span>
+                            <span className='span-texto'>Fleury</span>
 
-                            <h4>Nome da Cidade</h4>
-                            <p>São Paulo - SP</p>
+                            <span className='span-titulo'>Nome da Cidade</span>
+                            <span className='span-texto'>São Paulo - SP</span>
 
-                            <h4>Classificação</h4>
-                            <p>4.5</p>
+                            <span className='span-titulo'>Classificação</span>
+                            <span className='span-texto'>4.5</span>
+                            </div>
+                        
 
-                        </div>
+                        <div className='div-alinhamentos'>
+                            <span className='span-titulo'>CEP</span>
+                            <span className='span-texto'>00000-000</span>
 
-                        <div>
+                            <span className='span-titulo'>Endereço</span>
+                            <span className='span-texto'>Grajaú</span>
 
-                            <h4>CEP</h4>
-                            <p>00000-000</p>
-
-                            <h4>Endereço</h4>
-                            <p>Grajaú</p>
-
-                            <h4>Categoria</h4>
-                            <p>Saúde</p>
+                            <span className='span-titulo'>Categoria</span>
+                            <span className='span-texto'>Saúde</span>
+                            </div>
+                    
+                        <div className='div-botoes'>
+                            <img className='botoes-alterar' src="/assets/images/editar.svg" />
+                            <img onClick={deletarIndicacao} className='botoes-alterar' src="/assets/images/lixeira.svg" />
                         </div>
                     </div>
-
-                    
-                    <img src="/assets/images/editar.svg" />
-                    <img src="/assets/images/lixeiraa.png" />
                 </div>
             </div>
-
         </main>
     );
 }

@@ -4,7 +4,7 @@ const api = axios.create({
     baseURL:  'http://localhost:5000'
 })
 
-export async function addProduto(nome, cidade, cep, endereco, classificacao, atendimento, categoria) {
+export async function addIndicacao(nome, cidade, cep, endereco, classificacao, atendimento, categoria) {
     const resposta = await api.post('/api/indicacao', {
         nome: nome,
         cidade: cidade,
@@ -33,3 +33,24 @@ export async function listarCategoria() {
     const resposta = await api.get('/api/categoria');
     return resposta.data;
 }   
+
+export async function alterarIndicacao (id, nome, cidade, cep, endereco, classificacao, atendimento, categoria) {
+    const resposta = await api.put (`/api/indicacao/${id}`, {
+        nome: nome,
+        cidade: cidade,
+        cep: cep,
+        endereco: endereco,
+        classificacao: classificacao,
+        atendimento: atendimento,
+        categoria: categoria
+    });
+
+    return resposta.data;
+
+}
+
+export async function deletarIndicacao (id) {
+    const resposta = await api.delete (`/api/indicacao/${id}`);
+
+    return resposta.status;
+}

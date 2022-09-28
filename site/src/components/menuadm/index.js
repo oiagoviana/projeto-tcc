@@ -7,7 +7,7 @@ export default function menuAdm({pagina}){
     return(
         <main className="comp-menu">
             <div className="card-menu">
-                <div>
+                <div className='div-header'>
                     <img className= "logo" src='/assets/images/logo-mae.png' alt='' />
                 </div>
 

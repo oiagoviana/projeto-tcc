@@ -1,18 +1,17 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
-import Componente from './components/menuadm'
-
 //Admin
 
-import LoginAdm from './pages/admin/LoginAdm'
+import LoginAdm from './pages/admin/LoginAdm' 
+import Indicacoes from './pages/admin/indicacao'
+import IndicacoesCard from './pages/admin/indicacaoCard'
 
-import Indicações from './pages/admin/indicacao'
-import IndicaçõesCard from './pages/admin/indicacaoCard'
 
 
 //Usuário
 import Landing from './pages/landingpage'
 import Login from './pages/usuario/login'
+import Indicacao from './pages/usuario/indicacao'
 
 
 
@@ -23,10 +22,16 @@ export default function Index() {
             <Routes>
                 <Route path='/' element={<Landing/>}/>
                 <Route path='/login' element={<Login />} />
+
+
+
                 <Route path='/admin/login' element={<LoginAdm />}/>
-                <Route path='/componente' element={< Componente/>}/>
-                <Route path='/admin/indicacao' element={< Indicações/>}/>
-                <Route path='/admin/indicacaoCard' element={< IndicaçõesCard/>}/>
+                <Route path='/admin/indicacao' element={< Indicacoes/>}/>
+                <Route path='/admin/indicacaoCard' element={< IndicacoesCard/>}/>
+
+
+
+                <Route path='/indicacao' element={<Indicacao/>}/>
             </Routes>
         </BrowserRouter>
     )
