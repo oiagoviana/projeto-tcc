@@ -6,17 +6,42 @@
     width: 100%;
 
     .card-indicacao {
-        text-align: center;
-        height: auto;
-        width: 40vw;
+        display: flex;
+        flex-direction: column;
+        height: 58vh;
+        width: 26vw;
         border: 3px solid #6F4528;
         border-radius: 10px;
 
-        padding: 15px;
+        padding: 22px;
     }
 
-    .img-hospital {
-        width: 50vw;
-        height: 25vh;
+    .text-hosp {
+        text-align: center;
+
+        background-color: #A3C;
+        border-radius: 5px;
+        color: #ffffff;
+        background-color: #6F4528;
     }
+
+    .container-telefone {
+        display: flex;
+        flex-direction: row;
+
+        margin-top: -1em;
+    }
+
+    .text-telefone {
+        margin-right: 30px;
+    }
+
+    .text-horario {
+        margin-top: -0.3em;
+    }
+
+    .text-endereco {
+        margin-top: -0.2em;
+    }
+    
 }
