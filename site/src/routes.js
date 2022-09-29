@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import LoginAdm from './pages/admin/LoginAdm' 
 import Indicacoes from './pages/admin/indicacao'
 import IndicacoesCard from './pages/admin/indicacaoCard'
+import PsicologoCard from './pages/admin/psiCard'
 
 
 
@@ -27,8 +28,10 @@ export default function Index() {
 
                 <Route path='/admin/login' element={<LoginAdm />}/>
                 <Route path='/admin/indicacao' element={< Indicacoes/>}/>
-                <Route path='/admin/indicacaoCard' element={< IndicacoesCard/>}/>
-
+                <Route path='/admin/indicacaoCard' element={< IndicacoesCard />} />
+                
+                
+                <Route path='/admin/psicologoCard' element={<PsicologoCard/>}/>
 
 
                 <Route path='/indicacao' element={<Indicacao/>}/>
