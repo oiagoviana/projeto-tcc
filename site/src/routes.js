@@ -15,6 +15,9 @@ import Login from './pages/usuario/login'
 import Indicacao from './pages/usuario/indicacao'
 
 
+//Psi
+import Formulario from './pages/psicologo/formulario'
+
 
 
 export default function Index() {
@@ -35,6 +38,9 @@ export default function Index() {
 
 
                 <Route path='/indicacao' element={<Indicacao/>}/>
+
+                <Route path='/psi/formulario' element={<Formulario/>}/>
+
             </Routes>
         </BrowserRouter>
     )
