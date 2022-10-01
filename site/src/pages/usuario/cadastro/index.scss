@@ -1,7 +1,8 @@
 .page-cadastro {
     display: flex;
     flex-direction: row;
-    min-height: 100vh;
+    max-height: 100vh;
+    height: 100vh;
 
     .container-esquerdo {
         display: flex;
