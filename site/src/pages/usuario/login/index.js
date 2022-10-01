@@ -35,8 +35,8 @@ export default function Login() {
                 <h3>Não existe lugar mais poderoso e tranquilizador que o colo de pai.</h3>
 
 
-                <img className='img-bola-direita' src='/assets/images/img-bola-inferior-direita-login.svg' alt='bola-da-direita' />
-                <img className='img-bola-esquerda' src='/assets/images/img-bola-superior-esquerdo-login.svg' alt='bola-da-esquerda' />
+                <img className='img-bola-direita' src='/assets/images/bolinhaBaixo-Cadastro.png' alt='bola-da-direita' />
+                <img className='img-bola-esquerda' src='/assets/images/bolinhaCima-Cadastro.png' alt='bola-da-esquerda' />
             </div>
         </main>
     );
