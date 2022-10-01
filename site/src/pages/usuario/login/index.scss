@@ -1,0 +1,111 @@
+.page-login {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+
+    .container-esquerdo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        max-width: 50vw;
+        width: 50vw;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        color: #73401E;
+        
+        margin-top: 1em;
+    }
+
+    .container-inputs {
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .container-inputs div{
+        margin-top: 2.5em;
+    }
+    
+    .container-inputs input{
+        width: 100%;
+        border: 2px solid #73401E;
+        border-radius: 7px;
+        padding: 7px;
+    }
+
+    .container-inputs p{
+        text-align: left;
+        font-size: 20px;
+        font-weight: 700;
+        color: #73401E;
+
+        margin-bottom: 0;
+        margin-left: 5px;
+    }
+
+    button {
+        max-width: 13vw;
+        width: 100%;
+        color: #73401E;
+        background-color: #FFDFC1;
+
+        border: none;
+        border-radius: 15px;
+        font-size: 1.2em;
+        font-weight: 800;
+        padding: 5px;
+        margin-top: 4em;
+    }
+
+    .container-cadastre-se {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        margin-top: 3em;
+    }
+
+
+    .container-direito {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+        max-width: 50vw;
+        width: 50vw;
+
+        background-color: #FFECDA;
+        border: 1px solid red;
+    }
+
+    .container-direito h3 {
+        color: #73401E;
+        font-weight: 600;
+        width: 19vw;
+    }
+
+    .img-paiLogin {
+        height: 400px;
+        width: 250px;
+    }
+
+    .img-bola-direita {
+        position: absolute;
+
+        right: 0;
+        bottom: 0;
+        height: 100px;
+    }
+
+    .img-bola-esquerda {
+        position: absolute;
+
+        left: 0em;
+        top: 0;
+        height: 100px;
+    }
+}

@@ -1,0 +1,126 @@
+.page-cadastro {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+
+    .container-esquerdo {
+        position: relative;
+        max-width: 50vw;
+        width: 50vw;
+
+        background-color: #FFECDA;
+    }
+
+    .container-direito {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        max-width: 50vw;
+        width: 50vw;
+        text-align: center;
+
+        border: 1px solid red;
+    }
+
+    .sub-container-direito {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    h1 {
+        font-size: 43px;
+        font-weight: 700;
+
+        color: #73401E;
+        margin-bottom: 1em;
+    }
+
+    .container-inputs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-input-individual {
+        text-align: left;
+    }
+
+    .titulo-input {
+        margin-bottom: 0;
+        margin-left: 10px;
+    }
+    
+    .input-credenciais {
+        max-width: 405px;
+
+        width: 100%;
+        padding: 7px;
+        border: 2px solid #73401E;
+        border-radius: 6px;
+    }
+
+    .container-termos {
+        margin-top: 1.5em;
+        width: 100%;
+    }
+
+    .container-checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .input-checkbox {
+        height: 23px;
+        width: 23px;
+
+        border-radius: 10px;
+    }
+
+    .container-criar-conta {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        margin-top: 1.5em;
+    }
+
+    .botao-criar-conta {
+        width: 100%;
+
+        border-radius: 10px;
+        background-color: #FFDFC1;
+        border: none;
+        cursor: pointer;
+        color: #73401E;
+        font-size: 25px;
+        font-weight: 800;
+        
+    }
+
+    .container-faca-login {
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+    }
+
+    .img-maeCadastro {
+        height: 400px;
+    }
+
+    .img-bola1 {
+        position: absolute;
+
+        right: 0em;
+        top: 0;
+    } 
+
+    .img-bola2 {
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+    }
+}
