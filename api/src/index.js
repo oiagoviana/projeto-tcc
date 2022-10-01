@@ -1,6 +1,9 @@
 import 'dotenv/config'
 import admController from './controller/admController.js';
 import indicacaoController from './controller/indicacaoController.js'
+import psicologoController from './controller/psicologoController.js'
+import usuarioController from './controller/usuarioController.js'
+
 
 import express from 'express'
 
@@ -16,3 +19,5 @@ server.listen(process.env.PORT, () =>
 
 server.use(admController);
 server.use(indicacaoController);
+server.use(psicologoController);
+server.use(usuarioController);
