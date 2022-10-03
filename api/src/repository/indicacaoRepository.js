@@ -60,3 +60,18 @@ export async function listarCategoria() {
     const [resposta] = await con.query(comando);
     return resposta;
 }
+
+export async function consultarIndicacoes () {
+    const comando = `
+    select nm_clinica     nome,
+    nm_cidade             cidade,
+    ds_cep                cep,
+    ds_endereco           endereco,
+    ds_classificacao      classificacao,
+    img_clinica           img,
+    nm_categoria          categoria
+    from tb_indicacao_categoria
+   join tb_indicacao on tb_indicacao_categoria.id_indicacao_categoria = tb_indicacao.id_indicacao_categoria;`
+   const [resposta] = await con.query (comando);
+   return resposta;
+}

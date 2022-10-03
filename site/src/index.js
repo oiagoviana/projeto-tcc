@@ -17,7 +17,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ToastContainer/>
+<<<<<<< HEAD
     <Formulario/>
+=======
+    <Routes></Routes>
+>>>>>>> bc7f29b8b6e76a32f3b5682aabda179a5a479098
   </React.StrictMode>
 );
 
