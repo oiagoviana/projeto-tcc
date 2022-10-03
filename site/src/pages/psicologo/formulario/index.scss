@@ -1,0 +1,137 @@
+.principal-cont{
+    display: flex;
+    flex-direction: column;
+
+    
+
+    .img-cima{
+
+        display: flex;
+        align-items: center;
+
+
+        position: absolute;
+        width: 9vw;
+        height: 20vh ;
+        margin-left: 91%;
+             
+    }    
+
+    .img-baixo{
+        display: flex;
+        align-items: center;
+
+
+        position: absolute;
+        width: 9.3vw;
+        height: 19vh ;
+
+        margin-top: 0.3em;
+        
+        
+             
+
+    }
+
+    .conteiner-1{
+        display: flex;
+        justify-content:center;
+
+        
+    }
+
+    .texto{
+        color: #73401E;
+        font-size: 3em;
+        font-family: 'Poppins2';
+    }
+    
+    .input-formulario{
+
+      
+        background: #FFFFFF;
+        border: 2.4px solid #73401E;
+        border-radius: 0.5em;
+        height: 4vh;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        
+    }
+
+    
+    input::placeholder {
+        font-family: 'Poppins2';
+        font-size: 0.8em;
+        color: #B4B4B4;
+
+        
+    }
+
+    .div-mae{
+
+        display: flex;
+
+        flex-direction: row;
+
+    }
+
+    
+
+    .direita{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 8em;
+        width: 35vw;
+        height: 40vh;
+
+        
+
+       
+    }
+
+    .direitaa{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 8em;
+        width: 35vw;
+        height: 35vh;
+
+        
+
+       
+    }
+
+    label{
+        color: #73401E;
+        font-family: 'Poppins1';
+        font-size: 1.1em;
+    }
+  
+
+
+    .botao-formulario{
+
+        font-family: 'Poppins2';
+        font-size: 1.1em;
+        background-color: #FFDFC1;
+        color: #73401E;
+        align-items: center;
+
+        margin-left: 45em;
+        cursor: pointer;
+       margin-top: 3.6em;
+
+        border-radius: 1em;
+      
+
+        width: 25vw;
+        height: 5vh;
+
+        border: none;
+        
+        
+    }
+
+}
