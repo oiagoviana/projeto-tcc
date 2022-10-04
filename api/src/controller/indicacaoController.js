@@ -1,4 +1,4 @@
-import { inserirIndicacao, atualizarIndicacao, deletarIndicacao, alterarImagem, listarCategoria } from '../repository/indicacaoRepository.js'
+import { inserirIndicacao, atualizarIndicacao, deletarIndicacao, alterarImagem, listarCategoria, consultarIndicacoes } from '../repository/indicacaoRepository.js'
 import { Router } from 'express'
 import multer from 'multer'
 
@@ -124,6 +124,18 @@ server.get('/api/categoria', async (req, resp) => {
     try {
         const resposta = await listarCategoria();
         resp.send(resposta);
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+
+server.get('/api/indicacao/consulta', async (req, resp) => {
+    try {
+        const resposta = await consultarIndicacoes ( ); 
+        resp.send(resposta); 
     } catch (err) {
         resp.status(400).send({
             erro: err.message

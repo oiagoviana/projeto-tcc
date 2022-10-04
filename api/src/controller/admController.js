@@ -22,11 +22,10 @@ server.post('/admin/login', async (req, resp) => {
             throw new Error('Usuário inválido!');
 
         else
-            resp.send(resposta);
+            resp.status(201).send(resposta);
     } 
     
     catch(err) {
-        
         resp.status(401).send({
             erro: err.message
         });
