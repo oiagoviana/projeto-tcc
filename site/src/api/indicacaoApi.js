@@ -44,18 +44,19 @@ export async function alterarIndicacao (id, nome, cidade, cep, endereco, classif
         atendimento: atendimento,
         categoria: categoria
     });
-
     return resposta.data;
-
 }
 
 export async function deletarIndicacao (id) {
     const resposta = await api.delete (`/api/indicacao/${id}`);
-
-    return resposta.status;
+    return resposta.data;
 }
 
-export async function consultarIndicacoes () {
-    const resposta = await api.get ('/api/indicacao/consulta');
+export async function consultarIndicacoesPorId (id) {
+    const resposta = await api.get ('/api/indicacao/consulta' + id);
     return resposta.data;
+}
+export async function consultarIndicacoes (){
+    const resposta = await api.get ('/api/indicacao/consulta')
+    return resposta.data
 }

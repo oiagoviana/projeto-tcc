@@ -86,7 +86,7 @@ server.put('/api/indicacao/:id', async (req, resp) => {
 
 server.delete('/api/indicacao/:id', async (req, resp) => {
     try {
-        const { id } = req.params;
+        const id  = req.params.id;
 
         const resposta = await deletarIndicacao(id);
         if (resposta != 1)

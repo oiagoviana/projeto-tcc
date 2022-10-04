@@ -63,7 +63,8 @@ export async function listarCategoria() {
 
 export async function consultarIndicacoes () {
     const comando = `
-    select 	nm_clinica              nome,
+    select 	id_indicacao            id,
+            nm_clinica              nome,
 			nm_cidade               cidade,
 			ds_cep                  cep,
 			ds_endereco             endereco,

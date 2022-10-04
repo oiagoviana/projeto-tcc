@@ -2,6 +2,7 @@ import './index.scss'
 import Menu from '../../../components/menuadm'
 import { addIndicacao, alterarImagemIndicacao, listarCategoria } from '../../../api/indicacaoApi'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 import { useEffect, useRef, useState } from 'react'
 
@@ -18,12 +19,16 @@ export default function Indicações() {
     const [categoria, setCategoria] = useState([]);
     const [imagem, setImagem] = useState();
     const [id, setId] = useState(0);
+    const navigate = useNavigate();
 
     async function adicionarIndicacao() {
         try {
             const indicacao = await addIndicacao(nome, cidade, cep, endereco, classificacao, atendimento, idCategoria);
             const indicacaoImagem = await alterarImagemIndicacao(indicacao.id, imagem);
             setId(indicacao.id);
+            setTimeout(() => {
+                navigate('/admin/indicacao');
+            }, 500)
             toast.dark('Indicação cadastrada com sucesso!');
 
         } catch (err) {
@@ -49,6 +54,20 @@ export default function Indicações() {
     useEffect(() => {
         carregarCategoria();
     }, [])
+
+    async function listarIndicacoesPorId (){
+
+        const resposta = await consultarIndicacoesPorId (id)
+
+        setClinica(resposta.clinica);
+        setCidade(resposta.cidade);
+        setCep(resposta.cep);
+        setEndereco(resposta.enedereco);
+        setClassificacao(resposta.classificacao);
+        setImagem(resposta.imagem);
+        setCategoria(resposta.categoria);
+
+    }
 
     return (
         <main className="principal">
@@ -122,7 +141,7 @@ export default function Indicações() {
                     </div>
                     
 
-                    <button className='botao-publicar'  >Publicar Indicação</button>
+                    <button className='botao-publicar' onClick={adicionarIndicacao} >Publicar Indicação</button>
 
                 </div>
 
