@@ -54,3 +54,8 @@ export async function deletarIndicacao (id) {
 
     return resposta.status;
 }
+
+export async function consultarIndicacoes () {
+    const resposta = await api.get ('/api/indicacao/consulta');
+    return resposta.data;
+}
