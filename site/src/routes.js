@@ -13,10 +13,12 @@ import PsicologoCard from './pages/admin/psiCard'
 import Landing from './pages/landingpage'
 import Login from './pages/usuario/login'
 import Indicacao from './pages/usuario/indicacao'
+import Cadastro from './pages/usuario/cadastro'
 
 
 //Psi
 import Formulario from './pages/psicologo/formulario'
+import LoginPsi from './pages/psicologo/loginPsi'
 
 
 
@@ -25,7 +27,8 @@ export default function Index() {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Landing/>}/>
-                <Route path='/login' element={<Login />} />
+                <Route path='/usuario/login' element={<Login />} />
+                <Route path='/usuario/cadastro' element={<Login />} />
 
 
 
@@ -39,6 +42,8 @@ export default function Index() {
 
                 <Route path='/indicacao' element={<Indicacao/>}/>
 
+               
+                <Route path='/psi/login' element={<LoginPsi/>}/>
                 <Route path='/psi/formulario' element={<Formulario/>}/>
 
             </Routes>

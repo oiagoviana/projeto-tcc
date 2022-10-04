@@ -11,13 +11,13 @@ export async function Cadastro(email, nome, senha, termo) {
 
 export async function Login(email, senha) {
     const comando = 
-    `select id_login	id,
-            id_usuario	id_fk,
-            ds_email		email
-       from tb_login
+    `select id_usuario	id_fk,
+            ds_email	 email
+       from tb_usuario
       where ds_email	= ?
      and	ds_senha	= ?`
 
      const[linhas] = await con.query(comando, [email, senha]);
+     console.log(linhas);
      return linhas;
 }
