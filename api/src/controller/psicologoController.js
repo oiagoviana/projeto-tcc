@@ -1,4 +1,4 @@
-import { inserirFormulario, listarPsicologos, atualizarFormulario, deletarFormulario } from '../repository/psicologoRepository.js'
+import { inserirFormulario, listarPsicologos, atualizarFormulario, deletarFormulario, loginPsicologo } from '../repository/psicologoRepository.js'
 
 
 import { Router } from 'express'
@@ -20,15 +20,15 @@ server.get('/api/psicologo', async (req, resp) => {
     }
 })
 
-server.post('/psicologo/login', async (req, resp) =>{
+server.post('/api/psicologo/login', async (req, resp) =>{
     try{
         const {email, senha} = req.body;
-        const resposta = Login(emial, senha);
+        const resposta = await loginPsicologo(email, senha);
 
         if (!email.trim())
             throw new Error ('Email é obrigatório!')
         else if (!senha.trim())
-            throw new Error('Senha é onbrigatória!')
+            throw new Error('Senha é obrigatória!')
         else
             resp.status(201).send(resposta);
     }
@@ -42,6 +42,7 @@ server.post('/psicologo/login', async (req, resp) =>{
 server.post('/api/formulario' , async (req, resp) => {
     try{
         const novoFormulario = req.body;
+
         if (!novoFormulario.nome)
             throw new Error('Nome é obrigatório!');
             
@@ -57,16 +58,14 @@ server.post('/api/formulario' , async (req, resp) => {
         if (!novoFormulario.senha)
             throw new Error('Senha obrigatória!');
         
-        if (!novaIndicacao.crp)
+        if (!novoFormulario.crp)
             throw new Error('CRP obrigatório!');
             
         if (!novoFormulario.cpf)
             throw new Error('CPF obrigatório');
             
-        
-        const indicacaoInserida = await inserirFormulario(novaIndicacao);
-        resp.send(indicacaoInserida);
-
+        const enviarFormulario = await inserirFormulario(novoFormulario);
+        resp.send(enviarFormulario);
     } catch (err) {
         resp.status(400).send({
             erro: err.message

@@ -13,27 +13,26 @@ export async function listarPsicologos() {
     return resposta;
 }
 
-export async function Login(email, senha) {
+export async function loginPsicologo(email, senha) {
     const comando = `
-        select id_login_psicologo   id,
-        id_psicologo        id_fk,
-        ds_email		email
-       from tb_login
-      where ds_email	= ?
-     and	ds_senha	= ?`
+        select  id_psicologo            id,
+                ds_email		        email
+          from  tb_psicologo
+         where  ds_email	= ?
+           and	ds_senha	= ?`
 
     const [linhas] = await con.query(comando, [email, senha]);
-    return linhas;
+    return linhas[0];
 }
 
-export async function Formulario(formulario) {
+export async function inserirFormulario(formulario) {
     const comando =
-        ` INSERT INTO tb_psicologi (nm_psicologo, dt_nascimento, ds_telefone, ds_email, ds_senha, nr_crp, ds_cpf)
+        ` INSERT INTO tb_psicologo (nm_psicologo, dt_nascimento, ds_telefone, ds_email, ds_senha, nr_crp, ds_cpf)
     values (?,?,?,?,?,?,?)`
 
     const [resposta] = await con.query(comando, [
         formulario.nome,
-        formulario.nacimento,
+        formulario.nascimento,
         formulario.telefone,
         formulario.email,
         formulario.senha,
@@ -44,7 +43,7 @@ export async function Formulario(formulario) {
 }
 
 export async function atualizarFormulario(id, formulario) {
-    const comado =
+    const comando =
         ` update tb_psicologo
             set nm_psicologo			=?, 
                 dt_nascimento		    =?, 
@@ -52,7 +51,7 @@ export async function atualizarFormulario(id, formulario) {
                 ds_email		    	=?, 
                 ds_senha	            =?, 
                 nr_crp       		    =?,
-                nr_cpf                  =?
+                ds_cpf                  =?
          where id_psicologo		        =?
      
          `
@@ -63,7 +62,7 @@ export async function atualizarFormulario(id, formulario) {
 export async function deletarFormulario(id) {
     const comando =
         `delete from tb_psicologo
-		       where id_psicologi = ?
+		       where id_psicologo = ?
         `
     const [resposta] = await con.query(comando, [id])
     return resposta.affectedRows;
