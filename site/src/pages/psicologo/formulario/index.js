@@ -1,46 +1,68 @@
 import './index.scss'
+import '../../../common/common.scss'
 
-export default function Formulario (){
+export default function Formulario() {
 
-    return(
-        <main>
-            <div> <img src='' alt=''/> </div>
-            <div>
-                <p> Formulário</p> 
-             </div>
+    return (
+        <main className='principal-cont'>
 
-                    <div>
-                        <label>Nome:</label>
-                        <input type="text" className="input-indicacao"  />
-                    </div>
-                    <div>
-                        <label>Telefone:</label>
-                        <input type="text" className="input-indicacao"  />
-                    </div>
-                    <div>
-                        <label>CPF:</label>
-                        <input type="text" className="input-indicacao"  />
-                    </div>
-                    <div>
-                        <label>CRP:</label>
-                        <input type="text" className="input-indicacao"  />
-                    </div>
-                    <div>
-                        <label>Data de Nascimento:</label>
-                        <input type="text" className="input-indicacao"  />
-                    </div>
-                    <div>
-                        <label>Email:</label>
-                        <input type="text" className="input-indicacao"  />
-                    </div>
-                    <div>
-                        <label>Senha:</label>
-                        <input type="text" className="input-indicacao"  />
+            <div> <img className='img-cima' src='/assets/images/triangulo-cima.png' alt='' /> </div>
+            <div className='conteiner-1' >
+                <p className='texto'> Formulário</p>
+            </div>
+
+            <div className='div-mae'>
+
+                <div className='direita'>
+
+
+                    <label>Nome:</label>
+                    <input type="text" className="input-formulario" />
+
+
+
+                    <label>Telefone:</label>
+                    <input type="text" className="input-formulario" />
+
+
+
+                    <label>CPF:</label>
+                    <input type="text" className="input-formulario" />
+
+
+
+                    <label>CRP:</label>
+                    <input type="text" className="input-formulario" />
+
+
+                </div>
+
+                <div className='direitaa' >
+
+                    <label>Data de Nascimento:</label>
+                    <input type="text" className="input-formulario" />
+
+
+                    <label>Email:</label>
+                    <input placeholder='Seu email será usadao em seu login' type="text" className="input-formulario" />
+
+
+                    <label>Senha:</label>
+                    <input placeholder='Sua senha será usada em seu login' type="text" className="input-formulario" />
+
+                   
+                </div>
+            </div>
+
+                    < div>
+                        <button className='botao-formulario'>Enviar Formulario</button>
                     </div>
 
-                    <div>
-                        <button>Enviar Formulario</button>
-                    </div>
+
+
+
+
+            <div> <img className='img-baixo' src='/assets/images/triangulo-baixo.png' alt='' /> </div>
 
 
 

@@ -122,7 +122,7 @@ export default function Indicações() {
                     </div>
                     
 
-                    <button className='botao-publicar' onClick={adicionarIndicacao}>Publicar Indicação</button>
+                    <button className='botao-publicar'  >Publicar Indicação</button>
 
                 </div>
 

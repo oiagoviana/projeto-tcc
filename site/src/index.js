@@ -6,6 +6,8 @@ import Login from './pages/usuario/login'
 import Cadastro from './pages/usuario/cadastro'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Formulario from './pages/psicologo/formulario';
+import LoginPsi from './pages/psicologo/loginPsi';
 
 
 
@@ -15,7 +17,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ToastContainer/>
-    <Cadastro/>
+    <Routes/>
   </React.StrictMode>
 );
 

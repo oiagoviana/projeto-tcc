@@ -1,10 +1,32 @@
 import './index.scss'
+import { useEffect, useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 import MenuAdm from '../../../components/menuadm'
-
+import { listarPsicologo } from '../../../api/psicologoApi'
 
 
 
 export default function PsicologoCard() {
+    const [psicogolos, setPsicolgos] = useState([]);
+    const navigate = useNavigate();
+
+
+
+
+    async function carregarPsicologos() {
+        const resp = await listarPsicologo();
+        setPsicolgos(resp);
+    }
+
+    function abrirCardPsi(id) {
+        navigate(`/psicologo/${id}`)
+    }
+
+
+    useEffect(() => {
+        carregarPsicologos();
+    }, []);
+
 
 
     return (
@@ -19,54 +41,35 @@ export default function PsicologoCard() {
                 </div>
 
                 <section className='div-secundaria'>
+                {psicogolos.map(item => 
                     <div className='div-cardInformacoes'>
                         <div>
                             <img src="/assets/images/retanguloPsi.png" alt="" />
                         </div>
 
-                        <div className="div-informações">
-                            <span className='span-titulo'>Nome</span>
-                            <span className='span-informacao'>Admin1</span>
+                        <div className='div-cards'>
+                            
+                                <div className="div-informações">
+                                    <span className='span-titulo'>Nome</span>
+                                    <span className='span-informacao'> {item.nome} </span>
 
-                            <span className='span-titulo'>E-mail</span>
-                            <span className='span-informacao'>admin@admin.com</span>
+                                    <span className='span-titulo'>E-mail</span>
+                                    <span className='span-informacao'> {item.email} </span>
 
-                            <span className='span-titulo'>Telefone</span>
-                            <span className='span-informacao'>(11)98999-9999</span>
+                                    <span className='span-titulo'>Telefone</span>
+                                    <span className='span-informacao'> {item.numero} </span>
 
-                            <span className='span-titulo'>CRP</span>
-                            <span className='span-informacao'>XX/999.999</span>
+                                    <span className='span-titulo'>CRP</span>
+                                    <span className='span-informacao'> {item.crp} </span>
 
-                            <div className='div-img-setinha'>
-                                <img src="/assets/images/setinhaPsi.svg" alt="" />
-                            </div>
+                                    <div className='div-img-setinha'>
+                                        <img onClick={() => abrirCardPsi(item.id)} src="/assets/images/setinhaPsi.svg" alt="" />
+                                    </div>
+                                </div>
+                           
                         </div>
                     </div>
-
-                    <div className='div-cardInformacoes'>
-                        <div>
-                            <img src="/assets/images/retanguloPsi.png" alt="" />
-                        </div>
-
-                        <div className="div-informações">
-                            <span className='span-titulo'>Nome</span>
-                            <span className='span-informacao'>Admin1</span>
-
-                            <span className='span-titulo'>E-mail</span>
-                            <span className='span-informacao'>admin@admin.com</span>
-
-                            <span className='span-titulo'>Telefone</span>
-                            <span className='span-informacao'>(11)98999-9999</span>
-
-                            <span className='span-titulo'>CRP</span>
-                            <span className='span-informacao'>XX/999.999</span>
-
-                            <div className='div-img-setinha'>
-                                <img src="/assets/images/setinhaPsi.svg" alt="" />
-                            </div>
-                        </div>
-                    </div>
-
+                    )}
                 </section>
             </div>
         </main>
