@@ -43,7 +43,7 @@ export default function Cadastro() {
             <div className='container-esquerdo'>
                 <img className='img-maeCadastro' src='/assets/images/maeCadastro.png' alt='mulher-cadastro' />
 
-                <h3>No colo de uma mãe existe o paraíso e na sua existência todo o amor do mundo.</h3>
+                <h3>"No colo de uma mãe existe o paraíso e na sua existência todo o amor do mundo."</h3>
 
 
                 <img className='img-bola1' src='/assets/images/bolinha-cima.png' alt='bola1' />
@@ -69,13 +69,14 @@ export default function Cadastro() {
 
                         <div className='container-input-individual'>
                             <p className='titulo-input'>Senha</p>
-                            <input className='input-credenciais' type='text' value = {senha} onChange = {e => setSenha(e.target.value)} />
+                            <input className='input-credenciais' type='password' value = {senha} onChange = {e => setSenha(e.target.value)} />
                         </div>
                     </div>
 
                     <div className='container-termos'>
                         <div className='container-checkbox'>
                             <input className='input-checkbox' type='checkbox' value = {termo} onChange = {e => setTermo(e.target.value)} />
+                            
 
                             <p>Eu aceito Colo de Mãe e Pai e Concordo com os termos.</p>
                         </div>
@@ -86,7 +87,7 @@ export default function Cadastro() {
                             <div className='container-faca-login'>
                                 <p>Você já tem uma conta?</p>
 
-                                <a href='#'>Faça login</a>
+                                <a href='/usuario/login'>Faça login</a>
                             </div>
                         </div>
                     </div>

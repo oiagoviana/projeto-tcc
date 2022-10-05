@@ -39,7 +39,7 @@ export default function Login() {
     }
 
     return(
-        <main className='page-login'>
+        <main className='page-login2'>
             <LoadingBar color='#6F4528' ref={ref} />
             <div className='container-esquerdo'>
                 <h1>Login</h1>
@@ -48,13 +48,13 @@ export default function Login() {
                     <div>
                         <p>Email:</p>
 
-                        <input type='text' value = {email} onChange = {e => setEmail(e.target.value)} />
+                        <input placeholder='usuario@gmail.com' type='text' value = {email} onChange = {e => setEmail(e.target.value)} />
                     </div>
 
                     <div>
                         <p>Senha:</p>
 
-                        <input type='text' value = {senha} onChange = {e => setSenha(e.target.value)} />
+                        <input placeholder='********' type='password' value = {senha} onChange = {e => setSenha(e.target.value)} />
                     </div>
                 </div>
 
@@ -62,13 +62,13 @@ export default function Login() {
 
                 <div className='container-cadastre-se'>
                     <p>Ainda não tem uma conta?</p>
-                    <a href='#'>Cadastre-se</a>
+                    <a href='/usuario/cadastro'>Cadastre-se</a>
                 </div>
             </div>
             <div className='container-direito'>
                 <img className='img-paiLogin' src='/assets/images/paiLogin.png' alt='homem-login' />
 
-                <h3>Não existe lugar mais poderoso e tranquilizador que o colo de pai.</h3>
+                <h3>"Não existe lugar mais poderoso e tranquilizador que o colo de pai."</h3>
 
 
                 <img className='img-bola-direita' src='/assets/images/bolinhaBaixo-Cadastro.png' alt='bola-da-direita' />
