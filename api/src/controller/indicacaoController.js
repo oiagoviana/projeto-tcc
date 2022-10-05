@@ -134,7 +134,7 @@ server.get('/api/categoria', async (req, resp) => {
 
 server.get('/api/indicacao/consulta', async (req, resp) => {
     try {
-        const resposta = await consultarIndicacoes ( ); 
+        const resposta = await consultarIndicacoes(); 
         resp.send(resposta); 
     } catch (err) {
         resp.status(400).send({

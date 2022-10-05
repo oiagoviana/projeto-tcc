@@ -82,7 +82,7 @@ export default function IndicacaoCard() {
 
 
                         <div>
-                            <img src="/assets/images/indicar.png" />
+                            <img src={buscarImagem(item.imagem)} className='imagem-indicacao' />
                         </div>
 
                         <div className='card-indicacao'>

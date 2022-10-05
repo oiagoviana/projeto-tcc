@@ -1,4 +1,5 @@
 .comp-menu{
+    
 
     .selected{
         background-color: #6F4528;
@@ -13,6 +14,7 @@
         background-color: #F3C3A3;
         width: 25vw;
         height: 100vh;
+        
     }
 
     
@@ -32,7 +34,11 @@
 
     
 
-    button {
+    a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         font-size: 1.3em;
         width: 20vh;
         height: 3.8vw ;
@@ -41,6 +47,7 @@
         border: 2.5px solid #6F4528;
         color: #6F4528;
         font-family: "Poppins5";
+        text-decoration: none;
     }
 
     .botao-final {

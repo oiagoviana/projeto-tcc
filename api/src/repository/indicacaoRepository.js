@@ -70,7 +70,7 @@ export async function consultarIndicacoes () {
 			ds_endereco             endereco,
             ds_atendimento          atendimento,
 			ds_classificacao        classificacao,
-			img_clinica             img,
+			img_clinica             imagem,
 			nm_categoria            categoria
 	  from	tb_indicacao
      inner join tb_indicacao_categoria on tb_indicacao.id_indicacao_categoria = tb_indicacao_categoria.id_indicacao_categoria`
@@ -87,7 +87,7 @@ export async function listarPorId (id) {
 			ds_endereco             endereco,
             ds_atendimento          atendimento,
 			ds_classificacao        classificacao,
-			img_clinica             img,
+			img_clinica             imagem,
 			nm_categoria            categoria
 	  from	tb_indicacao
      inner join tb_indicacao_categoria on tb_indicacao.id_indicacao_categoria = tb_indicacao_categoria.id_indicacao_categoria

@@ -29,8 +29,9 @@ export async function alterarImagemIndicacao(id, imagem) {
     return resposta.status; 
 }
 
-export function buscarImagem(imagem){
-    return `${api.getUri()}/${imagem}`
+export function buscarImagem(imagem) {
+    console.log(imagem);
+	return `${api.getUri()}/${imagem}`;
 }
 
 export async function listarCategoria() {

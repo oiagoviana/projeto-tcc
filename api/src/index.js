@@ -21,3 +21,4 @@ server.use(admController);
 server.use(indicacaoController);
 server.use(psicologoController);
 server.use(usuarioController);
+server.use("/storage/imagensIndicacao", express.static("storage/imagensIndicacao"))
