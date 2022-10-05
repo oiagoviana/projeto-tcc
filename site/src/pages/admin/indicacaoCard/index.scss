@@ -1,5 +1,5 @@
 .page-indicacao {
-
+    background-attachment: scroll;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -101,5 +101,10 @@
         cursor: pointer;
     }
 
+    .imagem-indicacao{
+        border: 1px solid red;
+        width: 18vw;
+        height: 20vh;
+    }
 
 }

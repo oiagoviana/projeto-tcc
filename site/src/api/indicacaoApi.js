@@ -29,6 +29,11 @@ export async function alterarImagemIndicacao(id, imagem) {
     return resposta.status; 
 }
 
+export function buscarImagem(imagem) {
+    console.log(imagem);
+	return `${api.getUri()}/${imagem}`;
+}
+
 export async function listarCategoria() {
     const resposta = await api.get('/api/categoria');
     return resposta.data;
@@ -44,13 +49,19 @@ export async function alterarIndicacao (id, nome, cidade, cep, endereco, classif
         atendimento: atendimento,
         categoria: categoria
     });
-
     return resposta.data;
-
 }
 
 export async function deletarIndicacao (id) {
     const resposta = await api.delete (`/api/indicacao/${id}`);
+    return resposta.data;
+}
 
-    return resposta.status;
+export async function consultarIndicacoesPorId (id) {
+    const resposta = await api.get (`/api/indicacao/consulta/${id}`);
+    return resposta.data;
+}
+export async function consultarIndicacoes (){
+    const resposta = await api.get ('/api/indicacao/consulta')
+    return resposta.data
 }
