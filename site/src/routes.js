@@ -34,6 +34,7 @@ export default function Index() {
 
                 <Route path='/admin/login' element={<LoginAdm />}/>
                 <Route path='/admin/indicacao' element={< Indicacoes/>}/>
+                <Route path='/admin/indicacao/:idParam' element={< Indicacoes/>}/>
                 <Route path='/admin/indicacaoCard' element={< IndicacoesCard />} />
                 
                 
@@ -41,6 +42,8 @@ export default function Index() {
 
 
                 <Route path='/indicacao' element={<Indicacao/>}/>
+                <Route path='/indicacao/:id' element={<Indicacao/>}/>
+
 
                
                 <Route path='/psi/login' element={<LoginPsi/>}/>

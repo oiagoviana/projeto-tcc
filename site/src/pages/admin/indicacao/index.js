@@ -1,9 +1,11 @@
 import './index.scss'
 import Menu from '../../../components/menuadm'
-import { addIndicacao, alterarImagemIndicacao, listarCategoria } from '../../../api/indicacaoApi'
+import { addIndicacao, alterarImagemIndicacao, listarCategoria, consultarIndicacoesPorId, alterarIndicacao, buscarImagem } from '../../../api/indicacaoApi'
 import { toast } from 'react-toastify'
-
+import { useNavigate, useParams } from 'react-router-dom'
+import LoadingBar from 'react-top-loading-bar'
 import { useEffect, useRef, useState } from 'react'
+import storage from 'local-storage'
 
 
 export default function Indicações() {
@@ -19,14 +21,41 @@ export default function Indicações() {
     const [imagem, setImagem] = useState();
     const [id, setId] = useState(0);
 
+    const { idParam } = useParams();
+    const ref = useRef();
+    const navigate = useNavigate();
+
     async function adicionarIndicacao() {
         try {
+
+            ref.current.continuousStart();
+            if (!imagem)
+            throw new Error('Escolha a capa do filme.')
+            
+            {/*const usuario = storage('usuario-logado').id;*/}
+
+            if(id === 0) {
             const indicacao = await addIndicacao(nome, cidade, cep, endereco, classificacao, atendimento, idCategoria);
             const indicacaoImagem = await alterarImagemIndicacao(indicacao.id, imagem);
             setId(indicacao.id);
+            setTimeout(() => {
+                navigate('/admin/indicacaoCard');
+            }, 2000)
             toast.dark('Indicação cadastrada com sucesso!');
+        }
+        else{
+            await alterarIndicacao(idParam ,nome, cidade, cep, endereco, classificacao, atendimento, idCategoria);
+            if(typeof(imagem) == 'object'){
+                await alterarImagemIndicacao(idParam, imagem)
+            }
+            setTimeout(() => {
+                navigate('/admin/indicacaoCard');
+            }, 2000)
+            toast.success('Indicação alterada com sucesso 🚀');
+        }
 
         } catch (err) {
+            ref.current.complete();  
             if (err.response.status)
                 toast.error(err.response.data.erro);
         }
@@ -42,16 +71,37 @@ export default function Indicações() {
     }
 
     function mostrarImagem() {
-        return URL.createObjectURL(imagem);
+        if (typeof (imagem) == 'object'){
+            return URL.createObjectURL(imagem);
+        }
+        else
+            return buscarImagem(imagem)
     }
 
+    async function listarIndicacoesPorId (){
+        const resposta = await consultarIndicacoesPorId (idParam)
+        
+        setNome(resposta.nome);
+        setCidade(resposta.cidade);
+        setCep(resposta.cep);
+        setEndereco(resposta.endereco);
+        setAtendimento(resposta.atendimento)
+        setClassificacao(resposta.classificacao);
+        setIdCategoria(resposta.categoria)
+        setImagem(resposta.imagem);
+        setId(resposta.id)
+    }
 
-    useEffect(() => {
+    useEffect (() => {
+        if(idParam){
+        listarIndicacoesPorId();
+        }
         carregarCategoria();
     }, [])
 
     return (
         <main className="principal">
+            <LoadingBar color='#6F4528' ref={ref} />
 
             <div>
                 <Menu
@@ -122,7 +172,7 @@ export default function Indicações() {
                     </div>
                     
 
-                    <button className='botao-publicar'  >Publicar Indicação</button>
+                    <button className='botao-publicar' onClick={adicionarIndicacao} > {id === 0 ? 'Publicar' : 'Alterar'} Indicação</button>
 
                 </div>
 

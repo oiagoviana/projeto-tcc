@@ -63,15 +63,36 @@ export async function listarCategoria() {
 
 export async function consultarIndicacoes () {
     const comando = `
-    select 	nm_clinica              nome,
+    select 	id_indicacao            id,
+            nm_clinica              nome,
 			nm_cidade               cidade,
 			ds_cep                  cep,
 			ds_endereco             endereco,
+            ds_atendimento          atendimento,
 			ds_classificacao        classificacao,
-			img_clinica             img,
+			img_clinica             imagem,
 			nm_categoria            categoria
 	  from	tb_indicacao
      inner join tb_indicacao_categoria on tb_indicacao.id_indicacao_categoria = tb_indicacao_categoria.id_indicacao_categoria`
    const [resposta] = await con.query (comando);
    return resposta;
+}
+
+export async function listarPorId (id) {
+    const comando = `
+    select 	id_indicacao            id,
+            nm_clinica              nome,
+			nm_cidade               cidade,
+			ds_cep                  cep,
+			ds_endereco             endereco,
+            ds_atendimento          atendimento,
+			ds_classificacao        classificacao,
+			img_clinica             imagem,
+			nm_categoria            categoria
+	  from	tb_indicacao
+     inner join tb_indicacao_categoria on tb_indicacao.id_indicacao_categoria = tb_indicacao_categoria.id_indicacao_categoria
+     where id_indicacao = ?`
+        
+     const [linhas] = await con.query (comando, [id]);
+   return linhas[0];
 }

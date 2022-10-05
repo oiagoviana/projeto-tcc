@@ -17,11 +17,11 @@ export default function LoginAdm() {
     const ref = useRef();
     const navigate = useNavigate();
 
-    {/*useEffect(() =>{
+    useEffect(() =>{
         if(storage('adm-logado')){
         navigate('/login')
         }
-    }, [])*/}
+    }, [])
 
 
     async function openPage() {
