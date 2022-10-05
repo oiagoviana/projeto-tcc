@@ -41,8 +41,7 @@ export default function LoginAdm() {
             setCarregando(false);
             if(err.response.status === 401){
                 toast.error(err.response.data.erro);                
-            }    
-                
+            } 
         }
     }
     
