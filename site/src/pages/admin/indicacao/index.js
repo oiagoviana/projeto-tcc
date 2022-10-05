@@ -1,8 +1,8 @@
 import './index.scss'
 import Menu from '../../../components/menuadm'
-import { addIndicacao, alterarImagemIndicacao, listarCategoria } from '../../../api/indicacaoApi'
+import { addIndicacao, alterarImagemIndicacao, listarCategoria, consultarIndicacoesPorId, alterarIndicacao, buscarImagem } from '../../../api/indicacaoApi'
 import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { useEffect, useRef, useState } from 'react'
 
@@ -20,9 +20,11 @@ export default function Indicações() {
     const [imagem, setImagem] = useState();
     const [id, setId] = useState(0);
     const navigate = useNavigate();
+    const { idParam } = useParams();
 
     async function adicionarIndicacao() {
         try {
+            if(id === 0) {
             const indicacao = await addIndicacao(nome, cidade, cep, endereco, classificacao, atendimento, idCategoria);
             const indicacaoImagem = await alterarImagemIndicacao(indicacao.id, imagem);
             setId(indicacao.id);
@@ -30,6 +32,14 @@ export default function Indicações() {
                 navigate('/admin/indicacao');
             }, 500)
             toast.dark('Indicação cadastrada com sucesso!');
+        }
+        else{
+            await alterarIndicacao(idParam ,nome, cidade, cep, endereco, classificacao, atendimento, idCategoria);
+            if(typeof(foto) == 'object'){
+                await alterarImagemIndicacao(idParam, imagem)
+            }
+            toast.success('Indicação alterada com sucesso 🚀');
+        }
 
         } catch (err) {
             if (err.response.status)
@@ -57,17 +67,36 @@ export default function Indicações() {
 
     async function listarIndicacoesPorId (){
 
-        const resposta = await consultarIndicacoesPorId (id)
+        const resposta = await consultarIndicacoesPorId (idParam)
 
-        setClinica(resposta.clinica);
+        setNome(resposta.nome);
         setCidade(resposta.cidade);
         setCep(resposta.cep);
-        setEndereco(resposta.enedereco);
+        setEndereco(resposta.endereco);
+        setAtendimento(resposta.atendimento)
         setClassificacao(resposta.classificacao);
         setImagem(resposta.imagem);
-        setCategoria(resposta.categoria);
+        setIdCategoria(resposta.categoria)
 
+        console.log (resposta)
+        console.log (categoria)
+        
+        
     }
+
+    useEffect (() => {
+        listarIndicacoesPorId();
+    }, [])
+
+    function MostrarFoto() {
+        if(typeof (imagem) === 'object'){
+       return URL.createObjectURL(imagem)
+        }
+        else{
+            return buscarImagem(imagem)
+        }
+
+     }
 
     return (
         <main className="principal">
@@ -141,7 +170,7 @@ export default function Indicações() {
                     </div>
                     
 
-                    <button className='botao-publicar' onClick={adicionarIndicacao} >Publicar Indicação</button>
+                    <button className='botao-publicar' onClick={adicionarIndicacao} > {id === 0 ? 'Publicar' : 'Alterar'} Indicação</button>
 
                 </div>
 

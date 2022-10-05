@@ -3,25 +3,20 @@ import { toast } from 'react-toastify'
 import './index.scss'
 import { useNavigate, useParams } from 'react-router-dom'
 import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import LoadingBar from 'react-top-loading-bar'
 import { useEffect, useRef, useState } from 'react'
-import { deletarIndicacao, consultarIndicacoes, consultarIndicacoesPorId } from '../../../api/indicacaoApi'
+import { deletarIndicacao, consultarIndicacoes, consultarIndicacoesPorId, buscarImagem } from '../../../api/indicacaoApi'
 
 
 export default function IndicacaoCard() {
     const navigate = useNavigate();
     const ref = useRef();
     const [indicacoes, setIndicacoes] = useState([]);
-    const [clinica, setClinica] = useState('');
-    const [cidade, setCidade] = useState('');
-    const [cep, setCep] = useState ('');
-    const [endereco, setEndereco] = useState ('');
-    const [classificacao, setClassificacao] = useState ('');
-    const [imagem, setImagem] = useState ();
-    const [categoria, setCategoria] = useState ('');
+
    
 
-    const { id } = useParams();
+    
  
     function adicionar() {
         setTimeout(() => {
@@ -59,12 +54,7 @@ export default function IndicacaoCard() {
     }
 
     useEffect(() => {
-        listarIndicacoes();
-
-        if (id) {
-            consultarIndicacoesPorId();
-
-        }
+        listarIndicacoes(); 
     }, []);
 
     async function editarIndicacao(id){
@@ -120,8 +110,8 @@ export default function IndicacaoCard() {
                             </div>
 
                             <div className='div-botoes'>
-                                <img className='botoes-alterar' src="/assets/images/editar.svg" onClick={editarIndicacao}/>
-                                <img onClick={e => { e.stopPropagation(); removerIndicacao(item.id, item.nome) }} className='botoes-alterar' src="/assets/images/lixeira.svg" />
+                                <img onClick={() => editarIndicacao(item.id)} className='botoes-alterar' src="/assets/images/editar.svg" />
+                                <img onClick={() => removerIndicacao(item.id, item.nome) } className='botoes-alterar' src="/assets/images/lixeira.svg" />
                             </div>
                         </div>
                     </div>

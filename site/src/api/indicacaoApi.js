@@ -29,6 +29,10 @@ export async function alterarImagemIndicacao(id, imagem) {
     return resposta.status; 
 }
 
+export function buscarImagem(imagem){
+    return `${api.getUri()}/${imagem}`
+}
+
 export async function listarCategoria() {
     const resposta = await api.get('/api/categoria');
     return resposta.data;
@@ -53,7 +57,7 @@ export async function deletarIndicacao (id) {
 }
 
 export async function consultarIndicacoesPorId (id) {
-    const resposta = await api.get ('/api/indicacao/consulta' + id);
+    const resposta = await api.get (`/api/indicacao/consulta/${id}`);
     return resposta.data;
 }
 export async function consultarIndicacoes (){
