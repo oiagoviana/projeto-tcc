@@ -43,7 +43,7 @@ server.post('/usuario/login', async (req, resp) => {
             throw new Error('Senha é obrigatória!')
 
         else
-            resp.status(201).send(resposta);
+            resp.send(resposta);
     }
     catch(err) {
         resp.status(401).send({

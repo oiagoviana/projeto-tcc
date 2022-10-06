@@ -29,6 +29,8 @@ server.post('/api/psicologo/login', async (req, resp) =>{
             throw new Error ('Email é obrigatório!')
         else if (!senha.trim())
             throw new Error('Senha é obrigatória!')
+            else if (!resposta)
+            throw new Error('Cadastro é obrigatória!')
         else
             resp.status(201).send(resposta);
     }
@@ -46,26 +48,28 @@ server.post('/api/formulario' , async (req, resp) => {
         if (!novoFormulario.nome)
             throw new Error('Nome é obrigatório!');
             
-        if (!novoFormulario.telefone)
+        else if (!novoFormulario.telefone)
             throw new Error('Telefone obrigatório!');
         
-        if (!novoFormulario.nascimento)
+        else if (!novoFormulario.nascimento)
             throw new Error('Data de nascimento obrigatória!');
             
-        if (!novoFormulario.email)
+        else if (!novoFormulario.email)
             throw new Error('Email obrigatório!');
             
-        if (!novoFormulario.senha)
+       else if (!novoFormulario.senha)
             throw new Error('Senha obrigatória!');
         
-        if (!novoFormulario.crp)
+        else if (!novoFormulario.crp)
             throw new Error('CRP obrigatório!');
             
-        if (!novoFormulario.cpf)
+        else if (!novoFormulario.cpf)
             throw new Error('CPF obrigatório');
-            
-        const enviarFormulario = await inserirFormulario(novoFormulario);
-        resp.send(enviarFormulario);
+
+        else {
+            const enviarFormulario = await inserirFormulario(novoFormulario);
+            resp.send(enviarFormulario);
+        }
     } catch (err) {
         resp.status(400).send({
             erro: err.message
