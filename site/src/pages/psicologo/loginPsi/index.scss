@@ -45,7 +45,7 @@
         width: 50vw;
         text-align: center;
 
-      border: 1px red #ffff;
+     
 
         
     }
@@ -155,6 +155,13 @@
 
         border: none;
         
+    }
+
+    .botao-criar-conta:hover {
+        transform: translateY(-3px);
+        transition: 0.5s;
+
+        background-color: #ffd5ae;
     }
 
     .container-faca-login {

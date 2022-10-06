@@ -7,6 +7,7 @@
     .container-esquerdo {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         text-align: center;
         position: relative;
@@ -17,12 +18,14 @@
     }
 
     h3 {
-        width: 290px;
+        width: 28vw;
 
-        font-size: 1.3em;
+        font-size: 25px;
         font-weight: 600;
         color: #73401E;
-        border: 1px solid red;
+
+        margin-bottom: 5em;
+
     }
 
     .container-direito {
@@ -46,16 +49,28 @@
         font-weight: 700;
 
         color: #73401E;
-        margin-bottom: 1em;
+        margin-bottom: 1.5em;
+        margin-top: 3em;
     }
 
     .container-inputs {
         display: flex;
         flex-direction: column;
+
+        margin-bottom: 1em;
+        max-width: 420px;
     }
 
     .container-input-individual {
         text-align: left;
+        max-width: 420px;
+    }
+
+    .container-input-individual p {
+        margin-bottom: .2em;
+        font-size: 20px;
+        font-weight: 800;
+        color: #73401E;
     }
 
     .titulo-input {
@@ -64,7 +79,6 @@
     }
     
     .input-credenciais {
-        max-width: 405px;
 
         width: 100%;
         padding: 7px;
@@ -83,11 +97,21 @@
         align-items: center;
     }
 
-    .input-checkbox {
-        height: 23px;
-        width: 23px;
+    .container-checkbox p {
+        max-width: 400px;
+        text-align: left;
+            
+        color: #73401E;
+        font-size: 20px;
+        font-weight: 700;
+    }
 
-        border-radius: 10px;
+    .input-checkbox {
+        height: 28px;
+        width: 28px;
+        
+        border-radius: 20px;
+        margin-right: 10px;
     }
 
     .container-criar-conta {
@@ -95,7 +119,7 @@
         flex-direction: column;
 
         align-items: center;
-        margin-top: 1.5em;
+        margin-top: 2em;
     }
 
     .botao-criar-conta {
@@ -111,18 +135,37 @@
         
     }
 
+    .botao-criar-conta:hover {
+        transform: translateY(-2px);
+        transition: 0.5s;
+
+        background-color: #ffd5ae;
+    }
+
     .container-faca-login {
         display: flex;
         flex-direction: row;
 
         align-items: center;
     }
+    
+    .container-faca-login p {
+        color: rgb(129, 129, 129);
+    }
+
+    a {
+        text-decoration: none;
+
+        margin-left: 3px;
+    }
 
     .img-maeCadastro {
-        height: 400px;
+        height: 500px;
+        width: 400px;
 
         margin-top: 2em;
     }
+
 
     .img-bola1 {
         position: absolute;
