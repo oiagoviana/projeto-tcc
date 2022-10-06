@@ -157,6 +157,13 @@
         
     }
 
+    .botao-criar-conta:hover {
+        transform: translateY(-3px);
+        transition: 0.5s;
+
+        background-color: #ffd5ae;
+    }
+
     .container-faca-login {
         display: flex;
         flex-direction: row;
