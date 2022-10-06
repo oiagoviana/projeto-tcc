@@ -1,30 +1,71 @@
 import Menu from '../../../components/menuadm'
+import { toast } from 'react-toastify'
 import './index.scss'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import LoadingBar from 'react-top-loading-bar'
-import { useRef } from 'react'
-import { deletarIndicacao } from '../../../api/indicacaoApi'
+import { useEffect, useRef, useState } from 'react'
+import { deletarIndicacao, consultarIndicacoes, consultarIndicacoesPorId, buscarImagem } from '../../../api/indicacaoApi'
+
 
 export default function IndicacaoCard() {
     const navigate = useNavigate();
-    const ref= useRef();
+    const ref = useRef();
+    const [indicacoes, setIndicacoes] = useState([]);
 
-    function adicionar () {
+   
+
+    
+ 
+    function adicionar() {
         setTimeout(() => {
-            navigate('/admin/indicacao');    
-        }, 500 )
-
+            navigate('/admin/indicacao');
+        }, 500)
     }
 
-   async function deletarIndicacao (id){
-    const resposta = await deletarIndicacao (id);
-   }
+    async function removerIndicacao(id, nome) {
+
+        confirmAlert({
+            title: "Remover Indicação",
+            message: `Deseja remover a indicação ${nome}`,
+            buttons: [{
+                label: 'Sim',
+                onClick: async () => {
+                    await deletarIndicacao(id);
+                    await listarIndicacoes();
+                    toast.dark('Produto removido com sucesso!')
+                }
+
+            },
+            {
+                label: 'Não'
+            }
+            ]
+        }
+        )
+    }
+
+
+
+    async function listarIndicacoes() {
+        const resposta = await consultarIndicacoes();
+        setIndicacoes(resposta);
+    }
+
+    useEffect(() => {
+        listarIndicacoes(); 
+    }, []);
+
+    async function editarIndicacao(id){
+        navigate(`/admin/indicacao/${id}`)
+    }
 
     return (
         <main className='page-indicacao'>
             <LoadingBar color='#6F4528' ref={ref} />
             <div>
-                <Menu  pagina='indicacao'/>
+                <Menu pagina='indicacao' />
             </div>
 
             <div className="div-direita">
@@ -33,45 +74,48 @@ export default function IndicacaoCard() {
                 </div>
 
                 <div >
-                    <img onClick={adicionar} src="/assets/images/adicionarindicacao.svg"   />
+                    <img onClick={adicionar} src="/assets/images/adicionarindicacao.svg" />
                 </div>
 
-                <div className="card-principal">
+                {indicacoes.map(item =>
+                    <div className="card-principal">
 
-                    <div>
-                        <img src="/assets/images/indicar.png" />
-                    </div>
 
-                    <div className='card-indicacao'>
-                        <div className='div-alinhamentos'>
-                            <span className='span-titulo'>Nome do Local</span>
-                            <span className='span-texto'>Fleury</span>
+                        <div>
+                            <img src={buscarImagem(item.imagem)} className='imagem-indicacao' />
+                        </div>
 
-                            <span className='span-titulo'>Nome da Cidade</span>
-                            <span className='span-texto'>São Paulo - SP</span>
+                        <div className='card-indicacao'>
+                            <div className='div-alinhamentos'>
+                                <span className='span-titulo'>Nome do Local</span>
+                                <span className='span-texto'>{item.nome}</span>
 
-                            <span className='span-titulo'>Classificação</span>
-                            <span className='span-texto'>4.5</span>
+                                <span className='span-titulo'>Nome da Cidade</span>
+                                <span className='span-texto'> {item.cidade}</span>
+
+                                <span className='span-titulo'>Classificação</span>
+                                <span className='span-texto'> {item.classificacao}</span>
                             </div>
-                        
 
-                        <div className='div-alinhamentos'>
-                            <span className='span-titulo'>CEP</span>
-                            <span className='span-texto'>00000-000</span>
 
-                            <span className='span-titulo'>Endereço</span>
-                            <span className='span-texto'>Grajaú</span>
+                            <div className='div-alinhamentos'>
+                                <span className='span-titulo'>CEP</span>
+                                <span className='span-texto'> {item.cep}</span>
 
-                            <span className='span-titulo'>Categoria</span>
-                            <span className='span-texto'>Saúde</span>
+                                <span className='span-titulo'>Endereço</span>
+                                <span className='span-texto'> {item.endereco}</span>
+
+                                <span className='span-titulo'>Categoria</span>
+                                <span className='span-texto'> {item.categoria}</span>
                             </div>
-                    
-                        <div className='div-botoes'>
-                            <img className='botoes-alterar' src="/assets/images/editar.svg" />
-                            <img onClick={deletarIndicacao} className='botoes-alterar' src="/assets/images/lixeira.svg" />
+
+                            <div className='div-botoes'>
+                                <img onClick={() => editarIndicacao(item.id)} className='botoes-alterar' src="/assets/images/editar.svg" />
+                                <img onClick={() => removerIndicacao(item.id, item.nome) } className='botoes-alterar' src="/assets/images/lixeira.svg" />
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
             </div>
         </main>
     );

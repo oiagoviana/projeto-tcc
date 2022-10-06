@@ -11,6 +11,7 @@ export async function Cadastro(email, nome, senha, termo) {
 
 export async function Login(email, senha) {
     const comando = 
+
     `select id_usuario	id,
             ds_email	email
        from tb_usuario
@@ -18,5 +19,6 @@ export async function Login(email, senha) {
         and	ds_senha	= ?`
 
      const[linhas] = await con.query(comando, [email, senha]);
+     console.log(linhas);
      return linhas;
 }

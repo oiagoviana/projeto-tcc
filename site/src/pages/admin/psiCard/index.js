@@ -57,7 +57,7 @@ export default function PsicologoCard() {
                                     <span className='span-informacao'> {item.email} </span>
 
                                     <span className='span-titulo'>Telefone</span>
-                                    <span className='span-informacao'> {item.numero} </span>
+                                    <span className='span-informacao'> {item.telefone} </span>
 
                                     <span className='span-titulo'>CRP</span>
                                     <span className='span-informacao'> {item.crp} </span>

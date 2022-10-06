@@ -1,8 +1,16 @@
 import './index.scss'
 import '../../common/common.scss'
+import { useNavigate } from 'react-router-dom'
+import storage from 'local-storage'
 
-export default function menuAdm({pagina}){
-    
+export default function MenuAdm({pagina}){
+    const navigate = useNavigate();
+
+
+    function sairClick(){
+        storage.remove('usuario-logado');
+        navigate('/');
+    }
 
     return(
         <main className="comp-menu">
@@ -12,15 +20,15 @@ export default function menuAdm({pagina}){
                 </div>
 
                 <div className="botoes">
-                    <button className={pagina === 'home' ? 'selected' : ''}>Home</button>
-                    <button className={pagina === 'publicacao' ? 'selected' : ''}>Publicações</button>
-                    <button className={pagina === 'profisionais' ? 'selected' : ''}>Profissionais</button>
-                    <button className={pagina === 'indicacao' ? 'selected' : ''}>Indicações</button>
+                    <a href='/admin/home' className={pagina === 'home' ? 'selected' : ''}>Home</a>
+                    <a href='/admin/publicacao' className={pagina === 'publicacao' ? 'selected' : ''}>Publicações</a>
+                    <a href='/admin/psicologoCard' className={pagina === 'profisionais' ? 'selected' : ''}>Profissionais</a>
+                    <a href='/admin/indicacaoCard' className={pagina === 'indicacao' ? 'selected' : ''}>Indicações</a>
                 </div>
 
                 <div className="botao-final">
                     <img className="bo-final"src='/assets/images/sair.png' alt='' />
-                    <button className="b-final">Sair</button>
+                    <a href='#' onClick={sairClick} className="b-final">Sair</a>
                 </div>
 
 
