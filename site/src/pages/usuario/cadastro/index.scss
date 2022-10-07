@@ -135,6 +135,11 @@
         
     }
 
+    .botao-criar-conta2 {
+        position: absolute;
+        visibility: hidden;
+    }
+
     .botao-criar-conta:hover {
         transform: translateY(-2px);
         transition: 0.5s;
