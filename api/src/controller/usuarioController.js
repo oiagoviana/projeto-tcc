@@ -34,13 +34,17 @@ server.post('/usuario/cadastro', async (req, resp) => {
 server.post('/usuario/login', async (req, resp) => {
     try {
         const {email, senha} = req.body;
-        const resposta = Login(email, senha);
+        const resposta = await Login(email, senha);
+        console.log(resposta);
 
         if (!email.trim())
-            throw new Error('Email é obrigatório!')
+            throw new Error('Email é obrigatório!');
 
         else if (!senha.trim())
-            throw new Error('Senha é obrigatória!')
+            throw new Error('Senha é obrigatória!');
+
+        else if (!resposta)
+            throw new Error('Usuário inválido!');
 
         else
             resp.send(resposta);
