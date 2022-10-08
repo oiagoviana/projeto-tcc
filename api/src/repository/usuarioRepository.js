@@ -19,6 +19,5 @@ export async function Login(email, senha) {
         and	ds_senha	= ?`
 
      const[linhas] = await con.query(comando, [email, senha]);
-     console.log(linhas);
-     return linhas;
+     return linhas[0];
 }
