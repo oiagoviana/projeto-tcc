@@ -11,7 +11,7 @@ export default function Cadastro() {
     const[email, setEmail] = useState('');
     const[nome, setNome] = useState('');
     const[senha, setSenha] = useState('');
-    const[termo, setTermo] = useState(1);
+    const[termo, setTermo] = useState(0);
     const[carregando, setCarregando] = useState(false);
     const ref = useRef();
     const navigate = useNavigate();
@@ -82,7 +82,7 @@ export default function Cadastro() {
                         </div>
 
                         <div className='container-criar-conta'>
-                            <button className='botao-criar-conta' onClick={cadastroUsuario} disabled={carregando}>Criar Conta</button>
+                            <button className={termo === 0 ? 'botao-criar-conta2' : 'botao-criar-conta'} onClick={cadastroUsuario} disabled={carregando}>Criar Conta</button>
 
                             <div className='container-faca-login'>
                                 <p>Você já tem uma conta?</p>
