@@ -20,8 +20,11 @@ server.post('/api/indicacao', async (req, resp) => {
             
         if (!novaIndicacao.endereco)
             throw new Error('Endereço da Indicação é obrigatório!');
+        
+        if (novaIndicacao.classificacao < 0)
+            throw new Error('Classificação da Indicação não pode haver números negativos!');
             
-        if (novaIndicacao.classificacao == undefined || novaIndicacao.classificacao < 0)
+        if (novaIndicacao.classificacao == undefined)
             throw new Error('Classificação da Indicação é obrigatório!');
         
         if (novaIndicacao.classificacao > 5)

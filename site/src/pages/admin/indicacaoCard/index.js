@@ -74,7 +74,7 @@ export default function IndicacaoCard() {
                 </div>
 
                 <div >
-                    <img onClick={adicionar} src="/assets/images/adicionarindicacao.svg" />
+                    <img onClick={adicionar} className='icone-adicionar' src="/assets/images/adicionarindicacao.svg" />
                 </div>
 
                 {indicacoes.map(item =>
