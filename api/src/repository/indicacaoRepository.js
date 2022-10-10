@@ -20,15 +20,15 @@ export async function inserirIndicacao(indicacao) {
 export async function atualizarIndicacao(id, indicacao) {
     const comando =
         `update tb_indicacao
-		    set	nm_clinica 			=?, 
-			    nm_cidade			=?, 
-			    ds_cep				=?, 
-			    ds_endereco			=?, 
-			    ds_classificacao 	=?, 
-			    ds_atendimento 		=?
-	      where id_indicacao		=?
-        `
-    const [resposta] = await con.query (comando, [indicacao.nome, indicacao.cidade, indicacao.cep, indicacao.endereco, indicacao.classificacao, indicacao.atendimento, id])
+		    set	id_indicacao_categoria  =?,
+                nm_clinica 			    =?, 
+			    nm_cidade			    =?, 
+			    ds_cep				    =?, 
+			    ds_endereco			    =?, 
+			    ds_classificacao 	    =?, 
+			    ds_atendimento 		    =?
+	      where id_indicacao		    =?`
+    const [resposta] = await con.query (comando, [indicacao.categoria, indicacao.nome, indicacao.cidade, indicacao.cep, indicacao.endereco, indicacao.classificacao, indicacao.atendimento, id])
     return resposta.affectedRows;
 }
 

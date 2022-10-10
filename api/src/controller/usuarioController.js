@@ -35,7 +35,6 @@ server.post('/usuario/login', async (req, resp) => {
     try {
         const {email, senha} = req.body;
         const resposta = await Login(email, senha);
-        console.log(resposta);
 
         if (!email.trim())
             throw new Error('Email é obrigatório!');

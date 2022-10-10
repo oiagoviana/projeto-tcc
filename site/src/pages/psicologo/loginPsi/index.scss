@@ -4,29 +4,20 @@
     min-height: 100vh;
 
     .container-esquerdo {
-        position: relative;
         max-width: 50vw;
         width: 50vw;
-
-       
-
-        
-
         background-color: #FFECDA;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .img-psi {
         margin-left: 1em;
-
         display: flex;
-
-        margin: 2em 0em 0em 0em;
-        
-        
         width: 25vw;
         align-items: center;
-        top: 0.4em;
-        
     }
 
     ::placeholder{
@@ -40,37 +31,27 @@
         flex-direction: row;
         justify-content: center;
         background-color: #ffff;
-
         max-width: 50vw;
         width: 50vw;
-        text-align: center;
-
-     
-
-        
+        text-align: center;    
     }
 
     .sub-container-direito {
         display: flex;
         flex-direction: column;
-        
+        justify-content: space-evenly;
+        width: 40vw;
     }
 
     .texto-1{
-
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 600;
         font-size: 1.9em;
         line-height: 1.4em;
         text-align: center;
-        
         margin: 1em 0em 0em 0em;
-        
-
         color: #6F4528;
-
-        
     }
 
     label{
@@ -83,7 +64,6 @@
         font-size: 2.5em;
         font-weight: 700;
         margin-top: 1em;
-
         color: #73401E;
         margin-bottom: 1em;
     }
@@ -91,49 +71,34 @@
     .container-inputs {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+       
+        height: 30vh;
     }
 
-    .container-input-individual {
-        text-align: left;
+    .container-input-individual{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 26vw;
+        
     }
 
-   
+    
     
     .input-credenciais {
         background: #FFFFFF;
         border: 2.4px solid #73401E;
         border-radius: 0.5em;
-        height: 2.3vh;
-        
-        
-
+        height: 4vh;
+        width: 25vw;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
-    .container-termos {
-        margin-top: 1.5em;
-        width: 100%;
-    }
-
-    .container-checkbox {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .input-checkbox {
-        height: 1.5em;
-        width: 1.5em;
-
-        border-radius: 1em;
-    }
 
     .container-criar-conta {
-        display: flex;
-        flex-direction: column;
-
         align-items: center;
-        margin-top: 1.5em;
     }
 
     .botao-criar-conta {
@@ -142,41 +107,23 @@
         background-color: #FFDFC1;
         color: #73401E;
         align-items: center;
-
-       
         cursor: pointer;
-       margin-top: 3.6em;
-
+        margin-top: 3.6em;
         border-radius: 1em;
-      
-
-        width: 50vw;
         height: 5vh;
-
+        width: 10vw;
         border: none;
-        
     }
 
     .botao-criar-conta:hover {
         transform: translateY(-3px);
         transition: 0.5s;
-
         background-color: #ffd5ae;
     }
 
-    .container-faca-login {
-        display: flex;
-        flex-direction: row;
-
-       
-    }
-
-    
-
     .img-bola1 {
-        position: absolute;
-
-        right: 0em;
+        position: absolute; 
+        right: 42.9em;
         top: 0;
         width: 8vw;
         height: 14vh ;
@@ -184,10 +131,8 @@
 
     .img-bola2 {
         position: absolute;
-
-        
-        width: 8vw;
-        height: 14vh ;
+        width: 7vw;
+        height: 14vh;
         left: 0;
         bottom: 0;
     }
