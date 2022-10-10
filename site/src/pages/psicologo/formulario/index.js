@@ -1,11 +1,12 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './index.scss'
-
 import LoadingBar from 'react-top-loading-bar'
 import {toast} from 'react-toastify'
 import '../../../common/common.scss'
 import { formularioPsi } from '../../../api/psicologoApi';
+import InputMask from 'react-input-mask'
+
 
 export default function Formulario() {
 
@@ -23,7 +24,7 @@ export default function Formulario() {
     async function enviarFormulario() {
         try{
             const resposta = await formularioPsi(nome, telefone, nascimento, email, senha, crp, cpf);
-            toast.dark('Formulário enviado!');
+            toast.dark('Formulário enviado! Analisaremos suas inforamções e logo iremos liberar seu login');
             setTimeout(() =>{
                 navigate('/psi/login');
             }, 3000)
@@ -60,17 +61,17 @@ export default function Formulario() {
 
 
                     <label>Telefone:</label>
-                    <input type="text" className="input-formulario" value = {telefone} onChange = {e => setTelefone(e.target.value)}/>
+                    <InputMask mask='(99) 99999-9999' className="input-formulario" value = {telefone} onChange = {e => setTelefone(e.target.value)}/>
 
 
 
                     <label>CPF:</label>
-                    <input type="number" className="input-formulario" value = {cpf} onChange = {e => setCpf(e.target.value)} />
+                    <InputMask mask='999.999.999-99' className="input-formulario" value = {cpf} onChange = {e => setCpf(e.target.value)} />
 
 
 
                     <label>CRP:</label>
-                    <input type="number" className="input-formulario" value = {crp} onChange = {e => setCrp(e.target.value)} />
+                    <input type="text" className="input-formulario" value = {crp} onChange = {e => setCrp(e.target.value)} />
 
 
                 </div>
