@@ -30,7 +30,7 @@ server.post('/api/psicologo/login', async (req, resp) =>{
         else if (!senha.trim())
             throw new Error('Senha é obrigatória!')
             else if (!resposta)
-            throw new Error('Cadastro é obrigatória!')
+            throw new Error('Credenciais incorretas!')
         else
             resp.status(201).send(resposta);
     }
