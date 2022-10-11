@@ -2,11 +2,10 @@ import './index.scss'
 
 export default function indicacaoUser() {
     return(
-        <main className='comp-indicacao'>
             <div className='card-indicacao'>
                 <img className='img-hospital' src='/assets/images/hospital.svg' alt='hosp' />
 
-                <p className='text-hosp'>Hospital</p>
+                <p className='text-hosp'>Hospital Fleury Morumbi</p>
                 
                 <p className='text-endereco'>Endereço: Avenida Giovanni Gronchi, Nº 3108  – Morumbi, São Paulo- SP</p>
                 <div className='container-telefone'>
@@ -19,6 +18,5 @@ export default function indicacaoUser() {
                     SÁB E DOM: 07H00-12H30</p>
                     
             </div>
-        </main>
     )
 }
