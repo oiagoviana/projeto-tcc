@@ -8,7 +8,7 @@ export default function Indicacao() {
             <div className='container-header'>
                 <button className='botao-home'>HOME</button>
 
-                <input type='text' placeholder='O que você procura...?' />
+                <input type='text' placeholder='O que você procura...?' /> {/* <img src='/assets/images/img-lupa.svg' alt='img-lupa' /> */}
             </div>
 
             <div className='container-meio'>
@@ -25,7 +25,7 @@ export default function Indicacao() {
                 </div>
 
                 <div className='container-mapa'>
-                    <button className='botao-mapa'>MAPA DO GOOGLE</button>
+                    <button className='botao-mapa'>MAPA DO GOOGLE <img src='/assets/images/img-mapinha.svg' alt='img-mapinha' /> </button>
 
                     <div>mapa</div>
                 </div>

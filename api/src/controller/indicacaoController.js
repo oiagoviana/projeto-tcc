@@ -168,4 +168,15 @@ server.get(`/api/indicacao/consulta/:id`, async (req, resp) => {
     }
 })
 
+server.get('/api/indicacao/clinica', async (req, resp) => {
+    try {
+        const resposta = await consultarIndicacoes();
+        resp.send(resposta);
+    } catch(err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
 export default server;
