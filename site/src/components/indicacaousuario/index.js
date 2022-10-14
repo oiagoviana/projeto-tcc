@@ -12,10 +12,11 @@ export default function indicacaoUser() {
                     <p className='text-telefone'>Telefone: (11)3179-0822</p>
                     <p>Classificação: 3.7</p>
                 </div>
-                <p className='text-horario'>Horário de Funcionamento:<br/>
-                    SEG À SEXTA: 6h30-18:30<br/>
-
-                    SÁB E DOM: 07H00-12H30</p>
+                <p className='text-horario'>
+                    Horário de Funcionamento:
+                    <span>SEG À SEXTA: 6h30-18:30
+                    SÁB E DOM: 07H00-12H30</span>
+                </p>
                     
             </div>
     )

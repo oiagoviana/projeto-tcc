@@ -1,7 +1,7 @@
 .card-indicacao {
         display: flex;
         flex-direction: column;
-        height: 52vh;
+        height: 36vh;
         width: 23vw;
         border: 3px solid #6F4528;
         border-radius: 10px;
@@ -37,9 +37,15 @@
     }
 
     .text-horario {
+        display: flex;
+        flex-direction: column;
         margin-top: -0.5em;
         font-size: 14px;
         font-weight: 600;
+    }
+
+    .text-horario span {
+        width: 14vw;
     }
 
     .text-endereco {

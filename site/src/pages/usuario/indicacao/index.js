@@ -1,14 +1,29 @@
+
 import './index.scss'
+import { consultarIndicacoes } from '../../../api/indicacaoApi'
+import { useEffect, useState } from 'react'
 
 import Cards from '../../../components/indicacaousuario'
 
 export default function Indicacao() {
+    const[indicacao, setIndicacao] = useState([]);
+
+    async function carregarIndicacoes() {
+        const carregados = await consultarIndicacoes();
+        setIndicacao(carregados);
+    }
+
+    useEffect(() => {
+        carregarIndicacoes();
+    }, [])
+
     return(
         <main className='page-user-indicacao'>
             <div className='container-header'>
                 <button className='botao-home'>HOME</button>
 
-                <input type='text' placeholder='O que você procura...?' /> {/* <img src='/assets/images/img-lupa.svg' alt='img-lupa' /> */}
+                <input type='text' placeholder='O que você procura...?' />
+                <img src='/assets/images/img-lupa.svg' alt='img-lupa' />
             </div>
 
             <div className='container-meio'>
@@ -17,9 +32,28 @@ export default function Indicacao() {
                     <h2>FILTROS</h2>
 
                     <div className='subcontainer-cards'>
-                        <Cards />
 
-                        <Cards />
+                        {indicacao.map(item => 
+                        <div className='card-indicacao' key={item.id}>
+                            <img className='img-hospital' src='/assets/images/hospital.svg' alt='hosp' />
+            
+                            <p className='text-hosp'>{item.nome}</p>
+                            
+                            <p className='text-endereco'>Endereço: {item.endereco} – {item.cidade}, {item.cep}</p>
+                            <div className='container-telefone'>
+                                <p className='text-telefone'>Telefone: {item.telefone}</p>
+                                <p>Classificação: {item.classificacao}</p>
+                            </div>
+                            <p className='text-horario'>
+                                Horário de Funcionamento:
+                                <span>{item.atendimento}</span>
+                            </p>
+                        </div>
+                        
+                        )}
+
+
+
                     </div>
 
                 </div>
