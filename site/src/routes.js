@@ -1,7 +1,7 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 //Admin
-
+import HomeAdm from './pages/admin/Home'
 import LoginAdm from './pages/admin/LoginAdm' 
 import Indicacoes from './pages/admin/indicacao'
 import IndicacoesCard from './pages/admin/indicacaoCard'
@@ -26,30 +26,28 @@ export default function Index() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<Landing/>}/>
-                <Route path='/usuario/cadastro' element={<Cadastro />} />
-                <Route path='/usuario/login' element={<Login />} />
 
-
-
-
+                <Route path='/admin/home' element={<HomeAdm/>}/>
                 <Route path='/admin/login' element={<LoginAdm />}/>
                 <Route path='/admin/indicacao' element={< Indicacoes/>}/>
                 <Route path='/admin/indicacao/:idParam' element={< Indicacoes/>}/>
                 <Route path='/admin/indicacaoCard' element={< IndicacoesCard />} />
-                
-                
+                <Route path='/admin/psicologoCard/:idParam' element={<PsicologoCard/>}/>
                 <Route path='/admin/psicologoCard' element={<PsicologoCard/>}/>
 
 
+
+
+                <Route path='/' element={<Landing/>}/>
+                <Route path='/usuario/cadastro' element={<Cadastro />} />
+                <Route path='/usuario/login' element={<Login />} />
                 <Route path='/indicacao' element={<Indicacao/>}/>
                 <Route path='/indicacao/:id' element={<Indicacao/>}/>
 
 
-               
+
                 <Route path='/psi/login' element={<LoginPsi/>}/>
                 <Route path='/psi/formulario' element={<Formulario/>}/>
-
             </Routes>
         </BrowserRouter>
     )
