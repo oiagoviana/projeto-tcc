@@ -38,11 +38,11 @@ server.get('/admin/listarInfos', async (req, resp) => {
         const usuario = await listarContasUsuarios();
         const publicacoes = await listarPublicaçõesFeitas();
         const profissionais = await listarContasPsi();
+        
         resp.send({
-            
             contasCriadas: usuario, 
             publiFeitas: publicacoes, 
-             psiCriados: profissionais
+            psiCriados: profissionais
         });
 
 

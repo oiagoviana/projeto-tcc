@@ -5,14 +5,15 @@ import { useEffect, useState } from 'react';
 
 
 export default function HomeAdm() {
-    const [infos, setInfos] = useState([]);
+    const [info, setInfo] = useState({ contasCriadas: [], psiCriados: [], publiFeitas: [] })
 
 
 
-    async function listarInformacoes(){
+
+    async function listarInformacoes() {
         const resposta = await listarInfo();
+        setInfo(resposta);
         console.log(resposta)
-        setInfos(resposta);
 
     }
 
@@ -23,30 +24,30 @@ export default function HomeAdm() {
     return (
         <main className='page-homeAdm'>
             <div>
-                <MenuAdm  pagina='home'/>
+                <MenuAdm pagina='home' />
             </div>
-            
 
-                <div className='div-direita'>
-                
+
+            <div className='div-direita'>
+
                 <div className='div-informacoes-esquerda'>
-                    
-                    <div className='div-informacoes'>
-                        <h3 className='h3-textos'>Contas Criadas: <span className='qtd-resposta1'> 89 </span>  </h3>
-                    </div>
-                 
 
-                    
                     <div className='div-informacoes'>
-                        <h3 className='h3-textos'>Publicações Feitas: <span className='qtd-resposta1'> 43 </span> </h3>
+                        <h3 className='h3-textos'>Contas Criadas: <span className='qtd-resposta1'> {info.contasCriadas} </span></h3>
                     </div>
-                    
+
+
+
                     <div className='div-informacoes'>
-                        <h3 className='h3-textos'>Contas Profissionais Criadas: <span className='qtd-resposta1'> 1 </span> </h3>
+                        <h3 className='h3-textos'>Publicações Feitas: <span className='qtd-resposta1'> {info.publiFeitas} </span> </h3>
+                    </div>
+
+                    <div className='div-informacoes'>
+                        <h3 className='h3-textos'>Contas Profissionais Criadas: <span className='qtd-resposta1'> {info.psiCriados} </span> </h3>
                     </div>
                 </div>
-               
-                
+
+
 
                 <div className='div-informacoes-direita'>
                     <h3>Pessoas Online: <span className='qtd-resposta'>41</span> </h3>
@@ -54,8 +55,8 @@ export default function HomeAdm() {
                 </div>
             </div>
 
-            
-            
+
+
         </main>
     );
 }
