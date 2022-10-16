@@ -42,7 +42,7 @@ export default function PublicacaoCard() {
             <div className='container-card'>
                 <div className='card-publi'>
                     <div className='sub1'>
-                        <img className='sub1-img' src='/assets/images/maepubli.png' alt='' />
+                        <img className='sub1-img' src={item.imagem} alt='' />
 
                         <div className='sub1-textos'>
                             <p className='sub1-titulo'>{item.nome} {item.nomePsi} </p>
