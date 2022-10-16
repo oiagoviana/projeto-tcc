@@ -23,7 +23,7 @@ export default function MenuAdm({pagina}){
 
                 <div className="botoes">
                     <a href='/admin/home' className={pagina === 'home' ? 'selected' : ''}>Home</a>
-                    <a href='/admin/publicacao' className={pagina === 'publicacao' ? 'selected' : ''}>Publicações</a>
+                    <a href='/admin/publicacaoCard' className={pagina === 'publicacao' ? 'selected' : ''}>Publicações</a>
                     <a href='/admin/psicologoCard' className={pagina === 'profissionais' ? 'selected' : ''}>Profissionais</a>
                     <a href='/admin/indicacaoCard' className={pagina === 'indicacao' ? 'selected' : ''}>Indicações</a>
                 </div>

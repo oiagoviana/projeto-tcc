@@ -7,13 +7,10 @@ import { useEffect, useState } from 'react';
 export default function HomeAdm() {
     const [info, setInfo] = useState({ contasCriadas: [], psiCriados: [], publiFeitas: [] })
 
-
-
-
     async function listarInformacoes() {
         const resposta = await listarInfo();
         setInfo(resposta);
-        console.log(resposta)
+        
 
     }
 
