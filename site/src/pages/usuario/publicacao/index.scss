@@ -1,0 +1,162 @@
+.usuario-page{
+    display: flex;
+    flex-direction: row;
+ 
+
+    .conteiner{
+
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        width: 35vw;
+        height: 94vh;
+        left: 27em;
+        top: 2em;
+
+        background: #FFFFFF;
+        box-shadow: 1px 4px 15px rgba(0, 0, 0, 0.25);
+
+
+    }
+
+    .input-titulo{
+
+        box-sizing: border-box;
+
+        position: absolute;
+        left: 3.5em;
+       
+        bottom: 83%;
+
+        width: 29vw;
+        height: 5vh;
+       
+        background: #FFFFFF;
+        border: 2.5px solid #73401E;
+        border-radius: 0.5em;
+
+    }
+
+    .input-titulo2{
+
+        box-sizing: border-box;
+
+        position: absolute;
+        left: 3.5em;
+       
+        bottom: 35%;
+
+        width: 29vw;
+        height: 32vh;
+       
+        background: #FFFFFF;
+        border: 2.5px solid #73401E;
+        border-radius: 0.5em;
+
+    
+    }
+
+    .label{
+        color: #73401E;
+        font-family: 'Poppins2';
+        position: absolute;
+        
+        left: 1.5em;
+        top: 1em;
+
+       
+      
+        font-size: 1.9em;
+
+    
+       
+    }
+
+    .label2{
+        position: absolute;
+        
+        left: 1.5em;
+        top: 5em;
+
+        font-family: 'Poppins2';
+       
+        font-size: 1.8em;
+
+        
+        line-height: 1em;
+
+        color: #73401E;
+
+    }
+
+    .texto{
+
+       
+        position: absolute;
+        top: 18em;
+        left: 17em;
+       
+        
+       
+
+        font-family: 'Poppins2';
+       
+        font-size: 1.3em;
+        
+        color: #73401E;
+
+    }
+
+    
+
+    .botao-publi{
+        position: absolute;
+        width: 10vw;
+        height: 4.6vh;
+        top: 32em;
+        left: 2.5em;
+       border: none;
+
+        background-color: #F3C3A3;
+        border-radius: 1em;
+
+        color:#73401E;
+        font-family: 'Poppins2';
+        font-size: 1.1em;
+       
+
+    }
+
+    .botao-limpar{
+        position: absolute;
+        width: 10vw;
+        height: 4.6vh;
+        top: 32em;
+        left: 16em;
+       border: none;
+
+        background-color: #F3C3A3;
+        border-radius: 1em;
+
+        color:#73401E;
+        font-family: 'Poppins2';
+        font-size: 1.1em;
+
+    
+
+    }
+
+    .linha{
+        position: absolute;
+       
+        height: 35em;
+        left: 32em;
+        top: 1em;
+        
+
+        border: 1px solid #797979;
+        
+    }
+
+   
+}

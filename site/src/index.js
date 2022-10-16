@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Formulario from './pages/psicologo/formulario';
 import LoginPsi from './pages/psicologo/loginPsi';
+import Publicacao from './pages/usuario/publicacao';
 
 
 
