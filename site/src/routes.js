@@ -16,6 +16,8 @@ import Indicacao from './pages/usuario/indicacao'
 import Cadastro from './pages/usuario/cadastro'
 import Publicacao from './pages/usuario/publicacao'
 
+import ComentUser from './components/comentarioUsuario'
+
 
 //Psi
 import Formulario from './pages/psicologo/formulario'
@@ -30,6 +32,8 @@ export default function Index() {
                 <Route path='/' element={<Landing/>}/>
                 <Route path='/usuario/cadastro' element={<Cadastro />} />
                 <Route path='/usuario/login' element={<Login />} />
+                <Route path='/usuario/publicacao' element={<Publicacao/>}/>
+                <Route path='/usuario/comentario' element={<ComentUser/>}/>
 
 
 
@@ -50,7 +54,6 @@ export default function Index() {
                
                 <Route path='/psi/login' element={<LoginPsi/>}/>
                 <Route path='/psi/formulario' element={<Formulario/>}/>
-                <Route path='/usuario/publicacao' element={<Publicacao/>}/>
 
             </Routes>
         </BrowserRouter>

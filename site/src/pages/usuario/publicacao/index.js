@@ -1,4 +1,5 @@
 import MenuAdm from '../../../components/menuadm';
+import ComentUser from '../../../components/comentarioUsuario'
 import './index.scss'
 
 
@@ -20,10 +21,13 @@ export default function Publicacao() {
 
                 <input type="Text" className='input-titulo2' />
 
-                <p className='texto'>Foto</p>
-
-
-
+                <div>
+                    <p className='texto'>Foto</p>
+                    <div className='container-foto-download'>
+                        <img src='/assets/images/download-fotos.svg' alt='' />
+                    </div>
+                    <p className='texto-download'>Download</p>
+                </div>
 
                 <button className='botao-publi'>Publicar</button>
                 <button className='botao-limpar'>Limpar</button>
@@ -31,7 +35,15 @@ export default function Publicacao() {
                 <hr className='linha' />
             </div>
 
-           
+            <div>
+                <div className='container-titulo-coment'>
+                    <h1>Comentários destacados</h1>
+                </div>
+
+                <ComentUser />
+
+                <img className="logo-mae" src='/assets/images/logo-mae.png' alt='' />
+            </div>           
 
 
 
