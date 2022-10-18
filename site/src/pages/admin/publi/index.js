@@ -34,6 +34,8 @@ export default function Publicacao() {
                                     <h4>Descrição:</h4>
                                 </div>
                                 <p className='sub3-desc'> Lorem ipsum dolor sit amet. Qui nulla error ut galisum doloremque eum maxime officia est autem error et earum voluptas! Ut assumenda assumenda At obcaecati beatae et voluptatum distinctio? Nam dolor consectetur hic earum quam est aperiam odit. 33 voluptates beatae ab sunt tenetur et omnis nemo. Non quisquam enim et corrupti dolores ut officiis nostrum et placeat expedita sed alias quasi.</p>
+                            
+                                <img src='/assets/images/maepubli.png' alt='' />
                             </div>
 
                         </div>
