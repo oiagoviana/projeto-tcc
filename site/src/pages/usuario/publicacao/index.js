@@ -1,5 +1,4 @@
 import MenuAdm from '../../../components/menuadm';
-import ComentUser from '../../../components/comentarioUsuario'
 import './index.scss'
 
 
@@ -40,7 +39,21 @@ export default function Publicacao() {
                     <h1>Comentários destacados</h1>
                 </div>
 
-                <ComentUser />
+                <div className='container-comentario'>
+                    <div className='container-nome-coment'>
+                        <h3>Dr. kkkk</h3>
+                    </div>
+
+                    <textarea></textarea>
+                </div>
+
+                <div className='container-comentario2'>
+                    <div className='container-nome-coment'>
+                        <h3>Dr. kkkk</h3>
+                    </div>
+
+                    <textarea></textarea>
+                </div>
 
                 <img className="logo-mae" src='/assets/images/logo-mae.png' alt='' />
             </div>           
