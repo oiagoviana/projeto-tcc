@@ -19,7 +19,7 @@ export default function PsicologoCard() {
     }
 
     function abrirCardPsi(id) {
-        navigate(`/psicologo/${id}`)
+        navigate(`/admin/psicologo/${id}`)
     }
 
 
@@ -32,7 +32,7 @@ export default function PsicologoCard() {
     return (
         <main className='psi-page'>
             <div>
-                <MenuAdm />
+                <MenuAdm  pagina='profissionais'/>
             </div>
 
             <div className='div-principal'>
