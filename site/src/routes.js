@@ -5,6 +5,7 @@ import HomeAdm from './pages/admin/Home'
 import LoginAdm from './pages/admin/LoginAdm' 
 import Indicacoes from './pages/admin/indicacao'
 import IndicacoesCard from './pages/admin/indicacaoCard'
+import Psicologo from './pages/admin/psi'
 import PsicologoCard from './pages/admin/psiCard'
 import Publicacao from './pages/admin/publi'
 import PublicacaoCard from './pages/admin/publiCard'
@@ -34,7 +35,7 @@ export default function Index() {
                 <Route path='/admin/indicacao' element={< Indicacoes/>}/>
                 <Route path='/admin/indicacao/:idParam' element={< Indicacoes/>}/>
                 <Route path='/admin/indicacaoCard' element={< IndicacoesCard />} />
-                <Route path='/admin/psicologoCard/:idParam' element={<PsicologoCard/>}/>
+                <Route path='/admin/psicologo' element={<Psicologo/>}/>
                 <Route path='/admin/psicologoCard' element={<PsicologoCard />} />
                 <Route path='/admin/publicacaoCard' element={<PublicacaoCard />} />
                 <Route path='/admin/publicacao' element={<Publicacao />} />
