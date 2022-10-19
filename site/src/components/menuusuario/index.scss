@@ -1,0 +1,80 @@
+.componente-menu {
+
+    .selected{
+        background-color: #6F4528;
+        color: white;
+    }
+    
+    .menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #FEEAD7;
+        width: 25vw;
+        height: 100vh;
+        
+    }
+
+    .logo {
+        width:17vw;
+        height: 11vh;
+        margin-left: -1em;
+    }
+
+    .botoes {
+        display: flex;
+        flex-direction: column;
+        height: 58vh;
+        justify-content: space-between;
+    }
+
+    a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2em;
+        width: 20vh;
+        height: 3.8vw ;
+        border-radius: 0.5em;
+        background-color: #FEEAD7;
+        border: 2.5px solid #6F4528;
+        color: #6F4528;
+        font-family: "Poppins5";
+        text-decoration: none;
+    }
+
+
+    .botao-final {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 4em;
+        width: 5vh;
+    }
+
+    .botao-final:hover{
+        cursor: pointer;
+    }
+
+    .bo-final{
+        width: 2em;
+        height: 2em;
+        
+    }
+
+    .b-final {
+        border: none;
+        margin-left: 0.6em;
+    }
+
+    button:hover{
+        cursor: pointer;
+    }
+
+
+
+
+}
