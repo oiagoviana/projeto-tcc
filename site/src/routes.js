@@ -17,7 +17,7 @@ import Landing from './pages/landingpage'
 import Login from './pages/usuario/login'
 import Indicacao from './pages/usuario/indicacao'
 import Cadastro from './pages/usuario/cadastro'
-import Publicacao from './pages/usuario/publicacao'
+import PublicacaoUsu from './pages/usuario/publicacao'
 
 
 //Psi
@@ -34,7 +34,7 @@ export default function Index() {
                 <Route path='/' element={<Landing/>}/>
                 <Route path='/usuario/cadastro' element={<Cadastro />} />
                 <Route path='/usuario/login' element={<Login />} />
-                <Route path='/usuario/publicacao' element={<Publicacao/>}/>
+                <Route path='/usuario/publicacao' element={<PublicacaoUsu/>}/>
 
 
 

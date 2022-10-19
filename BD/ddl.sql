@@ -32,6 +32,7 @@ CREATE TABLE tb_publicacao(
     ds_publicacao		varchar(500),
     dt_publicacao		date,
     img_publicacao		varchar(400),
+    pb_aprovado			boolean,
     
     foreign key (id_usuario) references tb_usuario(id_usuario),
     foreign key (id_psicologo) references tb_psicologo(id_psicologo)
