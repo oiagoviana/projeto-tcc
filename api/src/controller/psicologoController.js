@@ -1,4 +1,4 @@
-import { inserirFormulario, listarPsicologos, atualizarFormulario, deletarFormulario, loginPsicologo } from '../repository/psicologoRepository.js'
+import { inserirFormulario, listarPsicologos, atualizarFormulario, deletarFormulario, loginPsicologo, autorizarPsi } from '../repository/psicologoRepository.js'
 
 
 import { Router } from 'express'
@@ -91,6 +91,20 @@ server.delete('/api/formulario/:id', async (req, resp) => {
     } catch (err) {
         resp.status(400).send({
             erro:err.message
+        })
+    }
+})
+
+server.get('/admin/psicologo/:id', async (req, resp) => {
+    try {
+        const {id} = req.params
+        const psicologo = await autorizarPsi(id);
+        resp.send(psicologo);
+
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
         })
     }
 })

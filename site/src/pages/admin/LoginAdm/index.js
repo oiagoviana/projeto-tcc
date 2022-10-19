@@ -19,7 +19,7 @@ export default function LoginAdm() {
 
     useEffect(() =>{
         if(storage('adm-logado')){
-        navigate('/login')
+        navigate('/admin/home')
         }
     }, [])
 
@@ -33,7 +33,7 @@ export default function LoginAdm() {
             storage('adm-logado', resposta);
 
             setTimeout(() => {
-                navigate('/admin/indicacao');    
+                navigate('/admin/home');    
             }, 3000 )
 
         }   
