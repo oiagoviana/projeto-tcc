@@ -28,6 +28,7 @@ export default function MenuUsuario ({pagina}){
                   <a href='/publicacao' className={pagina === 'publicacao' ? 'selected' : ''}>Quero Publicar</a>
                   <a href='/indicacao' className={pagina === 'indicacao' ? 'selected' : ''}>Indicações</a>
                   <a href='/chat' className={pagina === 'chat' ? 'selected' : ''}>Chat com Psi</a>
+                  <a href='/chat' className={pagina === 'chat' ? 'selected' : ''}>Meu Perfil</a>
                 </div>
 
 
