@@ -1,9 +1,24 @@
 import './index.scss'
 import MenuAdm from '../../../components/menuadm'
+import { useEffect, useState } from 'react'
+import { autorizarPsi } from '../../../api/psicologoApi.js';
+import { useParams } from 'react-router-dom';
 
 
 export default function Psicologo() {
+    const [psicologo, setPsicologo] = useState([]);
+    const { idParam } = useParams();
 
+    async function listarPsicologos() {
+        const resposta = await autorizarPsi(idParam);
+        console.log(resposta);
+        setPsicologo(resposta);
+    }
+
+    useEffect(() => {
+        if(idParam)
+        listarPsicologos();
+    }, [])
 
 
     return (
@@ -20,14 +35,14 @@ export default function Psicologo() {
                             <div className='sub-div-info'>
                                 <h3>Nome:</h3>
                                 <div className='infos'>
-                                    <p >admin1</p>
+                                    <p> {psicologo.nome} </p>
                                 </div>
                             </div>
 
                             <div>
                                 <h3>Data nascimento:</h3>
                                 <div className='infos'>
-                                    <p >01/01/2001</p>
+                                    <p > {psicologo.data} </p>
                                 </div>
                             </div>
                         </div>
@@ -36,14 +51,14 @@ export default function Psicologo() {
                             <div>
                                 <h3>Telefone:</h3>
                                 <div className='infos'>
-                                    <p >(11)98999-9999</p>
+                                    <p > {psicologo.telefone} </p>
                                 </div>
                             </div>
 
                             <div>
                                 <h3>Email:</h3>
                                 <div className='infos'>
-                                    <p >admin1@admin.com</p>
+                                    <p > {psicologo.email} </p>
                                 </div>
                             </div>
                         </div>
@@ -52,14 +67,14 @@ export default function Psicologo() {
                             <div>
                                 <h3>CPF:</h3>
                                 <div className='infos'>
-                                    <p >000000000-00</p>
+                                    <p > {psicologo.cpf} </p>
                                 </div>
                             </div>
 
                             <div>
                                 <h3>Senha:</h3>
                                 <div className='infos'>
-                                    <p >12345</p>
+                                    <p > {psicologo.senha} </p>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +83,7 @@ export default function Psicologo() {
                             <div>
                                 <h3>CRP:</h3>
                                 <div className='infos'>
-                                    <p >xx/999-999</p>
+                                    <p > {psicologo.crp} </p>
                                 </div>
                             </div>
                         </div>

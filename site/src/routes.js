@@ -43,7 +43,7 @@ export default function Index() {
                 <Route path='/admin/indicacao' element={< Indicacoes/>}/>
                 <Route path='/admin/indicacao/:idParam' element={< Indicacoes/>}/>
                 <Route path='/admin/indicacaoCard' element={< IndicacoesCard />} />
-                <Route path='/admin/psicologo' element={<Psicologo/>}/>
+                <Route path='/admin/psicologo/:idParam' element={<Psicologo/>}/>
                 <Route path='/admin/psicologoCard' element={<PsicologoCard />} />
                 <Route path='/admin/publicacaoCard' element={<PublicacaoCard />} />
                 <Route path='/admin/publicacao' element={<Publicacao />} />
