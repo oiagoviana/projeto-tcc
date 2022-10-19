@@ -8,8 +8,8 @@ export default function MenuAdm({pagina}){
 
 
     function sairClick(){
-        storage.remove('usuario-logado');
-        navigate('/');
+        storage.remove('adm-logado');
+        navigate('/admin/login');
     }
 
     
@@ -30,7 +30,7 @@ export default function MenuAdm({pagina}){
 
                 <div className="botao-final">
                     <img className="bo-final"src='/assets/images/sair.png' alt='' />
-                    <a href='#' onClick={sairClick} className="b-final">Sair</a>
+                    <a href='/admin/login' onClick={sairClick} className="b-final">Sair</a>
                 </div>
 
 

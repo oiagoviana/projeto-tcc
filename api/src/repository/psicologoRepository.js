@@ -68,5 +68,22 @@ export async function deletarFormulario(id) {
     return resposta.affectedRows;
 }
 
+export async function autorizarPsi(id) {
+    const comando =
+    `select 	id_psicologo 	id,
+                nm_psicologo 	nome,
+                dt_nascimento 	data,
+                ds_telefone		telefone,
+                ds_email		email,
+                ds_senha		senha,
+                nr_crp			crp,
+                ds_cpf			cpf
+       from tb_psicologo
+       where id_psicologo = ?;`
+    
+    const [resposta] = await con.query(comando, [id]);
+    return resposta[0];
+}
+
 
 

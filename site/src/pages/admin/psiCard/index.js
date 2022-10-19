@@ -44,7 +44,7 @@ export default function PsicologoCard() {
                 {psicogolos.map(item => 
                     <div className='div-cardInformacoes'>
                         <div>
-                            <img src="/assets/images/retanguloPsi.png" alt="" />
+                            <img className='retangulo' src="/assets/images/retanguloPsi.png" alt="" />
                         </div>
 
                         <div className='div-cards'>
