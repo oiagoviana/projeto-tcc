@@ -1,0 +1,75 @@
+.page-psicologo{
+    display: flex;
+    flex-direction: row;
+
+
+    .div-direita{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .card-principal{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        width: 70%;
+        height: 80%;
+
+    }
+
+    .div-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .infos{
+        display: flex;
+        align-items: center;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 10px rgba(158, 158, 158, 0.25);
+        border-radius: 8px;
+        width: 20vw;
+        height: 6vh;
+        color: #615656;
+        font-family: 'Poppins5';
+    }
+
+    p{
+        margin-left: 1em;
+    }
+
+    h3{
+        font-family: 'Abhaya1';
+        font-size: 25px;
+        height: 1vh;
+    }
+
+    .div-botao{
+        display: flex;
+        justify-content: center;
+    }
+
+    .button{
+        width: 13vw;
+        height: 5vh;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 10px #00000040;
+        border-radius: 15px;
+        border: none;
+        color: #73401E;
+        font-size: 20px;
+        
+    }
+
+    .button:hover{
+        cursor: pointer;
+        transform: translateY(-5%);
+    }
+    
+
+    
+}

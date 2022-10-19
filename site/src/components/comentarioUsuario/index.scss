@@ -1,0 +1,46 @@
+.container-comentario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    position: absolute;
+    right: 2em;
+    top: 11em;
+
+    height: 30vh;
+    width: 25vw;
+
+    border-radius: 5px;
+    background-color: #73401E;
+
+    .container-nome-coment {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        height: 5vh;
+        width: 18vw;
+        padding: 2px 6px;
+        margin-bottom: 1.2em;
+        margin-left: 1em;
+
+        border-radius: 5px;
+        border: 2px solid #000001;
+
+        background-color: #ffffff;
+    }
+
+    textarea {
+        height: 85px;
+        width: 270px;
+        padding: 4px 8px;
+
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: 1em;
+
+        border: 2px solid #000000;
+        border-radius: 5px;
+    }
+}

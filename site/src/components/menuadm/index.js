@@ -8,9 +8,11 @@ export default function MenuAdm({pagina}){
 
 
     function sairClick(){
-        storage.remove('usuario-logado');
-        navigate('/');
+        storage.remove('adm-logado');
+        navigate('/admin/login');
     }
+
+    
 
     return(
         <main className="comp-menu">
@@ -21,14 +23,14 @@ export default function MenuAdm({pagina}){
 
                 <div className="botoes">
                     <a href='/admin/home' className={pagina === 'home' ? 'selected' : ''}>Home</a>
-                    <a href='/admin/publicacao' className={pagina === 'publicacao' ? 'selected' : ''}>Publicações</a>
-                    <a href='/admin/psicologoCard' className={pagina === 'profisionais' ? 'selected' : ''}>Profissionais</a>
+                    <a href='/admin/publicacaoCard' className={pagina === 'publicacao' ? 'selected' : ''}>Publicações</a>
+                    <a href='/admin/psicologoCard' className={pagina === 'profissionais' ? 'selected' : ''}>Profissionais</a>
                     <a href='/admin/indicacaoCard' className={pagina === 'indicacao' ? 'selected' : ''}>Indicações</a>
                 </div>
 
                 <div className="botao-final">
                     <img className="bo-final"src='/assets/images/sair.png' alt='' />
-                    <a href='#' onClick={sairClick} className="b-final">Sair</a>
+                    <a href='/admin/login' onClick={sairClick} className="b-final">Sair</a>
                 </div>
 
 
