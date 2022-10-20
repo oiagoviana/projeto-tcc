@@ -14,7 +14,7 @@ import Landing from './pages/landingpage'
 import Login from './pages/usuario/login'
 import Indicacao from './pages/usuario/indicacao'
 import Cadastro from './pages/usuario/cadastro'
-import CompIndicacao from './components/indicacaousuario'
+// import CompIndicacao from './components/indicacaousuario'
 
 
 //Psi

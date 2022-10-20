@@ -67,6 +67,7 @@ export async function consultarIndicacoes () {
             nm_clinica              nome,
 			nm_cidade               cidade,
 			ds_cep                  cep,
+            ds_telefone             telefone,
 			ds_endereco             endereco,
             ds_atendimento          atendimento,
 			ds_classificacao        classificacao,

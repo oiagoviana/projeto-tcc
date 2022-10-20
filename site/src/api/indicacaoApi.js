@@ -61,7 +61,9 @@ export async function consultarIndicacoesPorId (id) {
     const resposta = await api.get (`/api/indicacao/consulta/${id}`);
     return resposta.data;
 }
-export async function consultarIndicacoes (){
+
+export async function consultarIndicacoes () {
     const resposta = await api.get ('/api/indicacao/consulta')
+    console.log(resposta);
     return resposta.data
 }

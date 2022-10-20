@@ -1,12 +1,10 @@
-
 import './index.scss'
 import { consultarIndicacoes } from '../../../api/indicacaoApi'
 import { useEffect, useState } from 'react'
 
-import Cards from '../../../components/indicacaousuario'
 
 export default function Indicacao() {
-    const[indicacao, setIndicacao] = useState([]);
+    const [indicacao, setIndicacao] = useState([]);
 
     async function carregarIndicacoes() {
         const carregados = await consultarIndicacoes();
@@ -17,7 +15,7 @@ export default function Indicacao() {
         carregarIndicacoes();
     }, [])
 
-    return(
+    return (
         <main className='page-user-indicacao'>
             <div className='container-header'>
                 <button className='botao-home'>HOME</button>
@@ -33,40 +31,38 @@ export default function Indicacao() {
 
                     <div className='subcontainer-cards'>
 
-                        {indicacao.map(item => 
-                        <div className='card-indicacao' key={item.id}>
-                            <img className='img-hospital' src='/assets/images/hospital.svg' alt='hosp' />
-            
-                            <p className='text-hosp'>{item.nome}</p>
-                            
-                            <p className='text-endereco'>Endereço: {item.endereco} – {item.cidade}, {item.cep}</p>
-                            <div className='container-telefone'>
-                                <p className='text-telefone'>Telefone: {item.telefone}</p>
-                                <p>Classificação: {item.classificacao}</p>
+                        {indicacao.map(item =>
+                            <div className='card-indicacao' key={item.id}>
+                                <img className='img-hospital' src='/assets/images/hospital.svg' alt='hosp' />
+
+                                <p className='text-hosp'>{item.nome}</p>
+
+                                <p className='text-endereco'>Endereço: {item.endereco} – {item.cidade}, {item.cep}</p>
+                                <div className='container-telefone'>
+                                    <p className='text-telefone'>Telefone: {item.telefone}</p>
+                                    <p>Classificação: {item.classificacao}</p>
+                                </div>
+                                <p className='text-horario'>
+                                    Horário de Funcionamento:
+                                    <span>{item.atendimento}</span>
+                                </p>
                             </div>
-                            <p className='text-horario'>
-                                Horário de Funcionamento:
-                                <span>{item.atendimento}</span>
-                            </p>
-                        </div>
-                        
+
                         )}
-
-
 
                     </div>
 
                 </div>
 
                 <div className='container-mapa'>
-                    <button className='botao-mapa'>MAPA DO GOOGLE <img src='/assets/images/img-mapinha.svg' alt='img-mapinha' /> </button>
+                    <button className='botao-mapa'>MAPA DO GOOGLE <img className='mapinha-botao' src='/assets/images/img-mapinha.svg' alt='img-mapinha' /> </button>
 
-                    <div>mapa</div>
+                    <a target='_blank' rel='noopener noreferrer' href='https://www.google.com.br/maps'><img className='google-mapa' src='/assets/images/mapa-tcc.svg' alt='mapa' /></a>
                 </div>
             </div>
 
-            <img className='imagem-triangulo-direito' src='/assets/images/triangulo-lado-direito.svg' alt='triangulo-direito' />    
-            <img className='imagem-triangulo-esquerdo' src='/assets/images/triangulo-lado-esquerdo.svg' alt='triangulo-esquerdo' />    
+            <img className='imagem-triangulo-direito' src='/assets/images/triangulo-lado-direito.svg' alt='triangulo-direito' />
+            <img className='imagem-triangulo-esquerdo' src='/assets/images/triangulo-lado-esquerdo.svg' alt='triangulo-esquerdo' />
         </main>
     )
 }
