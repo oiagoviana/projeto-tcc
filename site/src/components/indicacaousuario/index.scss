@@ -1,20 +1,14 @@
-.comp-indicacao {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-
-    .card-indicacao {
+.card-indicacao {
         display: flex;
         flex-direction: column;
-        height: 58vh;
-        width: 26vw;
+        height: 36vh;
+        width: 23vw;
         border: 3px solid #6F4528;
         border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
         padding: 22px;
-    }
+        margin: 1.5em;
 
     .text-hosp {
         text-align: center;
@@ -23,25 +17,41 @@
         border-radius: 5px;
         color: #ffffff;
         background-color: #6F4528;
+
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: .5px;
     }
 
     .container-telefone {
         display: flex;
         flex-direction: row;
 
-        margin-top: -1em;
+        margin-top: -1.5em;
+        font-size: 14px;
+        font-weight: 600;
     }
 
     .text-telefone {
-        margin-right: 30px;
+        margin-right: 2em;
     }
 
     .text-horario {
-        margin-top: -0.3em;
+        display: flex;
+        flex-direction: column;
+        margin-top: -0.5em;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .text-horario span {
+        width: 14vw;
     }
 
     .text-endereco {
         margin-top: -0.2em;
+        font-size: 14px;
+        font-weight: 600;
     }
     
 }

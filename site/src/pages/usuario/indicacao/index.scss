@@ -1,0 +1,209 @@
+.page-user-indicacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+
+    position: relative;
+    overflow-y: hidden;
+
+    .container-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        
+
+        height: 10vh;
+        width: 90vw;
+
+        margin-top: 1.5em;
+    }
+
+    .botao-home {
+        padding: 8px 35px;
+
+        border: none;
+        border-radius: 2em;
+        color: #ffffff;
+        background-color: #73401E;
+
+        cursor: pointer;
+        font-weight: 500;
+        letter-spacing: .6px;
+
+        margin-right: 5em;
+    }
+
+    input {
+        max-width: 500px;
+        width: 100%;
+
+        padding: 4px;
+        border: 3px solid #6F4528;
+        border-radius: 6px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .container-header img {
+        position: relative;
+        right: 1.5em;
+    }
+
+    .container-meio {
+        display: flex;
+        flex-direction: row;
+
+        width: 99.8vw;
+        height: 80vh;
+    }
+
+    h2 {
+        font-size: 20px;
+        font-weight: 500;
+
+        margin-left: 3.5em;
+    }
+
+    .container-cards {
+        display: flex;
+        flex-direction: column;
+
+        width: 70%;
+    }
+
+    .subcontainer-cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        margin-left: 2.5em;
+
+        overflow-y: scroll;
+
+    }
+
+    .subcontainer-cards::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .subcontainer-cards::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .subcontainer-cards::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        background-color: #6F4528;
+    }
+
+    .container-mapa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 30%;
+    }
+
+    .botao-mapa {
+        display: flex;
+        align-items: center;
+        padding: 0px 15px;
+
+        border: 3px solid #6F4528;
+        border-radius: 5px;
+        color: #73401E;
+        background-color: #ffffff;
+
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: .6px;
+
+        margin-top: 3em;
+        margin-bottom: 1em;
+    }
+
+    .mapinha-botao {
+        margin-left: 10px;
+    }
+
+    .imagem-triangulo-direito {
+        position: absolute;
+
+        right: 0;
+        top: 0;
+    }
+    
+    .imagem-triangulo-esquerdo {
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+    }
+
+    .card-indicacao {
+        display: flex;
+        flex-direction: column;
+        height: 36vh;
+        width: 23vw;
+        border: 3px solid #6F4528;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+
+        padding: 22px;
+        margin: 1.5em;
+    }
+
+    .text-hosp {
+        text-align: center;
+
+        background-color: #A3C;
+        border-radius: 5px;
+        color: #ffffff;
+        background-color: #6F4528;
+
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: .5px;
+    }
+
+    .container-telefone {
+        display: flex;
+        flex-direction: row;
+
+        margin-top: -1.5em;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .text-telefone {
+        margin-right: 2em;
+    }
+
+    .text-horario {
+        display: flex;
+        flex-direction: column;
+        margin-top: -0.5em;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .text-horario span {
+        width: 14vw;
+    }
+
+    .text-endereco {
+        margin-top: -0.2em;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .google-mapa {
+        height: 60vh;
+        width: 100%;
+    }
+    
+}
