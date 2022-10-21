@@ -1,9 +1,27 @@
 import './index.scss'
 import MenuAdm from '../../../components/menuadm'
+import { useEffect, useState } from 'react'
+import { amostrarPublicacao, listarPublicacao } from '../../../api/publicacaoApi';
+import { useParams } from 'react-router-dom';
 
 
 export default function Publicacao() {
-    
+    const [publicacao, setPublicacao] = useState({});    
+    const {idParam} = useParams();
+
+
+    function mostrarPublicacao(){
+        const resposta = amostrarPublicacao(idParam);
+
+        console.log(resposta);
+        setPublicacao(resposta);
+    }
+
+
+    useEffect(() => {
+        if(idParam)
+        mostrarPublicacao();
+    },[])
 
 
 
@@ -19,8 +37,8 @@ export default function Publicacao() {
                     <div className='sub1-card'>
                         <div className='sub2-card'>
                             <div className='sub2-cima'>
-                                <h4 className='cima-info'>Nome: <span>Karla Brasil</span> </h4>
-                                <h4 className='cima-info'>Data: <span>22/03/2022</span> </h4>
+                                <h4 className='cima-info'>Nome: <span>{publicacao.nome} {publicacao.nomePsi} </span> </h4>
+                                <h4 className='cima-info'>Data: <span>{publicacao.data}</span> </h4>
                             </div>    
 
                             <div className='sub2-baixo'>

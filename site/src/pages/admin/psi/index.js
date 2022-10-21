@@ -1,8 +1,9 @@
 import './index.scss'
 import MenuAdm from '../../../components/menuadm'
 import { useEffect, useState } from 'react'
-import { autorizarPsi } from '../../../api/psicologoApi.js';
 import { useParams } from 'react-router-dom';
+import { autorizarPsi, listarPsicologo } from '../../../api/psicologoApi';
+
 
 
 export default function Psicologo() {

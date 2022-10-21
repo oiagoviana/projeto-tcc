@@ -59,7 +59,7 @@ export default function Index() {
                 <Route path='/admin/psicologo/:idParam' element={<Psicologo/>}/>
                 <Route path='/admin/psicologoCard' element={<PsicologoCard />} />
                 <Route path='/admin/publicacaoCard' element={<PublicacaoCard />} />
-                <Route path='/admin/publicacao' element={<Publicacao />} />
+                <Route path='/admin/publicacao/:idParam' element={<Publicacao />} />
                 
 
 

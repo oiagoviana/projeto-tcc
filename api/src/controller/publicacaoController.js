@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import multer from 'multer';
-import { autorizarPublicacao, fazerComentario, listarPublicacoesAdm } from '../repository/publicacaoRepository.js';
+import { autorizarPublicacao, fazerComentario, listarPublicacoes, listarPublicacoesAdm } from '../repository/publicacaoRepository.js';
 import { publicarUsuario, alterarImagem } from '../repository/publicacaoRepository.js';
 
 
@@ -15,6 +15,20 @@ server.get('/admin/publicacao', async (req, resp) => {
 
     } catch (err) {
         resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/admin/publicacao/verificar/:id', async (req, resp) => {
+    try {
+        const { id } = req.params
+        const resposta = await listarPublicacoes(id);
+        resp.send(resposta);
+
+
+    } catch (err) {
+        resp.status(400).send({
             erro: err.message
         })
     }

@@ -24,6 +24,29 @@ export async function listarPublicacoesAdm() {
     return resposta
 }
 
+export async function listarPublicacoes(id) {
+    const comando =
+        `select id_publicacao 					as 'id',
+        tb_publicacao.id_usuario		as 'idUsuario',
+        tb_publicacao.id_psicologo		as 'idPsi',
+        nm_usuario						as 'nome',
+        nm_psicologo					as 'nomePsi',
+        tb_usuario.ds_email				as 'email',
+        tb_psicologo.ds_email			as 'emailPsi',
+        ds_titulo						as 'titulo',
+        ds_publicacao					as 'descricao',
+        date_format(dt_publicacao, '%d/%m/%Y')					as 'data',
+        img_publicacao					as 'imagem',
+        pb_aprovado                     as 'aprovado' 
+    from tb_publicacao
+    left join tb_usuario on tb_publicacao.id_usuario = tb_usuario.id_usuario
+    left join tb_psicologo on tb_publicacao.id_psicologo = tb_psicologo.id_psicologo
+    where id_publicacao = ?;`
+    
+    const [resposta] = await con.query(comando, [id]);
+    return resposta[0];
+}
+
 export async function publicarUsuario (publicar){
     const comando =
         `insert into tb_publicacao(id_usuario,id_psicologo,ds_titulo, ds_publicacao, dt_publicacao, pb_aprovado)
