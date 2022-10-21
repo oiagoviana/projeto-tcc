@@ -34,7 +34,7 @@ export default function MenuAdm({pagina}){
                 </div>
 
 
-                </div>
+            </div>
         </main>
     );
 }
