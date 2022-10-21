@@ -35,27 +35,17 @@ export default function Publicacao() {
             </div>
 
             <div>
+
                 <div className='container-titulo-coment'>
-                    <h1>Comentários destacados</h1>
+                    <h1>Adicionar Comentário</h1>
                 </div>
 
-                <div className='container-comentario'>
-                    <div className='container-nome-coment'>
-                        <h3>Dr. kkkk</h3>
-                    </div>
+                
+                <textarea></textarea>
 
-                    <textarea></textarea>
-                </div>
-
-                <div className='container-comentario2'>
-                    <div className='container-nome-coment'>
-                        <h3>Dr. kkkk</h3>
-                    </div>
-
-                    <textarea></textarea>
-                </div>
 
                 <img className="logo-mae" src='/assets/images/logo-mae.png' alt='' />
+
             </div>           
 
 
