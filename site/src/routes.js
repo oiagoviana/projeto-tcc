@@ -19,6 +19,7 @@ import Indicacao from './pages/usuario/indicacao'
 import Cadastro from './pages/usuario/cadastro'
 import MenuUsuario from './components/menuusuario'
 import PublicacaoUsu from './pages/usuario/publicacao'
+import PublicacaoCompleta from './pages/usuario/publicompleta'
 
 
 
@@ -49,6 +50,7 @@ export default function Index() {
                 <Route path='/admin/psicologoCard' element={<PsicologoCard />} />
                 <Route path='/admin/publicacaoCard' element={<PublicacaoCard />} />
                 <Route path='/admin/publicacao' element={<Publicacao />} />
+                <Route path='/publicacaocompleta' element={<PublicacaoCompleta />} />
                 
 
 
