@@ -1,8 +1,9 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 //Admin
-import HomeAdm from './pages/admin/Home'
-import LoginAdm from './pages/admin/LoginAdm' 
+
+import LoginAdm from './pages/admin/loginAdm' 
+import HomeAdm from './pages/admin/home'
 import Indicacoes from './pages/admin/indicacao'
 import IndicacoesCard from './pages/admin/indicacaoCard'
 import Psicologo from './pages/admin/psi'
@@ -17,8 +18,12 @@ import Landing from './pages/landingpage'
 import Login from './pages/usuario/login'
 import Indicacao from './pages/usuario/indicacao'
 import Cadastro from './pages/usuario/cadastro'
+
 import MenuUsuario from './components/menuusuario'
-import PublicacaoUsu from './pages/usuario/publicacao'
+
+
+
+import PublicacaoUsuario from './pages/usuario/publicacao'
 
 
 
@@ -36,7 +41,13 @@ export default function Index() {
                 <Route path='/' element={<Landing/>}/>
                 <Route path='/usuario/cadastro' element={<Cadastro />} />
                 <Route path='/usuario/login' element={<Login />} />
-                <Route path='/usuario/publicacao' element={<PublicacaoUsu/>}/>
+
+                
+                <Route path='/usuario/publicacao' element={<PublicacaoUsuario/>}/>
+
+                <Route path='/usuario/indicacao' element={<Indicacao />} />
+
+
 
 
 
