@@ -10,6 +10,29 @@
         width: 80%;
     }
 
+    .container-publicacoes {
+        height: 90vh;
+
+        padding-right: 3em;
+        overflow-y: scroll;
+    }
+
+    .container-publicacoes::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .container-publicacoes::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .container-publicacoes::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        background-color: #6F4528;
+    }
+
     .container-card{
         width: 100%;
         
