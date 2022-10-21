@@ -2,7 +2,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 //Admin
 
-import LoginAdm from './pages/admin/LoginAdm' 
+import LoginAdm from './pages/admin/loginAdm' 
 import Indicacoes from './pages/admin/indicacao'
 import IndicacoesCard from './pages/admin/indicacaoCard'
 import PsicologoCard from './pages/admin/psiCard'
