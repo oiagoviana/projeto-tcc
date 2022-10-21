@@ -46,8 +46,6 @@ export default function IndicacaoCard() {
         )
     }
 
-
-
     async function listarIndicacoes() {
         const resposta = await consultarIndicacoes();
         setIndicacoes(resposta);

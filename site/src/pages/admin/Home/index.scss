@@ -1,0 +1,56 @@
+.page-homeAdm{
+    display: flex;
+    flex-direction: row;
+
+    .div-direita{
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .qtd-resposta1{
+        color: #615656;
+        margin-left: 0.8em;
+    }
+
+
+    .qtd-resposta{
+        color: #615656;
+    }
+
+    .div-informacoes{
+        display: flex;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 10px 1px rgba(158, 158, 158, 0.25);
+        border-radius: 8px;
+        width: 30vw;
+        height: 8vh;
+    }
+
+    .div-informacoes-esquerda{
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .div-informacoes-direita{
+        height: 23vh;
+        width: 18vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 10px 1px rgba(158, 158, 158, 0.25);
+        border-radius: 8px;
+    }
+    
+    .h3-textos{
+        margin-left: 1.4em;
+    }
+
+    
+}
