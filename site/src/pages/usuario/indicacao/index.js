@@ -1,6 +1,7 @@
 import './index.scss'
 import { consultarIndicacoes } from '../../../api/indicacaoApi'
 import { useEffect, useState } from 'react'
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 
 export default function Indicacao() {
@@ -57,6 +58,13 @@ export default function Indicacao() {
 
                 <div className='container-mapa'>
                     <button className='botao-mapa'>MAPA DO GOOGLE <img className='mapinha-botao' src='/assets/images/img-mapinha.svg' alt='img-mapinha' /> </button>
+
+                    {/*<Map
+                        google={this.props.google}
+                        zoom={7}
+                        initialCenter={{ lat: -27.0922364, lng: -52.6166878 }}
+                    >
+                    </Map>*/}
 
                     <a target='_blank' rel='noopener noreferrer' href='https://www.google.com.br/maps'><img className='google-mapa' src='/assets/images/mapa-tcc.svg' alt='mapa' /></a>
                 </div>

@@ -20,6 +20,28 @@
         flex-direction: column;
     }
 
+    .container-cards {
+        overflow-y: scroll;
+
+        width: 60vw;
+    }
+
+    .container-cards::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .container-cards::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .container-cards::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        background-color: #6F4528;
+    }
+
     .card-principal {
         display: flex;
         align-items: center;
