@@ -1,12 +1,13 @@
 import './index.scss'
 import MenuAdm from '../../../components/menuadm'
 import { useEffect, useState } from 'react'
-import { autorizarPsi } from '../../../api/psicologoApi.js';
 import { useParams } from 'react-router-dom';
+import { autorizarPsi, listarPsicologo } from '../../../api/psicologoApi';
+
 
 
 export default function Psicologo() {
-    const [psicologo, setPsicologo] = useState([]);
+    const [psicologo, setPsicologo] = useState({ data:null });
     const { idParam } = useParams();
 
     async function listarPsicologos() {
@@ -42,7 +43,7 @@ export default function Psicologo() {
                             <div>
                                 <h3>Data nascimento:</h3>
                                 <div className='infos'>
-                                    <p > {psicologo.data} </p>
+                                    <p > {psicologo.data ? psicologo.data.substr(0, 10) : ''} </p>
                                 </div>
                             </div>
                         </div>

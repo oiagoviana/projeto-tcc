@@ -72,7 +72,7 @@ export async function autorizarPsi(id) {
     const comando =
     `select 	id_psicologo 	id,
                 nm_psicologo 	nome,
-                dt_nascimento 	data,
+                date_format(dt_nascimento, '%d/%m/%Y')					as 'data',
                 ds_telefone		telefone,
                 ds_email		email,
                 ds_senha		senha,
