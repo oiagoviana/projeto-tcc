@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import multer from 'multer';
-import { autorizarPublicacao, fazerComentario, listarPublicacoes, listarPublicacoesAdm } from '../repository/publicacaoRepository.js';
+import { autorizarPublicacao, buscarPublicacao, fazerComentario, listarPublicacoesAdm } from '../repository/publicacaoRepository.js';
 import { publicarUsuario, alterarImagem } from '../repository/publicacaoRepository.js';
 
 
@@ -20,11 +20,13 @@ server.get('/admin/publicacao', async (req, resp) => {
     }
 })
 
-server.get('/admin/publicacao/verificar/:id', async (req, resp) => {
+server.get('/admin/publicacao/:id', async (req, resp) => {
     try {
-        const { id } = req.params
-        const resposta = await listarPublicacoes(id);
-        resp.send(resposta);
+        const { id } = req.params;
+
+        const publicacao = await buscarPublicacao(id);
+
+        resp.send(publicacao);
 
 
     } catch (err) {

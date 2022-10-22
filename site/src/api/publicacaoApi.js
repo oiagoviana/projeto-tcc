@@ -11,6 +11,6 @@ export async function listarPublicacao() {
 }
 
 export async function amostrarPublicacao(id) {
-    const resposta = await api.get('/admin/publicacao/verificar/' + id);
+    const resposta = await api.get('/admin/publicacao/' + id);
     return resposta.data;
 }
