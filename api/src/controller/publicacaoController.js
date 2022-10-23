@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import multer from 'multer';
-import { autorizarPublicacao, fazerComentario, listarPublicacoesAdm } from '../repository/publicacaoRepository.js';
-import { publicarUsuario, alterarImagem } from '../repository/publicacaoRepository.js';
+import { alterarImagemPsicologo, autorizarPublicacaoUsuario, fazerComentario, listarPublicacoesAdm, listarPublicacoesAdmId, publicarPsicologo } from '../repository/publicacaoRepository.js';
+import { publicarUsuario, alterarImagemUsuario } from '../repository/publicacaoRepository.js';
 
 
 const server = Router();
@@ -19,12 +19,27 @@ server.get('/admin/publicacao', async (req, resp) => {
         })
     }
 })
+server.get('/admin/publicacao/:id', async (req, resp) => {
+    try {
+        const id = Number(req.params.id)
+        const resposta = await listarPublicacoesAdmId(id);
+        resp.send(resposta);
 
-server.post('/api/publicacoes', async (req, resp) =>{
+
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.post('/usuario/publicacoes', async (req, resp) =>{
     try{
         const novaPublicacao = req.body;
        
-
+        if(!novaPublicacao.usuario){
+            throw new Error ('É necessário estar logado para publicar!')
+        }    
         if(!novaPublicacao.titulo){
             throw new Error ('O título é obrigatório!!')
         }
@@ -42,10 +57,34 @@ server.post('/api/publicacoes', async (req, resp) =>{
     }
 })
 
+server.post('/psicologo/publicacoes', async (req, resp) =>{
+    try{
+        const novaPublicacao = req.body;
+       
+        if(!novaPublicacao.usuario){
+            throw new Error ('É necessário estar logado para publicar!')
+        }    
+        if(!novaPublicacao.titulo){
+            throw new Error ('O título é obrigatório!!')
+        }
+        if(!novaPublicacao.descricao){
+            throw new Error ('A descrição é obrigatória!!')
+        }
+          const resposta = await publicarPsicologo(novaPublicacao);
+            resp.status(201).send(resposta);
+        
+    }
+    catch(err) {
+        resp.status(401).send({
+            erro: err.message
+        });
+    }
+})
+
 server.put('/admin/aprovar/publicacao/:id', async (req, resp) => {
     try {
         const id = Number(req.params.id)
-        const resposta = await autorizarPublicacao(id);
+        const resposta = await autorizarPublicacaoUsuario(id);
         if(resposta != 1)
             throw new Error('Publicação não pôde ser aprovada')
         else
@@ -66,7 +105,26 @@ server.put('/api/publicacao/:id/imagem', upload.single('imagem'), async (req,res
         const { id } = req.params;
         const imagem = req.file.path;
 		
-        const resposta = await alterarImagem(imagem, id)
+        const resposta = await alterarImagemUsuario(imagem, id)
+        if(resposta != 1) 
+			throw new Error('A imagem não pôde ser salva.')
+        resp.status(204).send();
+    } catch(err){
+		console.log(err)
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.put('/psicologo/publicacao/:id/imagem', upload.single('imagem'), async (req,resp) => {
+    try{
+        if (!req.file)
+            throw new Error('Escolha a imagem da publicação!')
+        const { id } = req.params;
+        const imagem = req.file.path;
+		
+        const resposta = await alterarImagemPsicologo(imagem, id)
         if(resposta != 1) 
 			throw new Error('A imagem não pôde ser salva.')
         resp.status(204).send();

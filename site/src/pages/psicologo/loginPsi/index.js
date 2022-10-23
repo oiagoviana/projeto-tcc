@@ -21,12 +21,12 @@ export default function LoginPsi(){
 
         try{
             const resposta = await loginPsicologo(email, senha);
-            storage('adm-logado', resposta);
+            storage('psi-logado', resposta);
             console.log(resposta);
 
             setTimeout(() =>{
 
-                navigate('/admin/indicacao');
+                navigate('/usuario/publicacao');
             }, 3000)
         }
         catch(err) {

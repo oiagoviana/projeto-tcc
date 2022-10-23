@@ -3,7 +3,7 @@ import MenuAdm from '../../../components/menuadm'
 import { useEffect, useState } from 'react'
 import { listarPublicacao } from '../../../api/publicacaoApi';
 import { useNavigate } from 'react-router-dom';
-
+import { buscarImagem } from '../../../api/publicacaoApi';
 
 
 export default function PublicacaoCard() {
@@ -43,7 +43,7 @@ export default function PublicacaoCard() {
                         <div className='container-card'>
                             <div className='card-publi'>
                                 <div className='sub1'>
-                                    <img className='sub1-img' src={item.imagem} alt='' />
+                                    <img className='sub1-img' src={buscarImagem(item.imagem)} alt='' />
 
                                     <div className='sub1-textos'>
                                         <p className='sub1-titulo'>{item.nome} {item.nomePsi} </p>
