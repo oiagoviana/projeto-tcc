@@ -23,12 +23,12 @@ export default function PublicacaoCard() {
     function abrirDetalhe(id) {
         navigate(`/admin/publicacao/${id}`);
     }
-    
+
 
 
     return (
         <main className='page-publicacaoCard'>
-            
+
             <div>
                 <MenuAdm pagina='publicacao' />
             </div>
@@ -36,42 +36,45 @@ export default function PublicacaoCard() {
             <div className='div-direita'>
                 <h2>Verificações de Publicações pendentes</h2>
 
-                
-            {publi.map(item => 
+                <div className='container-publicacoes'>
 
-            <div className='container-card'>
-                <div className='card-publi'>
-                    <div className='sub1'>
-                        <img className='sub1-img' src={item.imagem} alt='' />
+                    {publi.map(item =>
 
-                        <div className='sub1-textos'>
-                            <p className='sub1-titulo'>{item.nome} {item.nomePsi} </p>
-                                <p className='sub1-texto'>{item.email} {item.emailPsi}</p>
+                        <div className='container-card'>
+                            <div className='card-publi'>
+                                <div className='sub1'>
+                                    <img className='sub1-img' src={item.imagem} alt='' />
+
+                                    <div className='sub1-textos'>
+                                        <p className='sub1-titulo'>{item.nome} {item.nomePsi} </p>
+                                        <p className='sub1-texto'>{item.email} {item.emailPsi}</p>
+                                    </div>
+                                </div>
+
+                                <div className='sub2-textos'>
+                                    <div>
+                                        <p className='sub2-titulo'> {item.titulo} </p>
+                                        <p className='sub2-texto' > {item.descricao} </p>
+                                    </div>
+
+                                    <div className='sub2-img'>
+                                        <img onClick={() => abrirDetalhe(item.id)} src='/assets/images/setaPubli.svg' alt='' />
+                                    </div>
+                                </div>
+
+                                <div className='sub3-data'>
+                                    <p>{item.data.substr(0, 10)}</p>
+                                </div>
+
+                            </div>
+
+
                         </div>
-                    </div>
+                    )}
 
-                    <div className='sub2-textos'>
-                        <div>
-                            <p className='sub2-titulo'> {item.titulo} </p>
-                            <p className='sub2-texto' > {item.descricao} </p>
-                        </div>
-                        
-                        <div className='sub2-img'>
-                            <img onClick={() => abrirDetalhe(item.id)} src='/assets/images/setaPubli.svg' alt='' />
-                        </div>
-                    </div>
-
-                    <div className='sub3-data'>
-                        <p>{item.data.substr(0, 10)}</p>
-                    </div>
-
-                    </div>
-                    
-                    
                 </div>
-                )}
 
-                
+
             </div>
 
 

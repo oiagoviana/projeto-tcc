@@ -1,6 +1,8 @@
 .psi-page{
     display: flex;
     flex-direction: row;
+
+    overflow-y: hidden;
     
     .retangulo{
         width: max-content;
@@ -41,10 +43,30 @@
 
     .div-secundaria{
         width: 50vw;
+        height: 90vh;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        flex-wrap: wrap;   
+        flex-wrap: wrap;
+
+        padding-right: 2em;
+        overflow-y: scroll;
+    }
+
+    .div-secundaria::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .div-secundaria::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .div-secundaria::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        background-color: #6F4528;
     }
 
     .div-img-setinha{ 

@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import multer from 'multer';
-import { autorizarPublicacao, listarPublicacoesAdm } from '../repository/publicacaoRepository.js';
+import { autorizarPublicacao, fazerComentario, listarPublicacoesAdm } from '../repository/publicacaoRepository.js';
 import { publicarUsuario, alterarImagem } from '../repository/publicacaoRepository.js';
 
 
@@ -77,6 +77,29 @@ server.put('/api/publicacao/:id/imagem', upload.single('imagem'), async (req,res
         })
     }
 })
+
+server.post('/api/comentario', async (req, resp) =>{
+    try{
+        const novoComentario = req.body;
+       
+            console.log(novoComentario);
+        if(!novoComentario.IDusuario && !novoComentario.IDpsicologo){
+            throw new Error ('É necessário estar logado para comentar!!!')
+        }
+        if(!novoComentario.comentario){
+            throw new Error ('É necessário comentar!!')
+        }
+          const resposta = await fazerComentario(novoComentario);
+            resp.status(201).send(resposta);
+        
+    }
+    catch(err) {
+        resp.status(401).send({
+            erro: err.message
+        });
+    }
+})
+
 
 
 

@@ -52,4 +52,17 @@ export async function alterarImagem(imagem, id){
     return resposta.affectedRows;
 }
 
+export async function fazerComentario(comentario){
+    const comando = `
+        insert into tb_comentario(id_usuario, id_psicologo, ds_comentario, dt_comentario)
+            values (?, ?, ?, sysdate());
+    `
+    const [resposta] = await con.query(comando, [comentario.IDusuario, comentario.IDpsicologo,  comentario.comentario, comentario.data]);
+    comentario.id = resposta.insertId;
+
+    return comentario;
+    
+    
+
+}
 
