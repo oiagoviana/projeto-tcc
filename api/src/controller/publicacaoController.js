@@ -1,15 +1,28 @@
 import { Router } from 'express'
 import multer from 'multer';
-import { alterarImagemPsicologo, autorizarPublicacaoUsuario, fazerComentario, listarPublicacoesAdm, listarPublicacoesAdmId, publicarPsicologo } from '../repository/publicacaoRepository.js';
+import { alterarImagemPsicologo, listarPublicacoesPsicologoId, listarPublicacoesUsuarioId, autorizarPublicacaoUsuario, fazerComentario, listarPublicacoesUsuario, listarPublicacoesPsicologo, listarPublicacoesAdmId } from '../repository/publicacaoRepository.js';
 import { publicarUsuario, alterarImagemUsuario } from '../repository/publicacaoRepository.js';
 
 
 const server = Router();
 const upload = multer({dest: 'storage/imagensPublicacao'})
 
-server.get('/admin/publicacao', async (req, resp) => {
+server.get('/usuario/publicacao', async (req, resp) => {
     try {
-        const resposta = await listarPublicacoesAdm();
+        const resposta = await listarPublicacoesUsuario();
+        resp.send(resposta);
+
+
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/psicologo/publicacao', async (req, resp) => {
+    try {
+        const resposta = await listarPublicacoesPsicologo();
         resp.send(resposta);
 
 
@@ -22,7 +35,21 @@ server.get('/admin/publicacao', async (req, resp) => {
 server.get('/admin/publicacao/:id', async (req, resp) => {
     try {
         const id = Number(req.params.id)
-        const resposta = await listarPublicacoesAdmId(id);
+        const resposta = await listarPublicacoesUsuarioId(id);
+        resp.send(resposta);
+
+
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/admin/psicologo/publicacao/:id', async (req, resp) => {
+    try {
+        const id = Number(req.params.id)
+        const resposta = await listarPublicacoesPsicologoId(id);
         resp.send(resposta);
 
 

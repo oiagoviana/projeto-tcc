@@ -5,8 +5,13 @@ const api = axios.create({
 })
 
 
-export async function listarPublicacao() {
-    const resposta = await api.get('/admin/publicacao');
+export async function listarPublicacaoUsuario() {
+    const resposta = await api.get('/usuario/publicacao');
+    return resposta.data;
+}
+
+export async function listarPublicacaoPsicologo() {
+    const resposta = await api.get('/psicologo/publicacao');
     return resposta.data;
 }
 
@@ -15,6 +20,10 @@ export async function listarPublicacaoId(id) {
     return resposta.data;
 }
 
+export async function listarPublicacaoPsicId(id) {
+    const resposta = await api.get(`/admin/psicologo/publicacao/${id}`);
+    return resposta.data;
+}
 export async function inserirPublicacaoUsuario(usuario, titulo, descricao){
     const resposta= await api.post('/usuario/publicacoes', {
         usuario:usuario,
@@ -67,7 +76,7 @@ export async function autorizarPublicacaoUsuario(id){
 }   
 
 export async function autorizarPublicacaoPsicologo(id){
-    const resposta = await api.put(`/psicologo/aprovar/publicacao/${id}`)
+    const resposta = await api.put(`admin/aprovar/publicacao/${id}`)
     return resposta.status;
     
 }   

@@ -1,7 +1,7 @@
 import { con } from './connection.js'
 
 
-export async function listarPublicacoesAdm() {
+export async function listarPublicacoesUsuario() {
     const comando =
         `select id_publicacao 					as 'id',
         tb_publicacao_usuario.id_usuario		as 'idUsuario',
@@ -19,8 +19,26 @@ export async function listarPublicacoesAdm() {
     const [resposta] = await con.query(comando);
     return resposta
 }
+export async function listarPublicacoesPsicologo() {
+    const comando =
+        `select id_publicacao 					as 'id',
+        tb_publicacao_psicologo.id_psicologo		as 'idPsicologo',
+        nm_psicologo						as 'nome',
+        tb_psicologo.ds_email				as 'email',
+        ds_titulo						as 'titulo',
+        ds_publicacao					as 'descricao',
+        date_format(dt_publicacao, '%d/%m/%Y')					as 'data',
+        img_publicacao					as 'imagem',
+        pb_aprovado                     as 'aprovado' 
+    from tb_publicacao_psicologo
+    left join tb_psicologo on tb_publicacao_psicologo.id_psicologo = tb_psicologo.id_psicologo
+    where pb_aprovado = false`
+    
+    const [resposta] = await con.query(comando);
+    return resposta
+}
 
-export async function listarPublicacoesAdmId(id) {
+export async function listarPublicacoesUsuarioId(id) {
     const comando =
         `select id_publicacao 					as 'id',
         tb_publicacao_usuario.id_usuario		as 'idUsuario',
@@ -33,6 +51,26 @@ export async function listarPublicacoesAdmId(id) {
         pb_aprovado                     as 'aprovado' 
     from tb_publicacao_usuario
     left join tb_usuario on tb_publicacao_usuario.id_usuario = tb_usuario.id_usuario
+    where id_publicacao = ?
+    `
+    
+    const [resposta] = await con.query(comando, [id]);
+    return resposta
+}
+
+export async function listarPublicacoesPsicologoId(id) {
+    const comando =
+        `select id_publicacao 					as 'id',
+        tb_publicacao_psicologo.id_psicologo		as 'idPsicologo',
+        nm_psicologo						as 'nome',
+        tb_psicologo.ds_email				as 'email',
+        ds_titulo						as 'titulo',
+        ds_publicacao					as 'descricao',
+        date_format(dt_publicacao, '%d/%m/%Y')					as 'data',
+        img_publicacao					as 'imagem',
+        pb_aprovado                     as 'aprovado' 
+    from tb_publicacao_psicologo
+    left join tb_psicologo on tb_publicacao_psicologo.id_psicologo = tb_psicologo.id_psicologo
     where id_publicacao = ?
     `
     
