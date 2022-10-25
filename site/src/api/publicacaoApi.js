@@ -10,7 +10,13 @@ export async function listarPublicacao() {
     return resposta.data;
 }
 
-export async function fazerComentario() {
-    const resposta = await api.post('/api/comentario');
+export async function fazerComentarioUsu() {
+    const resposta = await api.post('/api/comentario', {
+        id: id,
+        comentario: comentario
+
+    });
+
+    return resposta.data;
     
 }
