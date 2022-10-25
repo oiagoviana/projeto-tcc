@@ -2,8 +2,8 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 //Admin
 
-import LoginAdm from './pages/admin/loginAdm' 
-import HomeAdm from './pages/admin/home'
+import LoginAdm from './pages/admin/LoginAdm' 
+import HomeAdm from './pages/admin/Home'
 import Indicacoes from './pages/admin/indicacao'
 import IndicacoesCard from './pages/admin/indicacaoCard'
 import Psicologo from './pages/admin/psi'
