@@ -5,8 +5,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import HomeAdm from './pages/admin/Home'
 import LoginAdm from './pages/admin/LoginAdm' 
 
-import LoginAdm from './pages/admin/loginAdm' 
-import HomeAdm from './pages/admin/home'
+
 
 import Indicacoes from './pages/admin/indicacao'
 import IndicacoesCard from './pages/admin/indicacaoCard'
