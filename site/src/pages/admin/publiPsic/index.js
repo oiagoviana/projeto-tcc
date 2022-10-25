@@ -2,7 +2,7 @@ import './index.scss'
 import MenuAdm from '../../../components/menuadm'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { autorizarPublicacaoUsuario, buscarImagem, listarPublicacaoId } from '../../../api/publicacaoApi'
+import { autorizarPublicacaoPsicologo, autorizarPublicacaoUsuario, buscarImagem, listarPublicacaoPsicId } from '../../../api/publicacaoApi'
 
 
 export default function Publicacao() {
@@ -11,7 +11,7 @@ export default function Publicacao() {
     const {idParam} = useParams ()
 
     async function carregarPublicacao(){
-        const resposta= await listarPublicacaoId(idParam)
+        const resposta= await listarPublicacaoPsicId(idParam)
         setAutoriza(resposta)
     }
 
@@ -23,7 +23,7 @@ export default function Publicacao() {
 
     async function Autorizar(id){
         try {
-            const resposta= await autorizarPublicacaoUsuario(id)
+            const resposta= await autorizarPublicacaoPsicologo(id)
             alert('Publicação autorizada com sucesso!')
         } catch (err) {
             if (err.response)
