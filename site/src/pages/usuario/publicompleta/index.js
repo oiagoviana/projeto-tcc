@@ -1,23 +1,62 @@
 import MenuUsuario from "../../../components/menuusuario";
+import ComentUser from "../../../components/comentarioUsuario";
 import './index.scss'
 import { inserirComentario } from "../../../api/publicacaoApi";
 import { useState } from "react";
+import Modal from 'react-modal';
 
 
 
 export default function PubliCompleta() {
-    const [usuario,setUsuario] = useState();
-    const [comentario, setComentario] = useState ();
+    const [usuario, setUsuario] = useState();
+    const [comentario, setComentario] = useState();
 
-    async function salvarComentario(){
-        try{
-            const a = await inserirComentario (a, usuario, comentario)
-            alert ('Comentário Publicado!')
+    const [ModalIsOpen, SetIsOpen] = useState(false);
+
+    async function salvarComentario() {
+        try {
+            const a = await inserirComentario(a, usuario, comentario)
+            alert('Comentário Publicado!')
 
         } catch (err) {
             if (err.message);
         }
     }
+
+    Modal.setAppElement('#root');
+
+    function openModal() {
+        SetIsOpen(true);
+
+    }
+
+    function closeModal() {
+        SetIsOpen(false);
+
+    }
+
+    const Css = {
+        content: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItens: 'center',
+            justifyContent: 'center',
+            margin: 'none',
+            backgroundColor: '#ffff',
+            width: '50vw',
+            backgroundColor: '#73401E',
+            height: '40vh',
+
+        },
+        overlay: {
+            backgroundColor: '#000000ce'
+        },
+
+
+
+    };
+
+
 
     return (
         <main className="div-principal">
@@ -46,7 +85,7 @@ export default function PubliCompleta() {
                                     <h4>Descrição:</h4>
                                 </div>
 
-                                <img src='/assets/images/mae-grande.png' alt='' />
+                                <img src='/assets/images/mae-grande.png' className='img-publi' alt='' />
                                 <p className='sub3-desc'> Lorem ipsum dolor sit amet. Qui nulla error ut galisum doloremque eum maxime officia est autem error et earum voluptas! Ut assumenda assumenda. At obcaecati beatae et voluptatum distinctio? Nam dolor consectetur hic earum quam est aperiam odit. 33 voluptates beatae ab sunt tenetur et omnis nemo. Non quisquam enim et corrupti dolores ut officiis nostrum et placeat expedita sed alias quasi.</p>
 
 
@@ -55,21 +94,23 @@ export default function PubliCompleta() {
                         </div>
                     </div>
                 </div>
+            </div>
 
-                    <div className="sub4">
+            <div className='container-titulo-coment'>
+                <button className="h1coment" onClick={openModal}>Comentar</button>
 
-                        <div className='container-titulo-coment'>
-                            <h1 className="h1coment">Comentar</h1>
-                        </div>
+                <div>
+                    <Modal
+                        isOpen={ModalIsOpen}
+                        onRequestClose={closeModal}
+                        style={Css}
 
+                    >
+                        <ComentUser />
+                    </Modal>
 
-                        <textarea value={comentario} onChange = { e=> setComentario(e.target.value)} className="text"></textarea>
+                </div>
 
-                        
-
-
-                    </div>
-                    
             </div>
         </main>
     )

@@ -4,10 +4,12 @@ export default function ComentUser() {
     return(
         <div className='container-comentario'>
             <div className='container-nome-coment'>
-                <h3>Dr. kkkk</h3>
+                <h3>Fazer um Comentario</h3>
             </div>
 
-            <textarea></textarea>
+            <textarea maxLength={300} ></textarea>
+
+            <button className='botao-comentario'>Comentar</button>
         </div>
     )
 }
