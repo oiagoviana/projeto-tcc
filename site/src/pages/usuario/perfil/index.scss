@@ -1,0 +1,241 @@
+.page-perfil-user {
+    display: flex;
+    flex-direction: row;
+
+    position: relative;
+
+    .container-meio {
+        display: flex;
+        justify-content: center;
+
+        height: 100vh;
+        width: 100%;
+    }
+
+    .container-perfil {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 45vh;
+        width: 80%;
+
+        margin-top: 2em;
+    }
+
+    .circulo-inicial {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 11vh;
+        width: 13%;
+
+        background-color: #6F4528;
+        border-radius: 15em;
+    }
+
+    .circulo-inicial p {
+        color: #FFFFFF;
+    }
+
+    .container-square {
+        display: flex;
+        flex-direction: column;
+
+        width: 85%;
+    }
+
+    .container-credenciais {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-credenciais h3 {
+        margin-bottom: -1em;
+    }
+
+    .container-credenciais p {
+        color: #B4B4B4;
+    }
+
+    .container-solicitacoes {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .container-botoes-mensagens {
+        display: flex;
+        flex-direction: row;
+
+        width: 100%;
+        height: 5vh;
+
+        box-shadow: 4px 4px 4px #B4B4B4;
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    .container-botoes-mensagens div {
+        cursor: pointer;
+    }
+
+    .container-botoes-mensagens div a {
+        text-decoration: none;
+        color: #000000;
+
+        font-weight: 700;
+    }
+
+    .container-mensagens {
+        display: flex;
+        align-items: center;
+
+
+        width: 50%;
+        height: 100%;
+
+        border-bottom: 2.5px solid #6F4528;
+
+    }
+
+    .container-publicacoes {
+        display: flex;
+        align-items: center;
+
+
+        width: 50%;
+        height: 100%;
+
+    }
+
+    table {
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        height: 30vh;
+        width: 100%;
+
+        margin-top: .5em;
+    }
+
+    .container-botoes-mensagens p {
+        margin-left: 1em;
+
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .cabecalho td {
+        width: 100%;
+    }
+
+    .titulo-psicologo {
+        width: 28vw;
+        text-align: left;
+    }
+
+    .titulo-situacao {
+        width: 9vw;
+    }
+
+    .botao-limpar {
+        width: 12vw;
+        height: 4vh;
+
+        color: #FFFFFF;
+        background-color: #6F4528;
+        border-radius: .4em;
+    }
+
+    .corpo-teste {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        width: 99%;
+        height: 4vh;
+    }
+
+    .titulo-doutores {
+        width: 27.7vw;
+
+        margin-left: 3px;
+    }
+
+    .titulo-resultado-situacao {
+        width: 10vw;
+        text-align: center;
+    }
+
+    .img-lixo-black {
+        width: 9vw;
+
+        text-align: right;
+    }
+
+    tbody {
+        display: block;
+        height: 25vh;
+        overflow-y: scroll;
+    }
+
+    tbody::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    tbody::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    tbody::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        background-color: #6F4528;
+    }
+
+
+
+    tbody tr:nth-child(even) {
+        background-color: #FFB48A;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #C57D56;
+    }
+
+    
+
+    tr td {
+        font-weight: 700;
+    }
+
+    tr td:nth-last-child(1) * {
+        visibility: hidden;
+    }
+
+    tr:hover td:nth-last-child(1) img {
+        visibility: visible;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .image-logo {
+        position: absolute;
+        bottom: 2em;
+        right: 2em;
+
+        width: 17vw;
+        height: 11vh;
+    }
+}
