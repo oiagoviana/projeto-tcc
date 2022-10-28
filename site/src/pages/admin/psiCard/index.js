@@ -71,7 +71,9 @@ export default function PsicologoCard() {
                             </div>
                         )}
                 </section>
+                
             </div>
+            
         </main>
     );
 }

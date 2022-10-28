@@ -5,15 +5,55 @@ const api = axios.create({
 })
 
 
-export async function listarPublicacao() {
-    const resposta = await api.get('/admin/publicacao');
+export async function listarPublicacaoUsuario() {
+    const resposta = await api.get('/usuario/publicacao');
     return resposta.data;
 }
 
-export async function inserirComentario(usuario, comentario){
-    const resposta= await api.post('/api/comentario', {
+
+export async function amostrarPublicacao(id) {
+    const resposta = await api.get('/admin/publicacao/' + id);
+    return resposta.data;
+}
+
+
+
+export async function listarPublicacaoId(id) {
+    const resposta = await api.get(`/admin/publicacao/${id}`);
+    return resposta.data;
+}
+
+export async function inserirPublicacaoUsuario(usuario, titulo, descricao){
+    const resposta= await api.post('/usuario/publicacoes', {
         usuario:usuario,
-        comentario:comentario
+        titulo:titulo,
+        descricao:descricao
     });
     return resposta.data;
+    
+}
+export async function AdicionarImagemUsuario (id, imagem){
+    const formData= new FormData();
+    formData.append('imagem', imagem);
+    const r = await api.put(`/api/publicacao/${id}/imagem`, 
+    formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        },
+    });
+    return r.status;
+}
+
+export function buscarImagem(imagem){
+    return `${api.getUri()}/${imagem}`
+}
+
+export async function autorizarPublicacaoUsuario(id){
+    const resposta = await api.put(`/admin/aprovar/publicacao/${id}`)
+    return resposta.status;
+    
 }   
+
+    
+    
+
