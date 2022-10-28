@@ -21,6 +21,8 @@ import Cadastro from './pages/usuario/cadastro'
 
 import MenuUsuario from './components/menuusuario'
 
+import PerfilUser from './pages/usuario/perfil'
+
 
 
 import PublicacaoUsuario from './pages/usuario/publicacao'
@@ -42,7 +44,8 @@ export default function Index() {
                 <Route path='/usuario/cadastro' element={<Cadastro />} />
                 <Route path='/usuario/login' element={<Login />} />
 
-                
+                <Route path='/usuario/perfil' element={<PerfilUser />} />
+
                 <Route path='/usuario/publicacao' element={<PublicacaoUsuario/>}/>
 
                 <Route path='/usuario/indicacao' element={<Indicacao />} />

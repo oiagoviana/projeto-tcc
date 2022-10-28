@@ -1,0 +1,129 @@
+.page-perfil-user {
+    display: flex;
+    flex-direction: row;
+
+    position: relative;
+
+    .container-meio {
+        display: flex;
+        justify-content: center;
+
+        height: 100vh;
+        width: 100%;
+
+        border: 1px solid red;
+    }
+
+    .container-perfil {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 45vh;
+        width: 80%;
+
+        margin-top: 1em;
+
+        border: 1px solid black;
+    }
+
+    .circulo-inicial {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 13vh;
+        width: 11%;
+
+        background-color: #6F4528;
+        border-radius: 15em;
+    }
+
+    .circulo-inicial p {
+        color: #FFFFFF;
+    }
+
+    .container-square {
+        display: flex;
+        flex-direction: column;
+
+        width: 86%;
+        
+
+        border: 1px solid hotpink;
+    }
+
+    .container-credenciais {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-credenciais h3 {
+        margin-bottom: -1em;
+    }
+
+    .container-credenciais p {
+        color: #B4B4B4;
+    }
+
+    .container-solicitacoes {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .container-botoes-mensagens {
+        display: flex;
+        flex-direction: row;
+
+        width: 100%;
+        height: 5vh;
+
+        box-shadow: 4px 4px 4px #B4B4B4;
+        border-radius: 10px 10px 0px 0px;
+    }
+    
+    .container-mensagens {
+        display: flex;
+        align-items: center;
+
+
+        width: 50%;
+        height: 100%;
+
+        border-bottom: 2.5px solid #6F4528;
+
+    }
+
+    .container-publicacoes {
+        display: flex;
+        align-items: center;
+
+
+        width: 50%;
+        height: 100%;
+
+    }
+
+    .container-botoes-mensagens p {
+        margin-left: 1em;
+
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+
+
+
+
+
+
+
+    .image-logo {
+        position: absolute;
+        bottom: 2em;
+        right: 2em;
+
+        width: 17vw;
+        height: 11vh;
+    }
+}
