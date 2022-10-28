@@ -26,7 +26,7 @@ export default function Login() {
             storage('usuario-logado', resposta);
 
             setTimeout(() => {
-                navigate('/admin/indicacao');    
+                navigate('/usuario/publicacao');    
             }, 3000 )
         }
         catch(err) {

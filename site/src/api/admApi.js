@@ -13,3 +13,9 @@ export async function Login(email, senha) {
 
     return resposta.data;
 }
+
+
+export async function listarInfo(){
+    const resposta = await api.get('/admin/listarInfos')
+    return resposta.data;
+}

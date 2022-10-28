@@ -1,14 +1,22 @@
 .psi-page{
     display: flex;
     flex-direction: row;
-    
+
+
+    .retangulo{
+        width: max-content;
+        width: 100%;
+    }
     
     .div-principal{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+
         align-items: center;
         width: 100vw;
     }
+
+
 
     .div-informações{
         display: flex;
@@ -31,22 +39,42 @@
         background: #FFFFFF;
         box-shadow: 0px 0px 10px 1px #9E9E9E;
         border-radius: 12px;
-        height: 65vh;
+        height: 55vh;
         margin: 3em 0em 0em 0em;
     }
 
     .div-secundaria{
         width: 50vw;
+        height: 90vh;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
+
+        padding-right: 2em;
+        overflow-y: scroll;
+    }
+
+    .div-secundaria::-wzebkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .div-secundaria::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .div-secundaria::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        background-color: #6F4528;
     }
 
     .div-img-setinha{ 
         display: flex;
         justify-content: flex-end;
-        width: 18vw;
+        width: 15vw;
     }
 
     

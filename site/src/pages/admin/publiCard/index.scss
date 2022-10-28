@@ -1,0 +1,125 @@
+.page-publicacaoCard{
+    display: flex;
+    flex-direction: row;
+
+
+    .div-direita{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+    }
+
+    .container-publicacoes {
+        height: 90vh;
+
+        padding-right: 3em;
+        overflow-y: scroll;
+    }
+
+    .container-publicacoes::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .container-publicacoes::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .container-publicacoes::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        background-color: #6F4528;
+    }
+
+    .container-card{
+        width: 100%;
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .card-publi{
+        height: 59vh;
+        width: 25vw;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 10px 1px rgba(158, 158, 158, 0.25);
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+    .sub1{  
+        margin: 10px 5px 0px 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 5em;
+    }
+
+    .sub1-img{
+        width: 10vw;
+        height: 11vh;
+    }
+
+    .sub1-textos{
+        width: 13.5vw;    
+    }
+
+    .sub1-titulo{
+        font-family: 'Poppins1';
+        font-size: 13px;
+        line-height: 0px;
+    }
+
+    .sub1-texto{
+        color: #61565699;
+        font-family: 'Poppins1';
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 0px;
+    }
+
+    .sub2-textos{
+        display: flex;
+        flex-direction: row;
+        margin: 0px 0px 8px 10px;
+    }
+
+    .sub2-titulo{
+        font-family: 'Poppins2';
+        font-size: 14px;
+        line-height: 0px;
+    }
+    
+    .sub2-texto{
+        width: 21vw;
+        height: 28vh;
+        word-break: break-all;
+        font-family: 'Poppins6';
+        font-size: 15px;
+        line-height: 20px;
+        color: #615656;
+    }
+
+
+    .sub2-img{
+        margin: 0px 0px 0px 5px;
+        display: flex;
+        align-items: flex-end;
+        height: 32vh;
+    }
+
+    .sub3-data{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #d9d9d980;
+        height: 9.3vh;
+        width: 100%;
+    }
+    
+}
+

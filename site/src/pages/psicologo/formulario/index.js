@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './index.scss'
 import LoadingBar from 'react-top-loading-bar'
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 import '../../../common/common.scss'
 import { formularioPsi } from '../../../api/psicologoApi';
 import InputMask from 'react-input-mask'
@@ -18,21 +18,21 @@ export default function Formulario() {
     const [cpf, setCpf] = useState('');
     const [crp, setCrp] = useState('');
     const [carregando, setCarregando] = useState(false);
-    const ref = useRef ();
+    const ref = useRef();
     const navigate = useNavigate();
 
     async function enviarFormulario() {
-        try{
+        try {
             const resposta = await formularioPsi(nome, telefone, nascimento, email, senha, crp, cpf);
             toast.dark('Formulário enviado! Analisaremos suas inforamções e logo iremos liberar seu login');
-            setTimeout(() =>{
+            setTimeout(() => {
                 navigate('/psi/login');
             }, 3000)
         }
-        catch(err) {
+        catch (err) {
             ref.current.complete();
             setCarregando(false);
-            if(err.response.status === 400){
+            if (err.response.status === 400) {
                 toast.error(err.response.data.erro);
             }
         }
@@ -53,58 +53,40 @@ export default function Formulario() {
             <div className='div-mae'>
 
                 <div className='direita'>
-
-
                     <label>Nome:</label>
-                    <input type="text" className="input-formulario" value = {nome} onChange = {e => setNome(e.target.value)} />
-
-
+                    <input type="text" className="input-formulario" value={nome} onChange={e => setNome(e.target.value)} />
 
                     <label>Telefone:</label>
-                    <InputMask mask='(99) 99999-9999' className="input-formulario" value = {telefone} onChange = {e => setTelefone(e.target.value)}/>
-
-
+                    <InputMask mask='(99) 99999-9999' className="input-formulario" value={telefone} onChange={e => setTelefone(e.target.value)} />
 
                     <label>CPF:</label>
-                    <InputMask mask='999.999.999-99' className="input-formulario" value = {cpf} onChange = {e => setCpf(e.target.value)} />
-
-
+                    <InputMask mask='999.999.999-99' className="input-formulario" value={cpf} onChange={e => setCpf(e.target.value)} />
 
                     <label>CRP:</label>
-                    <input type="text" className="input-formulario" value = {crp} onChange = {e => setCrp(e.target.value)} />
-
-
+                    <input type="text" className="input-formulario" value={crp} onChange={e => setCrp(e.target.value)} />
                 </div>
 
                 <div className='direitaa' >
 
                     <label>Data de Nascimento:</label>
-                    <input type="date" className="input-formulario" value = {nascimento} onChange = {e => setNascimento(e.target.value)}/>
+                    <input type="date" className="input-formulario" value={nascimento} onChange={e => setNascimento(e.target.value)} />
 
 
                     <label>Email:</label>
-                    <input placeholder='Seu email será usadao em seu login' type="text" className="input-formulario" value = {email} onChange = {e => setEmail(e.target.value)} />
+                    <input placeholder='Seu email será usadao em seu login' type="text" className="input-formulario" value={email} onChange={e => setEmail(e.target.value)} />
 
 
                     <label>Senha:</label>
-                    <input placeholder='Sua senha será usada em seu login' type="password" className="input-formulario" value = {senha} onChange = {e => setSenha(e.target.value)} />
+                    <input placeholder='Sua senha será usada em seu login' type="password" className="input-formulario" value={senha} onChange={e => setSenha(e.target.value)} />
 
-                   
                 </div>
             </div>
 
-                    < div>
-                        <button className='botao-formulario' onClick = {enviarFormulario} disabled = {carregando}>Enviar Formulario</button>
-                    </div>
-
-
-
-
+            < div>
+                <button className='botao-formulario' onClick={enviarFormulario} disabled={carregando}>Enviar Formulario</button>
+            </div>
 
             <div> <img className='img-baixo' src='/assets/images/triangulo-baixo.png' alt='' /> </div>
-
-
-
         </main>
     )
 }

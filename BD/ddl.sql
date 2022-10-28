@@ -32,6 +32,7 @@ CREATE TABLE tb_publicacao(
     ds_publicacao		varchar(500),
     dt_publicacao		date,
     img_publicacao		varchar(400),
+    pb_aprovado			boolean,
     
     foreign key (id_usuario) references tb_usuario(id_usuario),
     foreign key (id_psicologo) references tb_psicologo(id_psicologo)
@@ -61,6 +62,16 @@ CREATE TABLE tb_indicacao(
     ds_atendimento            	varchar(200),
     img_clinica                	varchar(400),
     foreign key	(id_indicacao_categoria) references tb_indicacao_categoria(id_indicacao_categoria)
+);
+
+create table tb_comentario(
+	id_comentario		int primary key auto_increment,
+    id_usuario			int,
+    id_psicologo		int,
+    ds_comentario		varchar(500),
+    dt_comentario		date,
+     foreign key	(id_usuario) references tb_usuario (id_usuario),
+	 foreign key	(id_psicologo) references tb_psicologo(id_psicologo)
 );
 
 
