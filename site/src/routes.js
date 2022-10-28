@@ -37,7 +37,7 @@ import PerfilUser from './pages/usuario/perfil'
 import PublicacaoUsuario from './pages/usuario/publicacao'
 
 
-
+import Testedemodal from './teste de modal/index'
 
 //Psi
 import Formulario from './pages/psicologo/formulario'
@@ -95,6 +95,8 @@ export default function Index() {
 
                 <Route path='/componente/menuusuario' element={<MenuUsuario/>}/>
 
+
+                <Route path='/modal' element={<Testedemodal/>}/>
 
             </Routes>
         </BrowserRouter>

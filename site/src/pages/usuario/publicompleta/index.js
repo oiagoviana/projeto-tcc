@@ -1,9 +1,24 @@
 import MenuUsuario from "../../../components/menuusuario";
 import './index.scss'
+import { inserirComentario } from "../../../api/publicacaoApi";
+import { useState } from "react";
 
 
 
 export default function PubliCompleta() {
+    const [usuario,setUsuario] = useState();
+    const [comentario, setComentario] = useState ();
+
+    async function salvarComentario(){
+        try{
+            const a = await inserirComentario (a, usuario, comentario)
+            alert ('Comentário Publicado!')
+
+        } catch (err) {
+            if (err.message);
+        }
+    }
+
     return (
         <main className="div-principal">
             <div>
@@ -48,7 +63,9 @@ export default function PubliCompleta() {
                         </div>
 
 
-                        <textarea className="text"></textarea>
+                        <textarea value={comentario} onChange = { e=> setComentario(e.target.value)} className="text"></textarea>
+
+                        
 
 
                     </div>
