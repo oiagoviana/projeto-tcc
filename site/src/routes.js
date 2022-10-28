@@ -2,14 +2,18 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 //Admin
 
-import LoginAdm from './pages/admin/loginAdm' 
-import HomeAdm from './pages/admin/home'
+
+import LoginAdm from './pages/admin/LoginAdm' 
+import HomeAdm from './pages/admin/Home'
+
+
 import Indicacoes from './pages/admin/indicacao'
 import IndicacoesCard from './pages/admin/indicacaoCard'
 import Psicologo from './pages/admin/psi'
 import PsicologoCard from './pages/admin/psiCard'
 import Publicacao from './pages/admin/publi'
 import PublicacaoCard from './pages/admin/publiCard'
+import PubliPsic from './pages/admin/publiPsic'
 
 
 
@@ -21,9 +25,13 @@ import Cadastro from './pages/usuario/cadastro'
 
 import MenuUsuario from './components/menuusuario'
 
+import PublicacaoCompleta from './pages/usuario/publicompleta'
+
+
 
 
 import PublicacaoUsuario from './pages/usuario/publicacao'
+
 
 
 
@@ -60,6 +68,10 @@ export default function Index() {
                 <Route path='/admin/psicologoCard' element={<PsicologoCard />} />
                 <Route path='/admin/publicacaoCard' element={<PublicacaoCard />} />
                 <Route path='/admin/publicacao/:idParam' element={<Publicacao />} />
+
+                <Route path='/admin/publicacao/psic/:idParam' element={<PubliPsic />} />
+                <Route path='/publicacaocompleta' element={<PublicacaoCompleta />} />
+
                 
 
 

@@ -9,7 +9,7 @@ export default function MenuUsuario ({pagina}){
 
 
     function sairClick (){
-        Storage.remove ('usuario-logado');
+        storage.remove ('usuario-logado');
         navigate ('/')
     }
 
