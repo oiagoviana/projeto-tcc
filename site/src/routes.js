@@ -3,9 +3,9 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 //Admin
 
 
+
 import LoginAdm from './pages/admin/LoginAdm' 
 import HomeAdm from './pages/admin/Home'
-
 
 import Indicacoes from './pages/admin/indicacao'
 import IndicacoesCard from './pages/admin/indicacaoCard'
@@ -25,7 +25,11 @@ import Cadastro from './pages/usuario/cadastro'
 
 import MenuUsuario from './components/menuusuario'
 
+
 import PublicacaoCompleta from './pages/usuario/publicompleta'
+
+
+import PerfilUser from './pages/usuario/perfil'
 
 
 
@@ -33,7 +37,7 @@ import PublicacaoCompleta from './pages/usuario/publicompleta'
 import PublicacaoUsuario from './pages/usuario/publicacao'
 
 
-
+import Testedemodal from './teste de modal/index'
 
 //Psi
 import Formulario from './pages/psicologo/formulario'
@@ -50,7 +54,8 @@ export default function Index() {
                 <Route path='/usuario/cadastro' element={<Cadastro />} />
                 <Route path='/usuario/login' element={<Login />} />
 
-                
+                <Route path='/usuario/perfil' element={<PerfilUser />} />
+
                 <Route path='/usuario/publicacao' element={<PublicacaoUsuario/>}/>
 
                 <Route path='/usuario/indicacao' element={<Indicacao />} />
@@ -90,6 +95,8 @@ export default function Index() {
 
                 <Route path='/componente/menuusuario' element={<MenuUsuario/>}/>
 
+
+                <Route path='/modal' element={<Testedemodal/>}/>
 
             </Routes>
         </BrowserRouter>

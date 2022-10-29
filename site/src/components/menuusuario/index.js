@@ -24,11 +24,11 @@ export default function MenuUsuario ({pagina}){
 
                 <div className='botoes'>
                   <a href='/home' className={pagina === 'home' ? 'selected' : ''}>Home</a>
-                  <a href='/publicacao' className={pagina === 'publicacao' ? 'selected' : ''}>Publicações</a>
-                  <a href='/publicacao' className={pagina === 'publicacao' ? 'selected' : ''}>Quero Publicar</a>
-                  <a href='/indicacao' className={pagina === 'indicacao' ? 'selected' : ''}>Indicações</a>
+                  <a href='/usuario/publicacao' className={pagina === 'publicacao' ? 'selected' : ''}>Publicações</a>
+                  <a href='/usuario/publicacao' className={pagina === 'publicar' ? 'selected' : ''}>Quero Publicar</a>
+                  <a href='/usuario/indicacao' className={pagina === 'indicacao' ? 'selected' : ''}>Indicações</a>
                   <a href='/chat' className={pagina === 'chat' ? 'selected' : ''}>Chat com Psi</a>
-                  <a href='/chat' className={pagina === 'chat' ? 'selected' : ''}>Meu Perfil</a>
+                  <a href='/usuario/perfil' className={pagina === 'perfil' ? 'selected' : ''}>Meu Perfil</a>
                 </div>
 
 
