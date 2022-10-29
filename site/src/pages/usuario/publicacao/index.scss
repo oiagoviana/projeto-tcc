@@ -1,3 +1,4 @@
+
 .usuario-page{
     display: flex;
     flex-direction: row;
@@ -235,6 +236,12 @@
             border: 2px solid #000000;
             border-radius: 5px;
         }
-
-   
+        #ClickFoto{
+            visibility: hidden;
+            position: absolute;
+        }
+        .foto-publi{
+            height: 5em;
+            width: 131.89px;
+        }
 }

@@ -15,7 +15,7 @@
         
 
         height: 10vh;
-        width: 90vw;
+        width: 90%;
 
         margin-top: 1.5em;
     }
@@ -80,6 +80,8 @@
         margin-left: 2.5em;
         
         overflow-y: scroll;
+
+        border: 1px solid red;
 
     }
 
@@ -205,6 +207,53 @@
     .google-mapa {
         height: 60vh;
         width: 100%;
+
+        border: 1px solid red;
+    }
+
+    @media(max-width: 480px) {
+        .google-mapa {
+            height: 100%;
+            width: 100%;
+        }
+
+        .botao-home {
+            margin-right: 3em;
+        }
+
+        input {
+            margin-right: 25px;
+        }
+    
+        .container-header img {
+            position: relative;
+            right: 3em;
+        }
+
+        .card-indicacao {
+            display: flex;
+            flex-direction: column;
+            height: 36vh;
+            width: 28vw;
+            margin: 1.5em;
+        }
+
+        .container-telefone {
+            flex-direction: column;
+    
+            margin-top: -1.5em;
+        }
+
+        .text-telefone {
+            margin-right: 1em;
+            margin-bottom: -0.5em;
+            border: 1px solid red;
+        }
+
+        .container-mapa {
+            justify-content: center;
+            margin-top: -2em;
+        }
     }
     
 }
