@@ -31,7 +31,12 @@ export async function formularioPsi(nome, telefone, nascimento, email, senha, cr
     return resposta.data;
 }
 
-export async function autorizarPsi(id) {
+export async function listarPsi(id) {
     const resposta = await api.get(`/admin/psicologo/${id}`);
+    return resposta.data;
+}
+
+export async function autorizarPsi(id) {
+    const resposta = await api.put(`/admin/psicologo/${id}`);
     return resposta.data;
 }
