@@ -22,8 +22,6 @@ export default function LoginPsi(){
         try{
             const resposta = await loginPsicologo(email, senha);
             storage('psi-logado', resposta);
-            console.log(resposta);
-
             setTimeout(() =>{
 
                 navigate('/usuario/publicacao');

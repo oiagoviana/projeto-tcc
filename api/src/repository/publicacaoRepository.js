@@ -59,7 +59,7 @@ export async function PublicarUsuario(publicar) {
 
 export async function PublicarPsi(publicar) {
     const comando =
-        `insert into tb_publicacao(id_psicogolo, ds_titulo, ds_publicacao, dt_publicacao, pb_aprovado)
+        `insert into tb_publicacao(id_psicologo, ds_titulo, ds_publicacao, dt_publicacao, pb_aprovado)
         values(?, ?, ?, curdate(), false)`
     const [resposta] = await con.query(comando, [publicar.psicologo, publicar.titulo, publicar.descricao]);
     publicar.id = resposta.insertId;

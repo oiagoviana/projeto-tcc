@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import multer from 'multer';
 
-import { alterarImagemUsuario, autorizarPublicacao, fazerComentario ,listarPublicacaoCard, listarPublicacaoId, PublicarUsuario } from '../repository/publicacaoRepository.js';
+import { alterarImagemUsuario, autorizarPublicacao, fazerComentario ,listarPublicacaoCard, listarPublicacaoId, PublicarPsi, PublicarUsuario } from '../repository/publicacaoRepository.js';
 
 
 const server = Router();
@@ -41,15 +41,15 @@ server.post('/api/publicacaoUsu', async (req, resp) =>{
     try{
         const novaPublicacao = req.body;
        
-        if(!novaPublicacao.usuario && !novaPublicacao.psicologo){
+        if(!novaPublicacao.usuario){
             throw new Error ('É necessário estar logado para publicar!')
         }    
         if(!novaPublicacao.titulo){
             throw new Error ('O título é obrigatório!!')
         }
-        /*if(!novaPublicacao.descricao){
+        if(!novaPublicacao.descricao){
             throw new Error ('A descrição é obrigatória!!')
-        }*/
+        }
         const resposta = await PublicarUsuario(novaPublicacao);
         console.log(resposta);
             resp.status(201).send(resposta);
@@ -67,16 +67,16 @@ server.post('/api/publicacaoPsi', async (req, resp) =>{
     try{
         const novaPublicacao = req.body;
        
-        if(!novaPublicacao.usuario && !novaPublicacao.psicologo){
+        if(!novaPublicacao.psicologo){
             throw new Error ('É necessário estar logado para publicar!')
         }    
         if(!novaPublicacao.titulo){
             throw new Error ('O título é obrigatório!!')
         }
-        /*if(!novaPublicacao.descricao){
+        if(!novaPublicacao.descricao){
             throw new Error ('A descrição é obrigatória!!')
-        }*/
-        const resposta = await PublicarUsuario(novaPublicacao);
+        }
+        const resposta = await PublicarPsi(novaPublicacao);
         console.log(resposta);
             resp.status(201).send(resposta);
         
