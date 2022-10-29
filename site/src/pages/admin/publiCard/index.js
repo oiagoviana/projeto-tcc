@@ -54,7 +54,7 @@ return (
                             <div className='sub2-textos'>
                                 <div>
                                     <p className='sub2-titulo'> {item.titulo} </p>
-                                    <p className='sub2-texto' > {item.descricao} </p>
+                                    <p className='sub2-texto' > {item.descricao.substr(0, 209)}... </p>
                                 </div>
 
                                 <div className='sub2-img'>
