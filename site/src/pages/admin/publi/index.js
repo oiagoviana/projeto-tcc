@@ -2,7 +2,7 @@ import './index.scss'
 import MenuAdm from '../../../components/menuadm'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { autorizarPublicacao, mostrarPublicacaoId } from '../../../api/publicacaoApi';
+import { autorizarPublicacao, buscarImagem, mostrarPublicacaoId } from '../../../api/publicacaoApi';
 import { toast } from 'react-toastify'
 
 
@@ -28,6 +28,8 @@ export default function Publicacao() {
     useEffect(() => {
         listarPublicações();
     }, [])
+
+
 
     
     return (
@@ -58,7 +60,7 @@ export default function Publicacao() {
                                 </div>
                                 <p className='sub3-desc'> {publicacao.descricao} </p>
                             
-                                <img src='/assets/images/maepubli.png' alt='' />
+                                <img src={buscarImagem(publicacao.imagem)} alt='' className='imagem-publi' />
                             </div>
 
                         </div>
