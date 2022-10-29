@@ -15,16 +15,27 @@ export async function mostrarPublicacaoId(id) {
     return resposta.data;
 }
 
-export async function inserirPublicacaoUsuario(usuario, titulo, descricao){
-    const resposta= await api.post('/usuario/publicacoes', {
-        usuario:usuario,
+export async function inserirPublicacaoUsu(usuario, titulo, descricao){
+    const resposta= await api.post('/api/publicacaoUsu', {
+        usuario: usuario,
         titulo:titulo,
         descricao:descricao
     });
     return resposta.data;
-    
+
 }
-export async function AdicionarImagemUsuario (id, imagem){
+
+export async function inserirPublicacaoPsi(psicologo, titulo, descricao){
+    const resposta= await api.post('/api/publicacaoPsi', {
+        psicologo: psicologo,
+        titulo:titulo,
+        descricao:descricao
+    });
+    return resposta.data;
+
+}
+
+export async function AdicionarImagem(id, imagem){
     const formData= new FormData();
     formData.append('imagem', imagem);
     const r = await api.put(`/api/publicacao/${id}/imagem`, 
