@@ -45,7 +45,7 @@ export async function listarPublicacaoId(id) {
          where  pb_aprovado = false
            and  id_publicacao = ?`
     const [resposta] = await con.query(comando, [id]);
-    return resposta
+    return resposta[0];
 }
 
 export async function Publicar (publicar){

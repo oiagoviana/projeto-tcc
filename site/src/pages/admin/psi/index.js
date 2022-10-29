@@ -1,24 +1,35 @@
 import './index.scss'
 import MenuAdm from '../../../components/menuadm'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-import { autorizarPsi, listarPsicologo } from '../../../api/psicologoApi';
-
+import { useNavigate, useParams } from 'react-router-dom';
+import { autorizarPsi, listarPsi } from '../../../api/psicologoApi';
+import {toast} from 'react-toastify'
 
 
 export default function Psicologo() {
-    const [psicologo, setPsicologo] = useState({ data:null });
+    const [psicologo, setPsicologo] = useState({ data: null });
     const { idParam } = useParams();
+    const navigate = useNavigate();
 
     async function listarPsicologos() {
-        const resposta = await autorizarPsi(idParam);
-        console.log(resposta);
+        const resposta = await listarPsi(idParam);
         setPsicologo(resposta);
     }
 
+    async function Autorizar() {
+        
+        await autorizarPsi(idParam);
+        setTimeout(() => {
+            navigate('/admin/psicologoCard');
+        }, 2000)
+        toast.dark('Psicólogo autorizado!');
+            
+    }
+    
+
     useEffect(() => {
-        if(idParam)
-        listarPsicologos();
+        if (idParam)
+            listarPsicologos();
     }, [])
 
 
@@ -91,7 +102,7 @@ export default function Psicologo() {
                     </div>
 
                     <div className='div-botao'>
-                        <button className='button'>Autorizar</button>
+                        <button className='button' onClick={Autorizar}>Autorizar</button>
                     </div>
                 </div>
             </section>

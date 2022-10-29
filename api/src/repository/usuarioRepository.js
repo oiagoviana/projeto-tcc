@@ -1,12 +1,13 @@
 import { con } from './connection.js'
 
-export async function Cadastro(email, nome, senha, termo) {
+export async function Cadastro(usuario) {
     const comando = 
-    `insert into tb_usuario(ds_email, nm_usuario, ds_senha, bt_termos)
-                     values(?, ?, ?, ?)`
+    `insert into tb_usuario(ds_email, nm_usuario, ds_senha, bt_termos, ds_telefone)
+                     values(?, ?, ?, ?, ?)`
 
-    const[linhas] = await con.query(comando, [email, nome, senha, termo]);
-    return linhas;
+    const[linhas] = await con.query(comando, [usuario.email, usuario.nome, usuario.senha, usuario.termo, usuario.telefone]);
+    usuario.id = linhas.insertId
+    return usuario;
 }
 
 export async function Login(email, senha) {

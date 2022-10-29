@@ -61,7 +61,7 @@ server.post('/api/publicacoes', async (req, resp) =>{
     }
 })
 
-server.put('/admin/aprovar/publicacao/:id', async (req, resp) => {
+server.put('/admin/publicacao/:id', async (req, resp) => {
     try {
         const id = Number(req.params.id)
         const resposta = await autorizarPublicacao(id);
