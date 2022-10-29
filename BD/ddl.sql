@@ -7,6 +7,7 @@ CREATE TABLE tb_usuario(
     nm_usuario		varchar(100),
     ds_email		varchar(100),
     ds_senha		varchar(100),
+    ds_telefone		varchar(20),
     bt_termos			 boolean
 );
 
@@ -33,7 +34,6 @@ CREATE TABLE tb_publicacao(
     dt_publicacao		date,
     img_publicacao		varchar(400),
     pb_aprovado			boolean,
-    
     foreign key (id_usuario) references tb_usuario(id_usuario),
     foreign key (id_psicologo) references tb_psicologo(id_psicologo)
 );
@@ -70,9 +70,30 @@ create table tb_comentario(
     id_psicologo		int,
     ds_comentario		varchar(500),
     dt_comentario		date,
+     foreign key    (id_publicacao) references tb_publicacao(id_publicacao),
      foreign key	(id_usuario) references tb_usuario (id_usuario),
 	 foreign key	(id_psicologo) references tb_psicologo(id_psicologo)
 );
+
+create table tb_chat(
+	id_chat				int primary key auto_increment,
+    id_usuario			int,
+    id_psicologo		int,
+    dt_solicitacao		date,
+    bt_autorizado		boolean,
+	foreign key	(id_usuario) references tb_usuario (id_usuario),
+	foreign key	(id_psicologo) references tb_psicologo(id_psicologo)
+);
+
+
+create table tb_mensagem(
+	id_mensagem			int primary key auto_increment,
+    id_chat				int,
+    ds_mensagem			varchar(500),
+    dt_mensagem			time,
+    foreign key	(id_chat) references tb_chat(id_chat)
+);
+
 
 
 show tables;

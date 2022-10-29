@@ -1,17 +1,15 @@
 import { Router } from 'express'
 import multer from 'multer';
 
-import { autorizarPublicacao, buscarPublicacao, fazerComentario, listarPublicacoesAdm } from '../repository/publicacaoRepository.js';
-import { publicarUsuario, alterarImagem } from '../repository/publicacaoRepository.js';
-
+import { autorizarPublicacao, fazerComentario ,listarPublicacaoCard, listarPublicacaoId, Publicar } from '../repository/publicacaoRepository.js';
 
 
 const server = Router();
 const upload = multer({dest: 'storage/imagensPublicacao'})
 
-server.get('/usuario/publicacao', async (req, resp) => {
+server.get('/admin/publicacao', async (req, resp) => {
     try {
-        const resposta = await listarPublicacoesUsuario();
+        const resposta = await listarPublicacaoCard();
         resp.send(resposta);
 
 
@@ -26,39 +24,13 @@ server.get('/admin/publicacao/:id', async (req, resp) => {
     try {
         const { id } = req.params;
 
-        const publicacao = await buscarPublicacao(id);
+        const publicacao = await listarPublicacaoId(id);
 
         resp.send(publicacao);
 
 
     } catch (err) {
         resp.status(400).send({
-            erro: err.message
-        })
-    }
-})
-
-server.get('/psicologo/publicacao', async (req, resp) => {
-    try {
-        const resposta = await listarPublicacoesPsicologo();
-        resp.send(resposta);
-
-
-    } catch (err) {
-        resp.status(404).send({
-            erro: err.message
-        })
-    }
-})
-server.get('/admin/publicacao/:id', async (req, resp) => {
-    try {
-        const id = Number(req.params.id)
-        const resposta = await listarPublicacoesUsuarioId(id);
-        resp.send(resposta);
-
-
-    } catch (err) {
-        resp.status(404).send({
             erro: err.message
         })
     }
@@ -78,7 +50,7 @@ server.post('/api/publicacoes', async (req, resp) =>{
         if(!novaPublicacao.descricao){
             throw new Error ('A descrição é obrigatória!!')
         }
-          const resposta = await publicarUsuario(novaPublicacao);
+          const resposta = await Publicar(novaPublicacao);
             resp.status(201).send(resposta);
         
     }
@@ -92,7 +64,7 @@ server.post('/api/publicacoes', async (req, resp) =>{
 server.put('/admin/aprovar/publicacao/:id', async (req, resp) => {
     try {
         const id = Number(req.params.id)
-        const resposta = await autorizarPublicacaoUsuario(id);
+        const resposta = await autorizarPublicacao(id);
         if(resposta != 1)
             throw new Error('Publicação não pôde ser aprovada')
         else
