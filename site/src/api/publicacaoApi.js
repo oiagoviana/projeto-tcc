@@ -53,3 +53,12 @@ export async function autorizarPublicacaoUsuario(id){
     return resposta.status;
     
 }
+
+export async function inserirComentario(usuario, comentario) {
+    const resposta = await api.post('/api/comentario', {
+        usuario: usuario,
+        comentario: comentario
+    });
+
+    return resposta.data;
+}
