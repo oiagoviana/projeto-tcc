@@ -1,22 +1,23 @@
 import './index.scss'
 import MenuAdm from '../../../components/menuadm'
 import { useEffect, useState } from 'react'
-import { amostrarPublicacao } from '../../../api/publicacaoApi';
+import { mostrarPublicacaoId } from '../../../api/publicacaoApi';
 import { useParams } from 'react-router-dom';
 
 
 export default function Publicacao() {
-    const [publicacao, setPublicacao] = useState([]);
-    const { idParam } = useParams()
+    const [publicacao, setPublicacao] = useState({});
+    const { idParam } = useParams();      
 
     async function carregarPagina() {
-        const resposta = await amostrarPublicacao(idParam);
-        setPublicacao(resposta)
-        console.log(resposta);
+        const resposta = await mostrarPublicacaoId(idParam);
+        setPublicacao(resposta);
+        
     } 
 
     useEffect(() => {
-        carregarPagina()
+        if (idParam)
+            carregarPagina();
     }, [])
 
     return (

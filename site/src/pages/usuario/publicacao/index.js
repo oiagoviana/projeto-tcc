@@ -1,4 +1,4 @@
-import { AdicionarImagemUsuario, buscarImagem, inserirPublicacaoUsuario, inserirPublicacaoPsicologo, AdicionarImagemPsicologo } from '../../../api/publicacaoApi';
+import {  buscarImagem} from '../../../api/publicacaoApi';
 import MenuAdm from '../../../components/menuadm';
 import storage, { set } from 'local-storage'
 import './index.scss'
@@ -12,7 +12,7 @@ export default function Publicacao() {
     const [descricao, setDescricao] = useState ('')
     const [imagem, setImagem] = useState();
 
-    async function salvarPublicacaoUsuario(){
+    /*async function salvarPublicacaoUsuario(){
         try{
                  const IDusuario= storage('usuario-logado').id
                const r = await inserirPublicacaoUsuario(IDusuario, titulo, descricao)
@@ -28,10 +28,10 @@ export default function Publicacao() {
                 alert(err.message)
             }
         }
-    }
+    }*/
     
     
-    async function salvarPublicacaoPsicologo(){
+    /*async function salvarPublicacaoPsicologo(){
         try{
                 const IDpsicologo= storage('psi-logado').id
                const r = await inserirPublicacaoPsicologo(IDpsicologo, titulo, descricao)
@@ -47,7 +47,8 @@ export default function Publicacao() {
                 alert(err.message)
             }
         }
-    }
+    }*/
+
     function Limpar() {
         setTitulo('')
         setDescricao('')
@@ -101,13 +102,10 @@ export default function Publicacao() {
                     <p className='texto-download'>Download</p>
                 </div>
                 {storage('usuario-logado') &&
-                <button className='botao-publi' onClick={salvarPublicacaoUsuario}>Publicar</button>
+                <button className='botao-publi'>Publicar</button>
                 
                 }
-                {storage('psi-logado') &&
-                <button className='botao-publi' onClick={salvarPublicacaoPsicologo}>Publicar</button>
                 
-                }
                 <button className='botao-limpar' onClick={Limpar}>Limpar</button>
 
                 <hr className='linha' />

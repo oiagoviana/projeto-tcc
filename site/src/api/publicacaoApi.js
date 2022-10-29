@@ -5,13 +5,13 @@ const api = axios.create({
 })
 
 
-export async function listarPublicacaoUsuario() {
-    const resposta = await api.get('/usuario/publicacao');
+export async function mostrarPublicacaoCard() {
+    const resposta = await api.get('/admin/publicacao');
     return resposta.data;
 }
 
 
-export async function amostrarPublicacao(id) {
+export async function mostrarPublicacaoId(id) {
     const resposta = await api.get('/admin/publicacao/' + id);
     return resposta.data;
 }
@@ -52,8 +52,4 @@ export async function autorizarPublicacaoUsuario(id){
     const resposta = await api.put(`/admin/aprovar/publicacao/${id}`)
     return resposta.status;
     
-}   
-
-    
-    
-
+}
