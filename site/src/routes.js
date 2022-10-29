@@ -13,9 +13,6 @@ import Psicologo from './pages/admin/psi'
 import PsicologoCard from './pages/admin/psiCard'
 import Publicacao from './pages/admin/publi'
 import PublicacaoCard from './pages/admin/publiCard'
-import PubliPsic from './pages/admin/publiPsic'
-
-
 
 //Usuário
 import Landing from './pages/landingpage'
@@ -74,7 +71,6 @@ export default function Index() {
                 <Route path='/admin/publicacaoCard' element={<PublicacaoCard />} />
                 <Route path='/admin/publicacao/:idParam' element={<Publicacao />} />
 
-                <Route path='/admin/publicacao/psic/:idParam' element={<PubliPsic />} />
                 <Route path='/publicacaocompleta' element={<PublicacaoCompleta />} />
 
                 
