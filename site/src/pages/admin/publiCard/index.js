@@ -46,8 +46,8 @@ return (
                                 <img className='sub1-img' src={buscarImagem(item.imagem)} alt='' />
 
                                 <div className='sub1-textos'>
-                                    <p className='sub1-titulo'>{item.nome}  </p>
-                                    <p className='sub1-texto'>{item.email} </p>
+                                    <p className='sub1-titulo'>{item.nome} {item.nomePsi} </p>
+                                    <p className='sub1-texto'>{item.email} {item.emailPsi} </p>
                                 </div>
                             </div>
 

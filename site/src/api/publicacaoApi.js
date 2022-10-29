@@ -10,15 +10,7 @@ export async function mostrarPublicacaoCard() {
     return resposta.data;
 }
 
-
 export async function mostrarPublicacaoId(id) {
-    const resposta = await api.get('/admin/publicacao/' + id);
-    return resposta.data;
-}
-
-
-
-export async function listarPublicacaoId(id) {
     const resposta = await api.get(`/admin/publicacao/${id}`);
     return resposta.data;
 }
@@ -48,8 +40,8 @@ export function buscarImagem(imagem){
     return `${api.getUri()}/${imagem}`
 }
 
-export async function autorizarPublicacaoUsuario(id){
-    const resposta = await api.put(`/admin/aprovar/publicacao/${id}`)
+export async function autorizarPublicacao(id){
+    const resposta = await api.put(`/admin/publicacao/${id}`)
     return resposta.status;
     
 }
