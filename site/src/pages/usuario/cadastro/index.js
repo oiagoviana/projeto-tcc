@@ -5,12 +5,14 @@ import { useEffect, useRef, useState } from 'react'
 import LoadingBar from 'react-top-loading-bar'
 import {toast} from 'react-toastify'
 import { cadastroUser } from '../../../api/usuarioApi'
+import InputMask from 'react-input-mask'
 
 export default function Cadastro() {
 
     const[email, setEmail] = useState('');
     const[nome, setNome] = useState('');
     const[senha, setSenha] = useState('');
+    const[telefone, setTelefone] = useState('');
     const[termo, setTermo] = useState(0);
     const[carregando, setCarregando] = useState(false);
     const ref = useRef();
@@ -21,7 +23,7 @@ export default function Cadastro() {
         setCarregando(true);
 
         try {
-            const resposta = await cadastroUser(email, nome, senha, termo);
+            const resposta = await cadastroUser(email, nome, senha, termo, telefone);
 
             setTimeout(() => {
                 navigate('/usuario/login');    
@@ -70,6 +72,11 @@ export default function Cadastro() {
                         <div className='container-input-individual'>
                             <p className='titulo-input'>Senha</p>
                             <input className='input-credenciais' type='password' value = {senha} onChange = {e => setSenha(e.target.value)} />
+                        </div>
+
+                        <div className='container-input-individual'>
+                            <p className='titulo-input'>Telefone</p>
+                            <InputMask mask='(99) 99999-9999' className="input-credenciais" value={telefone} onChange={e => setTelefone(e.target.value)} />
                         </div>
                     </div>
 

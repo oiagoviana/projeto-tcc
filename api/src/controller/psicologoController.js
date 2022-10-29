@@ -1,4 +1,4 @@
-import { inserirFormulario, listarPsicologos, atualizarFormulario, deletarFormulario, loginPsicologo, autorizarPsi } from '../repository/psicologoRepository.js'
+import { inserirFormulario, listarPsicologos, deletarFormulario, loginPsicologo, autorizarPsi, listarPsiId } from '../repository/psicologoRepository.js'
 
 
 import { Router } from 'express'
@@ -98,10 +98,28 @@ server.delete('/api/formulario/:id', async (req, resp) => {
 server.get('/admin/psicologo/:id', async (req, resp) => {
     try {
         const {id} = req.params
-        const psicologo = await autorizarPsi(id);
+        const psicologo = await listarPsiId(id);
         resp.send(psicologo);
 
 
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.put('/admin/psicologo/:id', async (req, resp) => {
+
+    try {
+        const { id } = req.params;
+        const resposta = await autorizarPsi(id);
+        if (resposta != 1)
+            throw new Error("Indicação não pode ser alterada!")
+        else
+            resp.status(204).send();
+
+        
     } catch (err) {
         resp.status(400).send({
             erro: err.message
