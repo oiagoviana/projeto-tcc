@@ -10,9 +10,6 @@ export default function PsicologoCard() {
     const [psicogolos, setPsicolgos] = useState([]);
     const navigate = useNavigate();
 
-
-
-
     async function carregarPsicologos() {
         const resp = await listarPsicologo();
         setPsicolgos(resp);
@@ -71,7 +68,9 @@ export default function PsicologoCard() {
                             </div>
                         )}
                 </section>
+                
             </div>
+            
         </main>
     );
 }

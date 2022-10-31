@@ -8,7 +8,8 @@ export async function listarPsicologos() {
 			ds_email			as	'email',
             ds_telefone			as	'telefone',
             nr_crp				as	'crp'
-	  from  tb_psicologo;`
+	  from  tb_psicologo
+      where bt_aprovado = false`
     const [resposta] = await con.query(comando)
     return resposta;
 }
@@ -68,7 +69,7 @@ export async function deletarFormulario(id) {
     return resposta.affectedRows;
 }
 
-export async function autorizarPsi(id) {
+export async function listarPsiId(id) {
     const comando =
     `select 	id_psicologo 	id,
                 nm_psicologo 	nome,
@@ -83,6 +84,15 @@ export async function autorizarPsi(id) {
     
     const [resposta] = await con.query(comando, [id]);
     return resposta[0];
+}
+
+export async function autorizarPsi(id) {
+    const comando = 
+    `update tb_psicologo
+        set bt_aprovado = true
+      where id_psicologo = 1`;
+    const [resposta] = await con.query(comando, [id]);
+    return resposta.affectedRows;
 }
 
 

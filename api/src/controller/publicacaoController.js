@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import multer from 'multer';
-import { autorizarPublicacao, fazerComentario, listarPublicacoesAdm } from '../repository/publicacaoRepository.js';
-import { publicarUsuario, alterarImagem } from '../repository/publicacaoRepository.js';
+
+import { alterarImagemUsuario, autorizarPublicacao, fazerComentario ,listarPublicacaoCard, listarPublicacaoId, PublicarUsuario } from '../repository/publicacaoRepository.js';
 
 
 const server = Router();
@@ -9,7 +9,7 @@ const upload = multer({dest: 'storage/imagensPublicacao'})
 
 server.get('/admin/publicacao', async (req, resp) => {
     try {
-        const resposta = await listarPublicacoesAdm();
+        const resposta = await listarPublicacaoCard();
         resp.send(resposta);
 
 
@@ -20,18 +20,38 @@ server.get('/admin/publicacao', async (req, resp) => {
     }
 })
 
-server.post('/api/publicacoes', async (req, resp) =>{
+server.get('/admin/publicacao/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+
+        const publicacao = await listarPublicacaoId(id);
+
+        resp.send(publicacao);
+
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.post('/api/publicacaoUsu', async (req, resp) =>{
+
     try{
         const novaPublicacao = req.body;
        
-
+        if(!novaPublicacao.usuario && !novaPublicacao.psicologo){
+            throw new Error ('É necessário estar logado para publicar!')
+        }    
         if(!novaPublicacao.titulo){
             throw new Error ('O título é obrigatório!!')
         }
-        if(!novaPublicacao.descricao){
+        /*if(!novaPublicacao.descricao){
             throw new Error ('A descrição é obrigatória!!')
-        }
-          const resposta = await publicarUsuario(novaPublicacao);
+        }*/
+        const resposta = await PublicarUsuario(novaPublicacao);
+        console.log(resposta);
             resp.status(201).send(resposta);
         
     }
@@ -42,7 +62,33 @@ server.post('/api/publicacoes', async (req, resp) =>{
     }
 })
 
-server.put('/admin/aprovar/publicacao/:id', async (req, resp) => {
+server.post('/api/publicacaoPsi', async (req, resp) =>{
+
+    try{
+        const novaPublicacao = req.body;
+       
+        if(!novaPublicacao.usuario && !novaPublicacao.psicologo){
+            throw new Error ('É necessário estar logado para publicar!')
+        }    
+        if(!novaPublicacao.titulo){
+            throw new Error ('O título é obrigatório!!')
+        }
+        /*if(!novaPublicacao.descricao){
+            throw new Error ('A descrição é obrigatória!!')
+        }*/
+        const resposta = await PublicarUsuario(novaPublicacao);
+        console.log(resposta);
+            resp.status(201).send(resposta);
+        
+    }
+    catch(err) {
+        resp.status(401).send({
+            erro: err.message
+        });
+    }
+})
+
+server.put('/admin/publicacao/:id', async (req, resp) => {
     try {
         const id = Number(req.params.id)
         const resposta = await autorizarPublicacao(id);
@@ -66,7 +112,7 @@ server.put('/api/publicacao/:id/imagem', upload.single('imagem'), async (req,res
         const { id } = req.params;
         const imagem = req.file.path;
 		
-        const resposta = await alterarImagem(imagem, id)
+        const resposta = await alterarImagemUsuario(imagem, id)
         if(resposta != 1) 
 			throw new Error('A imagem não pôde ser salva.')
         resp.status(204).send();

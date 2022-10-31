@@ -75,7 +75,7 @@ export async function consultarIndicacoes () {
             ds_telefone             telefone,
 			nm_categoria            categoria
 	  from	tb_indicacao
-     inner join tb_indicacao_categoria on tb_indicacao.id_indicacao_categoria = tb_indicacao_categoria.id_indicacao_categoria`
+     left join tb_indicacao_categoria on tb_indicacao.id_indicacao_categoria = tb_indicacao_categoria.id_indicacao_categoria`
    const [resposta] = await con.query (comando);
    return resposta;
 }
@@ -92,7 +92,7 @@ export async function listarPorId (id) {
 			img_clinica             imagem,
 			nm_categoria            categoria
 	  from	tb_indicacao
-     inner join tb_indicacao_categoria on tb_indicacao.id_indicacao_categoria = tb_indicacao_categoria.id_indicacao_categoria
+     left join tb_indicacao_categoria on tb_indicacao.id_indicacao_categoria = tb_indicacao_categoria.id_indicacao_categoria
      where id_indicacao = ?`
         
      const [linhas] = await con.query (comando, [id]);
@@ -113,7 +113,7 @@ export async function listarPorNome(nome) {
             img_clinica             imagem,
             nm_categoria            categoria
        from tb_indicacao
- inner join tb_indicacao_categoria on tb_indicacao.id_indicacao_categoria = tb_indicacao_categoria.id_indicacao_categoria
+ left join tb_indicacao_categoria on tb_indicacao.id_indicacao_categoria = tb_indicacao_categoria.id_indicacao_categoria
       where nm_clinica              like ?`
 
       const [linhas] = await con.query(comando, [`%${nome}%`]);

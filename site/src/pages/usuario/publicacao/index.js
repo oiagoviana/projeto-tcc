@@ -1,55 +1,127 @@
-import MenuAdm from '../../../components/menuadm';
+import { AdicionarImagem, buscarImagem, inserirPublicacaoPsi, inserirPublicacaoUsu } from '../../../api/publicacaoApi';
+import MenuUsuario from '../../../components/menuusuario';
+import storage, { set } from 'local-storage'
 import './index.scss'
+import { useEffect, useState } from 'react';
 
 
 
 export default function Publicacao() {
+    const [titulo, setTitulo] = useState('')
+    const [descricao, setDescricao] = useState('')
+    const [imagem, setImagem] = useState();
+
+    async function salvarPublicacao() {
+        try {
+            if (storage('usuario-logado')) {
+                const IDusuario = storage('usuario-logado').id
+                const r = await inserirPublicacaoUsu(IDusuario, titulo, descricao)
+                await AdicionarImagem(r.id, imagem)
+                alert('Publicação inserida com sucesso!')
+            }
+
+            if (storage('psi-logado')) {
+                const IDpsicologo = storage('psi-logado').idPsi
+                const r = await inserirPublicacaoPsi(IDpsicologo, titulo, descricao)
+                await AdicionarImagem(r.idPsi, imagem)
+                alert('Publicação inserida com sucesso!')
+            }
+
+
+
+        }
+        catch (err) {
+            if (err.response)
+
+                alert(err.response.data.erro);
+            else {
+                alert(err.message)
+            }
+        }
+    }
+
+    function Limpar() {
+        setTitulo('')
+        setDescricao('')
+    }
+
+    function EscolherFoto() {
+        document.getElementById('ClickFoto').click();
+    }
+
+    function MostrarFoto() {
+        if (typeof (imagem) === 'object') {
+            return URL.createObjectURL(imagem)
+        }
+        else {
+            return buscarImagem(imagem)
+        }
+    }
+
+
     return (
         <main className='usuario-page'>
             <div>
-                <MenuAdm />
+                <MenuUsuario />
             </div>
+
             <div className='conteiner'>
 
-                <label className='label'>Título</label>
-
-                <input type="Text" className="input-titulo" />
-                <div />
-
-                <label className='label2'>Descrição</label>
-
-                <input type="Text" className='input-titulo2' />
-
-                <div>
-                    <p className='texto'>Foto</p>
-                    <div className='container-foto-download'>
-                        <img src='/assets/images/download-fotos.svg' alt='' />
+                <div className='container-cima'>
+                    <div className='container-titulo'>
+                        <label className='label-titulo'>Título</label>
+                        <input type="Text" className="input-titulo" value={titulo} onChange={e => setTitulo(e.target.value)} />
                     </div>
-                    <p className='texto-download'>Download</p>
+
+
+                    <div className='container-desc'>
+                        <label className='label-desc'>Descrição</label>
+                        <textarea className='text-desc' maxLength={400} value={descricao} onChange={e => setDescricao(e.target.value)} ></textarea>
+                        
+                    </div>
                 </div>
 
-                <button className='botao-publi'>Publicar</button>
-                <button className='botao-limpar'>Limpar</button>
+                <div className='foto'>
 
-                <hr className='linha' />
+                    <div className='container-foto-download' onClick={EscolherFoto}>
+                        {!imagem &&
+                            <img src='/assets/images/download-fotos.svg' alt='' />
+
+                        }
+                        {imagem &&
+                            <img className="foto-publi" src={MostrarFoto()} />
+                        }
+
+                        <input type="file" id='ClickFoto' onChange={e => setImagem(e.target.files[0])} />
+
+                    </div>
+                </div>
+
+                <div className='botoes-publi'>
+                    {storage('usuario-logado') &&
+                        <button className='botao-publi' onClick={salvarPublicacao} >Publicar</button>
+
+                    }
+
+                    {storage('psi-logado') &&
+                        <button className='botao-publi' onClick={salvarPublicacao} >Publicar</button>
+
+                    }
+
+                    <button className='botao-publi' onClick={Limpar}>Limpar</button>
+                </div>
             </div>
 
-            <div>
+            <hr className='linha' />
+
+            <div className='conteiner-coment'>
 
                 <div className='container-titulo-coment'>
-                    <h1>Adicionar Comentário</h1>
+                    <h1>Comentarios Destacados</h1>
                 </div>
 
-                
-                <textarea></textarea>
-
-
                 <img className="logo-mae" src='/assets/images/logo-mae.png' alt='' />
-
-            </div>           
-
-
-
+            </div>
 
         </main>
     );

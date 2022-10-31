@@ -7,7 +7,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 70%;
+        border: 1px solid red;
     }
 
     .card-principal{
@@ -24,7 +25,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 75%;
+        width: 80%;
         height: 100%;
         
     }
@@ -61,25 +62,54 @@
     }
 
     .sub3-card{
-        height: 45vh;
+        overflow-y: scroll;
+        height: 48vh;
         background: #FFFFFF;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
+    
+    }
+
+
+    .sub3-card::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .sub3-card::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .sub3-card::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        background-color: #6F4528;
     }
 
     .sub3-desc{
         color: #615656;
         width: 90%;
-      
+        height: max-content;
+        word-break: break-all;
+    }
+
+    .imagem{
+        height: 8em;
+        width: 12em;
+        border-radius: 15px;
     }
     
     .sub3-div{
-        width: 90%;
-        
-        height: 6vh;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 90%; 
+        height: 2vh;
+        margin-top: .8em;
     }
 
     .div-button{
@@ -117,5 +147,10 @@
 
     span{
         margin-left: 0.2em;
+    }
+
+    .imagem-publi{
+            width: 14vw;
+            height: 16vh;
     }
 }
