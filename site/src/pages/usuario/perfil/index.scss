@@ -79,11 +79,9 @@
         cursor: pointer;
     }
 
-    .container-botoes-mensagens div a {
-        text-decoration: none;
-        color: #000000;
-
+    .container-botoes-mensagens div p {
         font-weight: 700;
+        font-size: 13px;
     }
 
     .container-mensagens {
@@ -98,6 +96,15 @@
 
     }
 
+    .container-mensagens2 {
+        display: flex;
+        align-items: center;
+
+
+        width: 50%;
+        height: 100%;
+    }
+
     .container-publicacoes {
         display: flex;
         align-items: center;
@@ -106,6 +113,16 @@
         width: 50%;
         height: 100%;
 
+        border-bottom: 2.5px solid #6F4528;
+    }
+
+    .container-publicacoes2 {
+        display: flex;
+        align-items: center;
+
+
+        width: 50%;
+        height: 100%;
     }
 
     table {
@@ -124,7 +141,7 @@
         font-weight: 500;
     }
 
-    .cabecalho td {
+    thead td {
         width: 100%;
     }
 
@@ -135,6 +152,8 @@
 
     .titulo-situacao {
         width: 9vw;
+
+        border: 1px solid green;
     }
 
     .botao-limpar {
@@ -152,7 +171,7 @@
         align-items: center;
 
         width: 99%;
-        height: 4vh;
+        height: 5vh;
     }
 
     .titulo-doutores {
@@ -164,6 +183,8 @@
     .titulo-resultado-situacao {
         width: 10vw;
         text-align: center;
+
+        border: 1px solid red;
     }
 
     .img-lixo-black {
@@ -214,8 +235,55 @@
         visibility: hidden;
     }
 
+    tr td:nth-last-child(2) * {
+        visibility: hidden;
+    }
+
     tr:hover td:nth-last-child(1) img {
         visibility: visible;
+    }
+
+    tr:hover td:nth-last-child(2) img {
+        visibility: visible;
+    }
+
+    .titulo-nome {
+        width: 22vw;
+        text-align: left;
+
+        border: 1px solid black;
+    }
+
+    .titulo-data {
+        width: 9vw;
+
+        border: 1px solid greenyellow;
+    }
+
+    .nome-publicacao {
+        width: 22vw;
+
+        margin-left: 2.5px;
+
+        border: 1px solid red;
+    }
+
+    .data-publicacao {
+        width: 9vw;
+        text-align: center;
+
+        margin-left: 2px;
+        border: 1px solid green;
+    }
+
+    .img-lapis {
+        width: 2vw;
+        text-align: right;
+    }
+
+    .img-lixo-publicacoes {
+        width: 2.5vw;
+        text-align: right;
     }
 
 

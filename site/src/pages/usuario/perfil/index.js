@@ -30,18 +30,18 @@ export default function PerfilUser() {
 
                         <div className='container-solicitacoes'>
                             <div className='container-botoes-mensagens'>
-                                <div className='container-mensagens container-mensagens-borda' onClick={() => cliqueAbas('mensagens')}>
-                                    <a href='#'>Mensagens Pendentes</a>
+                                <div className={botoesCliques == 'mensagens' ? 'container-mensagens' : 'container-mensagens2'} onClick={() => cliqueAbas('mensagens')}>
+                                    <p>Mensagens Pendentes</p>
                                 </div>
-                                <div className='container-publicacoes' onClick={() => cliqueAbas('pendentes')}>
-                                    <a href='#'>Minhas Publicações</a>
+                                <div className={botoesCliques == 'pendentes' ? 'container-publicacoes' : 'container-publicacoes2'} onClick={() => cliqueAbas('pendentes')}>
+                                    <p>Minhas Publicações</p>
                                 </div>
                             </div>
 
                             {botoesCliques == 'mensagens' &&
 
                                 <table>
-                                    <thead className='cabecalho'>
+                                    <thead>
                                         <td>
                                             <th className='titulo-psicologo'>Psicologo solicitado:</th>
                                             <th className='titulo-situacao'>Situação:</th>
@@ -111,8 +111,28 @@ export default function PerfilUser() {
                                 </table>
                             }
 
-                            {botoesCliques == 'pendentes' && 
-                                'ola'
+                            {botoesCliques == 'pendentes' &&
+                                <table>
+                                    <thead>
+                                        <td>
+                                            <th className='titulo-nome'>Nome:</th>
+                                            <th className='titulo-data'>Data:</th>
+                                            <th className='titulo-situacao'>Situação:</th>
+                                        </td>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr className='corpo-teste'>
+                                            <td className='nome-publicacao'>Admin admin admin</td>
+                                            <td className='data-publicacao'>01/01/2006</td>
+                                            <td className='titulo-resultado-situacao'>Aprovado</td>
+                                            <td className='img-lapis'><img src='/assets/images/lapis-alterar.svg' alt='img-lapis' /></td>
+                                            <td className='img-lixo-publicacoes'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
                             }
                         </div>
                     </div>

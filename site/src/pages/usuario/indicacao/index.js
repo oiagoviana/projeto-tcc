@@ -11,7 +11,6 @@ export default function Indicacao() {
 
     async function carregarIndicacoes() {
         const carregados = await consultarIndicacoes();
-        console.log(carregados);
         setIndicacao(carregados);
     }
 
