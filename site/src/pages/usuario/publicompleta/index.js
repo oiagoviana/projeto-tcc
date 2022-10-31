@@ -96,21 +96,23 @@ export default function PubliCompleta() {
                 </div>
             </div>
 
-            <div className='container-titulo-coment'>
-                <button className="h1coment" onClick={openModal}>Comentar</button>
+            <div> casa
+                <div className='container-titulo-coment'>
+                    <button className="h1coment" onClick={openModal}>Comentar</button>
 
-                <div>
-                    <Modal
-                        isOpen={ModalIsOpen}
-                        onRequestClose={closeModal}
-                        style={Css}
+                    <div>
+                        <Modal
+                            isOpen={ModalIsOpen}
+                            onRequestClose={closeModal}
+                            style={Css}
 
-                    >
-                        <ComentUser />
-                    </Modal>
+                        >
+                            <ComentUser />
+                        </Modal>
+
+                    </div>
 
                 </div>
-
             </div>
         </main>
     )
