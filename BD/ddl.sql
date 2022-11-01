@@ -94,6 +94,7 @@ create table tb_chat(
 create table tb_mensagem(
 	id_mensagem			int primary key auto_increment,
     id_chat				int,
+    tp_mensagem         varchar(100),
     ds_mensagem			varchar(500),
     dt_mensagem			time,
     foreign key	(id_chat) references tb_chat(id_chat)
