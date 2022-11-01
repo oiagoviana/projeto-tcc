@@ -1,0 +1,222 @@
+.page-perfil-psicologo {
+    display: flex;
+    flex-direction: row;
+
+    .container-principal-direito {
+        display: flex;
+        flex-direction: column;
+
+        height: 100vh;
+        width: 100%;
+        border: 1px solid red;
+    }
+
+    .container-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        width: 28vw;
+        margin-left: 6em;
+        border: 1px solid black;
+    }
+
+    .container-bola {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 10vh;
+        width: 5vw;
+        border-radius: 5em;
+        background-color: #6F4528;
+        color: #FFFFFF;
+    }
+
+    .container-email {
+        display: flex;
+        flex-direction: column;
+        
+        margin-left: 3em;
+    }
+
+    .container-email p {
+        margin-top: -1.5em;
+        font-size: 12px;
+        color: #B4B4B4;
+    }
+
+    .container-meio {
+        display: flex;
+        flex-direction: row;
+
+        height: 100%;
+        border: 1px solid green;
+    }
+
+    .container-credenciais {
+        display: flex;
+        flex-direction: column;
+
+        height: 35vh;
+        width: 35%;
+
+        padding: 1.5em;
+        box-shadow: 0px 5px 10px #B4B4B4;
+    }
+
+    .container-credenciais p {
+        margin-top: 0;
+    }
+
+    .container-verificacoes {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .container-botoes-mensagens {
+        display: flex;
+        flex-direction: row;
+
+        height: 7vh;
+        width: 100%;
+    }
+
+    .container-botoes-mensagens div {
+        cursor: pointer;
+    }
+
+    .botao-mensagens {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 50%;
+
+        border-bottom: 2.5px solid #6F4528;
+    }
+
+    .botao-publicacoes {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 50%;
+    }
+
+    table {
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        height: 30vh;
+        width: 100%;
+
+        margin-top: .5em;
+    }
+    
+    .container-nome {
+        width: 22vw;
+        text-align: left;
+        padding-left: 5px;
+        border: 1px solid gray;
+    }
+
+    .container-telefone {
+        width: 14vw;
+        border: 1px solid pink;
+    }
+
+    .container-analise {
+        width: 11.5vw;
+        border: 1px solid blue;
+    }
+
+    .nome-solicitante {
+        width: 22vw;
+        padding-left: 5px;
+        border: 1px solid blueviolet;
+    }
+
+    .telefone-solicitante {
+        width: 14vw;
+        text-align: center;
+        border: 1px solid lightblue;
+
+    }
+
+    .analise-solicitante {
+        width: 12vw;
+        text-align: center;
+        border: 1px solid orange;
+    }
+
+
+    .corpo-teste {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        width: 99%;
+        height: 5vh;
+
+        margin-left: 3px;
+    }
+
+
+
+
+    tbody {
+        display: block;
+        height: 25vh;
+        overflow-y: scroll;
+    }
+
+    tbody::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    tbody::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    tbody::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        background-color: #6F4528;
+    }
+
+
+
+    tbody tr:nth-child(even) {
+        background-color: #FFB48A;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #C57D56;
+    }
+
+    
+
+    tr td {
+        font-weight: 700;
+        font-size: 13px;
+    }
+
+    tr td:nth-last-child(1) * {
+        visibility: hidden;
+    }
+
+    tr td:nth-last-child(2) * {
+        visibility: hidden;
+    }
+
+    tr:hover td:nth-last-child(1) img {
+        visibility: visible;
+    }
+
+    tr:hover td:nth-last-child(2) img {
+        visibility: visible;
+    }
+}
