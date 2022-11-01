@@ -57,9 +57,17 @@ export async function autorizarPublicacao(id){
     
 }
 
-export async function inserirComentario(usuario, comentario) {
-    const resposta = await api.post('/api/comentario', {
-        usuario: usuario,
+export async function inserirComentarioUsu(usuario, comentario) {
+    const resposta = await api.post('/api/comentarioUsu', {
+        IDusuario: usuario,
+        comentario: comentario
+    });
+
+    return resposta.data;
+}
+export async function inserirComentarioPsi(psicologo, comentario) {
+    const resposta = await api.post('/api/comentarioPsi', {
+        IDpsicologo: psicologo,
         comentario: comentario
     });
 

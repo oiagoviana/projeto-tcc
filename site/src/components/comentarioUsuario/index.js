@@ -1,30 +1,54 @@
 import './index.scss'
 import { useState } from 'react';
-import { inserirComentario } from "../../api/publicacaoApi";
+import { inserirComentarioPsi, inserirComentarioUsu } from "../../api/publicacaoApi";
+import storage from 'local-storage';
 
 export default function ComentUser() {
-    const [usuario, setUsuario] = useState();
-    const [comentario, setComentario] = useState (0); 
+    const [comentario, setComentario] = useState('');
 
     async function salvarComentario() {
         try {
-            const a = await inserirComentario(a, usuario, comentario)
-            alert('Comentário Publicado!')
+            if (storage('usuario-logado')) {
+                const IDusuario = storage('usuario-logado').id;
+                const a = await inserirComentarioUsu(IDusuario, comentario);
+                alert('Comentário Publicado!')
+            }
 
-        } catch (err) {
-            if (err.message);
+            
+            if (storage('psi-logado')) {
+                const IDpsicologo = storage('psi-logado').id;
+                const r = await inserirComentarioPsi(IDpsicologo, comentario);
+                alert('Comentário Publicado!')
+            }
+
+        }catch (err) {
+            if (err.response)
+
+                alert(err.response.data.erro);
+            else {
+                alert(err.message)
+            }
         }
     }
 
-    return(
+    return (
         <div className='container-comentario'>
             <div className='container-nome-coment'>
                 <h3>Fazer um Comentario</h3>
             </div>
 
-            <textarea maxLength={300} ></textarea>
+            <textarea maxLength={300} value={comentario} onChange={e => setComentario(e.target.value)}></textarea>
 
-            <button className='botao-comentario' onclick = {salvarComentario}>Comentar</button>
+
+            {storage('usuario-logado') &&
+                <button className='botao-comentario' onClick={salvarComentario} >Comentar</button>
+
+            }
+
+            {storage('psi-logado') &&
+                <button className='botao-comentario' onClick={salvarComentario} >Comentar</button>
+
+            }
         </div>
     )
 }

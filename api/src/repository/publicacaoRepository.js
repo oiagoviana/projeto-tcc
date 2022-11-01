@@ -87,11 +87,20 @@ export async function alterarImagemUsuario(imagem, id) {
     return resposta.affectedRows;
 }
 
-export async function fazerComentario(comentario) {
+export async function fazerComentarioUsu(comentario) {
     const comando = `
-        insert into tb_comentario(id_usuario, id_psicologo, ds_comentario, dt_comentario)
-            values (?, ?, ?, sysdate());`
-    const [resposta] = await con.query(comando, [comentario.IDusuario, comentario.IDpsicologo, comentario.comentario, comentario.data]);
+        insert into tb_comentario(id_usuario, ds_comentario, dt_comentario)
+            values (?, ?, sysdate());`
+    const [resposta] = await con.query(comando, [comentario.IDusuario, comentario.comentario, comentario.data]);
+    comentario.id = resposta.insertId;
+    return comentario;
+}
+
+export async function fazerComentarioPsi(comentario) {
+    const comando = `
+        insert into tb_comentario(id_psicologo, ds_comentario, dt_comentario)
+            values (?, ?, sysdate());`
+    const [resposta] = await con.query(comando, [comentario.IDpsicologo, comentario.comentario, comentario.data]);
     comentario.id = resposta.insertId;
     return comentario;
 }

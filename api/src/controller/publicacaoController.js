@@ -1,11 +1,11 @@
 import { Router } from 'express'
 import multer from 'multer';
 
-import { alterarImagemUsuario, autorizarPublicacao, fazerComentario ,listarPublicacaoCard, listarPublicacaoId, PublicarUsuario } from '../repository/publicacaoRepository.js';
+import { alterarImagemUsuario, autorizarPublicacao, fazerComentarioPsi, fazerComentarioUsu, listarPublicacaoCard, listarPublicacaoId, PublicarUsuario } from '../repository/publicacaoRepository.js';
 
 
 const server = Router();
-const upload = multer({dest: 'storage/imagensPublicacao'})
+const upload = multer({ dest: 'storage/imagensPublicacao' })
 
 server.get('/admin/publicacao', async (req, resp) => {
     try {
@@ -36,52 +36,52 @@ server.get('/admin/publicacao/:id', async (req, resp) => {
     }
 })
 
-server.post('/api/publicacaoUsu', async (req, resp) =>{
+server.post('/api/publicacaoUsu', async (req, resp) => {
 
-    try{
+    try {
         const novaPublicacao = req.body;
-       
-        if(!novaPublicacao.usuario && !novaPublicacao.psicologo){
-            throw new Error ('É necessário estar logado para publicar!')
-        }    
-        if(!novaPublicacao.titulo){
-            throw new Error ('O título é obrigatório!!')
+
+        if (!novaPublicacao.usuario && !novaPublicacao.psicologo) {
+            throw new Error('É necessário estar logado para publicar!')
+        }
+        if (!novaPublicacao.titulo) {
+            throw new Error('O título é obrigatório!!')
         }
         /*if(!novaPublicacao.descricao){
             throw new Error ('A descrição é obrigatória!!')
         }*/
         const resposta = await PublicarUsuario(novaPublicacao);
         console.log(resposta);
-            resp.status(201).send(resposta);
-        
+        resp.status(201).send(resposta);
+
     }
-    catch(err) {
+    catch (err) {
         resp.status(401).send({
             erro: err.message
         });
     }
 })
 
-server.post('/api/publicacaoPsi', async (req, resp) =>{
+server.post('/api/publicacaoPsi', async (req, resp) => {
 
-    try{
+    try {
         const novaPublicacao = req.body;
-       
-        if(!novaPublicacao.usuario && !novaPublicacao.psicologo){
-            throw new Error ('É necessário estar logado para publicar!')
-        }    
-        if(!novaPublicacao.titulo){
-            throw new Error ('O título é obrigatório!!')
+
+        if (!novaPublicacao.usuario && !novaPublicacao.psicologo) {
+            throw new Error('É necessário estar logado para publicar!')
+        }
+        if (!novaPublicacao.titulo) {
+            throw new Error('O título é obrigatório!!')
         }
         /*if(!novaPublicacao.descricao){
             throw new Error ('A descrição é obrigatória!!')
         }*/
         const resposta = await PublicarUsuario(novaPublicacao);
         console.log(resposta);
-            resp.status(201).send(resposta);
-        
+        resp.status(201).send(resposta);
+
     }
-    catch(err) {
+    catch (err) {
         resp.status(401).send({
             erro: err.message
         });
@@ -92,54 +92,74 @@ server.put('/admin/publicacao/:id', async (req, resp) => {
     try {
         const id = Number(req.params.id)
         const resposta = await autorizarPublicacao(id);
-        if(resposta != 1)
+        if (resposta != 1)
             throw new Error('Publicação não pôde ser aprovada')
         else
             resp.sendStatus(204)
 
 
-    } catch(err) {
+    } catch (err) {
         resp.status(404).send({
             erro: err.message
         });
     }
 })
 
-server.put('/api/publicacao/:id/imagem', upload.single('imagem'), async (req,resp) => {
-    try{
+server.put('/api/publicacao/:id/imagem', upload.single('imagem'), async (req, resp) => {
+    try {
         if (!req.file)
             throw new Error('Escolha a imagem da publicação!')
         const { id } = req.params;
         const imagem = req.file.path;
-		
+
         const resposta = await alterarImagemUsuario(imagem, id)
-        if(resposta != 1) 
-			throw new Error('A imagem não pôde ser salva.')
+        if (resposta != 1)
+            throw new Error('A imagem não pôde ser salva.')
         resp.status(204).send();
-    } catch(err){
-		console.log(err)
+    } catch (err) {
+        console.log(err)
         resp.status(400).send({
             erro: err.message
         })
     }
 })
 
-server.post('/api/comentario', async (req, resp) =>{
-    try{
+server.post('/api/comentarioUsu', async (req, resp) => {
+    try {
         const novoComentario = req.body;
-       
-            console.log(novoComentario);
-        if(!novoComentario.IDusuario && !novoComentario.IDpsicologo){
-            throw new Error ('É necessário estar logado para comentar!!!')
+
+        if (!novoComentario.IDusuario) {
+            throw new Error('É necessário estar logado para comentar!!!')
         }
-        if(!novoComentario.comentario){
-            throw new Error ('É necessário comentar!!')
+        if (!novoComentario.comentario) {
+            throw new Error('É necessário comentar!!')
         }
-          const resposta = await fazerComentario(novoComentario);
-            resp.status(201).send(resposta);
-        
+        const resposta = await fazerComentarioUsu(novoComentario);
+        resp.status(201).send(resposta);
+
     }
-    catch(err) {
+    catch (err) {
+        resp.status(401).send({
+            erro: err.message
+        });
+    }
+})
+
+server.post('/api/comentarioPsi', async (req, resp) => {
+    try {
+        const novoComentario = req.body;
+
+        if (!novoComentario.IDpsicologo) {
+            throw new Error('É necessário estar logado para comentar!!!')
+        }
+        if (!novoComentario.comentario) {
+            throw new Error('É necessário comentar!!')
+        }
+        const resposta = await fazerComentarioPsi(novoComentario);
+        resp.status(201).send(resposta);
+
+    }
+    catch (err) {
         resp.status(401).send({
             erro: err.message
         });

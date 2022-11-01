@@ -2,6 +2,7 @@
 
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
     
     
@@ -161,5 +162,31 @@
         height: 12vh;
     }
 
+
+    .div-coment{
+        //border: 1px solid green;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 40vh;
+        margin-right: 3.5em;
     
+        
+    }
+
+    .comentario{
+        background-color: #73401E;
+        color:#000000;
+        height: 14vh;
+    }
+
+
+    .coment {
+        //border: 3px solid green;
+
+        width: 17vw;
+        height: 20vh;
+        
+    }
+
 }

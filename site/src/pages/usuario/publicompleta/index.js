@@ -8,9 +8,6 @@ import Modal from 'react-modal';
 
 
 export default function PubliCompleta() {
-    
-    const [comentario, setComentario] = useState();
-
     const [ModalIsOpen, SetIsOpen] = useState(false);
 
     Modal.setAppElement('#root');
@@ -34,7 +31,6 @@ export default function PubliCompleta() {
             left:'25%',
             top:'28%',
             margin: 'none',
-            backgroundColor: '#ffff',
             width: '50vw',
             backgroundColor: '#73401E',
             height: '40vh',
@@ -88,7 +84,7 @@ export default function PubliCompleta() {
                 </div>
             </div>
 
-            <div> 
+            <div className="div-coment">  
                 <div className='container-titulo-coment'>
                     <button className="h1coment" onClick={openModal}>Comentar</button>
 
@@ -101,6 +97,21 @@ export default function PubliCompleta() {
                         >
                             <ComentUser />
                         </Modal>
+
+                    </div>
+
+                </div>
+
+
+                <div className="coment">
+
+                    <div className="comentario">
+                        <h4>Usuário</h4>
+                       
+                    </div>
+                    
+                    <div>
+                        <p> </p>
 
                     </div>
 
