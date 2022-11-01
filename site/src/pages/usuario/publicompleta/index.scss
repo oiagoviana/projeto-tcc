@@ -9,7 +9,7 @@
     .div-direita{
         display: flex;
         align-items: center;
-        border: 1px solid red;
+        //border: 1px solid red;
         justify-content: space-evenly;
         width: 55%;
     }
@@ -118,8 +118,8 @@
     }
     
     .img-publi{
-        border: 1px solid red;
-        height: 7vh;
+        //border: 1px solid red;
+        height: 8vh;
         width: 10vw;
     }
 
@@ -128,6 +128,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+        margin-top: 2em;
         border-radius: 6px;
         width: 18vw;
         //border: 3px solid #73401E;

@@ -1,27 +1,17 @@
 import MenuUsuario from "../../../components/menuusuario";
 import ComentUser from "../../../components/comentarioUsuario";
 import './index.scss'
-import { inserirComentario } from "../../../api/publicacaoApi";
+
 import { useState } from "react";
 import Modal from 'react-modal';
 
 
 
 export default function PubliCompleta() {
-    const [usuario, setUsuario] = useState();
+    
     const [comentario, setComentario] = useState();
 
     const [ModalIsOpen, SetIsOpen] = useState(false);
-
-    async function salvarComentario() {
-        try {
-            const a = await inserirComentario(a, usuario, comentario)
-            alert('Comentário Publicado!')
-
-        } catch (err) {
-            if (err.message);
-        }
-    }
 
     Modal.setAppElement('#root');
 
@@ -41,6 +31,8 @@ export default function PubliCompleta() {
             flexDirection: 'column',
             alignItens: 'center',
             justifyContent: 'center',
+            left:'25%',
+            top:'28%',
             margin: 'none',
             backgroundColor: '#ffff',
             width: '50vw',
@@ -96,7 +88,7 @@ export default function PubliCompleta() {
                 </div>
             </div>
 
-            <div> casa
+            <div> 
                 <div className='container-titulo-coment'>
                     <button className="h1coment" onClick={openModal}>Comentar</button>
 
