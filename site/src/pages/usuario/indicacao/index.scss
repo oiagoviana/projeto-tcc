@@ -12,7 +12,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        
+
 
         height: 10vh;
         width: 90%;
@@ -78,9 +78,9 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        
+
         margin-left: 2.5em;
-        
+
         overflow-y: scroll;
 
         border: 1px solid red;
@@ -141,7 +141,7 @@
         right: 0;
         top: 0;
     }
-    
+
     .imagem-triangulo-esquerdo {
         position: absolute;
 
@@ -226,7 +226,7 @@
         input {
             margin-right: 25px;
         }
-    
+
         .container-header img {
             position: relative;
             right: 3em;
@@ -242,7 +242,7 @@
 
         .container-telefone {
             flex-direction: column;
-    
+
             margin-top: -1.5em;
         }
 
@@ -271,7 +271,7 @@
         input {
             margin-right: 25px;
         }
-    
+
         .container-header img {
             position: relative;
             right: 3em;
@@ -287,7 +287,7 @@
 
         .container-telefone {
             flex-direction: column;
-    
+
             margin-top: -1.5em;
         }
 
@@ -303,6 +303,13 @@
         }
     }
 
+    @media(max-width: 820px) {
+        .card-indicacao {
+            width: 28vw;
+        }
+    }
+
+
     @media(max-width: 1024px) {
         .google-mapa {
             height: 100%;
@@ -312,22 +319,21 @@
         .botao-home {
             margin-right: 5em;
         }
-    
+
         .container-header img {
             position: relative;
             right: 2em;
         }
 
         .card-indicacao {
-            
+            height: 39vh;
+            width: 18vw;
         }
 
-        .container-telefone {
-            
-        }
+        .container-telefone {}
 
         .text-telefone {
-            
+            margin-right: .5em;
         }
 
         .container-mapa {
@@ -335,5 +341,5 @@
             margin-top: -5em;
         }
     }
-    
+
 }
