@@ -1,0 +1,88 @@
+.page-chatCard{
+
+    .div-principal{
+        display: flex;
+        flex-direction: column;
+        background-color: #cc8f6e;
+        width: 25vw;
+        height: 75vh;
+        padding-left: .8em;
+        
+    }
+
+    
+
+    .chatCard{ 
+        display: flex;
+        flex-direction: row; 
+        align-items: center;   
+        justify-content: space-around;    
+        border: 3px solid #73401E;
+        background-color: #fff;
+        width: 21vw;
+        height: 10vh;
+
+    }
+
+    .nome{
+        font-family: 'Poppins1';
+    }
+
+    .letra {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #000;
+        border-radius: 100%;
+        font-size: 25px;
+        font-family: 'Abhaya1';
+        color: #000;
+        height: 25px;
+        width: 25px;
+    }
+
+    .div-nome{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 8vw;
+        
+    }
+
+    .chats{
+        margin-left: .8em;
+        font-family: 'Poppins1';
+        font-size: 1.2em;
+        color: #FFECDA;
+    }
+
+    .hora{
+        font-family: 'Poppins1';
+    }
+
+    .card{
+        width: 23vw;
+        height: 55vh;
+        overflow-y: scroll;
+    }
+
+    .card::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .card::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .card::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        
+        background-color: #6F4528;
+    }
+    
+    
+}

@@ -1,0 +1,18 @@
+.page-chat{
+    display: flex;
+    flex-direction: column;
+
+
+    .div-principal{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .container-conversa{
+        border: 1px solid red;
+        width: 100%;
+        
+
+    }
+
+}
