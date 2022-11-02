@@ -2,15 +2,16 @@ import './index.scss'
 import { useState } from 'react';
 import { inserirComentarioPsi, inserirComentarioUsu } from "../../api/publicacaoApi";
 import storage from 'local-storage';
+import { useParams } from 'react-router-dom';
 
 export default function ComentUser() {
     const [comentario, setComentario] = useState('');
-
+    const {idParam} = useParams()
     async function salvarComentario() {
         try {
             if (storage('usuario-logado')) {
                 const IDusuario = storage('usuario-logado').id;
-                const a = await inserirComentarioUsu(IDusuario, comentario);
+                const a = await inserirComentarioUsu(idParam, IDusuario, comentario);
                 alert('Comentário Publicado!')
             }
 
@@ -49,6 +50,6 @@ export default function ComentUser() {
                 <button className='botao-comentario' onClick={salvarComentario} >Comentar</button>
 
             }
-        </div>
+         </div>
     )
 }

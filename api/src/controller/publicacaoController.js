@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import multer from 'multer';
 
-import { alterarImagemUsuario, autorizarPublicacao, fazerComentarioPsi, fazerComentarioUsu, listarPublicacaoCard, listarPublicacaoId, PublicarUsuario } from '../repository/publicacaoRepository.js';
+import { alterarImagemUsuario, autorizarPublicacao, fazerComentarioPsi, fazerComentarioUsu, listarPublicacaoCard, listarPublicacaoId, PublicarUsuario, listarPublicacaoUsuId, listarComentarioUsu } from '../repository/publicacaoRepository.js';
 
 
 const server = Router();
@@ -25,6 +25,37 @@ server.get('/admin/publicacao/:id', async (req, resp) => {
         const { id } = req.params;
 
         const publicacao = await listarPublicacaoId(id);
+
+        resp.send(publicacao);
+
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/usuario/publicacao/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+
+        const publicacao = await listarPublicacaoUsuId(id);
+
+        resp.send(publicacao);
+
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+server.get('/usuario/publicacao/comentario/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+
+        const publicacao = await listarComentarioUsu(id);
 
         resp.send(publicacao);
 
@@ -124,8 +155,9 @@ server.put('/api/publicacao/:id/imagem', upload.single('imagem'), async (req, re
     }
 })
 
-server.post('/api/comentarioUsu', async (req, resp) => {
+server.post('/api/comentarioUsu/:id', async (req, resp) => {
     try {
+        const { id } = req.params;
         const novoComentario = req.body;
 
         if (!novoComentario.IDusuario) {
@@ -134,7 +166,7 @@ server.post('/api/comentarioUsu', async (req, resp) => {
         if (!novoComentario.comentario) {
             throw new Error('É necessário comentar!!')
         }
-        const resposta = await fazerComentarioUsu(novoComentario);
+        const resposta = await fazerComentarioUsu(id, novoComentario);
         resp.status(201).send(resposta);
 
     }
@@ -145,8 +177,9 @@ server.post('/api/comentarioUsu', async (req, resp) => {
     }
 })
 
-server.post('/api/comentarioPsi', async (req, resp) => {
+server.post('/api/comentarioPsi/:id', async (req, resp) => {
     try {
+        const { id } = req.params;
         const novoComentario = req.body;
 
         if (!novoComentario.IDpsicologo) {
@@ -155,7 +188,7 @@ server.post('/api/comentarioPsi', async (req, resp) => {
         if (!novoComentario.comentario) {
             throw new Error('É necessário comentar!!')
         }
-        const resposta = await fazerComentarioPsi(novoComentario);
+        const resposta = await fazerComentarioPsi(id,novoComentario);
         resp.status(201).send(resposta);
 
     }

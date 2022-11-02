@@ -2,15 +2,34 @@ import MenuUsuario from "../../../components/menuusuario";
 import ComentUser from "../../../components/comentarioUsuario";
 import './index.scss'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from 'react-modal';
-
+import { useParams } from "react-router-dom";
+import { mostrarPublicacaoUsuId, buscarImagem, listarComentarioUsu } from "../../../api/publicacaoApi";
 
 
 export default function PubliCompleta() {
     const [ModalIsOpen, SetIsOpen] = useState(false);
+    const [publicacao, setPublicacao] = useState([]);
+    const [comentario, setComentario] = useState([]);
 
+    const {idParam} = useParams()
     Modal.setAppElement('#root');
+
+    async function MostrarPubli(){
+        const resposta = await mostrarPublicacaoUsuId(idParam);
+        setPublicacao(resposta)
+    }
+    async function MostrarComentarioUsu(){
+        const resposta = await listarComentarioUsu(idParam);
+        setComentario(resposta)
+    }
+
+    useEffect (() => {
+        MostrarPubli()
+        MostrarComentarioUsu()                                                         
+    },[])
+
 
     function openModal() {
         SetIsOpen(true);
@@ -55,16 +74,19 @@ export default function PubliCompleta() {
             <div className='div-direita'>
                 <div className='card-principal'>
                     <div className='sub1-card'>
+                    {publicacao.map(item =>
+                        
+                        
                         <div className='sub2-card'>
                             <div className='sub2-cima'>
-                                <img className='kar' src="/assets/images/kar.png" width='37vw' height='45vh' alt="" />
-                                <h4 className='cima-info'>Karla Brasil </h4>
+                                <h1 className='kar' src="/assets/images/kar.png" width='37vw' height='45vh' alt="">{item.nome[0]}</h1>
+                                <h4 className='cima-info'>{item.nome}</h4>
 
                             </div>
 
                             <div className='sub2-baixo'>
 
-                                <h4 className='baixo-info'>Titulo: <span>Mãe Solteira</span>      </h4>
+                                <h4 className='baixo-info'>Titulo: <span>{item.titulo}</span>      </h4>
                             </div>
 
 
@@ -73,17 +95,18 @@ export default function PubliCompleta() {
                                     <h4>Descrição:</h4>
                                 </div>
 
-                                <img src='/assets/images/mae-grande.png' className='img-publi' alt='' />
-                                <p className='sub3-desc'> Lorem ipsum dolor sit amet. Qui nulla error ut galisum doloremque eum maxime officia est autem error et earum voluptas! Ut assumenda assumenda. At obcaecati beatae et voluptatum distinctio? Nam dolor consectetur hic earum quam est aperiam odit. 33 voluptates beatae ab sunt tenetur et omnis nemo. Non quisquam enim et corrupti dolores ut officiis nostrum et placeat expedita sed alias quasi.</p>
+                                <img src={buscarImagem(item.imagem)} className='img-publi' alt='' />
+                                <p className='sub3-desc'>{item.descricao} </p>
 
 
                             </div>
 
                         </div>
+                        )}
                     </div>
                 </div>
             </div>
-
+            {comentario.map(item =>
             <div className="div-coment">  
                 <div className='container-titulo-coment'>
                     <button className="h1coment" onClick={openModal}>Comentar</button>
@@ -102,21 +125,21 @@ export default function PubliCompleta() {
 
                 </div>
 
-
+                
+            
                 <div className="coment">
 
                     <div className="comentario">
-                        <h4>Usuário</h4>
+                        <h5> {item.usuario} </h5>
                        
+                        <p> {item.comentario} </p>
                     </div>
                     
-                    <div>
-                        <p> </p>
 
-                    </div>
 
                 </div>
             </div>
+            )}
         </main>
     )
 }
