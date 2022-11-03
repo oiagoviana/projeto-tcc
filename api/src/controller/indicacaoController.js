@@ -169,10 +169,10 @@ server.get(`/api/indicacao/consulta/:id`, async (req, resp) => {
 })
 
 
-server.get('/api/indicacao/consulta/busca', async (req, resp) => {
+server.get('/api/indicacao/busca', async (req, resp) => {
     try {
-        const nome = String(req.query); // Não resolvido!
-        const resposta = listarPorNome(nome);
+        const {nome} = req.query;
+        const resposta = await listarPorNome(nome);
 
         if(!resposta) {
             resp.status(404).send([]);

@@ -8,7 +8,6 @@
 
         height: 100vh;
         width: 100%;
-        border: 1px solid red;
     }
 
     .container-header {
@@ -17,9 +16,9 @@
         justify-content: center;
         align-items: center;
 
+        height: 21vh;
         width: 28vw;
         margin-left: 6em;
-        border: 1px solid black;
     }
 
     .container-bola {
@@ -52,22 +51,29 @@
         flex-direction: row;
 
         height: 100%;
-        border: 1px solid green;
     }
 
     .container-credenciais {
         display: flex;
         flex-direction: column;
 
-        height: 35vh;
-        width: 35%;
+        height: 40vh;
+        width: 40%;
 
         padding: 1.5em;
         box-shadow: 0px 5px 10px #B4B4B4;
+
+        margin-left: 1em;
+        margin-right: 8px;
     }
 
     .container-credenciais p {
+        display: flex;
         margin-top: 0;
+    }
+
+    .container-credenciais p img {
+        margin-right: 10px;
     }
 
     .container-verificacoes {
@@ -83,10 +89,16 @@
 
         height: 7vh;
         width: 100%;
+        box-shadow: 4px 4px 4px #B4B4B4;
     }
 
     .container-botoes-mensagens div {
         cursor: pointer;
+    }
+
+    .container-botoes-mensagens p {
+        font-weight: 700;
+        font-size: 13px;
     }
 
     .botao-mensagens {
@@ -98,7 +110,23 @@
         border-bottom: 2.5px solid #6F4528;
     }
 
+    .botao-mensagens2 {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 50%;
+    }
+
     .botao-publicacoes {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 50%;
+
+        border-bottom: 2.5px solid #6F4528;
+    }
+
+    .botao-publicacoes2 {
         display: flex;
         align-items: center;
         height: 100%;
@@ -115,39 +143,36 @@
     }
     
     .container-nome {
-        width: 22vw;
+        width: 20vw;
         text-align: left;
         padding-left: 5px;
-        border: 1px solid gray;
     }
 
     .container-telefone {
-        width: 14vw;
-        border: 1px solid pink;
+        width: 12vw;
     }
 
     .container-analise {
         width: 11.5vw;
-        border: 1px solid blue;
     }
 
     .nome-solicitante {
-        width: 22vw;
+        width: 20vw;
         padding-left: 5px;
-        border: 1px solid blueviolet;
     }
 
     .telefone-solicitante {
-        width: 14vw;
+        width: 12vw;
         text-align: center;
-        border: 1px solid lightblue;
-
     }
 
     .analise-solicitante {
         width: 12vw;
         text-align: center;
-        border: 1px solid orange;
+    }
+
+    .analise-solicitante img {
+        margin-left: 7px;
     }
 
 
@@ -160,6 +185,49 @@
         height: 5vh;
 
         margin-left: 3px;
+    }
+
+
+    .titulo-nome {
+        width: 22vw;
+        text-align: left;
+        padding-left: 3px;
+    }
+
+    .titulo-data {
+        width: 9vw;
+    }
+
+    .nome-publicacao {
+        width: 21.7vw;
+
+        margin-left: 2.5px;
+    }
+
+    .data-publicacao {
+        width: 9vw;
+        text-align: center;
+
+        margin-left: 2px;
+    }
+
+    .titulo-resultado-situacao {
+        width: 8.2vw;
+        text-align: center;
+    }
+
+    .titulo-situacao {
+        width: 7.7vw;
+    }
+
+    .img-lapis {
+        width: 2vw;
+        text-align: right;
+    }
+
+    .img-lixo-publicacoes {
+        width: 2.5vw;
+        text-align: right;
     }
 
 

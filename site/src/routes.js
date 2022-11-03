@@ -48,9 +48,9 @@ export default function Index() {
 
 
 
-                <Route path='/psi/perfil' element={<PerfilPsi/>}/>
                 <Route path='/psi/login' element={<LoginPsi/>}/>
                 <Route path='/psi/formulario' element={<Formulario/>}/>
+                <Route path='/psi/perfil' element={<PerfilPsi/>}/>
 
 
 
