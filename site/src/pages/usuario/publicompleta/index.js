@@ -79,6 +79,8 @@ export default function PubliCompleta() {
                         
                         <div className='sub2-card'>
                             <div className='sub2-cima'>
+                              
+                                
                                 <h1 className='kar' src="/assets/images/kar.png" width='37vw' height='45vh' alt="">{item.nome[0]}</h1>
                                 <h4 className='cima-info'>{item.nome}</h4>
 
