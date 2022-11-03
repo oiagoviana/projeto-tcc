@@ -174,19 +174,19 @@
         position: absolute;
         font-size: 2.4em;
         font-family: 'Abhaya3';
-        top: 26em;
+        margin-top: 3.5em;
 
         color: #6F4528;
 
 
-        border: 1px solid red;
+        //border: 1px solid red;
         margin-left: 18em;
 
     }
 
     .linha1 {
         position: absolute;
-        top: 67em;
+        margin-top: 11em;
 
         margin-left: 22em;
         width: 18em;
@@ -196,7 +196,7 @@
 
     .texto-4{
         position: absolute;
-        top: 52em;
+        margin-top: 10em;
         font-size:1.3em;
         font-family: 'Abhaya3';
         margin-left: 36em;
@@ -208,7 +208,8 @@
         height: 10em;
        
      
-        margin-right: 29em;
+        left: 20em;
+        margin-top: 13em;
     }
 
 }
