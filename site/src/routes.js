@@ -21,7 +21,7 @@ import MenuUsuario from './components/menuusuario'
 import PublicacaoCompleta from './pages/usuario/publicompleta'
 import PerfilUser from './pages/usuario/perfil'
 import PublicacaoUsuario from './pages/usuario/publicacao'
-
+import LandingPage from './pages/landingpage'
 
 
 //Psi
@@ -63,8 +63,7 @@ export default function Index() {
                 <Route path='/admin/psicologoCard' element={<PsicologoCard />} />
                 <Route path='/admin/publicacaoCard' element={<PublicacaoCard />} />
                 <Route path='/admin/publicacao/:idParam' element={<Publicacao />} />
-
-                
+                <Route path='/home' element={<LandingPage />} />
 
             
            
