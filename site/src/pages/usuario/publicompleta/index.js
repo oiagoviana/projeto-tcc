@@ -108,7 +108,7 @@ export default function PubliCompleta() {
                     </div>
                 </div>
             </div>
-            {comentario.map(item =>
+            
             <div className="div-coment">  
                 <div className='container-titulo-coment'>
                     <button className="h1coment" onClick={openModal}>Comentar</button>
@@ -128,7 +128,7 @@ export default function PubliCompleta() {
                 </div>
 
                 
-            
+                {comentario.map(item =>
                 <div className="coment">
 
                     <div className="comentario">
@@ -140,8 +140,9 @@ export default function PubliCompleta() {
 
 
                 </div>
+                )}
             </div>
-            )}
+            
         </main>
     )
 }
