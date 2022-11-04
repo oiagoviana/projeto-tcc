@@ -16,11 +16,13 @@ export async function listarPsicologos() {
 
 export async function loginPsicologo(email, senha) {
     const comando = `
-        select  id_psicologo            id,
-                ds_email		        email
-          from  tb_psicologo
-         where  ds_email	= ?
-           and	ds_senha	= ?`
+    select  		id_psicologo            id,
+                    ds_email		        email,
+                    bt_aprovado             aprovado
+      from          tb_psicologo
+     where          ds_email	= ?
+       and	        ds_senha	= ?
+       and          bt_aprovado = true`
 
     const [linhas] = await con.query(comando, [email, senha]);
     return linhas[0];
@@ -28,8 +30,8 @@ export async function loginPsicologo(email, senha) {
 
 export async function inserirFormulario(formulario) {
     const comando =
-        ` INSERT INTO tb_psicologo (nm_psicologo, dt_nascimento, ds_telefone, ds_email, ds_senha, nr_crp, ds_cpf)
-    values (?,?,?,?,?,?,?)`
+        ` INSERT INTO tb_psicologo (nm_psicologo, dt_nascimento, ds_telefone, ds_email, ds_senha, nr_crp, ds_cpf, bt_aprovado)
+    values (?,?,?,?,?,?,?, 0);`
 
     const [resposta] = await con.query(comando, [
         formulario.nome,
