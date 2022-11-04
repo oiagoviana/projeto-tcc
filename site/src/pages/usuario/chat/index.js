@@ -17,9 +17,24 @@ export default function Chat() {
                 <ChatCard />
 
                 <div className='container-conversa'>
-                    
+                    <div className='mensagens'>
+                        <div className='usuario-esquerda'>
+                            <span className='inicial-nome'>B</span>
+                            <p className='caixa-mensagem'>..................................................................................................................................................</p>
+                        </div>
 
+                        <div className='usuario-direita'>
+                            <p className='caixa-mensagem2'>..................................................................................................................................................</p>
+                        </div>
 
+                    </div>
+
+                    <div className='div-campomsg'>
+                        
+                        <input type='text' placeholder='Digite sua mensagem...' className='mensagem-bar' />
+                        
+                        <img src='/assets/images/enviar-mensagem.png' alt='' />
+                    </div>
 
                 </div>
             </div>

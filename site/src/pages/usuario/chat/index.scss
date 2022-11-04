@@ -9,10 +9,110 @@
     }
 
     .container-conversa{
-        border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        
 
     }
+
+    
+
+    .inicial-nome{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            border-radius: 100%;
+            font-size: 35px;
+            font-family: 'Abhaya1';
+            color: #73401E;
+            height: 50px;
+            width: 50px;
+    }
+
+    .mensagens{
+        overflow-y: scroll;
+        padding: 0em 2em 0em 1em;
+        margin-top: 1.5em;
+        width: 70vw;
+        height: 65vh;
+    }
+
+    .mensagens::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .mensagens::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .mensagens::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        background-color: #6F4528;
+    }
+    
+    .usuario-esquerda{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .caixa-mensagem{
+        padding: 5px;
+        margin-left: 10px;
+        background: #FFECDA;
+        border-radius: 15px;
+        width: 20em;
+        word-wrap: break-word;
+        min-height: 10vh;
+        max-height: 30vh;
+    }
+
+    .usuario-direita{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .caixa-mensagem2{
+        padding: 5px;
+        margin-left: 10px;
+        background: #EBBB8E;
+        border-radius: 15px;
+        width: 20em;
+        word-wrap: break-word;
+        min-height: 10vh;
+        max-height: 30vh;
+    }
+
+
+    .mensagem-bar{
+        width: 50vw;
+        border: 5px solid #73401E;
+        border-radius: 15px;
+        height: 5vh;
+    }
+
+    .mensagem-bar::placeholder{
+        padding: 10px;
+        font-family: 'Abhaya1';
+        font-size: 1.4em;
+        color: #6F4528;
+    }
+
+
+    .div-campomsg{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 54vw;
+    }
+
+
 
 }
