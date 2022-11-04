@@ -1,10 +1,11 @@
 .page-cabecalhoChat{
-    height: 25vh;
+    height: 15vh;
     background-color: #CC8F6E;
     background-repeat: no-repeat;
-    background-size: 100%;
+    
     display: flex;
     flex-direction: row;
+    
     
     
     .itens-cabecalho{
@@ -12,10 +13,9 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        width: 83vw;
-        height: 17vh;
-        margin: 1em 0em 0em 1em;
-        
+        width: 60vw;
+        height: 10vh;
+        margin: 1em 0em 0em 0em;
     }
 
 
@@ -32,16 +32,15 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-evenly;
-        width: 45vw;
-        
+        justify-content: space-between;
+        width: 28vw;
     }
 
     .subdiv-nome{
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        margin-top: 10px;
+        
     }
     
     .nome {
@@ -50,16 +49,16 @@
         justify-content: center;
         background-color: #ffffff;
         border-radius: 100%;
-        font-size: 45px;
+        font-size: 35px;
         font-family: 'Abhaya1';
         color: #73401E;
-        height: 70px;
-        width: 70px;
+        height: 50px;
+        width: 50px;
     }
 
     .nomedr{
         color: #73401E;
-        font-size: 2.8em;
+        font-size: 2em;
         font-family: 'Poppins1';
         margin: 0;
     }
