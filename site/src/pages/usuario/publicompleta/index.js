@@ -134,7 +134,7 @@ export default function PubliCompleta() {
                     <div className="comentario">
                         <h5> {item.usuario} </h5>
                        
-                        <p> {item.comentario} </p>
+                        <p className="comentario-p"> {item.comentario} </p>
                     </div>
                     
 
