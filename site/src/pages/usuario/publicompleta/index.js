@@ -13,22 +13,22 @@ export default function PubliCompleta() {
     const [publicacao, setPublicacao] = useState([]);
     const [comentario, setComentario] = useState([]);
 
-    const {idParam} = useParams()
+    const { idParam } = useParams()
     Modal.setAppElement('#root');
 
-    async function MostrarPubli(){
+    async function MostrarPubli() {
         const resposta = await mostrarPublicacaoUsuId(idParam);
         setPublicacao(resposta)
     }
-    async function MostrarComentarioUsu(){
+    async function MostrarComentarioUsu() {
         const resposta = await listarComentarioUsu(idParam);
         setComentario(resposta)
     }
 
-    useEffect (() => {
+    useEffect(() => {
         MostrarPubli()
-        MostrarComentarioUsu()                                                         
-    },[])
+        MostrarComentarioUsu()
+    }, [])
 
 
     function openModal() {
@@ -47,8 +47,8 @@ export default function PubliCompleta() {
             flexDirection: 'column',
             alignItens: 'center',
             justifyContent: 'center',
-            left:'25%',
-            top:'28%',
+            left: '25%',
+            top: '28%',
             margin: 'none',
             width: '50vw',
             backgroundColor: '#73401E',
@@ -68,81 +68,75 @@ export default function PubliCompleta() {
     return (
         <main className="div-principal">
             <div>
-                <MenuUsuario />
+                <MenuUsuario pagina='publicacao'/>
             </div>
 
             <div className='div-direita'>
                 <div className='card-principal'>
                     <div className='sub1-card'>
-                    {publicacao.map(item =>
-                        
-                        
-                        <div className='sub2-card'>
-                            <div className='sub2-cima'>
-                              
-                                
-                                <h1 className='kar' src="/assets/images/kar.png" width='37vw' height='45vh' alt="">{item.nome[0]}</h1>
-                                <h4 className='cima-info'>{item.nome}</h4>
-
-                            </div>
-
-                            <div className='sub2-baixo'>
-
-                                <h4 className='baixo-info'>Titulo: <span>{item.titulo}</span>      </h4>
-                            </div>
+                        {publicacao.map(item =>
 
 
-                            <div className='sub3-card'>
-                                <div className='sub3-div'>
-                                    <h4>Descrição:</h4>
+                            <div className='sub2-card'>
+                                <div className='sub2-cima'>
+
+
+                                    <h1 className='kar' src="/assets/images/kar.png" width='37vw' height='45vh' alt="">{item.nome[0]}</h1>
+                                    <h4 className='cima-info'>{item.nome}</h4>
+
                                 </div>
 
-                                <img src={buscarImagem(item.imagem)} className='img-publi' alt='' />
-                                <p className='sub3-desc'>{item.descricao} </p>
+                                <div className='sub2-baixo'>
 
+                                    <h4 className='baixo-info'>Titulo: <span>{item.titulo}</span>      </h4>
+                                </div>
+
+
+                                <div className='sub3-card'>
+                                    <div className='sub3-div'>
+                                        <h4>Descrição:</h4>
+                                    </div>
+
+                                    <img src={buscarImagem(item.imagem)} className='img-publi' alt='' />
+                                    <p className='sub3-desc'>{item.descricao} </p>
+
+
+                                </div>
 
                             </div>
-
-                        </div>
                         )}
                     </div>
                 </div>
             </div>
-            
-            <div className="div-coment">  
-                <div className='container-titulo-coment'>
-                    <button className="h1coment" onClick={openModal}>Comentar</button>
 
-                    <div>
-                        <Modal
-                            isOpen={ModalIsOpen}
-                            onRequestClose={closeModal}
-                            style={Css}
+            <div className="div-coment">
+                <div>
+                    <div className='container-titulo-coment'>
+                        <button className="h1coment" onClick={openModal}>Comentar</button>
 
-                        >
-                            <ComentUser />
-                        </Modal>
+                        <div>
+                            <Modal
+                                isOpen={ModalIsOpen}
+                                onRequestClose={closeModal}
+                                style={Css}
 
+                            >
+                                <ComentUser />
+                            </Modal>
+
+                        </div>
                     </div>
 
+
+                    {comentario.map(item =>
+                        <div className="coment">
+                            <h5 className="comentario-nome"> {item.usuario} </h5>
+                            <p className="comentario-p"> {item.comentario} </p>
+                        </div>
+                    )}
                 </div>
-
-                
-                {comentario.map(item =>
-                <div className="coment">
-
-                    <div className="comentario">
-                        <h5> {item.usuario} </h5>
-                       
-                        <p className="comentario-p"> {item.comentario} </p>
-                    </div>
-                    
-
-
-                </div>
-                )}
             </div>
-            
+
         </main>
     )
 }

@@ -62,7 +62,7 @@ export default function Publicacao() {
     return (
         <main className='usuario-page'>
             <div>
-                <MenuUsuario />
+                <MenuUsuario pagina='publicar'/>
             </div>
 
             <div className='conteiner'>
