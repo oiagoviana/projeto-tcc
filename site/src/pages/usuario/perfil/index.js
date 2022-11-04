@@ -138,8 +138,6 @@ export default function PerfilUser() {
                     </div>
                 </div>
             </div>
-
-            <img className='image-logo' src='/assets/images/logo-mae.png' alt='img-logo' />
         </main>
     )
 }

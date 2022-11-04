@@ -26,11 +26,17 @@
         justify-content: center;
         align-items: center;
 
-        height: 10vh;
-        width: 5vw;
+        height: 8vh;
+        width: 6vw;
         border-radius: 5em;
         background-color: #6F4528;
         color: #FFFFFF;
+        margin-left: .5em;
+    }
+
+    .container-bola p {
+        font-size: 20px;
+        font-weight: 600;
     }
 
     .container-email {
@@ -42,7 +48,7 @@
 
     .container-email p {
         margin-top: -1.5em;
-        font-size: 12px;
+        font-size: 13px;
         color: #B4B4B4;
     }
 
@@ -56,8 +62,9 @@
     .container-credenciais {
         display: flex;
         flex-direction: column;
+        justify-content: center;
 
-        height: 40vh;
+        height: 35vh;
         width: 40%;
 
         padding: 1.5em;
@@ -65,11 +72,13 @@
 
         margin-left: 1em;
         margin-right: 8px;
+        border-radius: 1em;
     }
 
     .container-credenciais p {
         display: flex;
-        margin-top: 0;
+
+        font-weight: 600;
     }
 
     .container-credenciais p img {
@@ -98,7 +107,9 @@
 
     .container-botoes-mensagens p {
         font-weight: 700;
-        font-size: 13px;
+        font-size: 14px;
+
+        margin-left: 1.3em;
     }
 
     .botao-mensagens {

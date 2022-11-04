@@ -31,6 +31,8 @@
 
         background-color: #6F4528;
         border-radius: 15em;
+
+        border: 1px solid red;
     }
 
     .circulo-inicial p {
@@ -47,6 +49,8 @@
     .container-credenciais {
         display: flex;
         flex-direction: column;
+
+        border: 1px solid red;
     }
 
     .container-credenciais h3 {
@@ -152,8 +156,6 @@
 
     .titulo-situacao {
         width: 9vw;
-
-        border: 1px solid green;
     }
 
     .botao-limpar {
@@ -183,8 +185,6 @@
     .titulo-resultado-situacao {
         width: 10vw;
         text-align: center;
-
-        border: 1px solid red;
     }
 
     .img-lixo-black {
@@ -250,22 +250,16 @@
     .titulo-nome {
         width: 22vw;
         text-align: left;
-
-        border: 1px solid black;
     }
 
     .titulo-data {
         width: 9vw;
-
-        border: 1px solid greenyellow;
     }
 
     .nome-publicacao {
         width: 22vw;
 
         margin-left: 2.5px;
-
-        border: 1px solid red;
     }
 
     .data-publicacao {
@@ -273,7 +267,6 @@
         text-align: center;
 
         margin-left: 2px;
-        border: 1px solid green;
     }
 
     .img-lapis {
@@ -286,24 +279,97 @@
         text-align: right;
     }
 
+    @media(max-width: 1024px) {
+        .botao-limpar {
+            font-size: 14px;
+        }
 
+        .circulo-inicial {
+            height: 10vh;
+            width: 13%;
+        }
+    }
 
+    @media(max-width: 914px) {
+        .circulo-inicial {
+            height: 9vh;
+            width: 14%;
+        }
 
+        .container-square {
+            margin-left: 20px;
+        }
 
+        .titulo-psicologo {
+            width: 26vw;
+        }
 
+        .titulo-doutores {
+            width: 25.8vw;
+        }
 
+    }
 
+    @media(max-width: 870px) {
+        .circulo-inicial {
+            height: 8vh;
+            width: 14%;
+        }
 
+        .botao-limpar {
+            font-size: 12px;
+        }
+    }
 
+    @media(max-width: 760px) {
+        .circulo-inicial {
+            height: 8vh;
+            width: 14.5%;
+        }
 
+        .botao-limpar {
+            width: 10vw;
+            font-size: 10px;
+        }
+    }
 
+    @media(max-width: 690px) {
+        .circulo-inicial {
+            margin-top: 12px;
+            height: 7vh;
+            width: 14.5%;
+        }
+    }
 
-    .image-logo {
-        position: absolute;
-        bottom: 2em;
-        right: 2em;
+    @media(max-width: 630px) {
+        .circulo-inicial {
+            height: 6vh;
+            width: 14%;
+        }
 
-        width: 17vw;
-        height: 11vh;
+        .titulo-psicologo {
+            width: 28vw;
+
+            font-size: 13px;
+        }
+    
+        .titulo-situacao {
+            width: 9vw;
+
+            font-size: 13px;
+        }
+
+        .titulo-doutores {
+            font-size: 12px;
+        }
+
+        .titulo-resultado-situacao {
+            font-size: 12px;
+        }
+
+        .container-botoes-mensagens div p {
+            font-weight: 700;
+            font-size: 12px;
+        }
     }
 }
