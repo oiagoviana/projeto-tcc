@@ -3,7 +3,7 @@ import { con } from './connection.js'
 export async function Cadastro(usuario) {
     const comando = 
     `insert into tb_usuario(ds_email, nm_usuario, ds_senha, bt_termos, ds_telefone)
-                     values(?, ?, ?, ?, ?)`
+                     values(?, ?, ?, true, ?)`
 
     const[linhas] = await con.query(comando, [usuario.email, usuario.nome, usuario.senha, usuario.termo, usuario.telefone]);
     usuario.id = linhas.insertId
