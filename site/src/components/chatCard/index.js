@@ -1,8 +1,28 @@
 import './index.scss'
-import CabecalhoChat from '../cabecalhoChat'
-
+import { listarConversasP, listarConversasU } from '../../api/chatApi';
+import { useEffect, useState } from 'react';
+import storage from 'local-storage';
 
 export default function ChatCard() {
+    const [conversasU, setConversasU] = useState([]);
+    const [conversasP, setConversasP] = useState([]);
+
+    async function listaConversasU() {
+        const id = storage('usuario-logado').id;
+        const r = await listarConversasU(id);
+        setConversasU(r);
+    }
+
+    async function listaConversasP() {
+        const id = storage('psi-logado').id;
+        const r = await listarConversasP(id);
+        setConversasP(r);
+    }
+
+    useEffect(() => {
+        listaConversasU();
+        listaConversasP();
+    }, [])
 
 
     return (
@@ -13,18 +33,37 @@ export default function ChatCard() {
                     <p className='chats'>Chats</p>
                 </div>
 
-                <div className='card'>
+                {storage('usuario-logado') &&
+                    <div className='card'>
+                        {conversasU.map(item =>
+                            <div className='chatCard'>
+                                <div className='div-nome'>
+                                    <span className='letra'>{item.nomePsi[0].toUpperCase()}</span>
+                                    <span className='nome'>{item.nomePsi}</span>
+                                </div>
+                            </div>
+                        )}
 
-                    <div className='chatCard'>
-                        <div className='div-nome'>
-                            <span className='letra'>B</span>
-                            <span className='nome'>Dr.Bruna</span>
-                        </div>
-
-                        <span className='hora'>3:15</span>
                     </div>
+                }
 
-                </div>
+                {storage('psi-logado') &&
+                    <div className='card'>
+                        {conversasP.map(item =>
+                            <div className='chatCard'>
+                                <div className='div-nome'>
+                                    <span className='letra'>{item.nome[0].toUpperCase()}</span>
+                                    <span className='nome'>{item.nome}</span>
+                                </div>
+
+                            </div>
+                        )}
+
+                    </div>}
+
+
+
+
 
             </div>
         </main>

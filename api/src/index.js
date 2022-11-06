@@ -4,6 +4,7 @@ import indicacaoController from './controller/indicacaoController.js'
 import psicologoController from './controller/psicologoController.js'
 import usuarioController from './controller/usuarioController.js'
 import publicacaoController from './controller/publicacaoController.js'
+import chatController from './controller/chatController.js'
 
 
 import express from 'express'
@@ -22,5 +23,6 @@ server.use(admController);
 server.use(indicacaoController);
 server.use(psicologoController);
 server.use(usuarioController);
+server.use(chatController);
 server.use("/storage/imagensIndicacao", express.static("storage/imagensIndicacao"))
 server.use("/storage/imagensPublicacao", express.static("storage/imagensPublicacao"))

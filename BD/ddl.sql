@@ -32,7 +32,7 @@ CREATE TABLE tb_publicacao(
     id_usuario			int,
     id_psicologo		int,
     ds_titulo			varchar(100),
-    ds_publicacao		varchar(500),
+    ds_publicacao		varchar(900),
     dt_publicacao		date,
     img_publicacao		varchar(400),
     pb_aprovado			boolean,
@@ -94,10 +94,12 @@ create table tb_chat(
 create table tb_mensagem(
 	id_mensagem			int primary key auto_increment,
     id_chat				int,
+    tp_mensagem         varchar(100),
     ds_mensagem			varchar(500),
     dt_mensagem			time,
     foreign key	(id_chat) references tb_chat(id_chat)
 );
+
 
 
 
