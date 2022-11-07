@@ -53,11 +53,12 @@ export default function Landing() {
             </div>
 
             <div className='conteiner5'>
-                <img className='segunda' src='/assets/images/segunda.png' />
 
-                <p className='valores'>Valores</p>
+               
+                    <p className='valores'>Valores</p>
 
-                <img className='linha2' src='/assets/images/linha.png' />
+                    <img className='linha2' src='/assets/images/linha.png' />
+               
 
                 <div className='todos'>
 
@@ -95,15 +96,15 @@ export default function Landing() {
 
                         <p className='etica-texto2'>Respeitamos todas as formas de amor</p>
                     </div>
-                    
+
                 </div>
+
+
 
 
             </div>
 
-
-
-
+            <img className='segunda' src='/assets/images/borda.png' />
 
 
 
