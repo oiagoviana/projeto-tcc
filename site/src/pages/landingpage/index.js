@@ -142,17 +142,19 @@ export default function Landing() {
                     <button className='botao-formulario'>Formulário</button>
 
                 </div>
-
+e
             </div>
 
             <div className='conteiner-historia'>
-                <img className="onda-grande"src='/assets/images/ondagrande.png' />
 
+                <img className='onda-cima'src='/assets/images/onda-cima.png'/>
                 <p className="sua-historia">Compartilhe sua história!</p>
 
-                <p>Às vezes tudo que uma pessoa precisa em algum determinado momento na vida e alguém para conversar, quando não nas palavras ditas, que sejam na escrita, ou melhor, digitada... Emprestar seus ouvidos, olhos, sua atenção uma pessoa que precisa, pode fazer toda a diferença. Conte a sua história, faça alguma pergunta, esteja confortável e seja livre para se abrir, a Colo de Mãe e Pai está aqui por vocês, e para vocês!</p>
+                <p className='sua-historia-texto'>Às vezes tudo que uma pessoa precisa em algum determinado momento na vida e alguém para conversar, quando não nas palavras ditas, que sejam na escrita, ou melhor, digitada... Emprestar seus ouvidos, olhos, sua atenção uma pessoa que precisa, pode fazer toda a diferença. Conte a sua história, faça alguma pergunta, esteja confortável e seja livre para se abrir, a Colo de Mãe e Pai está aqui por vocês, e para vocês!</p>
 
-                <button>Publicar</button>
+                <button className='sua-historia-botao'>Publicar</button>
+
+                <img className='onda-baixo' src='/assets/images/onda-baixo.png'/>
             </div>
 
 
