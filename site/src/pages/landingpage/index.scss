@@ -216,10 +216,7 @@
     .valores{
       
         font-size: 3em;
-       
-
-        font-family: 'Abhaya2';
-
+        font-family: 'Bevan1';
         color: #6F4528;
 
     }
@@ -411,6 +408,35 @@
     
     }
 
+    #linha-vertical {
+        height: 40em;
+        margin-left: 5em;
+        border-right: 3px solid rgb(0, 0, 0);
+    }
+
+    .container6 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        
+       
+
+    }
+
+
+    .p6 {
+        
+        font-size: 2em;
+        font-family: 'Bevan1';
+        color: #6F4528;
+    }
+    
+    .p-mudanca {
+        font-size: 1.3em;
+        font-family: 'Bevan1';
+        color: #bdbcbc;
+    }
     
 
 }

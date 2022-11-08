@@ -54,11 +54,11 @@ export default function Landing() {
 
             <div className='conteiner5'>
 
-               
-                    <p className='valores'>Valores</p>
 
-                    <img className='linha2' src='/assets/images/linha.png' />
-               
+                <p className='valores'>Valores</p>
+
+                <img className='linha2' src='/assets/images/linha.png' />
+
 
                 <div className='todos'>
 
@@ -105,6 +105,47 @@ export default function Landing() {
             </div>
 
             <img className='segunda' src='/assets/images/borda.png' />
+
+            <div className="container6">
+
+                <div>
+
+                    <p className="p6">Você sabia?</p>
+                    <img className="" src='/assets/images/id-verificar.png' />
+
+                    <p>   Aqui você pode ter uma conversa com um psicólogo totalmente gratuito, nós prezamos pela, a sua saúde física e mental. A qualquer momento clique no nome destacado pela cor que você entrará direto na sala de conversa. Para o melhor atendimento verificamos os profssinais da áres, assim vocês terão a segurança de realmente estar conversando com um prossional. Mamães e Papais fiquem á vontade!</p>
+
+                </div>
+
+
+                <div>
+
+                    <p className="p6"> Seja um voluntário! </p>
+                    <img src='/assets/images/foryou.png' />
+
+                    <p className="p-mudanca">Faça a mudança acontecer</p>
+
+                    <p> Caso você seja um psicólogo ou estagiário da área venha participar do nosso projeto! É sempre bom ajudar alguém e fazer a mudança acontecer, e você pode ajudar.</p>
+
+                    <p> "Um dia quando, quando olhares para trás, verás que os dias mais belos foram aqueles em que lutaste."</p>
+
+                    <p>-Sigmund Freud. </p>
+
+                    <button>Formulário</button>
+
+                </div>
+
+            </div>
+
+            <div>
+                <img src='/assets/images/ondagrande.png'/>
+
+                <p>Compartilhe sua história!</p>
+
+                <p>Às vezes tudo que uma pessoa precisa em algum determinado momento na vida e alguém para conversar, quando não nas palavras ditas, que sejam na escrita, ou melhor, digitada... Emprestar seus ouvidos, olhos, sua atenção uma pessoa que precisa, pode fazer toda a diferença. Conte a sua história, faça alguma pergunta, esteja confortável e seja livre para se abrir, a Colo de Mãe e Pai está aqui por vocês, e para vocês!</p>
+
+                <button>Publicar</button>
+            </div>
 
 
 
