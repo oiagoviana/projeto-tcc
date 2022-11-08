@@ -108,39 +108,47 @@ export default function Landing() {
 
             <div className="container6">
 
-                <div>
+                <div >
+                    <div className='sub-container6'>
+                        <p className="p6">Você sabia?</p>
 
-                    <p className="p6">Você sabia?</p>
-                    <img className="" src='/assets/images/id-verificar.png' />
+                        <img className="img-verificar" src='/assets/images/id-verificar.png' />
+                    </div>
 
-                    <p>   Aqui você pode ter uma conversa com um psicólogo totalmente gratuito, nós prezamos pela, a sua saúde física e mental. A qualquer momento clique no nome destacado pela cor que você entrará direto na sala de conversa. Para o melhor atendimento verificamos os profssinais da áres, assim vocês terão a segurança de realmente estar conversando com um prossional. Mamães e Papais fiquem á vontade!</p>
+                    <p className="p-texto"> Aqui você pode ter uma conversa com um psicólogo totalmente gratuito, nós prezamos pela, a sua saúde física e mental. A qualquer momento clique no nome destacado pela cor que você entrará direto na sala de conversa. Para o melhor atendimento verificamos os profssinais da áres, assim vocês terão a  segurança de realmente estar conversando  com um prossional. Mamães e Papais fiquem  á vontade!</p>
 
                 </div>
 
 
-                <div>
+                <img className='linha3' src="/assets/images/linha vertical.png" />
 
-                    <p className="p6"> Seja um voluntário! </p>
-                    <img src='/assets/images/foryou.png' />
 
-                    <p className="p-mudanca">Faça a mudança acontecer</p>
+                <div className="">
+                    <div className="sub-container7">
+                        <div className="sub-container8">
+                            <p className="p7"> Seja um voluntário! </p>
+                            <p className="p-mudanca">Faça a mudança acontecer</p>
+                        </div>
+                        <img  className="for-u"src='/assets/images/foryou.png' />
 
-                    <p> Caso você seja um psicólogo ou estagiário da área venha participar do nosso projeto! É sempre bom ajudar alguém e fazer a mudança acontecer, e você pode ajudar.</p>
+                    </div>
 
-                    <p> "Um dia quando, quando olhares para trás, verás que os dias mais belos foram aqueles em que lutaste."</p>
+                    <p className="texto-psi"> Caso você seja um psicólogo ou estagiário da área venha participar do nosso projeto! É sempre bom ajudar alguém e fazer a mudança acontecer, e você pode ajudar.</p>
 
-                    <p>-Sigmund Freud. </p>
+                    <p className="texto-psi"> "Um dia quando, quando olhares para trás, verás que os dias mais belos foram aqueles em que lutaste."</p>
 
-                    <button>Formulário</button>
+                    <p className="frase-psi">-Sigmund Freud. </p>
+
+                    <button className='botao-formulario'>Formulário</button>
 
                 </div>
 
             </div>
 
-            <div>
-                <img src='/assets/images/ondagrande.png'/>
+            <div className='conteiner-historia'>
+                <img className="onda-grande"src='/assets/images/ondagrande.png' />
 
-                <p>Compartilhe sua história!</p>
+                <p className="sua-historia">Compartilhe sua história!</p>
 
                 <p>Às vezes tudo que uma pessoa precisa em algum determinado momento na vida e alguém para conversar, quando não nas palavras ditas, que sejam na escrita, ou melhor, digitada... Emprestar seus ouvidos, olhos, sua atenção uma pessoa que precisa, pode fazer toda a diferença. Conte a sua história, faça alguma pergunta, esteja confortável e seja livre para se abrir, a Colo de Mãe e Pai está aqui por vocês, e para vocês!</p>
 
