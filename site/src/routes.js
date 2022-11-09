@@ -35,7 +35,7 @@ export default function Index() {
     return (
         <BrowserRouter>
             <Routes>
-              <Route path='/' element={<LandingPage />} />
+                <Route path='/' element={<LandingPage />} />
             
                 <Route path='/' element={<Landing/>}/>
                 <Route path='/usuario/cadastro' element={<Cadastro />} />
@@ -67,19 +67,14 @@ export default function Index() {
 
                 
 
-                
-            
     
-                <Route path='/indicacao' element={<Indicacao/>}/>
-                <Route path='/indicacao/:id' element={<Indicacao/>}/>
 
 
 
                 <Route path='/psi/login' element={<LoginPsi/>}/>
                 <Route path='/psi/formulario' element={<Formulario/>}/>
 
-           
-
+    
         
 
             </Routes>
