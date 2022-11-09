@@ -1,4 +1,4 @@
-import { Cadastro, Login } from '../repository/usuarioRepository.js'
+import { Cadastro, Login, SolicitadoUser } from '../repository/usuarioRepository.js'
 import { Router } from 'express'
 
 const server = Router();
@@ -50,6 +50,21 @@ server.post('/usuario/login', async (req, resp) => {
 
         else
             resp.send(resposta);
+    }
+    catch(err) {
+        resp.status(401).send({
+            erro: err.message
+        });
+    }
+})
+
+server.get('/usuario/solicitacoes', async (req, resp) => {
+    try {
+        const {id} = req.query;
+        
+        const resposta = await SolicitadoUser(id);
+        console.log(id);
+        resp.send(resposta);
     }
     catch(err) {
         resp.status(401).send({

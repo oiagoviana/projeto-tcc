@@ -22,3 +22,16 @@ export async function Login(email, senha) {
      const[linhas] = await con.query(comando, [email, senha]);
      return linhas[0];
 }
+
+export async function SolicitadoUser(id) {
+    const comando = 
+        `select nm_psicologo        nome,
+        tb_psicologo.id_psicologo   idpsi,
+        tb_chat.id_usuario          iduser,
+        bt_autorizado               autorizado
+from    tb_chat
+inner join tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo
+  where tb_chat.id_usuario = ?`
+    const[linhas] = await con.query(comando, [id]);
+    return linhas;
+}
