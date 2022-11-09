@@ -2,7 +2,7 @@ import { AdicionarImagem, buscarImagem, inserirPublicacaoPsi, inserirPublicacaoU
 import MenuUsuario from '../../../components/menuusuario';
 import storage, { set } from 'local-storage'
 import './index.scss'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 
 
@@ -17,14 +17,14 @@ export default function Publicacao() {
                 const IDusuario = storage('usuario-logado').id
                 const r = await inserirPublicacaoUsu(IDusuario, titulo, descricao)
                 await AdicionarImagem(r.id, imagem)
-                alert('Publicação inserida com sucesso!')
+                alert('Publicação usu inserida com sucesso!')
             }
 
             if (storage('psi-logado')) {
-                const IDpsicologo = storage('psi-logado').idPsi
+                const IDpsicologo = storage('psi-logado').id
                 const r = await inserirPublicacaoPsi(IDpsicologo, titulo, descricao)
-                await AdicionarImagem(r.idPsi, imagem)
-                alert('Publicação inserida com sucesso!')
+                await AdicionarImagem(r.id, imagem)
+                alert('Publicação psi inserida com sucesso!')
             }
 
 
@@ -62,7 +62,7 @@ export default function Publicacao() {
     return (
         <main className='usuario-page'>
             <div>
-                <MenuUsuario />
+                <MenuUsuario pagina='publicar'/>
             </div>
 
             <div className='conteiner'>
@@ -77,7 +77,7 @@ export default function Publicacao() {
                     <div className='container-desc'>
                         <label className='label-desc'>Descrição</label>
                         <textarea className='text-desc' maxLength={400} value={descricao} onChange={e => setDescricao(e.target.value)} ></textarea>
-                        
+
                     </div>
                 </div>
 

@@ -1,76 +1,142 @@
 import MenuUsuario from "../../../components/menuusuario";
+import ComentUser from "../../../components/comentarioUsuario";
 import './index.scss'
-import { inserirComentario } from "../../../api/publicacaoApi";
-import { useState } from "react";
 
+import { useEffect, useState } from "react";
+import Modal from 'react-modal';
+import { useParams } from "react-router-dom";
+import { mostrarPublicacaoUsuId, buscarImagem, listarComentarioUsu } from "../../../api/publicacaoApi";
 
 
 export default function PubliCompleta() {
-    const [usuario,setUsuario] = useState();
-    const [comentario, setComentario] = useState ();
+    const [ModalIsOpen, SetIsOpen] = useState(false);
+    const [publicacao, setPublicacao] = useState([]);
+    const [comentario, setComentario] = useState([]);
 
-    async function salvarComentario(){
-        try{
-            const a = await inserirComentario (a, usuario, comentario)
-            alert ('Comentário Publicado!')
+    const { idParam } = useParams()
+    Modal.setAppElement('#root');
 
-        } catch (err) {
-            if (err.message);
-        }
+    async function MostrarPubli() {
+        const resposta = await mostrarPublicacaoUsuId(idParam);
+        setPublicacao(resposta)
     }
+    async function MostrarComentarioUsu() {
+        const resposta = await listarComentarioUsu(idParam);
+        setComentario(resposta)
+    }
+
+    useEffect(() => {
+        MostrarPubli()
+        MostrarComentarioUsu()
+    }, [])
+
+
+    function openModal() {
+        SetIsOpen(true);
+
+    }
+
+    function closeModal() {
+        SetIsOpen(false);
+
+    }
+
+    const Css = {
+        content: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItens: 'center',
+            justifyContent: 'center',
+            left: '25%',
+            top: '28%',
+            margin: 'none',
+            width: '50vw',
+            backgroundColor: '#73401E',
+            height: '40vh',
+
+        },
+        overlay: {
+            backgroundColor: '#000000ce'
+        },
+
+
+
+    };
+
+
 
     return (
         <main className="div-principal">
             <div>
-                <MenuUsuario />
+                <MenuUsuario pagina='publicacao'/>
             </div>
 
             <div className='div-direita'>
                 <div className='card-principal'>
                     <div className='sub1-card'>
-                        <div className='sub2-card'>
-                            <div className='sub2-cima'>
-                                <img className='kar' src="/assets/images/kar.png" width='37vw' height='45vh' alt="" />
-                                <h4 className='cima-info'>Karla Brasil </h4>
-
-                            </div>
-
-                            <div className='sub2-baixo'>
-
-                                <h4 className='baixo-info'>Titulo: <span>Mãe Solteira</span>      </h4>
-                            </div>
+                        {publicacao.map(item =>
 
 
-                            <div className='sub3-card'>
-                                <div className='sub3-div'>
-                                    <h4>Descrição:</h4>
+                            <div className='sub2-card'>
+                                <div className='sub2-cima'>
+
+
+                                    <h1 className='kar' src="/assets/images/kar.png" width='37vw' height='45vh' alt="">{item.nome[0]}</h1>
+                                    <h4 className='cima-info'>{item.nome}</h4>
+
                                 </div>
 
-                                <img src='/assets/images/mae-grande.png' alt='' />
-                                <p className='sub3-desc'> Lorem ipsum dolor sit amet. Qui nulla error ut galisum doloremque eum maxime officia est autem error et earum voluptas! Ut assumenda assumenda. At obcaecati beatae et voluptatum distinctio? Nam dolor consectetur hic earum quam est aperiam odit. 33 voluptates beatae ab sunt tenetur et omnis nemo. Non quisquam enim et corrupti dolores ut officiis nostrum et placeat expedita sed alias quasi.</p>
+                                <div className='sub2-baixo'>
 
+                                    <h4 className='baixo-info'>Titulo: <span>{item.titulo}</span>      </h4>
+                                </div>
+
+
+                                <div className='sub3-card'>
+                                    <div className='sub3-div'>
+                                        <h4>Descrição:</h4>
+                                    </div>
+
+                                    <img src={buscarImagem(item.imagem)} className='img-publi' alt='' />
+                                    <p className='sub3-desc'>{item.descricao} </p>
+
+
+                                </div>
 
                             </div>
-
-                        </div>
+                        )}
                     </div>
                 </div>
-
-                    <div className="sub4">
-
-                        <div className='container-titulo-coment'>
-                            <h1 className="h1coment">Comentar</h1>
-                        </div>
-
-
-                        <textarea value={comentario} onChange = { e=> setComentario(e.target.value)} className="text"></textarea>
-
-                        
-
-
-                    </div>
-                    
             </div>
+
+            <div className="div-coment">
+                <div>
+                    <div className='container-titulo-coment'>
+                        <button className="h1coment" onClick={openModal}>Comentar</button>
+
+                        <div>
+                            <Modal
+                                isOpen={ModalIsOpen}
+                                onRequestClose={closeModal}
+                                style={Css}
+
+                            >
+                                <ComentUser />
+                            </Modal>
+
+                        </div>
+                    </div>
+
+
+                    {comentario.map(item =>
+                        <div className="coment">
+                            <h5 className="comentario-nome"> {item.usuario} </h5>
+                            <p className="comentario-p"> {item.comentario} </p>
+                        </div>
+                    )}
+                </div>
+            </div>
+
         </main>
     )
 }

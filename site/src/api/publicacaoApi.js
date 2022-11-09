@@ -14,6 +14,10 @@ export async function mostrarPublicacaoId(id) {
     const resposta = await api.get(`/admin/publicacao/${id}`);
     return resposta.data;
 }
+export async function mostrarPublicacaoUsuId(id) {
+    const resposta = await api.get(`/usuario/publicacao/${id}`);
+    return resposta.data;
+}
 
 export async function inserirPublicacaoUsu(usuario, titulo, descricao){
     const resposta= await api.post('/api/publicacaoUsu', {
@@ -56,10 +60,23 @@ export async function autorizarPublicacao(id){
     return resposta.status;
     
 }
+export async function listarComentarioUsu(id){
+    const resposta = await api.get(`/usuario/publicacao/comentario/${id}`)
+    return resposta.data;
+    
+}
 
-export async function inserirComentario(usuario, comentario) {
-    const resposta = await api.post('/api/comentario', {
-        usuario: usuario,
+export async function inserirComentarioUsu(id,usuario, comentario) {
+    const resposta = await api.post(`/api/comentarioUsu/${id}`, {
+        IDusuario: usuario,
+        comentario: comentario
+    });
+
+    return resposta.data;
+}
+export async function inserirComentarioPsi(id, psicologo, comentario) {
+    const resposta = await api.post(`/api/comentarioPsi/${id}`, {
+        IDpsicologo: psicologo,
         comentario: comentario
     });
 
