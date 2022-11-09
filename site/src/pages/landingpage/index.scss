@@ -70,6 +70,7 @@
         position: absolute;
         width: 35vw;
         height: 80vh;
+        //border: 1px solid red;
 
         
 
@@ -610,6 +611,12 @@
         height: 4%;
         border: none;
     }
+
+    .onda-dica{
+        width: 100%;
+        margin-top: -6em;
+        //border: 2px solid red;
+    }
     
     .container-dicas{
         //border: 2px solid red;
@@ -621,7 +628,8 @@
     }
 
     .header-dicas{
-       
+       position: absolute;
+       margin-top: -1em;
         width: 20em;
         font-family: 'Bevan1';
         color: #6F4528;
@@ -633,8 +641,8 @@
         flex-direction: row;
         justify-content: space-between;
         width: 95%;
-        height: 70%;
-        margin-top: 3.4em;
+        height: 80%;
+        margin-top: 1em;
         margin-left: 2em;
         //border: 2px solid red;
     }
@@ -643,6 +651,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        margin-top: -1em;
         margin-left: 3.4em;
         width: 45vw;
         
@@ -654,7 +663,7 @@
         flex-direction: column;
         justify-content: space-between;
         margin-right: 3em;
-        margin-top: 0.3em;
+        margin-top: -1em;
         width: 45vw;
         height: 20%;
        
@@ -663,7 +672,7 @@
     }
 
     .icones{
-        width: 5vw;
+        width: 4vw;
         
     }
 
@@ -671,8 +680,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 12vh;
-        width: 16%;
+        height: 10vh;
+        width: 15%;
         margin-left: 1em;
         background-color: #ffffff;
         border-radius: 15em;
@@ -714,6 +723,13 @@
         //border: 2px solid red;
     }   
 
+    .rodape{
+        background-color: #FFECDA;
+        margin-top: -0.3em;
+        width: 100%;
+
+
+    }
 
     .img-logo{
         margin-top: 4em;
@@ -726,13 +742,11 @@
     }
 
     .linha4 {
-        margin-top: 3em;
         height: 13em;
-        margin-left: 5em;
+        margin: 3em 0em 0em 4em;
     }
 
     .redes-sociais{
-
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -755,15 +769,12 @@
         font-family: 'Abhaya2';
         font-size: 1.3em;
         color: #FFFFFF;
-        margin-left: 4em;
+        margin-left: 2em;
         margin-top: 5em;
-        width: 11em;
+        width: 12em;
     }
 
-    .sub-cont{
-        display: flex;
-        flex-direction: column;
-    }
+    
 
     .texto-redes{
         color: #FFFFFF;
@@ -778,8 +789,18 @@
         height: 4em;
     }
 
+    .container-redes{
+        display: flex;
+        flex-direction: column;
+    }
+
+    
+
 }
 
+/**{
+    border: 2px solid red;
+}*/
 
 
 

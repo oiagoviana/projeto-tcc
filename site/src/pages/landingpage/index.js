@@ -164,7 +164,8 @@ export default function Landing() {
 
 
             <div className="container-dicas">
-               
+
+               <img className="onda-dica"src='/assets/images/onda-dicas.png'/>
                 <div className="header-dicas">
                     <p>DICAS PARA PAIS DE 1° VIAGEM</p>
                 </div>
@@ -241,9 +242,9 @@ export default function Landing() {
                 </div>
             </div>
 
+            <img className="rodape"src='/assets/images/rodape3.png' />
+            
             <div className="ultimo-container">
-                
-
                 <div>
                     <img className="img-logo"src="/assets/images/logo-sozinha.png"/>
                     <p className="sp">Brasil- São Paulo (SP)</p>
@@ -251,7 +252,7 @@ export default function Landing() {
 
                 <img className='linha4' src="/assets/images/linha4.png" />
 
-                <div className="sub-cont">
+                    <div className='container-redes'>
                      <p className="titulo">MEIOS DE CONTATO</p>
 
                     <div className="redes-sociais">
@@ -276,16 +277,15 @@ export default function Landing() {
                             <p className="texto-redes">55 (11) 95411-1031</p>
                         </div>
                     </div>
-
-                </div>
+                    </div>
 
                 <img className='linha4' src="/assets/images/linha4.png" />
 
-                <div>
+              
                     <p className="titulo2">FALE COM ALGUM DOS NOS PROFISSIONAIS!</p>
-                </div>
+               
+                
             </div>
-
         </main>
     );
 }
