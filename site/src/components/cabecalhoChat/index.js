@@ -1,5 +1,5 @@
 import './index.scss'
-import { listarConversasP2, listarConversasU2 } from '../../api/chatApi';
+import { listarConversasP, listarConversasU } from '../../api/chatApi';
 import { useEffect, useState } from 'react';
 import storage from 'local-storage';
 
@@ -9,14 +9,13 @@ export default function CabecalhoChat() {
 
     async function listaConversasU() {
         const id = storage('usuario-logado').id;
-        const r = await listarConversasU2(id);
-        console.log(r);
+        const r = await listarConversasU(id);
         setConversaU(r);
     }
 
     async function listaConversasP() {
         const id = storage('psi-logado').id;
-        const r = await listarConversasP2(id);
+        const r = await listarConversasP(id);
         setConversaP(r);
     }
 
@@ -34,7 +33,7 @@ export default function CabecalhoChat() {
 
 
                 <div className='div-nome'>
-                    <span className='nome'>{conversaU.nomePsi[0].toUpperCase()}</span>
+                    <span className='nome'>{conversaU.nomePsi}</span>
                     <div className='subdiv-nome'>
                         <p className='nomedr'>{conversaU.nomePsi}</p>
                         <p className='disp'>Disponível</p>

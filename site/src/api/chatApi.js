@@ -29,15 +29,3 @@ export async function listarConversasP(id) {
     const resposta = await api.get(`/api/chatP?id=${Number(id)}`);
     return resposta.data;
 }
-
-
-export async function listarConversasU2(id) {
-    const resposta = await api.get(`/api/chatU2?id=${Number(id)}`);
-    return resposta.data;
-}
-
-
-export async function listarConversasP2(id) {
-    const resposta = await api.get(`/api/chatP2?id=${Number(id)}`);
-    return resposta.data;
-}

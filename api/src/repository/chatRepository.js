@@ -21,7 +21,7 @@ export async function EnviarMensagemP(mensagem) {
 }
 
 
-export async function MensagensU(id) {
+export async function Mensagens(id) {
     const comando = 
     `   select 	id_mensagem		id,
                 id_chat			chat,
@@ -29,29 +29,14 @@ export async function MensagensU(id) {
                 tp_mensagem		tipo,
                 dt_mensagem		hora
           from  tb_mensagem
-         where  id_chat         = ? 
-           and  tp_mensagem     = 'u'
-      order by  ds_mensagem     desc;`
+         where  id_chat = ?
+      order by  ds_mensagem`
     
     const [resposta] = await con.query(comando, [id]);
     return resposta;
 }
 
-export async function MensagensP(id) {
-    const comando =
-    `  select 	id_mensagem		id,
-                id_chat			chat,
-                ds_mensagem		mensagem,
-                tp_mensagem		tipo,
-                dt_mensagem		hora
-         from   tb_mensagem
-        where   id_chat         = ? 
-          and   tp_mensagem     = 'p'
-     order by   ds_mensagem     desc;`
-    
-    const [resposta] = await con.query(comando, [id]);
-    return resposta;
-}
+
 
 
 export async function CriarChat(usuario, psicologo) {
@@ -78,21 +63,7 @@ export async function selecionarChatU(id) {
     const [resposta] = await con.query(comando,[id]);
     return resposta;
 }
-export async function selecionarChatU2(id) {
-    const comando =
-    `select 	id_chat                 idChat,
-                tb_chat.id_usuario      idUsuario, 
-                tb_chat.id_psicologo    idPsi,
-                nm_psicologo            nomePsi
-       from	    tb_chat
- inner join     tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo
- inner join     tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
-      where     tb_usuario.id_usuario = ?
-        and	    bt_autorizado = true`
-    
-    const [resposta] = await con.query(comando,[id]);
-    return resposta[0];
-}
+
 
 export async function selecionarChatP(id) {
     const comando =
@@ -110,18 +81,4 @@ export async function selecionarChatP(id) {
     return resposta;
 }
 
-export async function selecionarChatP2(id) {
-    const comando =
-    `select 	id_chat			        idChat,
-                tb_chat.id_usuario	    idUsuario,
-                tb_chat.id_psicologo    idPsi,
-                nm_usuario		        nome
-       from	    tb_chat
- inner join     tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo
- inner join     tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
-      where     tb_psicologo.id_psicologo = ?
-        and	    bt_autorizado = true`
-    
-    const [resposta] = await con.query(comando,[id]);
-    return resposta[0];
-}
+

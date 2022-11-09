@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { CriarChat, EnviarMensagemP, EnviarMensagemU, MensagensP, MensagensU, selecionarChatP, selecionarChatP2, selecionarChatU, selecionarChatU2 } from '../repository/chatRepository.js';
+import { CriarChat, EnviarMensagemP, EnviarMensagemU, Mensagens, selecionarChatP, selecionarChatU } from '../repository/chatRepository.js';
 
 const server = Router();
 
@@ -34,11 +34,11 @@ server.post('/api/chatPsi', async (req, resp) => {
     }
 })
 
-server.get('/api/chatU/:id', async (req, resp) => {
+server.get('/api/chat', async (req, resp) => {
     try {
         const { id } = req.params
 
-        const resposta = await MensagensU(id);
+        const resposta = await Mensagens(id);
         resp.send(resposta);
 
 
@@ -50,19 +50,7 @@ server.get('/api/chatU/:id', async (req, resp) => {
     }
 })
 
-server.get('/api/chatP/:id', async (req, resp) => {
-    try {
-        const { id } = req.params
 
-        const resposta = await MensagensP(id);
-        resp.send(resposta);
-
-    } catch (err) {
-        resp.status(400).send({
-            erro: err.message
-        });
-    }
-})
 
 
 server.post('/api/chat', async (req, resp) => {
@@ -92,18 +80,7 @@ server.get('/api/chatU', async (req, resp) => {
         })
     }
 })
-server.get('/api/chatU2', async (req, resp) => {
-    try {
-        const {id} = req.query
-        const resposta = await selecionarChatU2(id);
-        resp.send(resposta);
 
-    } catch (err) {
-        resp.status(400).send({
-            erro:err.message
-        })
-    }
-})
 
 server.get('/api/chatP', async (req, resp) => {
     try {
@@ -118,17 +95,6 @@ server.get('/api/chatP', async (req, resp) => {
     }
 })
 
-server.get('/api/chatP2', async (req, resp) => {
-    try {
-        const {id} = req.query
-        const resposta = await selecionarChatP2(id);
-        resp.send(resposta);
 
-    } catch (err) {
-        resp.status(400).send({
-            erro:err.message
-        })
-    }
-})
 
 export default server;
