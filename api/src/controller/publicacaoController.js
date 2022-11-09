@@ -2,7 +2,7 @@ import { Router } from 'express'
 import multer from 'multer';
 
 
-import { alterarImagemUsuario, autorizarPublicacao, fazerComentario ,listarPublicacaoCard, listarPublicacaoId, PublicarPsi, PublicarUsuario } from '../repository/publicacaoRepository.js';
+import { alterarImagemUsuario, autorizarPublicacao, fazerComentarioPsi, /*fazerComentario*/ fazerComentarioUsu,listarPublicacaoCard, listarPublicacaoId, PublicarPsi, PublicarUsuario } from '../repository/publicacaoRepository.js';
 
 
 const server = Router();

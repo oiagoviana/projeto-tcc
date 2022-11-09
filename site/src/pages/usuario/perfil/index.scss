@@ -285,15 +285,15 @@
         }
 
         .circulo-inicial {
-            height: 10vh;
-            width: 13%;
+            height: 9vh;
+            width: 12.5%;
         }
     }
 
     @media(max-width: 914px) {
         .circulo-inicial {
-            height: 9vh;
-            width: 14%;
+            height: 8.1vh;
+            width: 13%;
         }
 
         .container-square {
@@ -308,16 +308,56 @@
             width: 25.8vw;
         }
 
+        .titulo-nome {
+            width: 19vw;
+            text-align: left;
+        }
+
+        .nome-publicacao {
+            width: 19vw;
+    
+            margin-left: 2.5px;
+        }
+    
+        .titulo-data {
+            width: 11vw;
+        }
+
+        .data-publicacao {
+            width: 11vw;
+            text-align: center;
+        }
+
     }
 
     @media(max-width: 870px) {
         .circulo-inicial {
             height: 8vh;
-            width: 14%;
+            width: 13%;
         }
 
         .botao-limpar {
             font-size: 12px;
+        }
+
+        .nome-publicacao {
+            font-size: 14px;
+        }
+    
+        .titulo-data {
+            width: 10vw;
+        }
+
+        .data-publicacao {
+            font-size: 14px;
+        }
+
+        .titulo-resultado-situacao {
+            font-size: 14px;
+        }
+
+        .titulo-doutores {
+            font-size: 14px;
         }
     }
 
@@ -370,6 +410,42 @@
         .container-botoes-mensagens div p {
             font-weight: 700;
             font-size: 12px;
+        }
+    }
+
+    @media(max-width: 440px) {
+        .circulo-inicial {
+            height: 4.5vh;
+            width: 20%;
+        }
+
+        .container-square {
+            margin-right: -1em;
+        }
+
+        .titulo-psicologo {
+            width: 28vw;
+
+            font-size: 12px;
+        }
+    
+        .titulo-situacao {
+            width: 9vw;
+
+            font-size: 12px;
+        }
+
+        .titulo-doutores {
+            font-size: 11px;
+        }
+
+        .titulo-resultado-situacao {
+            font-size: 11px;
+        }
+
+        .container-botoes-mensagens div p {
+            font-weight: 700;
+            font-size: 13px;
         }
     }
 }
