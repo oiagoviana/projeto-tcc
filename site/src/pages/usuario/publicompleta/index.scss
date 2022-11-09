@@ -2,12 +2,16 @@
 
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+
+    
 
     .div-direita{
         display: flex;
         align-items: center;
+        //border: 1px solid red;
         justify-content: space-evenly;
-        width: 100%;
+        width: 55%;
     }
 
     .card-principal{
@@ -17,7 +21,7 @@
         background: #FFFFFF;
         box-shadow: 1.26331px 5.05324px 18.9496px rgba(134, 60, 60, 0.25);
         height: 90%;
-        width: 55%;
+        width: 80%;
     }
 
     .sub1-card{
@@ -30,9 +34,24 @@
     }
 
     .kar{
-        margin-top: 1.4em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        margin-top: 0.6em;
+        margin-right: 1em;
+        color: #6F4528;
+        
+ 
+        
     }
 
+    .sub2-cima h1{
+        border: 4px solid #6F4528;
+        height: 45px;
+        width: 45px;
+    }
+     
     .sub2-cima{
         display: flex;
         flex-direction: row;
@@ -112,27 +131,42 @@
         height: 70%;
 
     }
+    
+    .img-publi{
+        //border: 1px solid red;
+        height: 8vh;
+        width: 10vw;
+    }
 
     .container-titulo-coment {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        text-align: center;
-    
-
-        position: absolute;
-        right: 5.8em;
-        top: 15em;
-        height: 10vh;
-        width: 14vw;
-
+        justify-content: space-around;
+        margin-top: 2em;
         border-radius: 6px;
-        border: 3px solid #73401E;
+        width: 18vw;
+        //border: 3px solid #73401E;
+    }
+
+    .h1coment:hover{
+        cursor: pointer;
+    }
+
+    .h1coment{
+        width: 15vw;
+        height: 7vh;
+        background-color: #FFFFFF;
+        border: 3px solid #6F4528;
+        color: #70462A;
+        font-size: 2em;
+        font-family: 'Abhaya2';
     }
 
     .container-titulo-coment h1 {
    
         letter-spacing: 2px;
-        color: #70462A;
+        color: #fff;
         font-weight: 600;
     }
 
@@ -146,5 +180,59 @@
         height: 12vh;
     }
 
+
+    .div-coment{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between; 
+        margin-right: 2em;
+        width: 23vw;
+        height: 95vh;
+        overflow-y: scroll;
+    }
     
+    .coment {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        width: 17vw;
+        min-height: 15vh;
+        max-height: 45vh;
+        background-color: #8d5a35;
+        border-radius: 8px;
+        padding: 4px;
+    }
+    .comentario-nome{
+        background-color: #fff;
+        margin-top: 9px;
+        min-width: 3vw;
+        max-width: 17vw;
+        border-radius: 3px;
+    }
+
+    .comentario-p {
+        word-wrap: break-word;
+        background-color: #fff;
+        border-radius: 3px;
+        
+    }
+
+
+    .div-coment::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .div-coment::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .div-coment::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        background-color: #6F4528;
+    }
+    
+
 }
