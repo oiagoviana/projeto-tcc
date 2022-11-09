@@ -23,8 +23,7 @@ import PublicacaoUsuario from './pages/usuario/publicacao'
 
 import LandingPage from './pages/landingpage'
 import Chat from './pages/usuario/chat'
-
-
+import FeedPublicacao from './pages/usuario/feedPublicacao'
 
 
 //Psi
@@ -36,15 +35,19 @@ export default function Index() {
     return (
         <BrowserRouter>
             <Routes>
+              <Route path='/' element={<LandingPage />} />
+            
                 <Route path='/' element={<Landing/>}/>
                 <Route path='/usuario/cadastro' element={<Cadastro />} />
                 <Route path='/usuario/login' element={<Login />} />
                 <Route path='/usuario/perfil' element={<PerfilUser />} />
                 <Route path='/usuario/publicacao' element={<PublicacaoUsuario/>}/>
-                <Route path='/usuario/publicacaocompleta' element={<PublicacaoCompleta />} />
+                <Route path='/usuario/indicacao' element={<Indicacao />} />
+                <Route path='/usuario/publicacaocompleta/:idParam' element={<PublicacaoCompleta />} />
                 <Route path='/usuario/indicacao' element={<Indicacao />} />
                 <Route path='/usuario/indicacao/:id' element={<Indicacao/>}/>
                 <Route path='/usuario/chat' element={<Chat />} />
+                <Route path='/usuario/feedpublicacao' element={<FeedPublicacao />} />
 
 
                 <Route path='/psi/login' element={<LoginPsi/>}/>
@@ -62,7 +65,22 @@ export default function Index() {
                 <Route path='/admin/publicacaoCard' element={<PublicacaoCard />} />
                 <Route path='/admin/publicacao/:idParam' element={<Publicacao />} />
 
-                <Route path='/home' element={<LandingPage />} />
+                
+
+                
+            
+    
+                <Route path='/indicacao' element={<Indicacao/>}/>
+                <Route path='/indicacao/:id' element={<Indicacao/>}/>
+
+
+
+                <Route path='/psi/login' element={<LoginPsi/>}/>
+                <Route path='/psi/formulario' element={<Formulario/>}/>
+
+           
+
+        
 
             </Routes>
         </BrowserRouter>
