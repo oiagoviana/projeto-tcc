@@ -142,7 +142,7 @@ export default function Landing() {
                     <button className='botao-formulario'>Formulário</button>
 
                 </div>
-e
+
             </div>
 
             <div className='conteiner-historia'>
@@ -152,12 +152,139 @@ e
 
                 <p className='sua-historia-texto'>Às vezes tudo que uma pessoa precisa em algum determinado momento na vida e alguém para conversar, quando não nas palavras ditas, que sejam na escrita, ou melhor, digitada... Emprestar seus ouvidos, olhos, sua atenção uma pessoa que precisa, pode fazer toda a diferença. Conte a sua história, faça alguma pergunta, esteja confortável e seja livre para se abrir, a Colo de Mãe e Pai está aqui por vocês, e para vocês!</p>
 
-                <button className='sua-historia-botao'>Publicar</button>
+                
+                <button className='sua-historia-botao'>Publicar</button> 
+                
 
-                <img className='onda-baixo' src='/assets/images/onda-baixo.png'/>
+                <div className="onda2-baixo">
+                    <img className='onda-baixo' src='/assets/images/onda-baixo.png'/>
+                </div>
             </div>
 
 
+
+            <div className="container-dicas">
+               
+                <div className="header-dicas">
+                    <p>DICAS PARA PAIS DE 1° VIAGEM</p>
+                </div>
+
+                <div className="sub-container-dicas">
+                    <div className="sub2-container-dicas">
+
+                        <div className="dica-linha">
+                            <div className='circulo'>
+                                <img className="icones"src="/assets/images/mamadeira.png"/>
+                            </div>
+                            <p className="dica-titulo">Amamentação</p>
+                        </div>
+
+                        <p className="dica-texto">Alinhar o corpo do bebê próximo ao da mãe e manter o corpo e a cabeça do bebê alinhados são ações fundamentais para garantir uma boa amamentação. As posições devem ser avaliadas constantemente a cada mamada.</p>
+                        
+                        <div className="dica-linha">
+                            <div className='circulo'>
+                                <img className="icones" src="/assets/images/banheira.png"/>
+                            </div>
+
+                            <p className="dica-titulo">Brinquedos</p>
+                        </div>
+
+                        <p className="dica-texto" >Após o banho, seque seu bebê com tapinhas suaves, certificando-se de secar delicadamente entre as dobras da pele. </p>
+                        
+                        <div className="dica-linha">
+                            <div className='circulo'>
+                                <img className="icones" src="/assets/images/bebe-chorando.png"/>
+                            </div>
+
+                            <p className="dica-titulo">Cólicas</p>
+                        </div>
+
+                        <p className="dica-texto">Massagem deve ser feita em sentido horário ao redor do umbigo, com movimentos suaves e um pouco de pressão. Métodos como a shantala também funcionam.</p>
+                    </div>
+
+
+                    <div className="sub3-container-dicas">
+
+                        <div className="dica-linha">
+                            <div className='circulo'>
+                                <img className="icones" src="/assets/images/comida.png"/>
+                            </div>
+
+                            <p className="dica-titulo">Alimentação</p>
+                        </div>
+
+                        <p className="dica-texto">Você pode oferecer as papinhas de acordo com os horários de refeição da família, mas buscando sempre respeitar o apetite do seu filho.Não se esqueça de oferecer água com regularidade e manter seu bebê hidratado.</p>
+                        
+                        <div className="dica-linha">
+                            <div className='circulo'>
+                                <img className="icones" src="/assets/images/roupa.png"/>
+                            </div>
+
+                            <p className="dica-titulo">Roupas</p>
+                        </div>
+
+                        <p className="dica-texto">Deixar a peça por duas horas de molho no sabão neutro. Em seguida, esfregue para sair parte da poeira ou alguma mancha que possa estar na superfície do tecido. Por fim, enxágue bem e seque em local seco e arejado.</p>
+
+                        <div className="dica-linha">
+
+                            <div className='circulo'>
+                                <img className="icones" src="/assets/images/gravida.png"/>
+                            </div>
+
+                            <p className="dica-titulo">Maternidade</p>
+                        </div>
+
+                        <p className="dica-texto">O ideal é que os preparativos da mala de maternidade comecem por volta da 34ª semana de gestação – ou seja, sétimo mês. Não se esqueça de lavar as roupas (com produtos específicos para bebês) e passar tudo antes. Na 37ª, ela já tem de estar pronta.</p>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div className="ultimo-container">
+                
+
+                <div>
+                    <img className="img-logo"src="/assets/images/logo-sozinha.png"/>
+                    <p className="sp">Brasil- São Paulo (SP)</p>
+                </div>
+
+                <img className='linha4' src="/assets/images/linha4.png" />
+
+                <div className="sub-cont">
+                     <p className="titulo">MEIOS DE CONTATO</p>
+
+                    <div className="redes-sociais">
+                        
+                        <div>
+                            <img className="icones-redes" src="/assets/images/insta.png" />
+                            <p className="texto-redes">COLO_MAE_ PAI</p>
+                        </div>
+
+                        <div>
+                            <img className="icones-redes" src="/assets/images/tumblr.png" />
+                            <p className="texto-redes">COLO MÃE E PAI</p>
+                        </div>
+
+                        <div>
+                            <img className="icones-redes" src="/assets/images/face.png" />
+                            <p className="texto-redes">COLO MÃE E PAI</p>
+                        </div>
+
+                        <div>
+                            <img className="icones-redes" src="/assets/images/whatssap.png" />
+                            <p className="texto-redes">55 (11) 95411-1031</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <img className='linha4' src="/assets/images/linha4.png" />
+
+                <div>
+                    <p className="titulo2">FALE COM ALGUM DOS NOS PROFISSIONAIS!</p>
+                </div>
+            </div>
 
         </main>
     );
