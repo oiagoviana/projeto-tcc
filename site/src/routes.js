@@ -23,6 +23,7 @@ import PublicacaoUsuario from './pages/usuario/publicacao'
 import Chat from './pages/usuario/chat'
 
 //Psi
+import PerfilPsi from './pages/psicologo/perfil'
 import Formulario from './pages/psicologo/formulario'
 import LoginPsi from './pages/psicologo/loginPsi'
 
@@ -45,6 +46,7 @@ export default function Index() {
 
                 <Route path='/psi/login' element={<LoginPsi/>}/>
                 <Route path='/psi/formulario' element={<Formulario/>}/>
+                <Route path='/psi/perfil' element={<PerfilPsi/>}/>
 
 
 

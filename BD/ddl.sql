@@ -60,11 +60,11 @@ CREATE TABLE tb_indicacao(
     nm_clinica                	varchar(100),
     nm_cidade                	varchar(100),
     ds_cep                    	varchar(30),
+    ds_telefone					varchar(30),
     ds_endereco                	varchar(200),
 	ds_classificacao        	decimal(5,1),
     ds_atendimento            	varchar(200),
-    img_clinica                	varchar(400),
-    ds_telefone					varchar(20),
+    img_clinica                	varchar(400)
     foreign key	(id_indicacao_categoria) references tb_indicacao_categoria(id_indicacao_categoria)
 );
 
@@ -99,6 +99,7 @@ create table tb_mensagem(
     dt_mensagem			time,
     foreign key	(id_chat) references tb_chat(id_chat)
 );
+
 
 
 
