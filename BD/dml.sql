@@ -28,8 +28,8 @@ INSERT INTO tb_admin(ds_email, ds_senha)
 select * from tb_indicacao;
 select * from tb_indicacao_categoria;
 
-INSERT INTO tb_indicacao (nm_clinica, nm_cidade, ds_cep, ds_endereco, ds_classificacao, ds_atendimento, id_indicacao_categoria)
-     values ("Fleury" ,"São Paulo - SP","04814-075" ,"Grajaú" ,4.8 ,"Segunda a Sexta..." , 1);
+INSERT INTO tb_indicacao (nm_clinica, nm_cidade, ds_cep, ds_telefone, ds_endereco, ds_classificacao, ds_atendimento, id_indicacao_categoria)
+     values ("Fleury" ,"São Paulo - SP","04814-075", '11-957194797' ,"Grajaú" ,4.8 ,"Segunda a Sexta..." , 1);
 
 INSERT INTO tb_indicacao_categoria(nm_categoria)
      values ("Saúde");
@@ -153,4 +153,103 @@ insert into tb_publicacao (id_usuario, ds_titulo, ds_publicacao, dt_publicacao, 
     left join tb_usuario on tb_publicacao.id_usuario = tb_usuario.id_usuario
     left join tb_psicologo on tb_publicacao.id_psicologo = tb_psicologo.id_psicologo
     where pb_aprovado = true;
+
+ --  chat NÃO MEXER
+
+
+    select * from tb_usuario;
+select * from tb_psicologo;
+select * from tb_chat;
+select * from tb_mensagem;
+
+
+update tb_psicologo
+set bt_aprovado = true
+where id_psicologo =1;
+
+
+select  		id_psicologo            id,
+                ds_email		        email,
+                bt_aprovado				aprovado
+          from  tb_psicologo
+         where  ds_email	= 'iagoviana'
+           and	ds_senha	= '1234'
+           and bt_aprovado  = true;
+
+insert into tb_chat(id_usuario, id_psicologo, dt_solicitacao, bt_autorizado)
+        values(2,1, sysdate(), false);
+
+insert into tb_mensagem(id_chat)
+ values(1);
+ 
+ 
+insert into tb_mensagem(id_chat, ds_mensagem, tp_mensagem, dt_mensagem)
+values(1, 'alysson', 'u',sysdate());
+
+insert into tb_mensagem(id_chat, ds_mensagem, tp_mensagem, dt_mensagem)
+values(1, 'Psi dando 3 ', 'p',sysdate());
+
+
+-- listar chat (usuario)
+		select 	id_chat 		id,
+				tb_chat.id_usuario		usuario,
+				tb_chat.id_psicologo	psicologo,
+                nm_psicologo	nomePsi,
+				dt_solicitacao as	'data'
+		  from tb_chat
+	inner join	tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
+    inner join tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo;
+    
+    
+    select 		id_chat 				id,
+				tb_chat.id_usuario		usuario,
+				tb_chat.id_psicologo	psicologo,
+                nm_usuario				nome,
+				dt_solicitacao 		as	'data'
+		  from tb_chat
+	inner join	tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
+    inner join tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo;
+    
+    
+    
+    -- COLOCAR NO REACT PARA PEGAR A PRIMEIRA POSIÇÃO 
+    select 	tb_chat.id_chat				chat,
+            tb_psicologo.nm_psicologo		nomePsi,
+            dt_mensagem						hora
+	 from 	tb_mensagem
+     inner join tb_chat on tb_chat.id_chat = tb_mensagem.id_chat
+	 inner join tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo
+     order by dt_mensagem desc;
+     
+     
+     select 	tb_chat.id_chat				chat,
+            tb_usuario.nm_usuario			nome,
+            dt_mensagem						hora
+	 from 	tb_mensagem
+     inner join tb_chat on tb_chat.id_chat = tb_mensagem.id_chat
+	 inner join tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
+     order by dt_mensagem desc;
+        
+
+
+-- mensagem  usuario
+
+select 	id_mensagem		id,
+		id_chat			chat,
+        ds_mensagem		mensagem,
+        tp_mensagem		tipo,
+        dt_mensagem		hora
+  from  tb_mensagem
+  where tp_mensagem = 'u'
+  order by ds_mensagem desc;
+        
+-- mensagem psi
+select 	id_mensagem		id,
+		id_chat			chat,
+        ds_mensagem		mensagem,
+        tp_mensagem		tipo,
+        dt_mensagem		hora
+  from  tb_mensagem
+  where tp_mensagem = 'p'
+  order by ds_mensagem desc;
     

@@ -1,0 +1,73 @@
+.page-cabecalhoChat{
+    height: 15vh;
+    background-color: #CC8F6E;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    flex-direction: row;
+    
+    
+    
+    .itens-cabecalho{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 60vw;
+        height: 10vh;
+        margin: 1em 0em 0em 0em;
+    }
+
+
+    .imagem-seta{
+        width: 7vw;
+        height: 7vh;
+    }
+
+    .imagem-seta:hover{
+        cursor: pointer;
+    }
+
+    .div-nome{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 28vw;
+    }
+
+    .subdiv-nome{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        
+    }
+    
+    .nome {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        border-radius: 100%;
+        font-size: 35px;
+        font-family: 'Abhaya1';
+        color: #73401E;
+        height: 50px;
+        width: 50px;
+    }
+
+    .nomedr{
+        color: #73401E;
+        font-size: 2em;
+        font-family: 'Poppins1';
+        margin: 0;
+        margin-left: 1em;
+    }
+
+    .disp{
+        color: #ffffff;
+        margin: 0;
+        font-family: 'Abhaya1';
+        font-size: 1.3em;
+    }
+}
