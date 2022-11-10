@@ -23,8 +23,6 @@ import PublicacaoUsuario from './pages/usuario/publicacao'
 import Chat from './pages/usuario/chat'
 import FeedPublicacao from './pages/usuario/feedPublicacao'
 
-
-
 //Psi
 import Formulario from './pages/psicologo/formulario'
 import LoginPsi from './pages/psicologo/loginPsi'
@@ -39,7 +37,7 @@ export default function Index() {
                 <Route path='/usuario/perfil' element={<PerfilUser />} />
                 <Route path='/usuario/publicacao' element={<PublicacaoUsuario/>}/>
                 <Route path='/usuario/indicacao' element={<Indicacao />} />
-                <Route path='/usuario/publicacaocompleta' element={<PublicacaoCompleta />} />
+                <Route path='/usuario/publicacaocompleta/:idParam' element={<PublicacaoCompleta />} />
                 <Route path='/usuario/indicacao' element={<Indicacao />} />
                 <Route path='/usuario/indicacao/:id' element={<Indicacao/>}/>
                 <Route path='/usuario/chat' element={<Chat />} />
@@ -62,8 +60,21 @@ export default function Index() {
                 <Route path='/admin/publicacaoCard' element={<PublicacaoCard />} />
                 <Route path='/admin/publicacao/:idParam' element={<Publicacao />} />
                 
-
+            
     
+                <Route path='/indicacao' element={<Indicacao/>}/>
+                <Route path='/indicacao/:id' element={<Indicacao/>}/>
+
+
+
+                <Route path='/psi/login' element={<LoginPsi/>}/>
+                <Route path='/psi/formulario' element={<Formulario/>}/>
+
+           
+
+        
+
+
             </Routes>
         </BrowserRouter>
     )
