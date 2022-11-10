@@ -22,3 +22,8 @@ export async function loginUser(email, senha) {
     });
     return resposta.data;
 }
+
+export async function solicitacoesUser(id) {
+    const resposta = await api.get(`/usuario/solicitacoes?id=${id}`);
+    return resposta.data;
+}

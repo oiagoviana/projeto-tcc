@@ -1,15 +1,30 @@
 import './index.scss'
 import MenuUsuario from '../../../components/menuusuario'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { solicitacoesUser } from '../../../api/usuarioApi';
+import storage from 'local-storage'
 
 export default function PerfilUser() {
     const [botoesCliques, setBotoesCliques] = useState('mensagens');
+    const [solicitacoes, setSolicitacoes] = useState([]);
+    // const [publicacoes, setPublicacoes] = useState([]);
     {/* transformando formatações para a borda 
         const [bordaInferior, setBordaInferior] = useState('container-mensagens container-mensagens-borda'); */}
 
     function cliqueAbas(aba) {
         setBotoesCliques(aba);
     }
+
+    async function listarSolicitacoes() {
+        const resposta = storage('usuario-logado').id;
+        console.log(resposta);
+        const chamada = await solicitacoesUser(resposta);
+        setSolicitacoes(chamada);
+    }
+
+    useEffect(() => {
+        listarSolicitacoes();
+    }, [])
 
     return (
         <main className='page-perfil-user'>
@@ -50,62 +65,16 @@ export default function PerfilUser() {
                                     </thead>
 
                                     <tbody>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
 
+                                        {solicitacoes.map(item =>
+
+                                            <tr className='corpo-teste'>
+                                                <td className='titulo-doutores'>{item.nome}</td>
+                                                <td className='titulo-resultado-situacao'>{item.autorizado}</td>
+                                                <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
+                                            </tr>
+
+                                        )}
 
                                     </tbody>
                                 </table>
