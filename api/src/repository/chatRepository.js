@@ -81,4 +81,21 @@ export async function selecionarChatP(id) {
     return resposta;
 }
 
+export async function listarNome(id) {
+    const comando =
+        `select 	id_chat						idChat,
+                    tb_chat.id_usuario			usuario,
+                    tb_chat.id_psicologo		psi,
+                    nm_usuario					nome,
+                    nm_psicologo				nomePsi
+           from	    tb_chat
+     inner join     tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo
+     inner join     tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
+          where 	id_chat 					= ?
+            and	    bt_autorizado 				= true`
+    
+    const [resposta] = await con.query(comando, [id]);
+    return resposta;
+}
+
 

@@ -29,3 +29,8 @@ export async function listarConversasP(id) {
     const resposta = await api.get(`/api/chatP?id=${Number(id)}`);
     return resposta.data;
 }
+
+export async function listarPorNome(id) {
+    const resposta = await api.get(`/api/chat/nome?id=${Number(id)}`);
+    return resposta.data;
+}

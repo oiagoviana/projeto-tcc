@@ -65,11 +65,7 @@ export default function PubliCompleta() {
 
                         <textarea value={comentario} onChange = { e=> setComentario(e.target.value)} className="text"></textarea>
 
-                        
-
-
                     </div>
-                    
             </div>
         </main>
     )
