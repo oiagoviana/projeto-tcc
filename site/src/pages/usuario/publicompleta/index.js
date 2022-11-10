@@ -18,6 +18,7 @@ export default function PubliCompleta() {
 
     async function MostrarPubli() {
         const resposta = await mostrarPublicacaoUsuId(idParam);
+        console.log(resposta);
         setPublicacao(resposta)
     }
     async function MostrarComentarioUsu() {
@@ -68,7 +69,7 @@ export default function PubliCompleta() {
     return (
         <main className="div-principal">
             <div>
-                <MenuUsuario pagina='publicacao'/>
+                <MenuUsuario pagina='publicacao' />
             </div>
 
             <div className='div-direita'>
@@ -137,9 +138,9 @@ export default function PubliCompleta() {
                     )}
                 </div>
 
-                    </div>
-
             </div>
+
+
 
         </main>
     )
