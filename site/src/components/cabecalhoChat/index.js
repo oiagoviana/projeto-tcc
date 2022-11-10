@@ -1,7 +1,20 @@
 import './index.scss'
-
+import { listarPorNome } from '../../api/chatApi';
+import { useEffect, useState } from 'react';
+import storage from 'local-storage';
 
 export default function CabecalhoChat() {
+    const [conversa, setConversa] = useState({});
+
+    async function listaConversas() {
+        const r = await listarPorNome(1);
+        console.log(r);
+        setConversa(r);
+    }
+
+    useEffect(() => {
+        listaConversas();
+    }, [])
 
 
     return (
@@ -12,9 +25,9 @@ export default function CabecalhoChat() {
 
 
                 <div className='div-nome'>
-                    <span className='nome'>B</span>
+                    <span className='nome'>{conversa.nome}  </span>
                     <div className='subdiv-nome'>
-                        <p className='nomedr'>Dr. Bruna Oliveira</p>
+                        <p className='nomedr'>{conversa.nomePsi} </p>
                         <p className='disp'>Disponível</p>
                     </div>
                 </div>

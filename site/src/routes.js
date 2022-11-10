@@ -21,6 +21,7 @@ import PublicacaoCompleta from './pages/usuario/publicompleta'
 import PerfilUser from './pages/usuario/perfil'
 import PublicacaoUsuario from './pages/usuario/publicacao'
 import Chat from './pages/usuario/chat'
+import FeedPublicacao from './pages/usuario/feedPublicacao'
 
 //Psi
 import Formulario from './pages/psicologo/formulario'
@@ -40,6 +41,7 @@ export default function Index() {
                 <Route path='/usuario/indicacao' element={<Indicacao />} />
                 <Route path='/usuario/indicacao/:id' element={<Indicacao/>}/>
                 <Route path='/usuario/chat' element={<Chat />} />
+                <Route path='/usuario/feedpublicacao' element={<FeedPublicacao />} />
 
 
 

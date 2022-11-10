@@ -114,6 +114,7 @@ export default function PubliCompleta() {
                     <div className='container-titulo-coment'>
                         <button className="h1coment" onClick={openModal}>Comentar</button>
 
+
                         <div>
                             <Modal
                                 isOpen={ModalIsOpen}
@@ -135,6 +136,9 @@ export default function PubliCompleta() {
                         </div>
                     )}
                 </div>
+
+                    </div>
+
             </div>
 
         </main>

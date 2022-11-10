@@ -126,6 +126,7 @@ export async function fazerComentarioPsi(id, comentario) {
     comentario.id = resposta.insertId;
     return comentario;
 }
+
 export async function listarComentarioUsu(id) {
     const comando =
         `select id_comentario  idComent,
@@ -138,4 +139,27 @@ export async function listarComentarioUsu(id) {
         where id_publicacao = ?;`
     const [resposta] = await con.query(comando, [id]);
     return resposta;
+}
+
+export async function listarPublicacaoFeed() {
+    const comando =
+        `select id_publicacao 					as 'id',
+        tb_publicacao.id_usuario		as 'idUsuario',
+        tb_publicacao.id_psicologo		as 'idPsi',
+        nm_usuario						as 'nome',
+        nm_psicologo					as 'nomePsi',
+        tb_usuario.ds_email				as 'email',
+        tb_psicologo.ds_email			as 'emailPsi',
+        ds_titulo						as 'titulo',
+        ds_publicacao					as 'descricao',
+        date_format(dt_publicacao, '%d/%m/%Y')					as 'data',
+        img_publicacao					as 'imagem',
+        pb_aprovado                     as 'aprovado' 
+    from tb_publicacao
+    left join tb_usuario on tb_publicacao.id_usuario = tb_usuario.id_usuario
+    left join tb_psicologo on tb_publicacao.id_psicologo = tb_psicologo.id_psicologo
+    where pb_aprovado = true;`
+
+    const [resposta] = await con.query(comando);
+    return resposta
 }

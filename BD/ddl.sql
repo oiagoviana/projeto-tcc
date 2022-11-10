@@ -102,4 +102,5 @@ create table tb_mensagem(
 
 
 
+
 show tables;
