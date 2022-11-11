@@ -1,24 +1,15 @@
 import { con } from './connection.js'
 
-export async function EnviarMensagemU(mensagem) {
+export async function EnviarMensagem(mensagem) {
     const comando =
         `insert into tb_mensagem(id_chat, ds_mensagem, tp_mensagem, dt_mensagem)
-        values(?, ?, 'u',sysdate())`
+        values(?, ?, ?,sysdate())`
     
-    const [resposta] = await con.query(comando, [mensagem.id, mensagem.mensagem]);
+    const [resposta] = await con.query(comando, [mensagem.id, mensagem.mensagem, mensagem.tipo]);
     mensagem.id = resposta.insertId;
     return mensagem;
 }
 
-export async function EnviarMensagemP(mensagem) {
-    const comando = 
-        `insert into tb_mensagem(id_chat, ds_mensagem, tp_mensagem, dt_mensagem)
-        values(?, ?, 'p',sysdate())`
-
-    const [resposta] = await con.query(comando, [mensagem.id, mensagem.mensagem]);
-    mensagem.id = resposta.insertId;
-    return mensagem;
-}
 
 
 export async function Mensagens(id) {
@@ -50,7 +41,7 @@ export async function CriarChat(usuario, psicologo) {
 
 export async function selecionarChatU(id) {
     const comando =
-    `select 	id_chat                 idChat,
+    `select 	id_chat                 id,
                 tb_chat.id_usuario      idUsuario, 
                 tb_chat.id_psicologo    idPsi,
                 nm_psicologo            nomePsi
@@ -67,7 +58,7 @@ export async function selecionarChatU(id) {
 
 export async function selecionarChatP(id) {
     const comando =
-    `select 	id_chat			        idChat,
+    `select 	id_chat			        id,
                 tb_chat.id_usuario	    idUsuario,
                 tb_chat.id_psicologo    idPsi,
                 nm_usuario		        nome
@@ -79,6 +70,39 @@ export async function selecionarChatP(id) {
     
     const [resposta] = await con.query(comando,[id]);
     return resposta;
+}
+
+export async function selecionarChatU2(id) {
+    const comando =
+    `select 	id_chat                 id,
+                tb_chat.id_usuario      idUsuario, 
+                tb_chat.id_psicologo    idPsi,
+                nm_psicologo            nomePsi
+       from	    tb_chat
+ inner join     tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo
+ inner join     tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
+      where     tb_usuario.id_usuario = ?
+        and	    bt_autorizado = true`
+    
+    const [resposta] = await con.query(comando,[id]);
+    return resposta[0];
+}
+
+
+export async function selecionarChatP2(id) {
+    const comando =
+    `select 	id_chat			        id,
+                tb_chat.id_usuario	    idUsuario,
+                tb_chat.id_psicologo    idPsi,
+                nm_usuario		        nome
+       from	    tb_chat
+ inner join     tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo
+ inner join     tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
+      where     tb_psicologo.id_psicologo = ?
+        and	    bt_autorizado = true`
+    
+    const [resposta] = await con.query(comando,[id]);
+    return resposta[0];
 }
 
 export async function listarNome(id) {

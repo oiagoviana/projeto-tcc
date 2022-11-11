@@ -1,30 +1,14 @@
 import { Router } from 'express'
-import { CriarChat, EnviarMensagemP, EnviarMensagemU, listarNome, Mensagens, selecionarChatP, selecionarChatU } from '../repository/chatRepository.js';
+import { CriarChat, EnviarMensagem, listarNome, Mensagens, selecionarChatP, selecionarChatP2, selecionarChatU, selecionarChatU2 } from '../repository/chatRepository.js';
 
 const server = Router();
 
 
-server.post('/api/chatUsu', async (req, resp) => {
+server.post('/api/chatM', async (req, resp) => {
     try {
         const mensagem = req.body;
-
-
-        const resposta = await EnviarMensagemU(mensagem);
-        resp.send(resposta);
-
-    } catch (err) {
-        resp.status(400).send({
-            erro: err.message
-        });
-    }
-})
-
-server.post('/api/chatPsi', async (req, resp) => {
-    try {
-        const mensagem = req.body;
-
-
-        const resposta = await EnviarMensagemP(mensagem);
+        
+        const resposta = await EnviarMensagem(mensagem);
         resp.send(resposta);
 
     } catch (err) {
@@ -36,7 +20,7 @@ server.post('/api/chatPsi', async (req, resp) => {
 
 server.get('/api/chat', async (req, resp) => {
     try {
-        const { id } = req.params
+        const { id } = req.query
 
         const resposta = await Mensagens(id);
         resp.send(resposta);
@@ -86,6 +70,33 @@ server.get('/api/chatP', async (req, resp) => {
     try {
         const {id} = req.query
         const resposta = await selecionarChatP(id);
+        resp.send(resposta);
+
+    } catch (err) {
+        resp.status(400).send({
+            erro:err.message
+        })
+    }
+})
+
+server.get('/api/chatU2', async (req, resp) => {
+    try {
+        const {id} = req.query
+        const resposta = await selecionarChatU2(id);
+        resp.send(resposta);
+
+    } catch (err) {
+        resp.status(400).send({
+            erro:err.message
+        })
+    }
+})
+
+
+server.get('/api/chatP2', async (req, resp) => {
+    try {
+        const {id} = req.query
+        const resposta = await selecionarChatP2(id);
         resp.send(resposta);
 
     } catch (err) {

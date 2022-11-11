@@ -2,21 +2,31 @@ import './index.scss'
 import { listarConversasP, listarConversasU } from '../../api/chatApi';
 import { useEffect, useState } from 'react';
 import storage from 'local-storage';
+import { useNavigate } from 'react-router-dom';
 
 export default function ChatCard() {
     const [conversasU, setConversasU] = useState([]);
     const [conversasP, setConversasP] = useState([]);
+    const navigate = useNavigate();
 
     async function listaConversasU() {
-        const id = storage('usuario-logado').id;
-        const r = await listarConversasU(id);
-        setConversasU(r);
+        if (storage('usuario-logado')) {
+            const id = storage('usuario-logado').id;
+            const r = await listarConversasU(id);
+            setConversasU(r);
+        }
     }
 
     async function listaConversasP() {
-        const id = storage('psi-logado').id;
-        const r = await listarConversasP(id);
-        setConversasP(r);
+        if (storage('psi-logado')) {
+            const id = storage('psi-logado').id;
+            const r = await listarConversasP(id);
+            setConversasP(r);
+        }
+    }
+
+    function entrarChat(id) {
+        navigate(`/usuario/chat/${id}`)
     }
 
     useEffect(() => {
@@ -32,11 +42,10 @@ export default function ChatCard() {
                 <div>
                     <p className='chats'>Chats</p>
                 </div>
-
                 {storage('usuario-logado') &&
-                    <div className='card'>
+                    <div className='card' >
                         {conversasU.map(item =>
-                            <div className='chatCard'>
+                            <div className='chatCard' onClick={() => entrarChat(item.id)}>
                                 <div className='div-nome'>
                                     <span className='letra'>{item.nomePsi[0].toUpperCase()}</span>
                                     <span className='nome'>{item.nomePsi}</span>
@@ -60,11 +69,6 @@ export default function ChatCard() {
                         )}
 
                     </div>}
-
-
-
-
-
             </div>
         </main>
     );

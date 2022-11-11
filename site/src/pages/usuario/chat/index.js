@@ -3,22 +3,14 @@ import CabecalhoChat from '../../../components/cabecalhoChat'
 import ChatCard from '../../../components/chatCard'
 import { useState } from 'react';
 import storage from 'local-storage'
-import { SendMessageP, SendMessageU } from '../../../api/chatApi';
 
 
 export default function Chat() {
     const [mensagem, setMensagem] = useState('');
     const [mensagens, setMensagens] = useState([]);
 
-    async function submitMessage() {
-        if (storage('usuario-logado')) {
-            const resposta = await SendMessageU(mensagem);
-            setMensagem(resposta);
-        } else if (storage('psi-logado')) {
-            const resposta = await SendMessageP(mensagem);
-            setMensagem(resposta);
-        }
-    }
+
+    
 
     
 
@@ -56,12 +48,12 @@ export default function Chat() {
                         />
 
                     {storage('usuario-logado') &&
-                        <img src='/assets/images/enviar-mensagem.png' onClick={submitMessage} alt='' />
+                        <img src='/assets/images/enviar-mensagem.png' alt='' />
 
                     }
 
                     {storage('psi-logado') &&
-                        <img src='/assets/images/enviar-mensagem.png' onClick={submitMessage} alt='' />
+                        <img src='/assets/images/enviar-mensagem.png' alt='' />
 
                     }
                     </div>
