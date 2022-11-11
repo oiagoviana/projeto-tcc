@@ -69,7 +69,7 @@
     .imagem-bb {
         position: absolute;
         width: 35vw;
-        height: 80vh;
+        height: 55vh;
         //border: 1px solid red;
 
         
@@ -794,13 +794,20 @@
         flex-direction: column;
     }
 
+    @media (max-width: 1280px) {
+
+
+
+    }
+
+
     
 
 }
 
-/**{
-    border: 2px solid red;
-}*/
+
+
+
 
 
 
