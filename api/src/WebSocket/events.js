@@ -3,19 +3,12 @@ import { EnviarMensagem, Mensagens } from '../repository/chatRepository.js'
 
 io.on("connection", async (socket) => {
 
-    socket.on("enviarmensagem", async (data) => {
+    socket.on("enviar_mensagem", async (data) => {
         const r = await EnviarMensagem(data.mensagem);
     })
 
-    socket.on("listarmensagem", async (data) => {
+    socket.on("listar_mensagem", async (data) => {
         const r = await Mensagens(data.id)
-        
+        socket.emit("listar_mensagem", r)
     })
-
-
-
-
-
-
-
-})
+});
