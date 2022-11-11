@@ -135,7 +135,20 @@ export async function listarComentarioUsu(id) {
         date_format(dt_comentario, '%d/%m/%Y')		as 'data'
         from tb_comentario
         left join tb_usuario on tb_comentario.id_usuario = tb_usuario.id_usuario
-        where id_publicacao = ?;`
+        where id_publicacao = ?`
     const [resposta] = await con.query(comando, [id]);
+    return resposta;
+}
+
+export async function listarPublicacaoUser(id) {
+    const comando = 
+        `select id_usuario	iduser,
+         id_psicologo		idpsi,
+         ds_titulo		    nome,
+         date_format(dt_publicacao, '%d/%m/%Y')	    as 'data',
+         pb_aprovado		aprovado
+    from tb_publicacao
+   where id_usuario = ?`
+   const [resposta] = await con.query(comando, [id]);
     return resposta;
 }
