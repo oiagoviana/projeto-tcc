@@ -245,7 +245,7 @@ export default function Landing() {
             <img className="rodape"src='/assets/images/rodape3.png' />
             
             <div className="ultimo-container">
-                <div>
+                <div className="logo-rodape">
                     <img className="img-logo"src="/assets/images/logo-sozinha.png"/>
                     <p className="sp">Brasil- São Paulo (SP)</p>
                 </div>
@@ -255,28 +255,28 @@ export default function Landing() {
                     <div className='container-redes'>
                      <p className="titulo">MEIOS DE CONTATO</p>
 
-                    <div className="redes-sociais">
+                     <div className="redes-sociais">
                         
-                        <div>
-                            <img className="icones-redes" src="/assets/images/insta.png" />
-                            <p className="texto-redes">COLO_MAE_ PAI</p>
-                        </div>
+                            <div>
+                                <img className="icones-redes" src="/assets/images/insta.png" />
+                                <p className="texto-redes">COLO_MAE_ PAI</p>
+                            </div>
 
-                        <div>
-                            <img className="icones-redes" src="/assets/images/tumblr.png" />
-                            <p className="texto-redes">COLO MÃE E PAI</p>
-                        </div>
+                            <div>
+                                <img className="icones-redes" src="/assets/images/tumblr.png" />
+                                <p className="texto-redes">COLO MÃE E PAI</p>
+                            </div>
 
-                        <div>
-                            <img className="icones-redes" src="/assets/images/face.png" />
-                            <p className="texto-redes">COLO MÃE E PAI</p>
-                        </div>
+                            <div>
+                                <img className="icones-redes" src="/assets/images/face.png" />
+                                <p className="texto-redes">COLO MÃE E PAI</p>
+                            </div>
 
-                        <div>
-                            <img className="icones-redes" src="/assets/images/whatssap.png" />
-                            <p className="texto-redes">55 (11) 95411-1031</p>
-                        </div>
-                    </div>
+                            <div>
+                                <img className="icones-redes" src="/assets/images/whatssap.png" />
+                                <p className="texto-redes">55 (11) 95411-1031</p>
+                            </div>
+                     </div>     
                     </div>
 
                 <img className='linha4' src="/assets/images/linha4.png" />

@@ -106,7 +106,8 @@
     }
 
     .maos {
-        width: 30vw;
+        width: 50vw;
+   
         height: 50vh;
         border-right: 14em;
 
@@ -119,7 +120,7 @@
         position: absolute;
         font-size: 1.5em;
         font-family: 'Abhaya3';
-        margin-top: 4em;
+        margin-top: 6em;
         margin-right: 30em;
     }
 
@@ -129,6 +130,7 @@
         font-size: 1.9em;
         font-family: 'Bevan1';
         color: #6F4528;
+      margin-top: 2em;
 
         height: 1em;
     }
@@ -422,13 +424,9 @@
         align-items: flex-start;
         width: 100%;
 
-        //border: 1px solid red;
-
-        
-       
+        border: 1px solid red;
 
     }
-
 
     .p6 {
         margin-left: 3em;
@@ -795,11 +793,191 @@
     }
 
     @media (max-width: 1280px) {
+        .botao1{
+            width: 6em;
+            height: 2.3em;
+            margin-right: 4em;
 
+           
+        }
 
+        .logo-mae{
+            width: 9em;
+            height: 4em;
+            
+        }
+
+        .quadrado{
+            margin-top: 6em;
+        }
+
+        .quadrado-1{
+            margin-top: 7.3em;
+        
+        }
+
+        .missao{
+            margin-top: -0.1em;
+        }
+
+        .linha1{
+            margin-top: 4em;
+        }
+
+        .texto-4{
+
+            margin-top: 3.5em;
+
+        }
+
+        .linha2{
+            margin-top: -3.5em;
+            margin-right: 3em;
+        }
+
+        .valores{
+            margin-right: 1.1em;
+        }
+
+        .todos{
+
+            margin-right: 6.3em;
+                   
+        }
+
+        .maos{
+            margin-bottom: 3.5em;
+        }
+
+        .botao-formulario{
+            margin-left: 27em;
+        }
+
+        .rodape{
+            margin-bottom: -1em;
+        }
+
+        .titulo2{
+            //border: 1px solid red;
+            width: 14vw;     
+            margin-top: 5em;
+            word-wrap: break-word;
+        }
 
     }
 
+
+    @media (max-width: 1300px){
+
+        .rodape{
+            margin-bottom: -3em;
+        }
+
+    }
+
+
+    @media (max-width: 1450px){
+
+        
+        .logo-mae{
+            width: 16vw;
+            height: 10vh;
+            
+        }
+
+        .botao1{
+            border: 1px solid red;
+            width: 7em;
+            height: 2.3em;
+            margin-right: 8em;
+
+           
+        }
+
+        .texto-1{
+            font-size: 1.4em;
+        }
+
+
+        .conteiner3{ 
+            border: 1px solid red;
+            margin-right: 2em;
+        
+        }
+
+        .sobre-nos{
+            //border: 1px solid red;
+            width: 14vw;
+            margin-left: 4em;
+            font-size: 2.3em;
+        }
+
+        .texto-3{
+            margin-left: -1em;
+        }
+        
+        .missao{
+            margin-top: 1.2em;
+        }
+
+        .linha1{
+            margin-top: 8.3em;
+            margin-left: 19.2em;
+        }
+
+        .texto-4 {
+            margin-top: 6em;
+            font-size: 1.7em
+        }
+
+        .quadrado{
+            margin-top: 6em;
+        }
+
+        .quadrado-1{
+            margin-top: 7.3em;
+        
+        }
+
+        .maos{
+            margin-bottom: 3em;
+         
+        }
+
+        .container6{
+            width: 90%;
+            margin-left: 7em;
+        }
+        
+
+        .header-dicas{
+            margin-left: 3em;
+        }
+
+        .sub-container-dicas{
+            margin-left: 6em;
+        }
+
+        .rodape {
+            margin-bottom: -2em;
+        }
+
+
+        .ultimo-container{
+            justify-content: center;
+        }
+
+        .container-redes{
+            //border: 1px solid red;
+            margin-left: 3em;
+            width: 50vw;
+            height: 26vh;
+        }
+
+        .logo-rodape{
+            margin-left: 1em;
+        }
+    }
 
     
 
