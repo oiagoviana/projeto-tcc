@@ -2,7 +2,7 @@ import { Router } from 'express'
 import multer from 'multer';
 
 
-import { alterarImagemUsuario, autorizarPublicacao, fazerComentarioPsi, /*fazerComentario*/ fazerComentarioUsu,listarPublicacaoCard, listarPublicacaoId, PublicarPsi, PublicarUsuario, listarPublicacaoUser } from '../repository/publicacaoRepository.js';
+import { alterarImagemUsuario, autorizarPublicacao, fazerComentarioPsi, /*fazerComentario*/ fazerComentarioUsu,listarPublicacaoCard, listarPublicacaoId, PublicarPsi, PublicarUsuario, listarPublicacaoUser, listarPublicacaoPsi } from '../repository/publicacaoRepository.js';
 
 
 const server = Router();
@@ -211,6 +211,19 @@ server.get('/api/publicacoesUser', async (req, resp) => {
         const listandoPub = await listarPublicacaoUser(id);
 
         resp.status(201).send(listandoPub);
+    } catch(err) {
+        resp.status(401).send({
+            erro: err.message
+        });
+    }
+})
+
+server.get('/api/publicacoesPsi', async (req, resp) => {
+    try {
+        const { id } = req.query;
+        console.log(id);
+        const resposta = await listarPublicacaoPsi(id);
+        resp.status(201).send(resposta);
     } catch(err) {
         resp.status(401).send({
             erro: err.message

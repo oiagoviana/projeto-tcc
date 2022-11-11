@@ -1,13 +1,30 @@
 import './index.scss'
 import MenuUsuario from '../../../components/menuusuario'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import storage from 'local-storage'
+import { listarPublicacaoPsi } from '../../../api/publicacaoApi';
 
 export default function PerfilPsi() {
     const [borda, setBorda] = useState('mensagens');
+    const [publicacoes, setPublicacoes] = useState([]);
+
+    // Falta finalizar!
 
     function verificarBorda(aba) {
         setBorda(aba);
     }
+
+    async function listarPublicacoes() {
+        const idpsi = storage('psi-logado').id;
+        console.log(idpsi);
+
+        const chamada = await listarPublicacaoPsi(idpsi);
+        setPublicacoes(chamada);
+    }
+
+    useEffect(() => {
+        listarPublicacoes();
+    }, [])
 
     return (
         <main className='page-perfil-psicologo'>
@@ -55,31 +72,7 @@ export default function PerfilPsi() {
                                 </thead>
 
                                 <tbody>
-                                    <tr className='corpo-teste'>
-                                        <td className='nome-solicitante'>Admin</td>
-                                        <td className='telefone-solicitante'>(11)97656-5332</td>
-                                        <td className='analise-solicitante'><img src='/assets/images/NAO-analisar.svg' alt='img-NAO' /> <img src='/assets/images/SIM-analisar.svg' alt='img-SIM' /></td>
-                                    </tr>
-                                    <tr className='corpo-teste'>
-                                        <td className='nome-solicitante'>Admin</td>
-                                        <td className='telefone-solicitante'>(11)97656-5332</td>
-                                        <td className='analise-solicitante'><img src='/assets/images/NAO-analisar.svg' alt='img-NAO' /> <img src='/assets/images/SIM-analisar.svg' alt='img-SIM' /></td>
-                                    </tr>
-                                    <tr className='corpo-teste'>
-                                        <td className='nome-solicitante'>Admin</td>
-                                        <td className='telefone-solicitante'>(11)97656-5332</td>
-                                        <td className='analise-solicitante'><img src='/assets/images/NAO-analisar.svg' alt='img-NAO' /> <img src='/assets/images/SIM-analisar.svg' alt='img-SIM' /></td>
-                                    </tr>
-                                    <tr className='corpo-teste'>
-                                        <td className='nome-solicitante'>Admin</td>
-                                        <td className='telefone-solicitante'>(11)97656-5332</td>
-                                        <td className='analise-solicitante'><img src='/assets/images/NAO-analisar.svg' alt='img-NAO' /> <img src='/assets/images/SIM-analisar.svg' alt='img-SIM' /></td>
-                                    </tr>
-                                    <tr className='corpo-teste'>
-                                        <td className='nome-solicitante'>Admin</td>
-                                        <td className='telefone-solicitante'>(11)97656-5332</td>
-                                        <td className='analise-solicitante'><img src='/assets/images/NAO-analisar.svg' alt='img-NAO' /> <img src='/assets/images/SIM-analisar.svg' alt='img-SIM' /></td>
-                                    </tr>
+
                                     <tr className='corpo-teste'>
                                         <td className='nome-solicitante'>Admin</td>
                                         <td className='telefone-solicitante'>(11)97656-5332</td>
@@ -103,13 +96,18 @@ export default function PerfilPsi() {
                                 </thead>
 
                                 <tbody>
-                                    <tr className='corpo-teste'>
-                                        <td className='nome-publicacao'>Admin admin admin</td>
-                                        <td className='data-publicacao'>01/01/2006</td>
-                                        <td className='titulo-resultado-situacao'>Aprovado</td>
-                                        <td className='img-lapis'><img src='/assets/images/lapis-alterar.svg' alt='img-lapis' /></td>
-                                        <td className='img-lixo-publicacoes'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                    </tr>
+
+                                    {publicacoes.map(item =>
+
+                                        <tr className='corpo-teste'>
+                                            <td className='nome-publicacao'>{item.nome}</td>
+                                            <td className='data-publicacao'>{item.data}</td>
+                                            <td className='titulo-resultado-situacao'>{item.aprovado == 0 ? 'Em análise' : 'Aprovado'}</td>
+                                            <td className='img-lapis'><img src='/assets/images/lapis-alterar.svg' alt='img-lapis' /></td>
+                                            <td className='img-lixo-publicacoes'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
+                                        </tr>
+
+                                    )}
 
 
                                 </tbody>

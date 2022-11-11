@@ -27,3 +27,8 @@ export async function solicitacoesUser(id) {
     const resposta = await api.get(`/usuario/solicitacoes?id=${id}`);
     return resposta.data;
 }
+
+export async function letraUser(id) {
+    const resposta = await api.get(`/usuario/letra/nomeUser?id=${id}`);
+    return resposta.data;
+}

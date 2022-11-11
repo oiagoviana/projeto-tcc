@@ -109,11 +109,11 @@ export async function alterarImagemUsuario(imagem, id) {
     return resposta.affectedRows;
 }
 
-export async function fazerComentarioUsu(id,comentario) {
+export async function fazerComentarioUsu(id, comentario) {
     const comando = `
         insert into tb_comentario(id_publicacao, id_usuario, ds_comentario, dt_comentario)
             values (?, ?, ?, sysdate());`
-    const [resposta] = await con.query(comando, [id,comentario.IDusuario, comentario.comentario, comentario.data]);
+    const [resposta] = await con.query(comando, [id, comentario.IDusuario, comentario.comentario, comentario.data]);
     comentario.id = resposta.insertId;
     return comentario;
 }
@@ -141,14 +141,25 @@ export async function listarComentarioUsu(id) {
 }
 
 export async function listarPublicacaoUser(id) {
-    const comando = 
-        `select id_usuario	iduser,
-         id_psicologo		idpsi,
-         ds_titulo		    nome,
-         date_format(dt_publicacao, '%d/%m/%Y')	    as 'data',
-         pb_aprovado		aprovado
-    from tb_publicacao
-   where id_usuario = ?`
-   const [resposta] = await con.query(comando, [id]);
+    const comando =
+        `select id_usuario	        iduser,
+                ds_titulo		    nome,
+                date_format(dt_publicacao, '%d/%m/%Y')	    as 'data',
+                pb_aprovado		    aprovado
+           from tb_publicacao
+          where id_usuario = ?`
+    const [resposta] = await con.query(comando, [id]);
+    return resposta;
+}
+
+export async function listarPublicacaoPsi(id) {
+    const comando =
+        `select id_psicologo		idpsi,
+                ds_titulo		    nome,
+                date_format(dt_publicacao, '%d/%m/%Y')	    as 'data',
+                pb_aprovado		    aprovado
+           from tb_publicacao
+          where id_psicologo = ?`
+    const [resposta] = await con.query(comando, [id]);
     return resposta;
 }

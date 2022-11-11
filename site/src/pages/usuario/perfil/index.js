@@ -1,7 +1,7 @@
 import './index.scss'
 import MenuUsuario from '../../../components/menuusuario'
 import { useEffect, useState } from 'react'
-import { solicitacoesUser } from '../../../api/usuarioApi';
+import { solicitacoesUser, letraUser } from '../../../api/usuarioApi';
 import { listarPublicacaoUsu } from '../../../api/publicacaoApi';
 import storage from 'local-storage'
 
@@ -9,9 +9,18 @@ export default function PerfilUser() {
     const [botoesCliques, setBotoesCliques] = useState('mensagens');
     const [solicitacoes, setSolicitacoes] = useState([]);
     const [publicacoes, setPublicacoes] = useState([]);
+    const [nomePsicologo, setNomePsicologo] = useState({ nome: '', email: '' });
     // const [publicacoes, setPublicacoes] = useState([]);
     {/* transformando formatações para a borda 
         const [bordaInferior, setBordaInferior] = useState('container-mensagens container-mensagens-borda'); */}
+
+    async function pegarLetraUser() {
+        const iduser = storage('usuario-logado').id;
+        console.log(iduser);
+        const chamada = await letraUser(iduser);
+        console.log(chamada);
+        setNomePsicologo({nome: chamada.nome, email: chamada.email})
+    }
 
     function cliqueAbas(aba) {
         setBotoesCliques(aba);
@@ -19,23 +28,21 @@ export default function PerfilUser() {
 
     async function listarSolicitacoes() {
         const iduser = storage('usuario-logado').id;
-        console.log(iduser);
         const chamada = await solicitacoesUser(iduser);
         setSolicitacoes(chamada);
     }
 
     async function listarPublicacoes() {
         const resposta = storage('usuario-logado').id;
-        console.log(resposta);
 
         const listamento = await listarPublicacaoUsu(resposta);
-        console.log(listamento);
         setPublicacoes(listamento);
     }
 
     useEffect(() => {
         listarSolicitacoes();
         listarPublicacoes();
+        pegarLetraUser();
     }, [])
 
     return (
@@ -47,12 +54,12 @@ export default function PerfilUser() {
             <div className='container-meio'>
                 <div className='container-perfil'>
                     <div className='circulo-inicial'>
-                        <p>N</p>
+                        <p>{nomePsicologo.nome[0]}</p>
                     </div>
                     <div className='container-square'>
                         <div className='container-credenciais'>
-                            <h3>Nome do Usuário</h3>
-                            <p>usuario@usuario.com</p>
+                            <h3>{nomePsicologo.nome}</h3>
+                            <p>{nomePsicologo.email}</p>
                         </div>
 
                         <div className='container-solicitacoes'>

@@ -1,4 +1,4 @@
-import { Cadastro, Login, SolicitadoUser } from '../repository/usuarioRepository.js'
+import { Cadastro, letraNomeUsuario, Login, SolicitadoUser } from '../repository/usuarioRepository.js'
 import { Router } from 'express'
 
 const server = Router();
@@ -63,13 +63,26 @@ server.get('/usuario/solicitacoes', async (req, resp) => {
         const {id} = req.query;
         
         const resposta = await SolicitadoUser(id);
-        console.log(id);
         resp.send(resposta);
     }
     catch(err) {
         resp.status(401).send({
             erro: err.message
         });
+    }
+})
+
+server.get('/usuario/letra/nomeUser', async (req, resp) => {
+    try {
+        const { id } = req.query;
+        console.log(id);
+        const resposta = await letraNomeUsuario(id);
+
+        resp.status(201).send(resposta);
+    } catch(err) {
+        resp.status(401).send({
+            erro: err.message
+        })
     }
 })
 

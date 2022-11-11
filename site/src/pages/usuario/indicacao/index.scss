@@ -230,8 +230,8 @@
         }
 
         .container-header img {
-            position: relative;
-            right: 3em;
+            position: absolute;
+            visibility: hidden;
         }
 
         .card-indicacao {
@@ -271,9 +271,16 @@
             margin-right: 25px;
         }
 
+        .container-header {
+            height: 10vh;
+            width: 90%;
+    
+            margin-top: 1.5em;
+        }
+
         .container-header img {
-            position: relative;
-            right: 3em;
+            position: absolute;
+            margin-right: 2.5em;
         }
 
         .card-indicacao {

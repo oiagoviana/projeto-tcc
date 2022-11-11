@@ -87,3 +87,8 @@ export async function listarPublicacaoUsu(id) {
     const resposta = await api.get(`/api/publicacoesUser?id=${id}`);
     return resposta.data;
 }
+
+export async function listarPublicacaoPsi(id) {
+    const resposta = await api.get(`/api/publicacoesPsi?id=${id}`);
+    return resposta.data;
+}

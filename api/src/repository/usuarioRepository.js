@@ -35,3 +35,18 @@ inner join tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo
     const[linhas] = await con.query(comando, [id]);
     return linhas;
 }
+
+
+export async function letraNomeUsuario(id) {
+  const comando = 
+    `select id_usuario	id,
+            nm_usuario	nome,
+            ds_email		email,
+            ds_telefone telefone
+       from tb_usuario
+      where id_usuario = ?`
+
+    const[resposta] = await con.query(comando, [id]);
+    return resposta[0];
+    
+}
