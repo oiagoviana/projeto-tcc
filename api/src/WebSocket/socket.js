@@ -16,7 +16,7 @@ const serverHttp = http.createServer(server);
 //definindo propriedades do cors para funcionamento correto
 const io = new Server(serverHttp, {
     cors: {
-        origin: ["http://localhost:3000", "http://localhost:3000"],
+        origin: ["http://localhost:3000", "http://localhost:3001"],
         methods: ["GET", "POST"],
     },
 });

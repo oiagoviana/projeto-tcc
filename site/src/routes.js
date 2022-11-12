@@ -40,7 +40,7 @@ export default function Index() {
                 <Route path='/usuario/publicacaocompleta/:idParam' element={<PublicacaoCompleta />} />
                 <Route path='/usuario/indicacao' element={<Indicacao />} />
                 <Route path='/usuario/indicacao/:id' element={<Indicacao/>}/>
-                <Route path='/usuario/chat/:idParam' element={<Chat />} />
+                <Route path='/usuario/chat' element={<Chat />} />
                 <Route path='/usuario/feedpublicacao' element={<FeedPublicacao />} />
 
 

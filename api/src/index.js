@@ -1,4 +1,9 @@
 import 'dotenv/config'
+import { serverHttp, server } from "./WebSocket/socket.js";
+import "./WebSocket/events.js"
+import express from 'express'
+
+
 import admController from './controller/admController.js';
 import indicacaoController from './controller/indicacaoController.js'
 import psicologoController from './controller/psicologoController.js'
@@ -7,15 +12,9 @@ import publicacaoController from './controller/publicacaoController.js'
 import chatController from './controller/chatController.js'
 
 
-import express from 'express'
 
-import cors from 'cors'
 
-const server = express();
-server.use(cors());
-server.use(express.json());
-
-server.listen(process.env.PORT, () => 
+serverHttp.listen(process.env.PORT, () => 
   console.log(`API conectada na porta ${process.env.PORT}`));
 
 server.use(publicacaoController);
