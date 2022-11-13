@@ -39,12 +39,14 @@ export async function searchConversationbyId(idChat) {
     const comando = `
     select 	tb_psicologo.id_psicologo	idPsi,
             nm_psicologo				nomePsi,
-            ds_telefone					telefonePsi,
-            nr_crp						crp
+            tb_psicologo.ds_telefone					telefonePsi,
+            nr_crp						crp,
+            tb_usuario.id_usuario				userId,
+            nm_usuario				userName
       from	tb_chat	
 inner join 	tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo 
-     where 	id_chat = ?;;
-                  `;
+inner join 	tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
+     where 	id_chat = ?;`;
     const [resposta] = await con.query(comando, [idChat]);
     return resposta;
   }

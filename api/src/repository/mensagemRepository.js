@@ -22,7 +22,7 @@ export async function Mensagens(idChat) {
                 dt_mensagem		hora
           from  tb_mensagem
          where  id_chat = ?
-      order by  ds_mensagem desc`
+      order by  dt_mensagem`
     const [resposta] = await con.query(comando, [idChat]);
     return resposta;
 }

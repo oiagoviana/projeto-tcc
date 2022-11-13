@@ -39,6 +39,41 @@
         margin-top: 1.5em;
         width: 70vw;
         height: 65vh;
+
+        .usuario-esquerda {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            .caixa-mensagem {
+                padding: 5px;
+                margin-left: 10px;
+                background: #FFECDA;
+                border-radius: 15px;
+                width: 20em;
+                word-wrap: break-word;
+                min-height: 10vh;
+                max-height: 30vh;
+            }
+        }
+
+        .usuario-direita {
+            display: flex;
+            justify-content: flex-end;
+
+            .caixa-mensagem {
+                padding: 5px;
+                margin-left: 10px;
+                background: #EBBB8E;
+                border-radius: 15px;
+                width: 20em;
+                word-wrap: break-word;
+                min-height: 10vh;
+                max-height: 30vh;
+            }
+        
+        }
+
     }
 
     .mensagens::-webkit-scrollbar-track {
@@ -57,39 +92,13 @@
         background-color: #6F4528;
     }
 
-    .usuario-esquerda {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
+   
 
-    .caixa-mensagem {
-        padding: 5px;
-        margin-left: 10px;
-        background: #FFECDA;
-        border-radius: 15px;
-        width: 20em;
-        word-wrap: break-word;
-        min-height: 10vh;
-        max-height: 30vh;
-    }
+    
 
-    .usuario-direita {
-        display: flex;
-        justify-content: flex-end;
-    }
+    
 
-    .caixa-mensagem2 {
-        padding: 5px;
-        margin-left: 10px;
-        background: #EBBB8E;
-        border-radius: 15px;
-        width: 20em;
-        word-wrap: break-word;
-        min-height: 10vh;
-        max-height: 30vh;
-    }
-
+    
 
     .mensagem-bar {
         width: 50vw;
