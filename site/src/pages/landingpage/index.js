@@ -8,12 +8,12 @@ export default function Landing() {
             <div className='conteiner1'>
                 <img className='logo-mae' src='/assets/images/logo-mae.png' alt='' />
                 <div className='texto-1'>
-                    <p>Publicação </p>
-                    <p >Profissionais </p>
-                    <p >Indicações </p>
+                <a className="a-header" href='usuario/publicompleta/'> Publicações</a>
+                 <a className="a-header" href='usuario/chat'> Profissionais</a>
+                 <a className="a-header"href='usuario/indicacao/'> Indicações</a>
                 </div>
 
-                <button className='botao1'>Login </button>
+                <a href='usuario/login'><button className='botao1'>Login </button></a>
 
             </div>
 
@@ -139,7 +139,7 @@ export default function Landing() {
 
                     <p className="frase-psi">-Sigmund Freud. </p>
 
-                    <button className='botao-formulario'>Formulário</button>
+                    <a href='psi/formulario'><button className='botao-formulario'>Formulário</button></a>
 
                 </div>
 
@@ -153,7 +153,7 @@ export default function Landing() {
                 <p className='sua-historia-texto'>Às vezes tudo que uma pessoa precisa em algum determinado momento na vida e alguém para conversar, quando não nas palavras ditas, que sejam na escrita, ou melhor, digitada... Emprestar seus ouvidos, olhos, sua atenção uma pessoa que precisa, pode fazer toda a diferença. Conte a sua história, faça alguma pergunta, esteja confortável e seja livre para se abrir, a Colo de Mãe e Pai está aqui por vocês, e para vocês!</p>
 
                 
-                <button className='sua-historia-botao'>Publicar</button> 
+                <a href='usuario/publicacao'><button className='sua-historia-botao'>Publicar</button></a> 
                 
 
                 <div className="onda2-baixo">

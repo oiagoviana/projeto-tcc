@@ -56,6 +56,8 @@
 
         margin-right: 2em;
 
+        cursor: pointer;
+
     }
 
     .conteiner2 {
@@ -424,7 +426,7 @@
         align-items: flex-start;
         width: 100%;
 
-        border: 1px solid red;
+        //border: 1px solid red;
 
     }
 
@@ -532,6 +534,8 @@
         color: #ffff ;
         font-size: 1em;
         font-family: 'Abhaya1';
+
+        cursor: pointer;
         
     }
 
@@ -589,6 +593,8 @@
         font-family: 'Abhaya1';
         margin-top: 1.5em;
         margin-right: -35em;
+
+        cursor: pointer;
     }
 
     .onda-cima{
@@ -720,6 +726,12 @@
         width: 100%;
         //border: 2px solid red;
     }   
+
+    .a-header{
+       cursor: pointer;
+       text-decoration: none;
+       color: black;
+    }
 
     .rodape{
         background-color: #FFECDA;
@@ -886,7 +898,7 @@
         }
 
         .botao1{
-            border: 1px solid red;
+            //border: 1px solid red;
             width: 7em;
             height: 2.3em;
             margin-right: 8em;
@@ -900,7 +912,7 @@
 
 
         .conteiner3{ 
-            border: 1px solid red;
+            //border: 1px solid red;
             margin-right: 2em;
         
         }
