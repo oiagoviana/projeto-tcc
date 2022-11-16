@@ -79,11 +79,9 @@
         cursor: pointer;
     }
 
-    .container-botoes-mensagens div a {
-        text-decoration: none;
-        color: #000000;
-
+    .container-botoes-mensagens div p {
         font-weight: 700;
+        font-size: 13px;
     }
 
     .container-mensagens {
@@ -98,6 +96,15 @@
 
     }
 
+    .container-mensagens2 {
+        display: flex;
+        align-items: center;
+
+
+        width: 50%;
+        height: 100%;
+    }
+
     .container-publicacoes {
         display: flex;
         align-items: center;
@@ -106,6 +113,16 @@
         width: 50%;
         height: 100%;
 
+        border-bottom: 2.5px solid #6F4528;
+    }
+
+    .container-publicacoes2 {
+        display: flex;
+        align-items: center;
+
+
+        width: 50%;
+        height: 100%;
     }
 
     table {
@@ -124,7 +141,7 @@
         font-weight: 500;
     }
 
-    .cabecalho td {
+    thead td {
         width: 100%;
     }
 
@@ -152,7 +169,7 @@
         align-items: center;
 
         width: 99%;
-        height: 4vh;
+        height: 5vh;
     }
 
     .titulo-doutores {
@@ -214,28 +231,217 @@
         visibility: hidden;
     }
 
+    tr td:nth-last-child(2) * {
+        visibility: hidden;
+    }
+
     tr:hover td:nth-last-child(1) img {
         visibility: visible;
     }
 
+    tr:hover td:nth-last-child(2) img {
+        visibility: visible;
+    }
 
+    .titulo-nome {
+        width: 22vw;
+        text-align: left;
+    }
 
+    .titulo-data {
+        width: 9vw;
+    }
 
+    .nome-publicacao {
+        width: 22vw;
 
+        margin-left: 2.5px;
+    }
 
+    .data-publicacao {
+        width: 9vw;
+        text-align: center;
 
+        margin-left: 2px;
+    }
 
+    .img-lapis {
+        width: 2vw;
+        text-align: right;
+    }
 
+    .img-lixo-publicacoes {
+        width: 2.5vw;
+        text-align: right;
+    }
 
+    @media(max-width: 1024px) {
+        .botao-limpar {
+            font-size: 14px;
+        }
 
+        .circulo-inicial {
+            height: 9vh;
+            width: 12.5%;
+        }
+    }
 
+    @media(max-width: 914px) {
+        .circulo-inicial {
+            height: 8.1vh;
+            width: 13%;
+        }
 
-    .image-logo {
-        position: absolute;
-        bottom: 2em;
-        right: 2em;
+        .container-square {
+            margin-left: 20px;
+        }
 
-        width: 17vw;
-        height: 11vh;
+        .titulo-psicologo {
+            width: 26vw;
+        }
+
+        .titulo-doutores {
+            width: 25.8vw;
+        }
+
+        .titulo-nome {
+            width: 19vw;
+            text-align: left;
+        }
+
+        .nome-publicacao {
+            width: 19vw;
+    
+            margin-left: 2.5px;
+        }
+    
+        .titulo-data {
+            width: 11vw;
+        }
+
+        .data-publicacao {
+            width: 11vw;
+            text-align: center;
+        }
+
+    }
+
+    @media(max-width: 870px) {
+        .circulo-inicial {
+            height: 8vh;
+            width: 13%;
+        }
+
+        .botao-limpar {
+            font-size: 12px;
+        }
+
+        .nome-publicacao {
+            font-size: 14px;
+        }
+    
+        .titulo-data {
+            width: 10vw;
+        }
+
+        .data-publicacao {
+            font-size: 14px;
+        }
+
+        .titulo-resultado-situacao {
+            font-size: 14px;
+        }
+
+        .titulo-doutores {
+            font-size: 14px;
+        }
+    }
+
+    @media(max-width: 760px) {
+        .circulo-inicial {
+            height: 8vh;
+            width: 14.5%;
+        }
+
+        .botao-limpar {
+            width: 10vw;
+            font-size: 10px;
+        }
+    }
+
+    @media(max-width: 690px) {
+        .circulo-inicial {
+            margin-top: 12px;
+            height: 7vh;
+            width: 14.5%;
+        }
+    }
+
+    @media(max-width: 630px) {
+        .circulo-inicial {
+            height: 6vh;
+            width: 14%;
+        }
+
+        .titulo-psicologo {
+            width: 28vw;
+
+            font-size: 13px;
+        }
+    
+        .titulo-situacao {
+            width: 9vw;
+
+            font-size: 13px;
+        }
+
+        .titulo-doutores {
+            font-size: 12px;
+        }
+
+        .titulo-resultado-situacao {
+            font-size: 12px;
+        }
+
+        .container-botoes-mensagens div p {
+            font-weight: 700;
+            font-size: 12px;
+        }
+    }
+
+    @media(max-width: 440px) {
+        .circulo-inicial {
+            height: 4.5vh;
+            width: 20%;
+        }
+
+        .container-square {
+            margin-right: -1em;
+        }
+
+        .titulo-psicologo {
+            width: 28vw;
+
+            font-size: 12px;
+        }
+    
+        .titulo-situacao {
+            width: 9vw;
+
+            font-size: 12px;
+        }
+
+        .titulo-doutores {
+            font-size: 11px;
+        }
+
+        .titulo-resultado-situacao {
+            font-size: 11px;
+        }
+
+        .container-botoes-mensagens div p {
+            font-weight: 700;
+            font-size: 13px;
+        }
     }
 }

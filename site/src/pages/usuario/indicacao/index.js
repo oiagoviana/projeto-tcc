@@ -1,5 +1,5 @@
 import './index.scss'
-import { consultarIndicacoes } from '../../../api/indicacaoApi'
+import { consultarIndicacoes, consultarIndicacaoPorNome } from '../../../api/indicacaoApi'
 import { useEffect, useState } from 'react'
 
 {/* import { Map, GoogleApiWrapper } from 'google-maps-react'; */}
@@ -8,24 +8,33 @@ import { useEffect, useState } from 'react'
 
 export default function Indicacao() {
     const [indicacao, setIndicacao] = useState([]);
+    const [filtro, setFiltro] = useState('');
 
     async function carregarIndicacoes() {
         const carregados = await consultarIndicacoes();
-        console.log(carregados);
         setIndicacao(carregados);
+    }
+
+    async function FiltrarIndicacoes() {
+        const resposta = await consultarIndicacaoPorNome(filtro);
+        setIndicacao(resposta);
     }
 
     useEffect(() => {
         carregarIndicacoes();
     }, [])
 
+    useEffect(() => {
+        FiltrarIndicacoes();
+    }, [filtro])
+
     return (
         <main className='page-user-indicacao'>
             <div className='container-header'>
                 <button className='botao-home'>HOME</button>
 
-                <input type='text' placeholder='O que você procura...?' />
-                <img src='/assets/images/img-lupa.svg' alt='img-lupa' />
+                <input type='text' placeholder='O que você procura...?' value={filtro} onChange={e => setFiltro(e.target.value)} />
+                <img src='/assets/images/img-lupa.svg' alt='img-lupa' onClick={FiltrarIndicacoes} />
             </div>
 
             <div className='container-meio'>

@@ -84,6 +84,6 @@ export async function inserirComentarioPsi(id, psicologo, comentario) {
 }
 
 export async function mostrarPublicacaoFeed() {
-    const resposta = await api.get('/usuario/publicacao');
+    const resposta = await api.get('/usuario/feedpublicacao');
     return resposta.data;
 }

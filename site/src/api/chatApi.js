@@ -1,36 +1,30 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL:  'http://localhost:5000'
+    baseURL: 'http://localhost:5000'
 })
 
-export async function SendMessageU(id, mensagem) {
-    const resposta = await api.post('/api/chatUsu', {
-        id: id,
-        mensagem:mensagem
-    })
-
+export async function listarConversa(psiId, userId) {
+    let call = `/chat?psiId=${psiId}&userId=${userId}`;
+    if (!psiId || psiId == undefined) {
+        call = `/chat?psiId=&userId=${userId}`;
+    }
+    else if (!userId || userId == undefined) {
+        call = `/chat?psiId=${psiId}&userId=`
+    }
+    const resposta = await api.get(call);
     return resposta.data;
 }
 
-export async function SendMessageP(id, mensagem) {
-    const resposta = await api.post('/api/chatPsi', {
-        id: id,
-        mensagem:mensagem
-    })
+export async function getChatInfoById(chatId) {
+    const resposta = await api.get(`/chat/search?id=${Number(chatId)}`);
     return resposta.data;
 }
 
-export async function listarConversasU(id) {
-    const resposta = await api.get(`/api/chatU?id=${Number(id)}`);
-    return resposta.data;
-}
-export async function listarConversasP(id) {
-    const resposta = await api.get(`/api/chatP?id=${Number(id)}`);
-    return resposta.data;
-}
-
-export async function listarPorNome(id) {
-    const resposta = await api.get(`/api/chat/nome?id=${Number(id)}`);
-    return resposta.data;
+export async function createChat(userId, psiId) {
+    const resposta = await api.post('/chat', {
+        userId: userId,
+        psiId: psiId
+    });
+    return resposta.data
 }

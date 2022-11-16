@@ -1,75 +1,139 @@
 import './index.scss'
-import CabecalhoChat from '../../../components/cabecalhoChat'
-import ChatCard from '../../../components/chatCard'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import storage from 'local-storage'
-import { SendMessageP, SendMessageU } from '../../../api/chatApi';
+import io from 'socket.io-client'
+import { listarConversa, getChatInfoById } from '../../../api/chatApi';
+import { useNavigate } from 'react-router-dom';
 
+const socket = io.connect('http://localhost:5000');
 
 export default function Chat() {
+    const user = storage('usuario-logado')
     const [mensagem, setMensagem] = useState('');
     const [mensagens, setMensagens] = useState([]);
+    const [idChat, setIdChat] = useState(-1);
+    const [chat, setChat] = useState([]);
+    const [psiInfo, setPsiInfo] = useState([]);
+    const navigate = useNavigate();
 
-    async function submitMessage() {
-        if (storage('usuario-logado')) {
-            const resposta = await SendMessageU(mensagem);
-            setMensagem(resposta);
-        } else if (storage('psi-logado')) {
-            const resposta = await SendMessageP(mensagem);
-            setMensagem(resposta);
+
+    async function listUserChat() {
+        const r = await listarConversa(null, user.id)
+        setChat(r);
+    }
+
+
+    async function pesquisaById(id) {
+        const r = await getChatInfoById(id);
+        setPsiInfo(r);
+    }
+
+
+    async function enviarMessage() {
+        socket.emit("enviar_mensagem", {
+            idChat: idChat,
+            mensagem: mensagem,
+            tipo: 1,
+        });
+        socket.emit("listar_mensagem", {
+            idChat: idChat,
+        });
+        setMensagem("");
+    }
+
+
+    function mensagemLado(tipo) {
+        if (tipo == 1) {
+            return 'usuario-direita';
+        } else {
+            return 'usuario-esquerda';
         }
     }
 
-    
+
+    socket.on("listar_mensagem", (data) => {
+        setMensagens(data);
+    })
+
+
+    useEffect(() => {
+        listUserChat();
+    }, [])
 
 
     return (
         <main className='page-chat'>
-            <div>
-                <CabecalhoChat />
+            <div className='page-cabecalhoChat'>
+                <div className='itens-cabecalho'>
+                    <img src="/assets/images/setaVoltar.svg" className='imagem-seta' />
+                    {psiInfo.map((item) => (
+                        <div className='div-nome'>
+                            <span className='nome'> {item.nomePsi[0].toUpperCase()} </span>
+                            <div className='subdiv-nome'>
+                                <p className='nomedr'> {item.nomePsi}</p>
+                                <p className='disp'>Disponível</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             <div className='div-principal'>
-                <ChatCard />
+                <div className='div-principal2'>
+                    <div>
+                        <p className='chats'>Chats</p>
+                    </div>
+                    <div className='card'>
+                        {chat.map((item) => (
+                            <div onClick={() => {
+                                setIdChat(item.idChat);
+                                pesquisaById(item.idChat);
+                                socket.emit("listar_mensagem", {
+                                    idChat: idChat
+                                })
+                            }}>
+                                <div className='chatCard'>
+                                    <div className='div-nome'>
+                                        <span className='letra'>{item.nomePsi[0].toUpperCase()}</span>
+                                        <span className='nomeCard'>{item.nomePsi}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
 
                 <div className='container-conversa'>
                     <div className='mensagens'>
-                        <div className='usuario-esquerda'>
-                            <span className='inicial-nome'>B</span>
-                            <p className='caixa-mensagem'>..................................................................................................................................................</p>
-                        </div>
-
-                        <div className='usuario-direita'>
-                            <p className='caixa-mensagem2'>..................................................................................................................................................</p>
-                        </div>
-
+                        {mensagens &&
+                            mensagens.map(item =>
+                                <div className={mensagemLado(item.tipo)}>
+                                    <p className='caixa-mensagem'>{item.mensagem}</p>
+                                </div>
+                            )
+                        }
                     </div>
+                    {idChat != -1 && (
+                        <div className='div-campomsg'>
+                            <input
+                                className='mensagem-bar'
+                                placeholder='Digite sua mensagem...'
+                                type='text'
+                                value={mensagem}
+                                onChange={e => setMensagem(e.target.value)}
+                            />
 
-                    <div className='div-campomsg'>
-                        
-                        <input
-                            className='mensagem-bar'
-                            placeholder='Digite sua mensagem...'
-                            type='text'
-                            value={mensagem}
-                            onChange={e => setMensagem(e.target.value)}
-                        />
-
-                    {storage('usuario-logado') &&
-                        <img src='/assets/images/enviar-mensagem.png' onClick={submitMessage} alt='' />
-
-                    }
-
-                    {storage('psi-logado') &&
-                        <img src='/assets/images/enviar-mensagem.png' onClick={submitMessage} alt='' />
-
-                    }
-                    </div>
-
+                            {storage('usuario-logado') &&
+                                <img
+                                    onClick={() => enviarMessage()}
+                                    src='/assets/images/enviar-mensagem.png'
+                                    alt='' />
+                            }
+                        </div>
+                    )}
                 </div>
             </div>
-        </main>
-    )
-
-
+        </main >
+    );
 }

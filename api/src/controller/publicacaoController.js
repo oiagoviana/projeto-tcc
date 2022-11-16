@@ -1,8 +1,7 @@
 import { Router } from 'express'
 import multer from 'multer';
 
-
-import { alterarImagemUsuario, autorizarPublicacao, fazerComentario ,listarPublicacaoCard, listarPublicacaoFeed, listarPublicacaoId, PublicarPsi, PublicarUsuario } from '../repository/publicacaoRepository.js';
+import { alterarImagemUsuario, autorizarPublicacao,fazerComentarioPsi,fazerComentarioUsu,listarComentarioUsu,listarPublicacaoCard, listarPublicacaoFeed, listarPublicacaoId, listarPublicacaoUsuId, PublicarPsi, PublicarUsuario } from '../repository/publicacaoRepository.js';
 
 
 
@@ -205,7 +204,7 @@ server.post('/api/comentarioPsi/:id', async (req, resp) => {
     }
 })
 
-server.get('/usuario/publicacao', async (req, resp) => {
+server.get('/usuario/feedpublicacao', async (req, resp) => {
     try {
         const resposta = await listarPublicacaoFeed();
         resp.send(resposta);
