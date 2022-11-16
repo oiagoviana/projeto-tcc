@@ -58,8 +58,8 @@ export async function atualizarFormulario(id, formulario) {
          where id_psicologo		        =?
      
          `
-    const [resposta] = await con.query (comando, [formulario.nome, formulario.nascimento, formulario.telefone, formulario.email, formulario.senha, formulario.crp, formulario.cpf, id])
-    return resposta.affectedRows;   
+    const [resposta] = await con.query(comando, [formulario.nome, formulario.nascimento, formulario.telefone, formulario.email, formulario.senha, formulario.crp, formulario.cpf, id])
+    return resposta.affectedRows;
 }
 
 export async function deletarFormulario(id) {
@@ -73,7 +73,7 @@ export async function deletarFormulario(id) {
 
 export async function listarPsiId(id) {
     const comando =
-    `select 	id_psicologo 	id,
+        `select 	id_psicologo 	id,
                 nm_psicologo 	nome,
                 date_format(dt_nascimento, '%d/%m/%Y')					as 'data',
                 ds_telefone		telefone,
@@ -83,13 +83,13 @@ export async function listarPsiId(id) {
                 ds_cpf			cpf
        from tb_psicologo
        where id_psicologo = ?;`
-    
+
     const [resposta] = await con.query(comando, [id]);
     return resposta[0];
 }
 
 export async function autorizarPsi(id) {
-    const comando = 
+    const comando =
     `update tb_psicologo
         set bt_aprovado = true
       where id_psicologo = 1`;
@@ -97,5 +97,16 @@ export async function autorizarPsi(id) {
     return resposta.affectedRows;
 }
 
-
+export async function SolicitadoPsi(id) {
+    const comando =
+        `select  nm_usuario        			nome,
+                 id_psicologo   		    idpsi,
+                 tb_chat.id_usuario         iduser,
+                 ds_telefone				telefone
+            from tb_chat
+    inner join tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
+           where id_psicologo = ?`
+    const [resposta] = await con.query(comando, [id]);
+    return resposta;
+}
 
