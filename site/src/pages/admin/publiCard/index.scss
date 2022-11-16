@@ -44,7 +44,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        height: 54vh;
+        height: 60vh;
         width: 25vw;
         background: #FFFFFF;
         box-shadow: 0px 0px 10px 1px rgba(158, 158, 158, 0.25);
@@ -53,7 +53,7 @@
     }
 
     .sub1{  
-        margin: 10px 5px 0px 5px;
+        margin: 15px 5px 0px 5px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -61,8 +61,9 @@
     }
 
     .sub1-img{
+        
         width: 10vw;
-        height: 11vh;
+        height: 12vh;
     }
 
     .sub1-textos{
@@ -110,7 +111,7 @@
         margin: 0px 0px 0px 5px;
         display: flex;
         align-items: flex-end;
-        height: 32vh;
+        height: 30vh;
     }
 
     .sub3-data{

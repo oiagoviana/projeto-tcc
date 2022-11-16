@@ -77,6 +77,15 @@
         justify-content: flex-end;
     }
 
+    .container-click{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .container-click:hover{
+        cursor: pointer;
+    }
+
     .footer-publicacao img {
         margin-left: 10px;
     }
