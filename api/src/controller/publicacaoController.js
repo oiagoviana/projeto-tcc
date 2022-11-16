@@ -1,8 +1,8 @@
 import { Router } from 'express'
 import multer from 'multer';
 
+import { alterarImagemUsuario, autorizarPublicacao,fazerComentarioPsi,fazerComentarioUsu,listarComentarioUsu,listarPublicacaoCard, listarPublicacaoFeed, listarPublicacaoId, listarPublicacaoUsuId, PublicarPsi, PublicarUsuario } from '../repository/publicacaoRepository.js';
 
-import { alterarImagemUsuario, autorizarPublicacao, fazerComentarioPsi, /*fazerComentario*/ fazerComentarioUsu,listarPublicacaoCard, listarPublicacaoId, PublicarPsi, PublicarUsuario, listarPublicacaoUser, listarPublicacaoPsi } from '../repository/publicacaoRepository.js';
 
 
 const server = Router();
@@ -204,30 +204,16 @@ server.post('/api/comentarioPsi/:id', async (req, resp) => {
     }
 })
 
-server.get('/api/publicacoesUser', async (req, resp) => {
+server.get('/usuario/feedpublicacao', async (req, resp) => {
     try {
-        const { id } = req.query;
-        console.log(id);
-        const listandoPub = await listarPublicacaoUser(id);
+        const resposta = await listarPublicacaoFeed();
+        resp.send(resposta);
 
-        resp.status(201).send(listandoPub);
-    } catch(err) {
-        resp.status(401).send({
-            erro: err.message
-        });
-    }
-})
 
-server.get('/api/publicacoesPsi', async (req, resp) => {
-    try {
-        const { id } = req.query;
-        console.log(id);
-        const resposta = await listarPublicacaoPsi(id);
-        resp.status(201).send(resposta);
-    } catch(err) {
-        resp.status(401).send({
+    } catch (err) {
+        resp.status(404).send({
             erro: err.message
-        });
+        })
     }
 })
 

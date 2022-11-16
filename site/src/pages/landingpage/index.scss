@@ -56,6 +56,8 @@
 
         margin-right: 2em;
 
+        cursor: pointer;
+
     }
 
     .conteiner2 {
@@ -69,7 +71,8 @@
     .imagem-bb {
         position: absolute;
         width: 35vw;
-        height: 80vh;
+        height: 55vh;
+        //border: 1px solid red;
 
         
 
@@ -105,7 +108,8 @@
     }
 
     .maos {
-        width: 30vw;
+        width: 50vw;
+   
         height: 50vh;
         border-right: 14em;
 
@@ -118,7 +122,7 @@
         position: absolute;
         font-size: 1.5em;
         font-family: 'Abhaya3';
-        margin-top: 4em;
+        margin-top: 6em;
         margin-right: 30em;
     }
 
@@ -128,6 +132,7 @@
         font-size: 1.9em;
         font-family: 'Bevan1';
         color: #6F4528;
+      margin-top: 2em;
 
         height: 1em;
     }
@@ -423,11 +428,7 @@
 
         //border: 1px solid red;
 
-        
-       
-
     }
-
 
     .p6 {
         margin-left: 3em;
@@ -533,6 +534,8 @@
         color: #ffff ;
         font-size: 1em;
         font-family: 'Abhaya1';
+
+        cursor: pointer;
         
     }
 
@@ -590,6 +593,8 @@
         font-family: 'Abhaya1';
         margin-top: 1.5em;
         margin-right: -35em;
+
+        cursor: pointer;
     }
 
     .onda-cima{
@@ -610,6 +615,12 @@
         height: 4%;
         border: none;
     }
+
+    .onda-dica{
+        width: 100%;
+        margin-top: -6em;
+        //border: 2px solid red;
+    }
     
     .container-dicas{
         //border: 2px solid red;
@@ -621,7 +632,8 @@
     }
 
     .header-dicas{
-       
+       position: absolute;
+       margin-top: -1em;
         width: 20em;
         font-family: 'Bevan1';
         color: #6F4528;
@@ -633,8 +645,8 @@
         flex-direction: row;
         justify-content: space-between;
         width: 95%;
-        height: 70%;
-        margin-top: 3.4em;
+        height: 80%;
+        margin-top: 1em;
         margin-left: 2em;
         //border: 2px solid red;
     }
@@ -643,6 +655,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        margin-top: -1em;
         margin-left: 3.4em;
         width: 45vw;
         
@@ -654,7 +667,7 @@
         flex-direction: column;
         justify-content: space-between;
         margin-right: 3em;
-        margin-top: 0.3em;
+        margin-top: -1em;
         width: 45vw;
         height: 20%;
        
@@ -663,7 +676,7 @@
     }
 
     .icones{
-        width: 5vw;
+        width: 4vw;
         
     }
 
@@ -671,8 +684,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 12vh;
-        width: 16%;
+        height: 10vh;
+        width: 15%;
         margin-left: 1em;
         background-color: #ffffff;
         border-radius: 15em;
@@ -714,6 +727,19 @@
         //border: 2px solid red;
     }   
 
+    .a-header{
+       cursor: pointer;
+       text-decoration: none;
+       color: black;
+    }
+
+    .rodape{
+        background-color: #FFECDA;
+        margin-top: -0.3em;
+        width: 100%;
+
+
+    }
 
     .img-logo{
         margin-top: 4em;
@@ -726,13 +752,11 @@
     }
 
     .linha4 {
-        margin-top: 3em;
         height: 13em;
-        margin-left: 5em;
+        margin: 3em 0em 0em 4em;
     }
 
     .redes-sociais{
-
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -755,15 +779,12 @@
         font-family: 'Abhaya2';
         font-size: 1.3em;
         color: #FFFFFF;
-        margin-left: 4em;
+        margin-left: 2em;
         margin-top: 5em;
-        width: 11em;
+        width: 12em;
     }
 
-    .sub-cont{
-        display: flex;
-        flex-direction: column;
-    }
+    
 
     .texto-redes{
         color: #FFFFFF;
@@ -778,7 +799,204 @@
         height: 4em;
     }
 
+    .container-redes{
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (max-width: 1280px) {
+        .botao1{
+            width: 6em;
+            height: 2.3em;
+            margin-right: 4em;
+
+           
+        }
+
+        .logo-mae{
+            width: 9em;
+            height: 4em;
+            
+        }
+
+        .quadrado{
+            margin-top: 6em;
+        }
+
+        .quadrado-1{
+            margin-top: 7.3em;
+        
+        }
+
+        .missao{
+            margin-top: -0.1em;
+        }
+
+        .linha1{
+            margin-top: 4em;
+        }
+
+        .texto-4{
+
+            margin-top: 3.5em;
+
+        }
+
+        .linha2{
+            margin-top: -3.5em;
+            margin-right: 3em;
+        }
+
+        .valores{
+            margin-right: 1.1em;
+        }
+
+        .todos{
+
+            margin-right: 6.3em;
+                   
+        }
+
+        .maos{
+            margin-bottom: 3.5em;
+        }
+
+        .botao-formulario{
+            margin-left: 27em;
+        }
+
+        .rodape{
+            margin-bottom: -1em;
+        }
+
+        .titulo2{
+            //border: 1px solid red;
+            width: 14vw;     
+            margin-top: 5em;
+            word-wrap: break-word;
+        }
+
+    }
+
+
+    @media (max-width: 1300px){
+
+        .rodape{
+            margin-bottom: -3em;
+        }
+
+    }
+
+
+    @media (max-width: 1450px){
+
+        
+        .logo-mae{
+            width: 16vw;
+            height: 10vh;
+            
+        }
+
+        .botao1{
+            //border: 1px solid red;
+            width: 7em;
+            height: 2.3em;
+            margin-right: 8em;
+
+           
+        }
+
+        .texto-1{
+            font-size: 1.4em;
+        }
+
+
+        .conteiner3{ 
+            //border: 1px solid red;
+            margin-right: 2em;
+        
+        }
+
+        .sobre-nos{
+            //border: 1px solid red;
+            width: 14vw;
+            margin-left: 4em;
+            font-size: 2.3em;
+        }
+
+        .texto-3{
+            margin-left: -1em;
+        }
+        
+        .missao{
+            margin-top: 1.2em;
+        }
+
+        .linha1{
+            margin-top: 8.3em;
+            margin-left: 19.2em;
+        }
+
+        .texto-4 {
+            margin-top: 6em;
+            font-size: 1.7em
+        }
+
+        .quadrado{
+            margin-top: 6em;
+        }
+
+        .quadrado-1{
+            margin-top: 7.3em;
+        
+        }
+
+        .maos{
+            margin-bottom: 3em;
+         
+        }
+
+        .container6{
+            width: 90%;
+            margin-left: 7em;
+        }
+        
+
+        .header-dicas{
+            margin-left: 3em;
+        }
+
+        .sub-container-dicas{
+            margin-left: 6em;
+        }
+
+        .rodape {
+            margin-bottom: -2em;
+        }
+
+
+        .ultimo-container{
+            justify-content: center;
+        }
+
+        .container-redes{
+            //border: 1px solid red;
+            margin-left: 3em;
+            width: 50vw;
+            height: 26vh;
+        }
+
+        .logo-rodape{
+            margin-left: 1em;
+        }
+    }
+
+    
+
 }
+
+
+
 
 
 

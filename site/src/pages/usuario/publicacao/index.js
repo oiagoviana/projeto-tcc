@@ -1,6 +1,6 @@
 import { AdicionarImagem, buscarImagem, inserirPublicacaoPsi, inserirPublicacaoUsu } from '../../../api/publicacaoApi';
 import MenuUsuario from '../../../components/menuusuario';
-import storage, { set } from 'local-storage'
+import storage from 'local-storage'
 import './index.scss'
 import { useState } from 'react';
 

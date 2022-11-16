@@ -8,32 +8,31 @@ import { useNavigate } from 'react-router-dom';
 const socket = io.connect('http://localhost:5000');
 
 export default function Chat() {
-    const user = storage('usuario-logado')
+    const user = storage('usuario-logado');
+    const psi = storage('psi-logado');
     const [mensagem, setMensagem] = useState('');
     const [mensagens, setMensagens] = useState([]);
     const [idChat, setIdChat] = useState(-1);
     const [chat, setChat] = useState([]);
-    const [psiInfo, setPsiInfo] = useState([]);
+    const [userInfo, setUserInfo] = useState([]);
     const navigate = useNavigate();
 
-
     async function listUserChat() {
-        const r = await listarConversa(null, user.id)
+        const r = await listarConversa(psi.id, null)
         setChat(r);
     }
 
 
     async function pesquisaById(id) {
         const r = await getChatInfoById(id);
-        setPsiInfo(r);
+        setUserInfo(r);
     }
-
 
     async function enviarMessage() {
         socket.emit("enviar_mensagem", {
             idChat: idChat,
             mensagem: mensagem,
-            tipo: 1,
+            tipo: 2,
         });
         socket.emit("listar_mensagem", {
             idChat: idChat,
@@ -43,7 +42,7 @@ export default function Chat() {
 
 
     function mensagemLado(tipo) {
-        if (tipo == 1) {
+        if (tipo == 2) {
             return 'usuario-direita';
         } else {
             return 'usuario-esquerda';
@@ -60,17 +59,21 @@ export default function Chat() {
         listUserChat();
     }, [])
 
+    function sairChat() {
+        navigate('/usuario/feedpublicacao')
+    }
+
 
     return (
         <main className='page-chat'>
             <div className='page-cabecalhoChat'>
                 <div className='itens-cabecalho'>
-                    <img src="/assets/images/setaVoltar.svg" className='imagem-seta' />
-                    {psiInfo.map((item) => (
+                    <img src="/assets/images/setaVoltar.svg" className='imagem-seta' onClick={sairChat} />
+                    {userInfo.map((item) => (
                         <div className='div-nome'>
-                            <span className='nome'> {item.nomePsi[0].toUpperCase()} </span>
+                            <span className='nome'> {item.userName[0].toUpperCase()} </span>
                             <div className='subdiv-nome'>
-                                <p className='nomedr'> {item.nomePsi}</p>
+                                <p className='nomedr'> {item.userName}</p>
                                 <p className='disp'>Disponível</p>
                             </div>
                         </div>
@@ -94,8 +97,8 @@ export default function Chat() {
                             }}>
                                 <div className='chatCard'>
                                     <div className='div-nome'>
-                                        <span className='letra'>{item.nomePsi[0].toUpperCase()}</span>
-                                        <span className='nomeCard'>{item.nomePsi}</span>
+                                        <span className='letra'>{item.userName[0].toUpperCase()}</span>
+                                        <span className='nomeCard'>{item.userName}</span>
                                     </div>
                                 </div>
                             </div>
