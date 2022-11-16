@@ -50,3 +50,22 @@ inner join 	tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
     const [resposta] = await con.query(comando, [idChat]);
     return resposta;
   }
+
+export async function aceitarChat(chatId){
+    const comando = 
+    `update tb_chat
+        set bt_autorizado = true
+      where id_chat = ?`
+    const [resposta] = await con.query(comando, [chatId]);
+    return resposta.affectedRows;
+}
+
+export async function excluirChat(chatId){
+    const comando =
+    `delete 
+       from tb_chat
+      where id_chat = ?`;
+
+    const [resposta] = await con.query(comando, [chatId]);
+    return resposta.affectedRows;
+}

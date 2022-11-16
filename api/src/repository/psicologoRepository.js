@@ -99,7 +99,8 @@ export async function autorizarPsi(id) {
 
 export async function SolicitadoPsi(id) {
     const comando =
-        `select  nm_usuario        			nome,
+        `select  id_chat                    idchat,
+                 nm_usuario        			nome,
                  id_psicologo   		    idpsi,
                  tb_chat.id_usuario         iduser,
                  ds_telefone				telefone
