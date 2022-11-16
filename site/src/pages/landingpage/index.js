@@ -8,12 +8,12 @@ export default function Landing() {
             <div className='conteiner1'>
                 <img className='logo-mae' src='/assets/images/logo-mae.png' alt='' />
                 <div className='texto-1'>
-                    <p>Publicação </p>
-                    <p >Profissionais </p>
-                    <p >Indicações </p>
+                <a className="a-header" href='usuario/publicompleta/'> Publicações</a>
+                 <a className="a-header" href='usuario/chat'> Profissionais</a>
+                 <a className="a-header"href='usuario/indicacao/'> Indicações</a>
                 </div>
 
-                <button className='botao1'>Login </button>
+                <a href='usuario/login'><button className='botao1'>Login </button></a>
 
             </div>
 
@@ -139,7 +139,7 @@ export default function Landing() {
 
                     <p className="frase-psi">-Sigmund Freud. </p>
 
-                    <button className='botao-formulario'>Formulário</button>
+                    <a href='psi/formulario'><button className='botao-formulario'>Formulário</button></a>
 
                 </div>
 
@@ -153,7 +153,7 @@ export default function Landing() {
                 <p className='sua-historia-texto'>Às vezes tudo que uma pessoa precisa em algum determinado momento na vida e alguém para conversar, quando não nas palavras ditas, que sejam na escrita, ou melhor, digitada... Emprestar seus ouvidos, olhos, sua atenção uma pessoa que precisa, pode fazer toda a diferença. Conte a sua história, faça alguma pergunta, esteja confortável e seja livre para se abrir, a Colo de Mãe e Pai está aqui por vocês, e para vocês!</p>
 
                 
-                <button className='sua-historia-botao'>Publicar</button> 
+                <a href='usuario/publicacao'><button className='sua-historia-botao'>Publicar</button></a> 
                 
 
                 <div className="onda2-baixo">
@@ -164,7 +164,8 @@ export default function Landing() {
 
 
             <div className="container-dicas">
-               
+
+               <img className="onda-dica"src='/assets/images/onda-dicas.png'/>
                 <div className="header-dicas">
                     <p>DICAS PARA PAIS DE 1° VIAGEM</p>
                 </div>
@@ -241,51 +242,50 @@ export default function Landing() {
                 </div>
             </div>
 
+            <img className="rodape"src='/assets/images/rodape3.png' />
+            
             <div className="ultimo-container">
-                
-
-                <div>
+                <div className="logo-rodape">
                     <img className="img-logo"src="/assets/images/logo-sozinha.png"/>
                     <p className="sp">Brasil- São Paulo (SP)</p>
                 </div>
 
                 <img className='linha4' src="/assets/images/linha4.png" />
 
-                <div className="sub-cont">
+                    <div className='container-redes'>
                      <p className="titulo">MEIOS DE CONTATO</p>
 
-                    <div className="redes-sociais">
+                     <div className="redes-sociais">
                         
-                        <div>
-                            <img className="icones-redes" src="/assets/images/insta.png" />
-                            <p className="texto-redes">COLO_MAE_ PAI</p>
-                        </div>
+                            <div>
+                                <img className="icones-redes" src="/assets/images/insta.png" />
+                                <p className="texto-redes">COLO_MAE_ PAI</p>
+                            </div>
 
-                        <div>
-                            <img className="icones-redes" src="/assets/images/tumblr.png" />
-                            <p className="texto-redes">COLO MÃE E PAI</p>
-                        </div>
+                            <div>
+                                <img className="icones-redes" src="/assets/images/tumblr.png" />
+                                <p className="texto-redes">COLO MÃE E PAI</p>
+                            </div>
 
-                        <div>
-                            <img className="icones-redes" src="/assets/images/face.png" />
-                            <p className="texto-redes">COLO MÃE E PAI</p>
-                        </div>
+                            <div>
+                                <img className="icones-redes" src="/assets/images/face.png" />
+                                <p className="texto-redes">COLO MÃE E PAI</p>
+                            </div>
 
-                        <div>
-                            <img className="icones-redes" src="/assets/images/whatssap.png" />
-                            <p className="texto-redes">55 (11) 95411-1031</p>
-                        </div>
+                            <div>
+                                <img className="icones-redes" src="/assets/images/whatssap.png" />
+                                <p className="texto-redes">55 (11) 95411-1031</p>
+                            </div>
+                     </div>     
                     </div>
-
-                </div>
 
                 <img className='linha4' src="/assets/images/linha4.png" />
 
-                <div>
+              
                     <p className="titulo2">FALE COM ALGUM DOS NOS PROFISSIONAIS!</p>
-                </div>
+               
+                
             </div>
-
         </main>
     );
 }
