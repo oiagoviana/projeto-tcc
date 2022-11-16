@@ -1,134 +1,66 @@
 import { Router } from 'express'
-import { CriarChat, EnviarMensagemP, EnviarMensagemU, MensagensP, MensagensU, selecionarChatP, selecionarChatP2, selecionarChatU, selecionarChatU2 } from '../repository/chatRepository.js';
+import { CriarChat, psiConversation, searchConversationbyId, userConversations } from '../repository/chatRepository.js';
 
 const server = Router();
 
-
-server.post('/api/chatUsu', async (req, resp) => {
+server.get('/chat/search', async (req, res) => {
     try {
-        const mensagem = req.body;
-
-
-        const resposta = await EnviarMensagemU(mensagem);
-        resp.send(resposta);
-
+        const { id } = req.query;
+        const r = await searchConversationbyId(id);
+        res.send(r);
     } catch (err) {
-        resp.status(400).send({
-            erro: err.message
-        });
-    }
-})
-
-server.post('/api/chatPsi', async (req, resp) => {
-    try {
-        const mensagem = req.body;
-
-
-        const resposta = await EnviarMensagemP(mensagem);
-        resp.send(resposta);
-
-    } catch (err) {
-        resp.status(400).send({
-            erro: err.message
-        });
-    }
-})
-
-server.get('/api/chatU/:id', async (req, resp) => {
-    try {
-        const { id } = req.params
-
-        const resposta = await MensagensU(id);
-        resp.send(resposta);
-
-
-
-    } catch (err) {
-        resp.status(400).send({
-            erro: err.message
-        });
-    }
-})
-
-server.get('/api/chatP/:id', async (req, resp) => {
-    try {
-        const { id } = req.params
-
-        const resposta = await MensagensP(id);
-        resp.send(resposta);
-
-    } catch (err) {
-        resp.status(400).send({
-            erro: err.message
-        });
-    }
-})
-
-
-server.post('/api/chat', async (req, resp) => {
-    try {
-        const { usuario, psicologo } = req.query;
-
-        const resposta = await CriarChat(usuario, psicologo);
-        resp.send(resposta);
-
-
-    } catch (err) {
-        resp.status(400).send({
+        res.status(401).send({
             erro: err.message
         })
     }
 })
 
-server.get('/api/chatU', async (req, resp) => {
+server.get('/chat', async (req, res) => {
     try {
-        const {id} = req.query
-        const resposta = await selecionarChatU(id);
-        resp.send(resposta);
+        const { psiId, userId } = req.query;
 
+        if (!psiId && !userId) {
+            throw new Error('Você não passou nenhum parâmetro');
+        }
+
+        if (psiId && !userId) {
+            const resposta = await psiConversation(Number(psiId));
+            if (!resposta || resposta == undefined) {
+                throw new Error("Nenhum usuário criou uma conversa ainda.")
+            } else {
+                res.send(resposta);
+            }
+
+        } else if (userId && !psiId) {
+            const resposta = await userConversations(Number(userId));
+            if (!resposta || resposta == undefined) {
+                throw new Error("Você não tem nenhuma conversa.")
+            }
+            else {
+                res.send(resposta);
+            }
+        }
+        else if (userId && psiId) {
+            throw new Error("Você não pode passar os 2 parâmetros ao mesmo tempo.")
+        }
     } catch (err) {
-        resp.status(400).send({
-            erro:err.message
+        res.status(401).send({
+            erro: err.message
         })
     }
 })
-server.get('/api/chatU2', async (req, resp) => {
-    try {
-        const {id} = req.query
-        const resposta = await selecionarChatU2(id);
-        resp.send(resposta);
 
+server.post('/chat', async (req, res) => {
+    try {
+        const { psiId, userId } = req.query;
+        const resposta = await CriarChat(Number(psiId), Number(userId));
+        res.sendStatus(200);
     } catch (err) {
-        resp.status(400).send({
+        res.status(401).send({
             erro:err.message
         })
     }
 })
 
-server.get('/api/chatP', async (req, resp) => {
-    try {
-        const {id} = req.query
-        const resposta = await selecionarChatP(id);
-        resp.send(resposta);
-
-    } catch (err) {
-        resp.status(400).send({
-            erro:err.message
-        })
-    }
-})
-
-server.get('/api/chatP2', async (req, resp) => {
-    try {
-        const {id} = req.query
-        const resposta = await selecionarChatP2(id);
-        resp.send(resposta);
-
-    } catch (err) {
-        resp.status(400).send({
-            erro:err.message
-        })
-    }
-})
 
 export default server;

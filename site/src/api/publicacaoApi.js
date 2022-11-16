@@ -36,7 +36,7 @@ export async function inserirPublicacaoPsi(psicologo, titulo, descricao){
         descricao:descricao
     });
     return resposta.data;
-
+    
 }
 
 export async function AdicionarImagem(id, imagem){
@@ -80,5 +80,10 @@ export async function inserirComentarioPsi(id, psicologo, comentario) {
         comentario: comentario
     });
 
+    return resposta.data;
+}
+
+export async function mostrarPublicacaoFeed() {
+    const resposta = await api.get('/usuario/feedpublicacao');
     return resposta.data;
 }

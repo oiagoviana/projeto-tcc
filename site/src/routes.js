@@ -20,23 +20,18 @@ import Cadastro from './pages/usuario/cadastro'
 import PublicacaoCompleta from './pages/usuario/publicompleta'
 import PerfilUser from './pages/usuario/perfil'
 import PublicacaoUsuario from './pages/usuario/publicacao'
-
-import LandingPage from './pages/landingpage'
 import Chat from './pages/usuario/chat'
 import FeedPublicacao from './pages/usuario/feedPublicacao'
 
-
 //Psi
-import PerfilPsi from './pages/psicologo/perfil'
 import Formulario from './pages/psicologo/formulario'
 import LoginPsi from './pages/psicologo/loginPsi'
+import ChatPsi from './pages/psicologo/chat'
 
 export default function Index() {
     return (
         <BrowserRouter>
             <Routes>
-              <Route path='/' element={<LandingPage />} />
-            
                 <Route path='/' element={<Landing/>}/>
                 <Route path='/usuario/cadastro' element={<Cadastro />} />
                 <Route path='/usuario/login' element={<Login />} />
@@ -50,9 +45,11 @@ export default function Index() {
                 <Route path='/usuario/feedpublicacao' element={<FeedPublicacao />} />
 
 
+
                 <Route path='/psi/login' element={<LoginPsi/>}/>
-                <Route path='/psi/formulario' element={<Formulario/>}/>
-                <Route path='/psi/perfil' element={<PerfilPsi/>}/>
+                <Route path='/psi/formulario' element={<Formulario />} />
+                <Route path='/psi/chat' element={<ChatPsi />} />
+
 
 
                 <Route path='/admin/home' element={<HomeAdm/>}/>
@@ -64,23 +61,10 @@ export default function Index() {
                 <Route path='/admin/psicologoCard' element={<PsicologoCard />} />
                 <Route path='/admin/publicacaoCard' element={<PublicacaoCard />} />
                 <Route path='/admin/publicacao/:idParam' element={<Publicacao />} />
-
-                
-
                 
             
     
-                <Route path='/indicacao' element={<Indicacao/>}/>
-                <Route path='/indicacao/:id' element={<Indicacao/>}/>
-
-
-
-                <Route path='/psi/login' element={<LoginPsi/>}/>
-                <Route path='/psi/formulario' element={<Formulario/>}/>
-
-           
-
-        
+                
 
             </Routes>
         </BrowserRouter>

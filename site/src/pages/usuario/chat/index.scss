@@ -1,14 +1,15 @@
-.page-chat{
+.page-chat {
     display: flex;
     flex-direction: column;
 
 
-    .div-principal{
+
+    .div-principal {
         display: flex;
         flex-direction: row;
     }
 
-    .container-conversa{
+    .container-conversa {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -17,27 +18,62 @@
 
     }
 
-    
 
-    .inicial-nome{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid black;
-            border-radius: 100%;
-            font-size: 35px;
-            font-family: 'Abhaya1';
-            color: #73401E;
-            height: 50px;
-            width: 50px;
+
+    .inicial-nome {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        border-radius: 100%;
+        font-size: 35px;
+        font-family: 'Abhaya1';
+        color: #73401E;
+        height: 50px;
+        width: 50px;
     }
 
-    .mensagens{
+    .mensagens {
         overflow-y: scroll;
         padding: 0em 2em 0em 1em;
         margin-top: 1.5em;
         width: 70vw;
         height: 65vh;
+
+        .usuario-esquerda {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            .caixa-mensagem {
+                padding: 5px;
+                margin-left: 10px;
+                background: #FFECDA;
+                border-radius: 15px;
+                width: 20em;
+                word-wrap: break-word;
+                min-height: 10vh;
+                max-height: 30vh;
+            }
+        }
+
+        .usuario-direita {
+            display: flex;
+            justify-content: flex-end;
+
+            .caixa-mensagem {
+                padding: 5px;
+                margin-left: 10px;
+                background: #EBBB8E;
+                border-radius: 15px;
+                width: 20em;
+                word-wrap: break-word;
+                min-height: 10vh;
+                max-height: 30vh;
+            }
+        
+        }
+
     }
 
     .mensagens::-webkit-scrollbar-track {
@@ -55,49 +91,23 @@
         border-radius: 16px;
         background-color: #6F4528;
     }
+
+   
+
     
-    .usuario-esquerda{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
 
-    .caixa-mensagem{
-        padding: 5px;
-        margin-left: 10px;
-        background: #FFECDA;
-        border-radius: 15px;
-        width: 20em;
-        word-wrap: break-word;
-        min-height: 10vh;
-        max-height: 30vh;
-    }
+    
 
-    .usuario-direita{
-        display: flex;
-        justify-content: flex-end;
-    }
+    
 
-    .caixa-mensagem2{
-        padding: 5px;
-        margin-left: 10px;
-        background: #EBBB8E;
-        border-radius: 15px;
-        width: 20em;
-        word-wrap: break-word;
-        min-height: 10vh;
-        max-height: 30vh;
-    }
-
-
-    .mensagem-bar{
+    .mensagem-bar {
         width: 50vw;
         border: 5px solid #73401E;
         border-radius: 15px;
         height: 5vh;
     }
 
-    .mensagem-bar::placeholder{
+    .mensagem-bar::placeholder {
         padding: 10px;
         font-family: 'Abhaya1';
         font-size: 1.4em;
@@ -105,12 +115,170 @@
     }
 
 
-    .div-campomsg{
+    .div-campomsg {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         width: 54vw;
+    }
+
+    .div-principal2 {
+        display: flex;
+        flex-direction: column;
+        background-color: #cc8f6e;
+        width: 25vw;
+        height: 85vh;
+        padding-left: .8em;
+
+    }
+
+
+
+    .chatCard {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border: 3px solid #73401E;
+        background-color: #fff;
+        width: 21vw;
+        height: 10vh;
+        margin-bottom: 1em;
+
+    }
+
+    .nomeCard {
+        font-family: 'Poppins1';
+    }
+
+    .letra {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #000;
+        border-radius: 100%;
+        font-size: 25px;
+        font-family: 'Abhaya1';
+        color: #000;
+        height: 25px;
+        width: 25px;
+
+    }
+
+    .div-nome {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 11vw;
+
+    }
+
+    .chats {
+        margin-left: .8em;
+        font-family: 'Poppins1';
+        font-size: 1.2em;
+        color: #FFECDA;
+    }
+
+    .hora {
+        font-family: 'Poppins1';
+    }
+
+    .card {
+        width: 23vw;
+        height: 55vh;
+        overflow-y: scroll;
+        
+    }
+
+    .card::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .card::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .card::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+
+        background-color: #6F4528;
+    }
+    .page-cabecalhoChat{
+        height: 15vh;
+        background-color: #CC8F6E;
+        background-repeat: no-repeat;
+        
+        display: flex;
+        flex-direction: row;
+    }
+
+    .itens-cabecalho {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 60vw;
+        height: 10vh;
+        margin: 1em 0em 0em 0em;
+    }
+
+
+    .imagem-seta {
+        width: 7vw;
+        height: 7vh;
+    }
+
+    .imagem-seta:hover {
+        cursor: pointer;
+    }
+
+    .div-nome {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 28vw;
+    }
+
+    .subdiv-nome {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+    }
+
+    .nome {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        border-radius: 100%;
+        font-size: 35px;
+        font-family: 'Abhaya1';
+        color: #73401E;
+        height: 50px;
+        width: 50px;
+    }
+
+    .nomedr {
+        color: #73401E;
+        font-size: 2em;
+        font-family: 'Poppins1';
+        margin: 0;
+        margin-left: 1em;
+    }
+
+    .disp {
+        color: #ffffff;
+        margin: 0;
+        font-family: 'Abhaya1';
+        font-size: 1.3em;
     }
 
 

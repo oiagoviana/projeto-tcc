@@ -40,3 +40,8 @@ export async function autorizarPsi(id) {
     const resposta = await api.put(`/admin/psicologo/${id}`);
     return resposta.data;
 }
+
+export async function solicitacoesPsi(id) {
+    const resposta = await api.get(`/api/psicologo/solicitacoes?id=${id}`);
+    return resposta.data;
+}

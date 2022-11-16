@@ -34,7 +34,7 @@ export default function CabecalhoChat() {
 
 
                 <div className='div-nome'>
-                    <span className='nome'>{conversaU.nomePsi[0].toUpperCase()}</span>
+                    <span className='nome'>{conversaU.nomePsi}</span>
                     <div className='subdiv-nome'>
                         <p className='nomedr'>{conversaU.nomePsi}</p>
                         <p className='disp'>Disponível</p>
