@@ -54,7 +54,7 @@ export default function PerfilUser() {
             <div className='container-meio'>
                 <div className='container-perfil'>
                     <div className='circulo-inicial'>
-                        <p>{nomePsicologo.nome[0]}</p>
+                        <p>{nomePsicologo.nome}</p>
                     </div>
                     <div className='container-square'>
                         <div className='container-credenciais'>
