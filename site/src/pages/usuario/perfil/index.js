@@ -1,15 +1,49 @@
 import './index.scss'
 import MenuUsuario from '../../../components/menuusuario'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { solicitacoesUser, letraUser } from '../../../api/usuarioApi';
+import { listarPublicacaoUsu } from '../../../api/publicacaoApi';
+import storage from 'local-storage'
 
 export default function PerfilUser() {
     const [botoesCliques, setBotoesCliques] = useState('mensagens');
+    const [solicitacoes, setSolicitacoes] = useState([]);
+    const [publicacoes, setPublicacoes] = useState([]);
+    const [nomePsicologo, setNomePsicologo] = useState({ nome: '', email: '' });
+    // const [publicacoes, setPublicacoes] = useState([]);
     {/* transformando formatações para a borda 
         const [bordaInferior, setBordaInferior] = useState('container-mensagens container-mensagens-borda'); */}
+
+    async function pegarLetraUser() {
+        const iduser = storage('usuario-logado').id;
+        console.log(iduser);
+        const chamada = await letraUser(iduser);
+        console.log(chamada);
+        setNomePsicologo({nome: chamada.nome, email: chamada.email})
+    }
 
     function cliqueAbas(aba) {
         setBotoesCliques(aba);
     }
+
+    async function listarSolicitacoes() {
+        const iduser = storage('usuario-logado').id;
+        const chamada = await solicitacoesUser(iduser);
+        setSolicitacoes(chamada);
+    }
+
+    async function listarPublicacoes() {
+        const resposta = storage('usuario-logado').id;
+
+        const listamento = await listarPublicacaoUsu(resposta);
+        setPublicacoes(listamento);
+    }
+
+    useEffect(() => {
+        listarSolicitacoes();
+        listarPublicacoes();
+        pegarLetraUser();
+    }, [])
 
     return (
         <main className='page-perfil-user'>
@@ -20,12 +54,12 @@ export default function PerfilUser() {
             <div className='container-meio'>
                 <div className='container-perfil'>
                     <div className='circulo-inicial'>
-                        <p>N</p>
+                        <p>{nomePsicologo.nome}</p>
                     </div>
                     <div className='container-square'>
                         <div className='container-credenciais'>
-                            <h3>Nome do Usuário</h3>
-                            <p>usuario@usuario.com</p>
+                            <h3>{nomePsicologo.nome}</h3>
+                            <p>{nomePsicologo.email}</p>
                         </div>
 
                         <div className='container-solicitacoes'>
@@ -50,62 +84,16 @@ export default function PerfilUser() {
                                     </thead>
 
                                     <tbody>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
-                                        <tr className='corpo-teste'>
-                                            <td className='titulo-doutores'>Dr. Bruna Santos</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
 
+                                        {solicitacoes.map(item =>
+
+                                            <tr className='corpo-teste'>
+                                                <td className='titulo-doutores'>{item.nome}</td>
+                                                <td className='titulo-resultado-situacao'>{item.autorizado == 0 ? 'Em análise' : 'Aprovado'}</td>
+                                                <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
+                                            </tr>
+
+                                        )}
 
                                     </tbody>
                                 </table>
@@ -122,13 +110,19 @@ export default function PerfilUser() {
                                     </thead>
 
                                     <tbody>
-                                        <tr className='corpo-teste'>
-                                            <td className='nome-publicacao'>Admin admin admin</td>
-                                            <td className='data-publicacao'>01/01/2006</td>
-                                            <td className='titulo-resultado-situacao'>Aprovado</td>
-                                            <td className='img-lapis'><img src='/assets/images/lapis-alterar.svg' alt='img-lapis' /></td>
-                                            <td className='img-lixo-publicacoes'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
-                                        </tr>
+
+                                        {publicacoes.map(item =>
+
+                                            <tr className='corpo-teste'>
+                                                <td className='nome-publicacao'>{item.nome}</td>
+                                                <td className='data-publicacao'>{item.data}</td>
+                                                <td className='titulo-resultado-situacao'>{item.aprovado == 0 ? 'Em análise' : 'Aprovado'}</td>
+                                                <td className='img-lapis'><img src='/assets/images/lapis-alterar.svg' alt='img-lapis' /></td>
+                                                <td className='img-lixo-publicacoes'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
+                                            </tr>
+
+
+                                        )}
 
 
                                     </tbody>
