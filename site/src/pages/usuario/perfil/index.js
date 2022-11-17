@@ -32,16 +32,16 @@ export default function PerfilUser() {
         setSolicitacoes(chamada);
     }
 
-    async function listarPublicacoes() {
+    /*async function listarPublicacoes() {
         const resposta = storage('usuario-logado').id;
 
         const listamento = await listarPublicacaoUsu(resposta);
         setPublicacoes(listamento);
-    }
+    }*/
 
     useEffect(() => {
         listarSolicitacoes();
-        listarPublicacoes();
+       // listarPublicacoes();
         pegarLetraUser();
     }, [])
 

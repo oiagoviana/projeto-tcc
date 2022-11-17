@@ -8,7 +8,7 @@ export default function Landing() {
             <div className='conteiner1'>
                 <img className='logo-mae' src='/assets/images/logo-mae.png' alt='' />
                 <div className='texto-1'>
-                <a className="a-header" href='usuario/publicompleta/'> Publicações</a>
+                <a className="a-header" href='usuario/feedpublicacao'> Publicações</a>
                  <a className="a-header" href='usuario/chat'> Profissionais</a>
                  <a className="a-header"href='usuario/indicacao/'> Indicações</a>
                 </div>
