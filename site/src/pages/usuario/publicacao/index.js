@@ -1,8 +1,10 @@
-import { AdicionarImagem, buscarImagem, inserirPublicacaoPsi, inserirPublicacaoUsu } from '../../../api/publicacaoApi';
+import { AdicionarImagem, atualizarPublicacao, buscarImagem, inserirPublicacaoPsi, inserirPublicacaoUsu, mostrarPublicacaoUsuId } from '../../../api/publicacaoApi';
 import MenuUsuario from '../../../components/menuusuario';
 import storage from 'local-storage'
 import './index.scss'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 
@@ -10,25 +12,46 @@ export default function Publicacao() {
     const [titulo, setTitulo] = useState('')
     const [descricao, setDescricao] = useState('')
     const [imagem, setImagem] = useState();
+    const { idParam } = useParams();
+    const [id, setId] = useState(0);
+
+    const navigate = useNavigate();
 
     async function salvarPublicacao() {
         try {
-            if (storage('usuario-logado')) {
-                const IDusuario = storage('usuario-logado').id
-                const r = await inserirPublicacaoUsu(IDusuario, titulo, descricao)
-                await AdicionarImagem(r.id, imagem)
-                alert('Publicação usu inserida com sucesso!')
+            if (id === 0) {
+                if (storage('usuario-logado')) {
+
+                    const IDusuario = storage('usuario-logado').id
+                    const r = await inserirPublicacaoUsu(IDusuario, titulo, descricao)
+                    await AdicionarImagem(r.id, imagem)
+                    console.log(id)
+                    setId(r.id);
+                    
+                    toast.dark('Publicação usu inserida com sucesso!')
+
+                }
+
+                else if (storage('psi-logado')) {
+
+                    const IDpsicologo = storage('psi-logado').id
+                    const r = await inserirPublicacaoPsi(IDpsicologo, titulo, descricao)
+                    await AdicionarImagem(r.id, imagem)
+                    setId(r.id);
+                    toast.dark('Publicação psi inserida com sucesso!')
+
+                }
             }
-
-            if (storage('psi-logado')) {
-                const IDpsicologo = storage('psi-logado').id
-                const r = await inserirPublicacaoPsi(IDpsicologo, titulo, descricao)
-                await AdicionarImagem(r.id, imagem)
-                alert('Publicação psi inserida com sucesso!')
+            else {
+                await atualizarPublicacao(id, titulo, descricao)
+                if (typeof (imagem) == 'object') {
+                    await AdicionarImagem(id, imagem);
+                }
+                setTimeout(() => {
+                    navigate('/usuario/feedpublicacao');
+                }, 2000)
+                toast.success('Publicação alterada com sucesso 🚀');
             }
-
-
-
         }
         catch (err) {
             if (err.response)
@@ -38,6 +61,13 @@ export default function Publicacao() {
                 alert(err.message)
             }
         }
+    }
+
+    async function listarPublicacaoId() {
+        const resposta = await mostrarPublicacaoUsuId(idParam);
+        setTitulo(resposta[0].titulo);
+        setDescricao(resposta[0].descricao);
+        setImagem(resposta[0].imagem);
     }
 
     function Limpar() {
@@ -58,11 +88,18 @@ export default function Publicacao() {
         }
     }
 
+    useEffect(() => {
+        if (idParam) {
+            listarPublicacaoId()
+            setId(idParam)
+        }
+    }, [])
+
 
     return (
         <main className='usuario-page'>
             <div>
-                <MenuUsuario pagina='publicar'/>
+                <MenuUsuario pagina='publicar' />
             </div>
 
             <div className='conteiner'>
@@ -83,9 +120,9 @@ export default function Publicacao() {
 
                 <div className='foto'>
 
-                    <div className='container-foto-download' onClick={EscolherFoto}>
+                    <div  onClick={EscolherFoto}>
                         {!imagem &&
-                            <img src='/assets/images/download-fotos.svg' alt='' />
+                            <img className='container-foto-download' src='/assets/images/download-fotos.svg' alt='' />
 
                         }
                         {imagem &&
@@ -99,13 +136,11 @@ export default function Publicacao() {
 
                 <div className='botoes-publi'>
                     {storage('usuario-logado') &&
-                        <button className='botao-publi' onClick={salvarPublicacao} >Publicar</button>
-
+                        <button className='botao-publi' onClick={salvarPublicacao}> {id === 0 ? 'Publicar' : 'Alterar'}</button>
                     }
 
                     {storage('psi-logado') &&
-                        <button className='botao-publi' onClick={salvarPublicacao} >Publicar</button>
-
+                        <button className='botao-publi' onClick={salvarPublicacao} > {id === 0 ? 'Publicar' : 'Alterar'}</button>
                     }
 
                     <button className='botao-publi' onClick={Limpar}>Limpar</button>
@@ -120,7 +155,6 @@ export default function Publicacao() {
                     <h1>Comentarios Destacados</h1>
                 </div>
 
-                <img className="logo-mae" src='/assets/images/logo-mae.png' alt='' />
             </div>
 
         </main>

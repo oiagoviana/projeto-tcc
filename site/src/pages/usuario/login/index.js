@@ -26,7 +26,7 @@ export default function Login() {
             storage('usuario-logado', resposta);
 
             setTimeout(() => {
-                navigate('/usuario/publicacao');
+                navigate('/usuario/feedpublicacao');
             }, 3000)
         }
         catch (err) {

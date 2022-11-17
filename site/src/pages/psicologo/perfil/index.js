@@ -87,6 +87,10 @@ export default function PerfilPsi() {
         )
     }
 
+    async function editarPublicacao(id) {
+        navigate(`/usuario/publicacao/${id}`)
+    }
+
     useEffect(() => {
         listarPublicacoes();
         listarInformacoes();
@@ -175,7 +179,7 @@ export default function PerfilPsi() {
                                             <td className='nome-publicacao'>{item.nome}</td>
                                             <td className='data-publicacao'>{item.data}</td>
                                             <td className='titulo-resultado-situacao'>{item.aprovado == 0 ? 'Em análise' : 'Aprovado'}</td>
-                                            <td className='img-lapis'><img src='/assets/images/lapis-alterar.svg' alt='img-lapis' /></td>
+                                            <td className='img-lapis'><img onClick={() => editarPublicacao(item.id)} src='/assets/images/lapis-alterar.svg' alt='img-lapis' /></td>
                                             <td className='img-lixo-publicacoes'><img onClick={() => excluirPublicacao(item.id)} src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
                                         </tr>
 
