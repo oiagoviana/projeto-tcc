@@ -1,4 +1,4 @@
-import { inserirFormulario, listarPsicologos, deletarFormulario, loginPsicologo, autorizarPsi, listarPsiId, SolicitadoPsi } from '../repository/psicologoRepository.js'
+import { inserirFormulario, listarPsicologos, deletarFormulario, loginPsicologo, autorizarPsi, listarPsiId, SolicitadoPsi, listarPublicacaoPsi } from '../repository/psicologoRepository.js'
 
 
 import { Router } from 'express'
@@ -25,7 +25,6 @@ server.post('/api/psicologo/login', async (req, resp) => {
         const { email, senha } = req.body;
         
         const resposta = await loginPsicologo(email, senha);
-        console.log(resposta);
         
         if (!email.trim())
             throw new Error('Email é obrigatório!');
@@ -143,6 +142,18 @@ server.get('/api/psicologo/solicitacoes', async (req, resp) => {
         resp.status(400).send({
             erro: err.message
         })
+    }
+})
+
+server.get('/api/publicacoesPsi', async (req, resp) => {
+    try {
+        const { id } = req.query;
+        const resposta = await listarPublicacaoPsi(id);
+        resp.status(201).send(resposta);
+    } catch(err) {
+        resp.status(401).send({
+            erro: err.message
+        });
     }
 })
 

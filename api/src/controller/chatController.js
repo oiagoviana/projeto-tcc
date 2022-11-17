@@ -59,33 +59,41 @@ server.post('/chat', async (req, res) => {
         res.sendStatus(200);
     } catch (err) {
         res.status(401).send({
-            erro:err.message
+            erro: err.message
         })
     }
 })
 
 server.put('/chat', async (req, res) => {
-    try{
+    try {
         const { chatId } = req.query;
+
+        if (!chatId || chatId === undefined)
+            throw new Error("Você não passou nenhum parâmetro.");
+
         const resposta = await aceitarChat(Number(chatId));
         res.sendStatus(200);
 
-    } catch(err){
+    } catch (err) {
         res.status(401).send({
-            erro:err.message
+            erro: err.message
         })
     }
 })
 
 server.delete('/chat', async (req, res) => {
-    try{
+    try {
         const { chatId } = req.query;
+
+        if (!chatId || chatId === undefined)
+            throw new Error("Você não passou nenhum parâmetro.");
+
         const resposta = await excluirChat(Number(chatId));
         res.sendStatus(200);
 
-    } catch(err){
+    } catch (err) {
         res.status(401).send({
-            erro:err.message
+            erro: err.message
         })
     }
 })

@@ -74,10 +74,16 @@
 
     .container-cadastre-se {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
 
         margin-top: 3em;
+    }
+
+    .div-cadastro{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
     .container-cadastre-se p {

@@ -106,7 +106,21 @@ export async function SolicitadoPsi(id) {
                  ds_telefone				telefone
             from tb_chat
     inner join tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
-           where id_psicologo = ?`
+           where id_psicologo = ?
+             and bt_autorizado = false`
+    const [resposta] = await con.query(comando, [id]);
+    return resposta;
+}
+
+export async function listarPublicacaoPsi(id) {
+    const comando =
+        `select id_publicacao       id,
+                id_psicologo		idpsi,
+                ds_titulo		    nome,
+                date_format(dt_publicacao, '%d/%m/%Y')	    as 'data',
+                pb_aprovado		    aprovado
+           from tb_publicacao
+          where id_psicologo = ?`
     const [resposta] = await con.query(comando, [id]);
     return resposta;
 }

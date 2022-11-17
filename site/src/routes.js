@@ -27,6 +27,7 @@ import FeedPublicacao from './pages/usuario/feedPublicacao'
 import Formulario from './pages/psicologo/formulario'
 import LoginPsi from './pages/psicologo/loginPsi'
 import ChatPsi from './pages/psicologo/chat'
+import PerfilPsi from './pages/psicologo/perfil'
 
 export default function Index() {
     return (
@@ -49,6 +50,7 @@ export default function Index() {
                 <Route path='/psi/login' element={<LoginPsi/>}/>
                 <Route path='/psi/formulario' element={<Formulario />} />
                 <Route path='/psi/chat' element={<ChatPsi />} />
+                <Route path='/psi/perfil' element={<PerfilPsi />} />
 
 
 

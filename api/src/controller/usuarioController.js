@@ -75,7 +75,6 @@ server.get('/usuario/solicitacoes', async (req, resp) => {
 server.get('/usuario/letra/nomeUser', async (req, resp) => {
     try {
         const { id } = req.query;
-        console.log(id);
         const resposta = await letraNomeUsuario(id);
 
         resp.status(201).send(resposta);

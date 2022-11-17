@@ -32,16 +32,16 @@ export default function PerfilUser() {
         setSolicitacoes(chamada);
     }
 
-    /*async function listarPublicacoes() {
+    async function listarPublicacoes() {
         const resposta = storage('usuario-logado').id;
 
         const listamento = await listarPublicacaoUsu(resposta);
         setPublicacoes(listamento);
-    }*/
+    }
 
     useEffect(() => {
         listarSolicitacoes();
-       // listarPublicacoes();
+        listarPublicacoes();
         pegarLetraUser();
     }, [])
 
@@ -54,7 +54,7 @@ export default function PerfilUser() {
             <div className='container-meio'>
                 <div className='container-perfil'>
                     <div className='circulo-inicial'>
-                        <p>{nomePsicologo.nome}</p>
+                        <p>{nomePsicologo.nome[0]}</p>
                     </div>
                     <div className='container-square'>
                         <div className='container-credenciais'>

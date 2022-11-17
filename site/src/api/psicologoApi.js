@@ -45,3 +45,8 @@ export async function solicitacoesPsi(id) {
     const resposta = await api.get(`/api/psicologo/solicitacoes?id=${id}`);
     return resposta.data;
 }
+
+export async function listarPublicacaoPsi(id) {
+    const resposta = await api.get(`/api/publicacoesPsi?id=${id}`);
+    return resposta.data;
+}

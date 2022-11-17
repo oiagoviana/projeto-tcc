@@ -28,3 +28,13 @@ export async function createChat(userId, psiId) {
     });
     return resposta.data
 }
+
+export async function aceitarChat(chatId) {
+    const resposta = await api.put(`/chat/?chatId=${chatId}`);
+    return resposta.data
+}
+
+export async function deletarChat(chatId) {
+    const resposta = await api.delete(`/chat/?chatId=${chatId}`);
+    return resposta.data;
+}
