@@ -3,7 +3,7 @@ import { con } from './connection.js'
 export async function CriarChat(usuario, psicologo) {
     const comando = 
     `insert into tb_chat(id_usuario, id_psicologo, dt_solicitacao, bt_autorizado)
-    values(?,?, sysdate(), false);`
+    values(?,?, sysdate(), false)`
 
     const [resposta] = await con.query(comando, [usuario, psicologo]);
     return resposta.insertId;

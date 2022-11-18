@@ -54,8 +54,8 @@ server.get('/chat', async (req, res) => {
 
 server.post('/chat', async (req, res) => {
     try {
-        const { psiId, userId } = req.query;
-        const resposta = await CriarChat(Number(psiId), Number(userId));
+        const { userId, psiId } = req.query;
+        const resposta = await CriarChat(Number(userId), Number(psiId));
         res.sendStatus(200);
     } catch (err) {
         res.status(401).send({

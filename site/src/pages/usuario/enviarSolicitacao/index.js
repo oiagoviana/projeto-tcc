@@ -1,6 +1,7 @@
 import './index.scss'
 import storage from 'local-storage'
 import { createChat } from '../../../api/chatApi';
+import { useNavigate } from 'react-router-dom'
 import { listarPsicologoAprovados } from '../../../api/psicologoApi';
 import { useEffect, useState } from 'react';
 
@@ -12,6 +13,8 @@ export default function EnviarSolicitacao() {
     const [botao, setBotao] = useState('N-enviado');
     const [data, setData] = useState('');
 
+    const navigate = useNavigate();
+
     async function listarPsicologos() {
         const resposta = await listarPsicologoAprovados();
         setChat(resposta);
@@ -19,6 +22,10 @@ export default function EnviarSolicitacao() {
 
     async function criarChat(psiId) {
         const resposta = await createChat(user.id, psiId);
+
+        setTimeout(() => {
+            navigate('/usuario/chat')
+        }, 3000)
     }
 
     function dataNascimento(data) {
@@ -32,6 +39,7 @@ export default function EnviarSolicitacao() {
     useEffect(() => {
         listarPsicologos();
     }, [])
+
 
     return (
         <main className='page-envio-solicitacoes'>
@@ -78,7 +86,7 @@ export default function EnviarSolicitacao() {
                                         <div className='bola-letra'><h2>{item.nome[0].toUpperCase()}</h2></div>
 
                                         <div className='container-square'>
-                                            <h1>{item.nome}</h1>
+                                            <h1>Dr. {item.nome}</h1>
 
                                             <div className='container-credenciais'>
                                                 <p className='idade'>{data} anos</p>
