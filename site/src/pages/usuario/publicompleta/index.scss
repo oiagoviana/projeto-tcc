@@ -205,8 +205,8 @@
     .comentario-nome{
         background-color: #fff;
         margin-top: 9px;
-        min-width: 3vw;
-        max-width: 17vw;
+        min-width: 5vw;
+        max-width: 15vw;
         border-radius: 3px;
     }
 
@@ -214,7 +214,10 @@
         word-wrap: break-word;
         background-color: #fff;
         border-radius: 3px;
-        
+        min-width: 15vw;
+        max-width: 15vw;
+        min-height: 5vh;
+        max-height: 35vh;
     }
 
 

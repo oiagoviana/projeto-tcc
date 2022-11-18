@@ -52,7 +52,7 @@
                 border-radius: 15px;
                 width: 20em;
                 word-wrap: break-word;
-                min-height: 10vh;
+                min-height: 7vh;
                 max-height: 30vh;
             }
         }
@@ -68,12 +68,16 @@
                 border-radius: 15px;
                 width: 20em;
                 word-wrap: break-word;
-                min-height: 10vh;
+                min-height: 6vh;
                 max-height: 30vh;
             }
         
         }
 
+    }
+
+    .mensagens {
+        scroll-behavior: smooth;
     }
 
     .mensagens::-webkit-scrollbar-track {
@@ -171,7 +175,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
-        width: 11vw;
+        width: 1vw;
 
     }
 
