@@ -55,6 +55,9 @@ export default function Chat() {
         setMensagens(data);
     })
 
+    function sairChat() {
+        navigate('/usuario/feedpublicacao')
+    }
 
     useEffect(() => {
         listUserChat();
@@ -65,7 +68,7 @@ export default function Chat() {
         <main className='page-chat'>
             <div className='page-cabecalhoChat'>
                 <div className='itens-cabecalho'>
-                    <img src="/assets/images/setaVoltar.svg" className='imagem-seta' />
+                <img src="/assets/images/setaVoltar.svg" className='imagem-seta' onClick={sairChat} />
                     {psiInfo.map((item) => (
                         <div className='div-nome'>
                             <span className='nome'> {item.nomePsi[0].toUpperCase()} </span>

@@ -89,6 +89,16 @@ export async function PublicarPsi(publicar) {
 
 }
 
+export async function alterarPublicacao(id, publicar){
+    const comando = 
+    `update tb_publicacao
+        set ds_titulo	    =?,
+            ds_publicacao	=?
+      where	id_publicacao   =?`;
+    const [resposta] = await con.query(comando, [publicar.titulo, publicar.descricao, id]);
+    return resposta.affectedRows;
+}
+
 
 export async function autorizarPublicacao(id) {
     const comando =

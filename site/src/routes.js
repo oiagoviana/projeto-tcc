@@ -39,6 +39,7 @@ export default function Index() {
                 <Route path='/usuario/login' element={<Login />} />
                 <Route path='/usuario/perfil' element={<PerfilUser />} />
                 <Route path='/usuario/publicacao' element={<PublicacaoUsuario/>}/>
+                <Route path='/usuario/publicacao/:idParam' element={<PublicacaoUsuario/>}/>
                 <Route path='/usuario/indicacao' element={<Indicacao />} />
                 <Route path='/usuario/publicacaocompleta/:idParam' element={<PublicacaoCompleta />} />
                 <Route path='/usuario/indicacao' element={<Indicacao />} />

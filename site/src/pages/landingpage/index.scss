@@ -48,8 +48,8 @@
         border: none;
         background: #C57D56;
         color: black;
-        width: 20vh;
-        height: 7vh;
+        width: 15vh;
+        height: 5vh;
 
         font-size: 1.3em;
         font-family: 'Abhaya2';
@@ -109,6 +109,7 @@
 
     .maos {
         width: 50vw;
+        margin-bottom: 2em;
    
         height: 50vh;
         border-right: 14em;
@@ -124,6 +125,10 @@
         font-family: 'Abhaya3';
         margin-top: 6em;
         margin-right: 30em;
+        width: 19em;  
+        word-wrap: break-word;
+        
+       
     }
 
 
@@ -132,7 +137,9 @@
         font-size: 1.9em;
         font-family: 'Bevan1';
         color: #6F4528;
-      margin-top: 2em;
+        margin-top: 2em;
+        margin-left: 3em;
+      
 
         height: 1em;
     }
@@ -163,7 +170,7 @@
         margin-top: 2.5em;
 
         color: #6F4528;
-        margin-left: 13em;
+        margin-left: 12em;
 
     }
 
@@ -171,7 +178,7 @@
         position: absolute;
         margin-top: 12em;
 
-        margin-left: 20em;
+        margin-left: 18em;
         width: 18em;
     }
 
@@ -181,6 +188,8 @@
         font-size:1.6em;
         font-family: 'Abhaya3';
         margin-left: 25em;
+        width: 19em;  
+        word-wrap: break-word;
     }
 
     .quadrado{
@@ -853,7 +862,7 @@
 
         .todos{
 
-            margin-right: 6.3em;
+            margin-right: 3em;
                    
         }
 
@@ -867,6 +876,10 @@
 
         .rodape{
             margin-bottom: -1em;
+        }
+
+        .sua-historia-botao{
+            margin-left: 15em;
         }
 
         .titulo2{
@@ -885,9 +898,13 @@
             margin-bottom: -3em;
         }
 
+        .sua-historia-botao{
+            margin-left: 15em;
+        }
+
     }
 
-
+    
     @media (max-width: 1450px){
 
         
@@ -989,12 +1006,154 @@
         .logo-rodape{
             margin-left: 1em;
         }
+
+
+    }
+
+    @media (max-width: 1200px){
+
+        .container6{
+          
+          justify-content: center;
+          
+          margin-left: 3em
+        }
+
+        .a-header{
+            margin-left: 3em;
+        }
+
+        .sobre-nos{
+            font-size: 1.9em;
+            margin-top: 2.4em;
+        }
+        .texto-3{
+            margin-left: 2.3em
+        }
+
+       .container-redes{
+        margin-right: 5em;
+      
+       }
+
+       .linha4{
+        margin-left: 1em
+       }
+
+        .titulo2{
+            margin-right: 2em
+        }
+
+    }
+
+    @media (max-width: 1100px){
+
+       
+        .conteiner1{
+            width: 68em;
+        }
+        .botao1{
+            margin-left: -3em;
+           
+        
+        }
+
+        .texto-1{
+            margin-left: -1em;
+        }
+       
+        .container6{
+  
+            height: 90%;
+            
+        }
+
+
+        .p7 {
+            font-size: 1.7em;
+            
+        }
+
+        .p-mudanca{
+            font-size: 1.3em;
+            
+        }
+
+        .texto-psi{
+            font-size: 1.3em;
+            margin-left: 3em;
+        }
+
+        .frase-psi{
+            margin-right: 1em;
+            font-size: 1.3em;
+        }
+
+        .botao-formulario{
+            width: 8em;
+            height: 2em;
+            margin-left: 23em;
+        }
+
+        .p6{
+            font-size: 1.7em;
+            
+        }
+
+        .p-texto{
+            font-size: 1.3em;
+            margin-left: 0.51em;
+        }
+
+        .linha3{
+            margin-left: -  2em;
+        }
+
+        .texto-2{
+            font-size: 2.5em;
+            margin-left: -2em;
+        }
+
+        .imagem-bb{
+            width: 30em;
+            height: 32em;
+        }
+        .sobre-nos{
+            font-size: 1.7em;
+        }
+
+        .texto-3{
+            word-wrap: 10em;
+        }
+
+        .texto-4{
+            margin-right: 3em
+        }
+        .missao{
+            margin-right: 2em;
+            font-size: 2.6em;
+        }
+        .linha1{
+            margin-right: 2em;
+        }
+        .sobre-nos{
+            margin-bottom: 3em;
+        }
+
+        .texto-3{
+            margin-left: 6em;
+        }
     }
 
     
 
 }
 
+
+
+
+
+    
 
 
 
