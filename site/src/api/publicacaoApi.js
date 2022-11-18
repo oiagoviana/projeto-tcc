@@ -97,12 +97,3 @@ export async function deletarPublicacao(id) {
     const resposta = await api.delete(`/api/publicacao?id=${id}`);
     return resposta.data;
 }
-
-/* export async function alterarPublicacao(id) {
-    const resposta = await api.put(`/api/publicacao/${id}`, {
-        psicologo: psicologo,
-        titulo: titulo,
-        descricao: descricao
-    }) 
-    return resposta.data;
-} */

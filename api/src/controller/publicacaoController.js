@@ -244,20 +244,6 @@ server.delete('/api/publicacao', async (req, res) => {
     }
 })
 
-server.put('/api/publicacao/:id', async (req, resp) => {
-    try {
-        const { id } = req.params;
-        const informacoes = req.body;
-        const informacoesAlteradas = await editarPublicacaoPsi(Number(id), informacoes);
-
-        resp.status(204).send();
-    } catch(err) {
-        resp.status(401).send({
-            erro: err.message
-        })
-    }
-})
-
 
 
 
