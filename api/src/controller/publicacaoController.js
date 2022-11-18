@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import multer from 'multer';
 
-import { alterarImagemUsuario, autorizarPublicacao,fazerComentarioPsi,fazerComentarioUsu,listarComentarioUsu,listarPublicacaoCard, listarPublicacaoFeed, listarPublicacaoId, listarPublicacaoUsuId, PublicarPsi, PublicarUsuario } from '../repository/publicacaoRepository.js';
+import { alterarImagemUsuario, autorizarPublicacao,excluirPublicacao,fazerComentarioPsi,fazerComentarioUsu,listarComentarioUsu,listarPublicacaoCard, listarPublicacaoFeed, listarPublicacaoId, listarPublicacaoUser, listarPublicacaoUsuId, PublicarPsi, PublicarUsuario } from '../repository/publicacaoRepository.js';
 
 
 
@@ -85,7 +85,6 @@ server.post('/api/publicacaoUsu', async (req, resp) => {
             throw new Error ('A descrição é obrigatória!!')
         }
         const resposta = await PublicarUsuario(novaPublicacao);
-        console.log(resposta);
         resp.status(201).send(resposta);
 
     }
@@ -113,7 +112,6 @@ server.post('/api/publicacaoPsi', async (req, resp) => {
             throw new Error ('A descrição é obrigatória!!')
         }
         const resposta = await PublicarPsi(novaPublicacao);
-        console.log(resposta);
         resp.status(201).send(resposta);
 
     }
@@ -153,7 +151,6 @@ server.put('/api/publicacao/:id/imagem', upload.single('imagem'), async (req, re
             throw new Error('A imagem não pôde ser salva.')
         resp.status(204).send();
     } catch (err) {
-        console.log(err)
         resp.status(400).send({
             erro: err.message
         })
@@ -212,6 +209,36 @@ server.get('/usuario/feedpublicacao', async (req, resp) => {
 
     } catch (err) {
         resp.status(404).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/api/publicacoesUser', async (req, resp) => {
+    try {
+        const { id } = req.query;
+        const listandoPub = await listarPublicacaoUser(id);
+
+        resp.status(201).send(listandoPub);
+    } catch(err) {
+        resp.status(401).send({
+            erro: err.message
+        });
+    }
+})
+
+server.delete('/api/publicacao', async (req, res) => {
+    try {
+        const { id } = req.query;
+
+        if (!id || id === undefined)
+            throw new Error("Você não passou nenhum parâmetro.");
+
+        const resposta = await excluirPublicacao(Number(id));
+        res.sendStatus(200);
+
+    } catch (err) {
+        res.status(401).send({
             erro: err.message
         })
     }

@@ -2,23 +2,26 @@ import './index.scss'
 import MenuUsuario from '../../../components/menuusuario'
 import { useEffect, useState } from 'react'
 import { solicitacoesUser, letraUser } from '../../../api/usuarioApi';
-import { listarPublicacaoUsu } from '../../../api/publicacaoApi';
+import { deletarPublicacao, listarPublicacaoUsu } from '../../../api/publicacaoApi';
 import storage from 'local-storage'
+import { deletarChat } from '../../../api/chatApi';
+import { toast } from 'react-toastify';
+import { confirmAlert } from 'react-confirm-alert';
+import { useNavigate } from 'react-router-dom';
 
 export default function PerfilUser() {
     const [botoesCliques, setBotoesCliques] = useState('mensagens');
     const [solicitacoes, setSolicitacoes] = useState([]);
     const [publicacoes, setPublicacoes] = useState([]);
     const [nomePsicologo, setNomePsicologo] = useState({ nome: '', email: '' });
+    const navigate = useNavigate();
     // const [publicacoes, setPublicacoes] = useState([]);
     {/* transformando formatações para a borda 
         const [bordaInferior, setBordaInferior] = useState('container-mensagens container-mensagens-borda'); */}
 
     async function pegarLetraUser() {
         const iduser = storage('usuario-logado').id;
-        console.log(iduser);
         const chamada = await letraUser(iduser);
-        console.log(chamada);
         setNomePsicologo({nome: chamada.nome, email: chamada.email})
     }
 
@@ -39,6 +42,50 @@ export default function PerfilUser() {
         setPublicacoes(listamento);
     }
 
+    async function excluirChat(id) {
+        confirmAlert({
+            title: "Remover Solicitação",
+            message: `Deseja remover a solicitação?`,
+            buttons: [{
+                label: 'Sim',
+                onClick: async () => {
+                    await deletarChat(id);
+                    listarSolicitacoes();
+                    toast.dark('Solicitação removida!')
+                }
+            },
+            {
+                label: 'Não'
+            }
+            ]
+        }
+        )
+    }
+
+    async function excluirPublicacao(id) {
+        confirmAlert({
+            title: "Remover Publicação",
+            message: `Deseja mesmo remover está publicação?`,
+            buttons: [{
+                label: 'Sim',
+                onClick: async () => {
+                    await deletarPublicacao(id);
+                    listarPublicacoes();
+                    toast.dark('Publicação removida!')
+                }
+            },
+            {
+                label: 'Não'
+            }
+            ]
+        }
+        )
+    }
+
+    async function editarPublicacao(id) {
+        navigate(`/usuario/publicacao/${id}`)
+    }
+
     useEffect(() => {
         listarSolicitacoes();
         listarPublicacoes();
@@ -54,7 +101,7 @@ export default function PerfilUser() {
             <div className='container-meio'>
                 <div className='container-perfil'>
                     <div className='circulo-inicial'>
-                        <p>{nomePsicologo.nome}</p>
+                        <p>{nomePsicologo.nome[0]}</p>
                     </div>
                     <div className='container-square'>
                         <div className='container-credenciais'>
@@ -90,7 +137,7 @@ export default function PerfilUser() {
                                             <tr className='corpo-teste'>
                                                 <td className='titulo-doutores'>{item.nome}</td>
                                                 <td className='titulo-resultado-situacao'>{item.autorizado == 0 ? 'Em análise' : 'Aprovado'}</td>
-                                                <td className='img-lixo-black'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
+                                                <td className='img-lixo-black'><img onClick={() => excluirChat(item.idchat)} src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
                                             </tr>
 
                                         )}
@@ -117,8 +164,8 @@ export default function PerfilUser() {
                                                 <td className='nome-publicacao'>{item.nome}</td>
                                                 <td className='data-publicacao'>{item.data}</td>
                                                 <td className='titulo-resultado-situacao'>{item.aprovado == 0 ? 'Em análise' : 'Aprovado'}</td>
-                                                <td className='img-lapis'><img src='/assets/images/lapis-alterar.svg' alt='img-lapis' /></td>
-                                                <td className='img-lixo-publicacoes'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
+                                                <td className='img-lapis'><img onClick={() => editarPublicacao(item.id)} src='/assets/images/lapis-alterar.svg' alt='img-lapis' /></td>
+                                                <td className='img-lixo-publicacoes'><img onClick={() => excluirPublicacao(item.id)} src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
                                             </tr>
 
 

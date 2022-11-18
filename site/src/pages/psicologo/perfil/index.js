@@ -2,14 +2,20 @@ import './index.scss'
 import MenuUsuario from '../../../components/menuusuario'
 import { useEffect, useState } from 'react'
 import storage from 'local-storage'
-import { listarPublicacaoPsi } from '../../../api/publicacaoApi';
-import { solicitacoesPsi, listarPsi } from '../../../api/psicologoApi'
+import { solicitacoesPsi, listarPsi, listarPublicacaoPsi } from '../../../api/psicologoApi'
+import { aceitarChat, deletarChat } from '../../../api/chatApi'
+import { useNavigate } from 'react-router-dom'
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import { toast } from 'react-toastify'
+import { deletarPublicacao } from '../../../api/publicacaoApi'
 
 export default function PerfilPsi() {
     const [borda, setBorda] = useState('mensagens');
     const [publicacoes, setPublicacoes] = useState([]);
     const [solicitacoes, setSolicitacoes] = useState([]);
     const [infoPsi, setInfoPsi] = useState({nome: '',telefone: '', email: '', nascimento: '', cpf: '', crp: ''});
+    const navigate = useNavigate();
 
     // Falta finalizar!
 
@@ -19,19 +25,70 @@ export default function PerfilPsi() {
 
     async function listarPublicacoes() {
         const idpsi = storage('psi-logado').id;
-        console.log(idpsi);
-
         const chamada = await listarPublicacaoPsi(idpsi);
         const psiSolicitacoes = await solicitacoesPsi(idpsi);
         setPublicacoes(chamada);
         setSolicitacoes(psiSolicitacoes);
     }
+    console.log(publicacoes);
 
     async function listarInformacoes() {
         const idpsi = storage('psi-logado').id;
 
         const informacoes = await listarPsi(idpsi);
         setInfoPsi({nome: informacoes.nome,telefone: informacoes.telefone, email: informacoes.email, nascimento: informacoes.data, cpf: informacoes.cpf, crp: informacoes.crp});
+    }
+
+    async function atualizarSitChat(id) {
+        await aceitarChat(id);
+
+        setTimeout(() => {
+                    navigate('/psi/chat');
+                }, 2000)
+    }
+
+    async function excluirChat(id, nome) {
+        confirmAlert({
+            title: "Remover Solicitação",
+            message: `Deseja remover a solicitação de ${nome}`,
+            buttons: [{
+                label: 'Sim',
+                onClick: async () => {
+                    await deletarChat(id);
+                    listarInformacoes();
+                    toast.dark('Solicitação removida!')
+                }
+            },
+            {
+                label: 'Não'
+            }
+            ]
+        }
+        )
+    }
+
+    async function excluirPublicacao(id) {
+        confirmAlert({
+            title: "Remover Publicação",
+            message: `Deseja mesmo remover está publicação?`,
+            buttons: [{
+                label: 'Sim',
+                onClick: async () => {
+                    await deletarPublicacao(id);
+                    listarPublicacoes();
+                    toast.dark('Publicação removida!')
+                }
+            },
+            {
+                label: 'Não'
+            }
+            ]
+        }
+        )
+    }
+
+    async function editarPublicacao(id) {
+        navigate(`/usuario/publicacao/${id}`)
     }
 
     useEffect(() => {
@@ -91,7 +148,9 @@ export default function PerfilPsi() {
                                         <tr className='corpo-teste'>
                                             <td className='nome-solicitante'>{item.nome}</td>
                                             <td className='telefone-solicitante'>{item.telefone}</td>
-                                            <td className='analise-solicitante'><img src='/assets/images/NAO-analisar.svg' alt='img-NAO' /> <img src='/assets/images/SIM-analisar.svg' alt='img-SIM' /></td>
+                                            <td className='analise-solicitante'>
+                                                <img onClick={() => {excluirChat(item.idchat, item.nome)}} src='/assets/images/NAO-analisar.svg' alt='img-NAO' />
+                                                <img onClick={() => {atualizarSitChat(item.idchat)}} src='/assets/images/SIM-analisar.svg' alt='img-SIM' /></td>
                                         </tr>
 
                                     )}
@@ -120,8 +179,8 @@ export default function PerfilPsi() {
                                             <td className='nome-publicacao'>{item.nome}</td>
                                             <td className='data-publicacao'>{item.data}</td>
                                             <td className='titulo-resultado-situacao'>{item.aprovado == 0 ? 'Em análise' : 'Aprovado'}</td>
-                                            <td className='img-lapis'><img src='/assets/images/lapis-alterar.svg' alt='img-lapis' /></td>
-                                            <td className='img-lixo-publicacoes'><img src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
+                                            <td className='img-lapis'><img onClick={() => editarPublicacao(item.id)} src='/assets/images/lapis-alterar.svg' alt='img-lapis' /></td>
+                                            <td className='img-lixo-publicacoes'><img onClick={() => excluirPublicacao(item.id)} src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
                                         </tr>
 
                                     )}

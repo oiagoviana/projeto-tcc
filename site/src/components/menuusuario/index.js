@@ -31,12 +31,17 @@ export default function MenuUsuario({ pagina }) {
                     {storage('usuario-logado') &&
                         < a href='/usuario/chat' className={pagina === 'chat' ? 'selected' : ''}>Meu Chat</a>
                     }
+
                     {storage('psi-logado') &&
                         < a href='/psi/chat' className={pagina === 'chat' ? 'selected' : ''}>Meu Chat</a>
                     }
 
                     {storage('usuario-logado') &&
                         <a href='/usuario/perfil' className={pagina === 'perfil' ? 'selected' : ''}>Meu Perfil</a>
+                    }
+
+                    {storage('psi-logado') &&
+                        <a href='/psi/perfil' className={pagina === 'perfil' ? 'selected' : ''}>Meu Perfil</a>
                     }
                 </div>
 

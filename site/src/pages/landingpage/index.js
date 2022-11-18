@@ -6,9 +6,9 @@ export default function Landing() {
     return (
         <main className='pagina1'>
             <div className='conteiner1'>
-                <img className='logo-mae' src='/assets/images/logo-mae.png' alt='' />
+                   <img className='logo-mae' src='/assets/images/logo-mae.png' alt='' />
                 <div className='texto-1'>
-                <a className="a-header" href='usuario/publicompleta/'> Publicações</a>
+                <a className="a-header" href='usuario/feedpublicacao'> Publicações</a>
                  <a className="a-header" href='usuario/chat'> Profissionais</a>
                  <a className="a-header"href='usuario/indicacao/'> Indicações</a>
                 </div>
@@ -29,7 +29,7 @@ export default function Landing() {
 
                 <h1 className='sobre-nos'> Sobre nós</h1>
 
-                <p className='texto-3'>Nossa equipe deseja fazer do nosso site <br /> um lugar confortável para as pessoas que <br /> precisam de ajuda e quem tem <br />curiosidade sobre a maternidade.</p>
+                <p className='texto-3'>Nossa equipe deseja fazer do nosso site  um lugar confortável para as pessoas que  precisam de ajuda e quem tem curiosidade sobre a maternidade.</p>
 
                 <img className='maos' src='/assets/images/criancamao.png' />
             </div>
@@ -44,7 +44,7 @@ export default function Landing() {
 
                 <img className='linha1' src='/assets/images/linha.png' />
 
-                <p className='texto-4'>Queremos construir uma sociedade melhor<br /> onde pessoas se sintam mais abertas a <br />conversarem com quem se identificam.</p>
+                <p className='texto-4'>Queremos construir uma sociedade melhor onde pessoas se sintam mais abertas a  conversarem com quem se identificam.</p>
 
                 <img className='quadrado' src='/assets/images/quadrado.png' />
 
@@ -123,7 +123,7 @@ export default function Landing() {
                 <img className='linha3' src="/assets/images/linha vertical.png" />
 
 
-                <div className="">
+                <div className="container">
                     <div className="sub-container7">
                         <div className="sub-container8">
                             <p className="p7"> Seja um voluntário! </p>

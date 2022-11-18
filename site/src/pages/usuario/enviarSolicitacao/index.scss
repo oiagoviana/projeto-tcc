@@ -1,0 +1,193 @@
+.page-envio-solicitacoes {
+    display: flex;
+    flex-direction: column;
+
+    .page-cabecalhoChat{
+        height: 15vh;
+        background-color: #CC8F6E;
+        background-repeat: no-repeat;
+        
+        display: flex;
+        flex-direction: row;
+    }
+
+    .div-principal {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .container-envio-solicitacao {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 75vw;
+
+        border: 1px solid red;
+    }
+
+
+    .div-principal2 {
+        display: flex;
+        flex-direction: column;
+        background-color: #cc8f6e;
+        width: 25vw;
+        height: 85vh;
+        padding-left: .8em;
+
+    }
+
+    .chats {
+        margin-left: .8em;
+        font-family: 'Poppins1';
+        font-size: 1.2em;
+        color: #FFECDA;
+    }
+
+    .itens-cabecalho {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 60vw;
+        height: 10vh;
+        margin: 1em 0em 0em 0em;
+    }
+
+    .card {
+        width: 23vw;
+        height: 55vh;
+        overflow-y: scroll;
+        
+    }
+
+    .card::-webkit-scrollbar-track {
+        border-radius: 16px;
+        background-color: #D0D4CE;
+    }
+
+    .card::-webkit-scrollbar {
+        border-radius: 16px;
+        width: 8px;
+        background-color: #D0D4CE;
+    }
+
+    .card::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+
+        background-color: #6F4528;
+    }
+
+    .chatCard {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border: 3px solid #73401E;
+        background-color: #fff;
+        width: 21vw;
+        height: 10vh;
+        margin-bottom: 1em;
+
+    }
+
+    .nomeCard {
+        font-family: 'Poppins1';
+    }
+
+    .letra {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #000;
+        border-radius: 100%;
+        font-size: 25px;
+        font-family: 'Abhaya1';
+        color: #000;
+        height: 25px;
+        width: 25px;
+
+    }
+
+    .div-nome {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 11vw;
+
+    }
+
+    .container-solicitacao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 45vw;
+    }
+
+    .container-informacoes {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .bola-letra {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7vw;
+        height: 14vh;
+
+
+        font-size: 22px;
+        color: #73401E;
+        background-color: #FFECDA;
+        border-radius: 3em;
+        margin-top: .5em;
+    }
+
+    .container-square {
+        margin-left: 3em;
+    }
+
+    .container-square h1 {
+        color: #73401E;
+
+        font-size: 38px;
+    }
+
+    .container-credenciais {
+        display: flex;
+        flex-direction: row;
+
+        margin-top: -2em;
+        margin-left: 1em;
+    }
+
+    .idade {
+        font-weight: 700;
+
+        color: #73401E;
+    }
+
+    .telefone {
+        font-weight: 700;
+
+        color: #73401E;
+        margin-left: 2em;
+    }
+
+    button {
+        padding: 12px 20px;
+
+        font-size: 14px;
+        font-weight: 600;
+        color: #73401E;
+        background-color: #FFECDA;
+        border: none;
+
+        border-radius: .5em;
+
+        margin-top: 3em;
+    }
+}

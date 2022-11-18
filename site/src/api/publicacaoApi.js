@@ -39,6 +39,7 @@ export async function inserirPublicacaoPsi(psicologo, titulo, descricao){
     
 }
 
+
 export async function AdicionarImagem(id, imagem){
     const formData= new FormData();
     formData.append('imagem', imagem);
@@ -85,5 +86,23 @@ export async function inserirComentarioPsi(id, psicologo, comentario) {
 
 export async function mostrarPublicacaoFeed() {
     const resposta = await api.get('/usuario/feedpublicacao');
+    return resposta.data;
+}
+
+export async function listarPublicacaoUsu(id) {
+    const resposta = await api.get(`/api/publicacoesUser?id=${id}`);
+    return resposta.data;
+}
+
+export async function deletarPublicacao(id) {
+    const resposta = await api.delete(`/api/publicacao?id=${id}`);
+    return resposta.data;
+}
+
+export async function atualizarPublicacao(id, titulo, descricao) {
+    const resposta = await api.put(`/api/publicacao/${id}`, {
+        titulo:titulo,
+        descricao:descricao
+    });
     return resposta.data;
 }

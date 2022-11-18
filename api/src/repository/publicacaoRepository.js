@@ -89,6 +89,16 @@ export async function PublicarPsi(publicar) {
 
 }
 
+export async function alterarPublicacao(id, publicar){
+    const comando = 
+    `update tb_publicacao
+        set ds_titulo	    =?,
+            ds_publicacao	=?
+      where	id_publicacao   =?`;
+    const [resposta] = await con.query(comando, [publicar.titulo, publicar.descricao, id]);
+    return resposta.affectedRows;
+}
+
 
 export async function autorizarPublicacao(id) {
     const comando =
@@ -162,4 +172,27 @@ export async function listarPublicacaoFeed() {
 
     const [resposta] = await con.query(comando);
     return resposta
+}
+
+export async function listarPublicacaoUser(id) {
+    const comando =
+        `select id_publicacao       id,
+                id_usuario	        iduser,
+                id_psicologo		idpsi,
+                ds_titulo		    nome,
+                date_format(dt_publicacao, '%d/%m/%Y')	    as 'data',
+                pb_aprovado		    aprovado
+           from tb_publicacao
+          where id_usuario = ?`
+    const [resposta] = await con.query(comando, [id]);
+    return resposta;
+}
+
+export async function excluirPublicacao(id){
+    const comando =
+    `delete from tb_publicacao
+	       where id_publicacao = ?;`;
+
+    const [resposta] = await con.query(comando, [id]);
+    return resposta.affectedRows;
 }

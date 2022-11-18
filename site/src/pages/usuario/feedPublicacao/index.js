@@ -8,6 +8,7 @@ export default function FeedPublicacao() {
     const [publicacao, setPublicacao] = useState([]);
     const navigate = useNavigate();
 
+
     async function listarPublicacao() {
         const r = await mostrarPublicacaoFeed();
         console.log(r);
@@ -47,7 +48,7 @@ export default function FeedPublicacao() {
 
                             <div className='footer-publicacao'>
                                 <div onClick={() => verMais(item.id)}  className='container-click' >
-                                    <p>Ver mais</p>
+                                    <p className='botao-vermais'>Ver mais</p>
                                     <img src='/assets/images/setaMais.svg' alt='' />
                                 </div>
                             </div>

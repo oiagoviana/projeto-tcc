@@ -115,7 +115,6 @@ server.put('/api/indicacao/:id/imagem', upload.single('indicacao'), async (req,r
 			throw new Error('A imagem não pôde ser salva.')
         resp.status(204).send();
     } catch(err){
-		console.log(err)
         resp.status(400).send({
             erro: err.message
         })

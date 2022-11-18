@@ -21,12 +21,14 @@ import PublicacaoCompleta from './pages/usuario/publicompleta'
 import PerfilUser from './pages/usuario/perfil'
 import PublicacaoUsuario from './pages/usuario/publicacao'
 import Chat from './pages/usuario/chat'
+import EnviarSolicitacao from './pages/usuario/enviarSolicitacao'
 import FeedPublicacao from './pages/usuario/feedPublicacao'
 
 //Psi
 import Formulario from './pages/psicologo/formulario'
 import LoginPsi from './pages/psicologo/loginPsi'
 import ChatPsi from './pages/psicologo/chat'
+import PerfilPsi from './pages/psicologo/perfil'
 
 export default function Index() {
     return (
@@ -37,11 +39,13 @@ export default function Index() {
                 <Route path='/usuario/login' element={<Login />} />
                 <Route path='/usuario/perfil' element={<PerfilUser />} />
                 <Route path='/usuario/publicacao' element={<PublicacaoUsuario/>}/>
+                <Route path='/usuario/publicacao/:idParam' element={<PublicacaoUsuario/>}/>
                 <Route path='/usuario/indicacao' element={<Indicacao />} />
                 <Route path='/usuario/publicacaocompleta/:idParam' element={<PublicacaoCompleta />} />
                 <Route path='/usuario/indicacao' element={<Indicacao />} />
                 <Route path='/usuario/indicacao/:id' element={<Indicacao/>}/>
                 <Route path='/usuario/chat' element={<Chat />} />
+                <Route path='/usuario/enviarsolicitacao' element={<EnviarSolicitacao />} />
                 <Route path='/usuario/feedpublicacao' element={<FeedPublicacao />} />
 
 
@@ -49,6 +53,7 @@ export default function Index() {
                 <Route path='/psi/login' element={<LoginPsi/>}/>
                 <Route path='/psi/formulario' element={<Formulario />} />
                 <Route path='/psi/chat' element={<ChatPsi />} />
+                <Route path='/psi/perfil' element={<PerfilPsi />} />
 
 
 

@@ -24,7 +24,7 @@ export default function LoginPsi(){
             storage('psi-logado', resposta);
             setTimeout(() =>{
 
-                navigate('/usuario/publicacao');
+                navigate('/usuario/feedpublicacao');
             }, 3000)
         }
         catch(err) {

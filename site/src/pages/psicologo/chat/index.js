@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 const socket = io.connect('http://localhost:5000');
 
 export default function Chat() {
-    const user = storage('usuario-logado');
     const psi = storage('psi-logado');
     const [mensagem, setMensagem] = useState('');
     const [mensagens, setMensagens] = useState([]);
@@ -127,7 +126,7 @@ export default function Chat() {
                                 onChange={e => setMensagem(e.target.value)}
                             />
 
-                            {storage('usuario-logado') &&
+                            {storage('psi-logado') &&
                                 <img
                                     onClick={() => enviarMessage()}
                                     src='/assets/images/enviar-mensagem.png'
