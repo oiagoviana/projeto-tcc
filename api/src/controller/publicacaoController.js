@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import multer from 'multer';
 
-import { alterarImagemUsuario, autorizarPublicacao,excluirPublicacao,fazerComentarioPsi,fazerComentarioUsu,listarComentarioUsu,listarPublicacaoCard, listarPublicacaoFeed, listarPublicacaoId, listarPublicacaoUser, listarPublicacaoUsuId, PublicarPsi, PublicarUsuario } from '../repository/publicacaoRepository.js';
+import { alterarImagemUsuario, autorizarPublicacao,excluirPublicacao,fazerComentarioPsi,fazerComentarioUsu,listarComentarioUsu,listarPublicacaoCard, listarPublicacaoFeed, listarPublicacaoId, listarPublicacaoUser, listarPublicacaoUsuId, PublicarPsi, PublicarUsuario, editarPublicacaoPsi } from '../repository/publicacaoRepository.js';
 
 
 
@@ -239,6 +239,20 @@ server.delete('/api/publicacao', async (req, res) => {
 
     } catch (err) {
         res.status(401).send({
+            erro: err.message
+        })
+    }
+})
+
+server.put('/api/publicacao/:id', async (req, resp) => {
+    try {
+        const { id } = req.params;
+        const informacoes = req.body;
+        const informacoesAlteradas = await editarPublicacaoPsi(Number(id), informacoes);
+
+        resp.status(204).send();
+    } catch(err) {
+        resp.status(401).send({
             erro: err.message
         })
     }

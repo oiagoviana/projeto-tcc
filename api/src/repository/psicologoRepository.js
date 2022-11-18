@@ -3,13 +3,14 @@ import { con } from './connection.js'
 
 export async function listarPsicologos() {
     const comando = `
-    select  id_psicologo        as 'id',
+    select  id_psicologo        as  'id',
             nm_psicologo		as  'nome',
+            date_format(dt_nascimento, '%d/%m/%Y')  as 'data',
 			ds_email			as	'email',
             ds_telefone			as	'telefone',
             nr_crp				as	'crp'
 	  from  tb_psicologo
-      where bt_aprovado = false`
+      where bt_aprovado = true` //era false
     const [resposta] = await con.query(comando)
     return resposta;
 }
@@ -82,7 +83,7 @@ export async function listarPsiId(id) {
                 nr_crp			crp,
                 ds_cpf			cpf
        from tb_psicologo
-       where id_psicologo = ?;`
+       where id_psicologo = ?`
 
     const [resposta] = await con.query(comando, [id]);
     return resposta[0];

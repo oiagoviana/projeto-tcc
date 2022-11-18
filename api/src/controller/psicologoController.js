@@ -10,6 +10,7 @@ const server = Router();
 server.get('/api/psicologo', async (req, resp) => {
     try {
         const resposta = await listarPsicologos();
+
         resp.send(resposta);
 
     } catch (err) {

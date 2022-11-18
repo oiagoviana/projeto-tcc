@@ -186,3 +186,16 @@ export async function excluirPublicacao(id){
     const [resposta] = await con.query(comando, [id]);
     return resposta.affectedRows;
 }
+
+export async function editarPublicacaoPsi(id, informacoes) {
+    const comando = 
+    `update tb_publicacao
+        set ds_titulo				= ?, 
+            ds_publicacao		    = ?, 
+            dt_publicacao		    = curdate()
+      where id_publicacao		    = ?`
+
+      const [resposta] = await con.query(comando, [informacoes.titulo, informacoes.descricao, id]);
+      console.log(resposta);
+      return resposta.affectedRows;
+}
