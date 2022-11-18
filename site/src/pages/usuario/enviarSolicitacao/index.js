@@ -1,56 +1,36 @@
 import './index.scss'
 import storage from 'local-storage'
 import { createChat } from '../../../api/chatApi';
-import { listarPsicologo } from '../../../api/psicologoApi';
+import { listarPsicologoAprovados } from '../../../api/psicologoApi';
 import { useEffect, useState } from 'react';
 
 export default function EnviarSolicitacao() {
     const user = storage('usuario-logado');
     const [idChat, setIdChat] = useState(-1);
     const [chat, setChat] = useState([]);
-    const [solicitacaoIndividual, setSolicitacaoIndividual] = useState([{idPsi: 0, nome: '', idade: '', telefone: ''}]);
+    const [solicitacaoIndividual, setSolicitacaoIndividual] = useState([{psiId: 0, nome: '', idade: '', telefone: ''}]);
     const [botao, setBotao] = useState('N-enviado');
     const [data, setData] = useState('');
 
-    {/*async function pesquisaById(id) {
-        const r = await getChatInfoById(id);
-        setPsiInfo(r);
-    }
-
-    async function listUserChat() {
-        const r = await listarConversa(null, user.id)
-        setChat(r);
-    } */}
-
     async function listarPsicologos() {
-        const resposta = await listarPsicologo();
+        const resposta = await listarPsicologoAprovados();
         setChat(resposta);
     }
 
-    async function criarChat(idPsi) {
-        const resposta = await createChat(user.id, idPsi);
-
-        console.log(resposta);
+    async function criarChat(psiId) {
+        const resposta = await createChat(user.id, psiId);
     }
 
-    {/*  async function solicitarPsi() {
-        const resposta = await listarPsi(solicitacaoIndividual.idPsi);
-        setSolicitacaoIndividual(resposta);
-    } */}
+    function dataNascimento(data) {
+        const ano = data.slice(6);
+        const calculoIdade = new Date().getFullYear() - ano;
 
-    {/* async function testeHora() {
-        const a = new Date();
-
-        var dia = String(a.getDate()).padStart(2, '0');
-        var mes = String(a.getMonth() + 1).padStart(2, '0');
-        var ano = a.getFullYear();
-        var dataAtual = dia + '/' + mes + '/' + ano;
-        setData(dataAtual);
-    } */}
+        setData(calculoIdade);
+        
+    }
 
     useEffect(() => {
         listarPsicologos();
-        {/* testeHora(); */}
     }, [])
 
     return (
@@ -70,10 +50,10 @@ export default function EnviarSolicitacao() {
                     <div className='card'>
                         {chat.map((item) => (
                             <div onClick={() => {
-                                {/*setIdChat(item.idChat);
-                            pesquisaById(item.idChat); */}
-                                setSolicitacaoIndividual([{idPsi: item.id, nome: item.nome, idade: item.data, telefone: item.telefone}])
+                                dataNascimento(item.data);
+                                setSolicitacaoIndividual([{psiId: item.id, nome: item.nome, idade: item.data, telefone: item.telefone}])
                                 setIdChat(item.id);
+                                setBotao('N-enviado');
                                 console.log(item.id);
                             }}> {/* Sem essa parte de listar as mensagens de conversa */}
 
@@ -101,19 +81,18 @@ export default function EnviarSolicitacao() {
                                             <h1>{item.nome}</h1>
 
                                             <div className='container-credenciais'>
-                                                <p className='idade'>{item.idade}</p>
+                                                <p className='idade'>{data} anos</p>
 
                                                 <p className='telefone'>{item.telefone}</p>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <button onClick={() => { criarChat(item.idPsi); setBotao('Enviado') }}>
+                                    <button onClick={() => { criarChat(item.psiId); setBotao('Enviado') }}>
                                         {botao == 'N-enviado' ? 'Enviar Solicitação' : 'Solicitação enviada!'}
                                     </button>
                                 </div>
                             )}
-                            {data}
 
                         </div>
                     )}

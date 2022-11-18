@@ -1,7 +1,6 @@
 import { Router } from 'express'
 import multer from 'multer';
 
-import { alterarImagemUsuario, autorizarPublicacao,excluirPublicacao,fazerComentarioPsi,fazerComentarioUsu,listarComentarioUsu,listarPublicacaoCard, listarPublicacaoFeed, listarPublicacaoId, listarPublicacaoUser, listarPublicacaoUsuId, PublicarPsi, PublicarUsuario, editarPublicacaoPsi } from '../repository/publicacaoRepository.js';
 import { alterarImagemUsuario, autorizarPublicacao,excluirPublicacao,fazerComentarioPsi,fazerComentarioUsu,listarComentarioUsu,listarPublicacaoCard, listarPublicacaoFeed, listarPublicacaoId, listarPublicacaoUser, listarPublicacaoUsuId, PublicarPsi, PublicarUsuario } from '../repository/publicacaoRepository.js';
 
 

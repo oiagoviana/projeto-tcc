@@ -1,4 +1,4 @@
-import { inserirFormulario, listarPsicologos, deletarFormulario, loginPsicologo, autorizarPsi, listarPsiId, SolicitadoPsi, listarPublicacaoPsi } from '../repository/psicologoRepository.js'
+import { inserirFormulario, listarPsicologos, listarPsicologosAprov, deletarFormulario, loginPsicologo, autorizarPsi, listarPsiId, SolicitadoPsi, listarPublicacaoPsi } from '../repository/psicologoRepository.js'
 
 
 import { Router } from 'express'
@@ -10,6 +10,20 @@ const server = Router();
 server.get('/api/psicologo', async (req, resp) => {
     try {
         const resposta = await listarPsicologos();
+
+        resp.send(resposta);
+
+    } catch (err) {
+        resp.status(404).send({
+            erro: err.message
+        })
+
+    }
+}
+)
+server.get('/api/psicologo/aprov', async (req, resp) => {
+    try {
+        const resposta = await listarPsicologosAprov();
 
         resp.send(resposta);
 

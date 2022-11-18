@@ -18,6 +18,11 @@ export async function listarPsicologo() {
     return resposta.data;
 }
 
+export async function listarPsicologoAprovados() {
+    const resposta = await api.get('/api/psicologo/aprov');
+    return resposta.data;
+}
+
 export async function formularioPsi(nome, telefone, nascimento, email, senha, crp, cpf){
     const resposta = await api.post('/api/formulario',{
         nome:nome,
