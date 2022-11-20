@@ -17,6 +17,13 @@ export default function Chat() {
     const navigate = useNavigate();
 
 
+    document.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            const btn = document.querySelector("#send");
+            btn.click();
+        }
+    });
+
     async function listUserChat() {
         const r = await listarConversa(null, user.id)
         setChat(r);
@@ -68,7 +75,7 @@ export default function Chat() {
         <main className='page-chat'>
             <div className='page-cabecalhoChat'>
                 <div className='itens-cabecalho'>
-                <img src="/assets/images/setaVoltar.svg" className='imagem-seta' onClick={sairChat} />
+                    <img src="/assets/images/setaVoltar.svg" className='imagem-seta' onClick={sairChat} />
                     {psiInfo.map((item) => (
                         <div className='div-nome'>
                             <span className='nome'> {item.nomePsi[0].toUpperCase()} </span>
@@ -127,11 +134,10 @@ export default function Chat() {
                                 onChange={e => setMensagem(e.target.value)}
                             />
 
-                            {storage('usuario-logado') &&
-                                <img
-                                    onClick={() => enviarMessage()}
-                                    src='/assets/images/enviar-mensagem.png'
-                                    alt='' />
+                            {storage('psi-logado') &&
+                                <div className='send-message' id="send" onClick={() => enviarMessage()}>
+                                    <img src='/assets/images/enviar-mensagem.png' alt='' />
+                                </div>
                             }
                         </div>
                     )}

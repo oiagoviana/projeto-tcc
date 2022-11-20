@@ -16,8 +16,16 @@ export default function Chat() {
     const [userInfo, setUserInfo] = useState([]);
     const navigate = useNavigate();
 
+    // document.addEventListener("keypress", function (e) {
+	// 	if (e.key === "Enter") {
+	// 		const btn = document.querySelector("#send");
+	// 		btn.click();
+	// 	}
+	// });
+
     async function listUserChat() {
         const r = await listarConversa(psi.id, null)
+
         setChat(r);
     }
 
@@ -27,7 +35,10 @@ export default function Chat() {
         setUserInfo(r);
     }
 
-    async function enviarMessage() {
+    async function enviarMessage(ev) {
+        if (ev && ev.key && ev.key !== 'Enter')
+            return;
+
         socket.emit("enviar_mensagem", {
             idChat: idChat,
             mensagem: mensagem,
@@ -37,6 +48,8 @@ export default function Chat() {
             idChat: idChat,
         });
         setMensagem("");
+
+        setTimeout(() => document.querySelector(".mensagens div:last-child").scrollIntoView(), 200);
     }
 
 
@@ -51,11 +64,13 @@ export default function Chat() {
 
     socket.on("listar_mensagem", (data) => {
         setMensagens(data);
+        setTimeout(() => document.querySelector(".mensagens div:last-child").scrollIntoView(), 300);
     })
 
 
     useEffect(() => {
         listUserChat();
+        
     }, [])
 
     function sairChat() {
@@ -123,14 +138,14 @@ export default function Chat() {
                                 placeholder='Digite sua mensagem...'
                                 type='text'
                                 value={mensagem}
+                                onKeyDown={enviarMessage}
                                 onChange={e => setMensagem(e.target.value)}
                             />
 
                             {storage('psi-logado') &&
-                                <img
-                                    onClick={() => enviarMessage()}
-                                    src='/assets/images/enviar-mensagem.png'
-                                    alt='' />
+                            <div className='send-message' id="send" onClick={enviarMessage}>
+                                <img  src='/assets/images/enviar-mensagem.png' alt='' />
+                            </div>
                             }
                         </div>
                     )}

@@ -43,13 +43,6 @@ export default function HomeAdm() {
                         <h3 className='h3-textos'>Contas Profissionais Criadas: <span className='qtd-resposta1'> {info.psiCriados} </span> </h3>
                     </div>
                 </div>
-
-
-
-                <div className='div-informacoes-direita'>
-                    <h3>Pessoas Online: <span className='qtd-resposta'>41</span> </h3>
-                    <h3>Admin Online: <span className='qtd-resposta'>1</span> </h3>
-                </div>
             </div>
 
 

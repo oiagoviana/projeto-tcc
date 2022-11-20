@@ -35,7 +35,16 @@ export default function FeedPublicacao() {
                     {publicacao.map(item =>
                         <div className='card-publicacao'>
                             <div className='header-publicacao'>
-                                <p className='header-name'>{item.nome}</p>
+                                {item.nome && 
+                                <p className='header-name'>{item.nome} </p>
+                                }
+                                
+
+                                {item.nomePsi && 
+                                <p className='header-name' id="psi">{item.nomePsi}</p>}
+                                
+                                
+                                
                                 <p className='header-data'>{item.data}</p>
                             </div>
 

@@ -26,7 +26,7 @@ export async function listarPublicaçõesFeitas() {
     const comando =
         `select count(id_publicacao) as qtdPublicacoes
         from tb_publicacao
-        where pb_aprovado = true;`
+        where pb_aprovado = true`
     const [resposta] = await con.query(comando);
     return resposta.map(item => item.qtdPublicacoes);
 }
@@ -34,7 +34,8 @@ export async function listarPublicaçõesFeitas() {
 export async function listarContasPsi() {
     const comando =
         `select count(id_psicologo) as qtdPsicologos
-    from tb_psicologo;`
+           from tb_psicologo
+          where bt_aprovado = true`
     const [resposta] = await con.query(comando);
     return resposta.map(item => item.qtdPsicologos);
 }

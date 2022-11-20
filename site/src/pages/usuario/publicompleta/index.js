@@ -80,9 +80,19 @@ export default function PubliCompleta() {
                             <div className='sub2-card'>
                                 <div className='sub2-cima'>
 
-
+                                    {item.nome &&
                                     <h1 className='kar' src="/assets/images/kar.png" width='37vw' height='45vh' alt="">{item.nome[0]}</h1>
-                                    <h4 className='cima-info'>{item.nome}</h4>
+
+                                    }
+
+                                    {item.nomePsi &&
+                                    <h1 className='kar' src="/assets/images/kar.png" width='37vw' height='45vh' alt="">{item.nomePsi[0]}  </h1>
+
+                                    }
+                                    <h4 className='cima-info'>{item.nome}
+                                    {item.nomePsi && 
+                                    <p className='psi'>{item.nomePsi}</p>}
+                                    </h4>
 
                                 </div>
 
