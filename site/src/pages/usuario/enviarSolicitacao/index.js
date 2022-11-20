@@ -26,7 +26,7 @@ export default function EnviarSolicitacao() {
 
         setTimeout(() => {
             navigate('/usuario/perfil')
-        }, 3000)
+        }, 800)
     }
 
     function dataNascimento(data) {
