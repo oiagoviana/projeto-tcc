@@ -20,8 +20,8 @@
 
     .logo-mae {
 
-        width: 11vw;
-        height: 7vh;
+        width: 12vw;
+        height: 20vh;
         margin: 1em 1em 1em 1em;
 
 
@@ -152,8 +152,9 @@
         align-items: center;
         justify-content: space-between;
        background-color: #FFECDA;
-
+       
         width: 100%;
+        //border: 1px solid red;
     }
 
     .primeira {
@@ -167,12 +168,12 @@
 
     .missao {
         position: absolute;
-        font-size: 3em;
+        font-size: 2.5em;
         font-family: 'Bevan1';
-        margin-top: 1em;
+        top: 24.3em;
 
         color: #6F4528;
-        margin-left: 12em;
+        margin-left: 15.2em;
 
     }
 
@@ -556,12 +557,12 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        margin-top: 5em;
+        margin-top: 4em;
         //border: 1px solid red;
         background-color: #73401E;
    
         width: 100%;
-        height: 79vh;
+        height: 82vh;
 
     }
 
@@ -573,7 +574,7 @@
         font-family: 'Bevan1';
         font-size: 2.5em;
         color: #FFECDA;
-        margin-left: 4.5em;
+        margin-left: 4em;
        
     
     }
@@ -581,7 +582,7 @@
     .sua-historia-texto{
         
         margin-top: 1em;
-        margin-left: 2em;
+        margin-left: 0.2em;
         font-family: 'Abhaya2';
         font-size: 2em;
         color: #FFFFFF;
@@ -640,12 +641,14 @@
         flex-direction: column;
         align-items: center;
         margin-top: 7em;
+        width: 100%;
         background-color: #FFECDA;
     }
 
     .header-dicas{
        position: absolute;
        margin-top: -1em;
+       right: 10em;
         width: 20em;
         font-family: 'Bevan1';
         color: #6F4528;
@@ -656,10 +659,10 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 95%;
+        width: 93%;
         height: 80%;
         margin-top: 1em;
-        margin-left: 2em;
+        margin-right: 3em;
         //border: 2px solid red;
     }
 
@@ -825,9 +828,14 @@
            
         }
 
+        .imagem-bb{
+            width: 30em ;
+            height: 31em;
+        }
+
         .logo-mae{
             width: 9em;
-            height: 4em;
+            height: 8em;
             
         }
 
@@ -840,9 +848,6 @@
         
         }
 
-        .missao{
-            margin-top: -0.1em;
-        }
 
         .linha1{
             margin-top: 4em;
@@ -920,6 +925,12 @@
         }
 
 
+        .imagem-bb{
+            width: 30em;
+            height: 31em;
+        }
+
+
         .conteiner3{ 
             //border: 1px solid red;
             margin-right: 2em;
@@ -930,7 +941,7 @@
             //border: 1px solid red;
             width: 14vw;
             margin-left: 4em;
-            font-size: 2.2em;
+            font-size: 2em;
         }
 
         .texto-3{
@@ -938,7 +949,8 @@
         }
         
         .missao{
-            margin-top: 1.2em;
+            position: absolute;
+            top: 26.4em;
         }
 
         .linha1{
@@ -967,7 +979,7 @@
 
         .container6{
             width: 90%;
-            margin-left: 7em;
+            margin-left: 3.4em;
         }
         
 
@@ -1027,6 +1039,8 @@
         margin-right: 5em;
       
        }
+
+       
 
        .linha4{
         margin-left: 1em
@@ -1123,7 +1137,7 @@
         }
         .missao{
             margin-right: 2em;
-            font-size: 2.6em;
+            font-size: 2.5em;
         }
         .linha1{
             margin-right: 2em;
@@ -1139,6 +1153,8 @@
     
 
 }
+
+
 
 
 
