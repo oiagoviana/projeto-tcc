@@ -18,7 +18,6 @@ export default function PubliCompleta() {
 
     async function MostrarPubli() {
         const resposta = await mostrarPublicacaoUsuId(idParam);
-        console.log(resposta);
         setPublicacao(resposta)
     }
     async function MostrarComentarioUsu() {

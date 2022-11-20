@@ -86,6 +86,12 @@ export default function PerfilUser() {
         navigate(`/usuario/publicacao/${id}`)
     }
 
+    function redirecionamentoChat() {
+        setTimeout(() => {
+            navigate('/usuario/chat');
+        }, 700)
+    }
+
     useEffect(() => {
         listarSolicitacoes();
         listarPublicacoes();
@@ -138,6 +144,7 @@ export default function PerfilUser() {
                                                 <td className='titulo-doutores'>{item.nome}</td>
                                                 <td className='titulo-resultado-situacao'>{item.autorizado == 0 ? 'Em análise' : 'Aprovado'}</td>
                                                 <td className='img-lixo-black'><img onClick={() => excluirChat(item.idchat)} src='/assets/images/lixo-limpar-black.svg' alt='img-lixo' /></td>
+                                                <td className='img-msg-chat'><img onClick={redirecionamentoChat} src='/assets/images/msg-chat.svg' alt='img-lixo' /></td>
                                             </tr>
 
                                         )}

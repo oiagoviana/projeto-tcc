@@ -51,6 +51,20 @@ inner join 	tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario
     return resposta;
   }
 
+export async function verificarChat(psiId, userId) {
+    const comando = `
+    select	id_chat						idChat,
+            id_psicologo				psiId,
+            id_usuario					userId,
+            bt_autorizado				aprovado
+    from	tb_chat
+    where	id_psicologo = ?
+      and   id_usuario = ?`
+    
+    const[resposta] = await con.query(comando, [psiId, userId]);
+    return resposta[0];
+}
+
 export async function aceitarChat(chatId){
     const comando = 
     `update tb_chat

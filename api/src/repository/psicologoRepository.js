@@ -10,7 +10,7 @@ export async function listarPsicologos() {
             ds_telefone			as	'telefone',
             nr_crp				as	'crp'
 	  from  tb_psicologo
-      where bt_aprovado = false` //era false
+      where bt_aprovado = false`
     const [resposta] = await con.query(comando)
     return resposta;
 }

@@ -1,7 +1,5 @@
 import { Router } from 'express'
-import { excluirChat } from '../repository/chatRepository.js';
-import { aceitarChat } from '../repository/chatRepository.js';
-import { CriarChat, psiConversation, searchConversationbyId, userConversations } from '../repository/chatRepository.js';
+import { CriarChat, psiConversation, searchConversationbyId, userConversations, aceitarChat, excluirChat, verificarChat } from '../repository/chatRepository.js';
 
 const server = Router();
 
@@ -98,5 +96,17 @@ server.delete('/chat', async (req, res) => {
     }
 })
 
+server.get('/chat/verificar', async (req, resp) => {
+    try {
+        const { psiId, userId } = req.query;
+
+        const resposta = await verificarChat(psiId, userId);
+        resp.send(resposta);
+    } catch(err) {
+        resp.status(401).send({
+            erro: err.message
+        })
+    }
+})
 
 export default server;

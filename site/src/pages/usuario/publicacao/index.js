@@ -25,7 +25,6 @@ export default function Publicacao() {
                     const IDusuario = storage('usuario-logado').id
                     const r = await inserirPublicacaoUsu(IDusuario, titulo, descricao)
                     await AdicionarImagem(r.id, imagem)
-                    console.log(id)
                     setId(r.id);
                     
                     toast.dark('Publicação usu inserida com sucesso!')

@@ -35,3 +35,8 @@ export async function deletarChat(chatId) {
     const resposta = await api.delete(`/chat/?chatId=${chatId}`);
     return resposta.data;
 }
+
+export async function verificarChat(psiId, userId) {
+    const resposta = await api.get(`/chat/verificar?psiId=${psiId}&userId=${userId}`);
+    return resposta.data;
+}

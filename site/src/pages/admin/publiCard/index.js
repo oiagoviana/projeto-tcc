@@ -12,7 +12,6 @@ export default function PublicacaoCardUsuario() {
 
     async function consultarPublicacao() {
         const resposta = await mostrarPublicacaoCard();
-        console.log(resposta);
         setPubli(resposta);
     }
 

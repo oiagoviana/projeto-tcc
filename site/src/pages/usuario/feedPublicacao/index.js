@@ -11,7 +11,6 @@ export default function FeedPublicacao() {
 
     async function listarPublicacao() {
         const r = await mostrarPublicacaoFeed();
-        console.log(r);
         setPublicacao(r);
     }
 

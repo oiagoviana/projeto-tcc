@@ -1,6 +1,6 @@
 import './index.scss'
 import storage from 'local-storage'
-import { createChat } from '../../../api/chatApi';
+import { createChat, verificarChat } from '../../../api/chatApi';
 import { useNavigate } from 'react-router-dom'
 import { listarPsicologoAprovados } from '../../../api/psicologoApi';
 import { useEffect, useState } from 'react';
@@ -10,6 +10,7 @@ export default function EnviarSolicitacao() {
     const [idChat, setIdChat] = useState(-1);
     const [chat, setChat] = useState([]);
     const [solicitacaoIndividual, setSolicitacaoIndividual] = useState([{psiId: 0, nome: '', idade: '', telefone: ''}]);
+    const [searchChat, setSearchChat] = useState([]);
     const [botao, setBotao] = useState('N-enviado');
     const [data, setData] = useState('');
 
@@ -24,7 +25,7 @@ export default function EnviarSolicitacao() {
         const resposta = await createChat(user.id, psiId);
 
         setTimeout(() => {
-            navigate('/usuario/chat')
+            navigate('/usuario/perfil')
         }, 3000)
     }
 
@@ -34,6 +35,11 @@ export default function EnviarSolicitacao() {
 
         setData(calculoIdade);
         
+    }
+
+    async function vericacaoChat(psiId) {
+        const r = await verificarChat(psiId, user.id);
+        setSearchChat(r);
     }
 
     useEffect(() => {
@@ -59,10 +65,10 @@ export default function EnviarSolicitacao() {
                         {chat.map((item) => (
                             <div onClick={() => {
                                 dataNascimento(item.data);
-                                setSolicitacaoIndividual([{psiId: item.id, nome: item.nome, idade: item.data, telefone: item.telefone}])
+                                setSolicitacaoIndividual([{psiId: item.id, nome: item.nome, idade: item.data, telefone: item.telefone}]);
+                                vericacaoChat(item.id);
                                 setIdChat(item.id);
                                 setBotao('N-enviado');
-                                console.log(item.id);
                             }}> {/* Sem essa parte de listar as mensagens de conversa */}
 
                                 <div className='chatCard'>
@@ -97,7 +103,13 @@ export default function EnviarSolicitacao() {
                                     </div>
 
                                     <button onClick={() => { criarChat(item.psiId); setBotao('Enviado') }}>
-                                        {botao == 'N-enviado' ? 'Enviar Solicitação' : 'Solicitação enviada!'}
+                                        {searchChat == [] && (
+                                            <p>Enviar Solicitacao</p>
+                                        )}
+
+                                        {searchChat != [] && (
+                                            <p>Solicitacao enviada</p>
+                                        )}
                                     </button>
                                 </div>
                             )}
