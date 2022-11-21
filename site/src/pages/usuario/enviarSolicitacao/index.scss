@@ -175,7 +175,7 @@
     }
 
     button {
-        padding: 15px 25px;
+        padding: 7px 20px;
 
         font-size: 14px;
         font-weight: 600;
@@ -186,6 +186,16 @@
         border-radius: .5em;
 
         margin-top: 4em;
+    }
+
+    button:hover {
+        cursor: pointer;
+
+        transform: translateY(-2px);
+    }
+
+    button:active {
+        background-color: #fadec4;
     }
 
     @media(max-width: 1100px) {
