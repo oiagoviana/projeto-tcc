@@ -18,6 +18,12 @@ export default function FeedPublicacao() {
         navigate(`/usuario/publicacaocompleta/${id}`);
     }
 
+    function navegarSolicitacao() {
+        setTimeout(() => {
+            navigate('/usuario/enviarsolicitacao');
+        }, 800)
+    }
+
     useEffect(() => {
         listarPublicacao();
     }, [])
@@ -41,7 +47,7 @@ export default function FeedPublicacao() {
                                 
 
                                 {item.nomePsi && 
-                                <p className='header-name' id="psi">{item.nomePsi}</p>}
+                                <p onClick={navegarSolicitacao} className='header-name' id="psi">{item.nomePsi}</p>}
                                 
                                 
                                 
