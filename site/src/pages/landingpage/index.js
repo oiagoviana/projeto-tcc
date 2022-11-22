@@ -282,7 +282,7 @@ export default function Landing() {
                 <img className='linha4' src="/assets/images/linha4.png" />
 
               
-                    <p className="titulo2">FALE COM ALGUM DOS NOS PROFISSIONAIS!</p>
+                    <p className="titulo2">FALE COM ALGUM DOS NOSSOS PROFISSIONAIS!</p>
                
                 
             </div>

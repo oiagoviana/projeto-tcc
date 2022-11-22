@@ -3,7 +3,7 @@
 .pagina1 {
     display: flex;
     flex-direction: column;
-
+    overflow-x: hidden;
     
     
 
@@ -20,8 +20,8 @@
 
     .logo-mae {
 
-        width: 12vw;
-        height: 20vh;
+        width: 20vw;
+        height: 13vh;
         margin: 1em 1em 1em 1em;
 
 
@@ -139,11 +139,10 @@
         font-size: 1.9em;
         font-family: 'Bevan1';
         color: #6F4528;
-        margin-top: 2em;
+        margin-top: 2.8em;
         margin-left: 3em;
-      
-
-        height: 1em;
+        width: 20vw;
+        height: 5vh;
     }
 
     .conteiner4 {
@@ -170,10 +169,10 @@
         position: absolute;
         font-size: 2.5em;
         font-family: 'Bevan1';
-        top: 24.3em;
+        top: 29em;
 
         color: #6F4528;
-        margin-left: 15.2em;
+        margin-left: 14.8em;
 
     }
 
@@ -386,7 +385,7 @@
     }
 
     .etica-imagem{
-        margin-left: 3.5em;
+        margin-left: 4em;
         margin-top: 1em;
     }
 
@@ -394,7 +393,7 @@
         font-family: 'Poppins2';
         color: #ffff;
         font-size: 1.2em;
-        margin-left: 2.8em;
+        margin-left: 3.9em;
         margin-top: -0.4em;
 
     }
@@ -746,6 +745,7 @@
        cursor: pointer;
        text-decoration: none;
        color: black;
+       font-size: 1.3em;
     }
 
     .rodape{
@@ -794,7 +794,7 @@
         font-family: 'Abhaya2';
         font-size: 1.3em;
         color: #FFFFFF;
-        margin-left: 2em;
+        margin-left: 1em;
         margin-top: 5em;
         width: 12em;
     }
@@ -819,7 +819,7 @@
         flex-direction: column;
     }
 
-    @media (max-width: 1280px) {
+    /*@media (max-width: 1280px) {
         .botao1{
             width: 6em;
             height: 2.3em;
@@ -941,7 +941,7 @@
             //border: 1px solid red;
             width: 14vw;
             margin-left: 4em;
-            font-size: 2em;
+            //font-size: 2em;
         }
 
         .texto-3{
@@ -1028,7 +1028,7 @@
         }
 
         .sobre-nos{
-            font-size: 1.9em;
+            //font-size: 1.9em;
             margin-top: 2.4em;
         }
         .texto-3{
@@ -1150,19 +1150,6 @@
             margin-left: 6em;
         }
     }
-    
+  */  
 
 }
-
-
-
-
-
-
-    
-
-
-
-
-
-

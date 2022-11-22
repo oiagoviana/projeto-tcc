@@ -17,7 +17,8 @@ export async function userConversations(userId) {
                 id_usuario					userId
       from		tb_chat
 inner join      tb_psicologo on tb_psicologo.id_psicologo = tb_chat.id_psicologo
-     where	    tb_chat.id_usuario = ?;`
+     where	    tb_chat.id_usuario = ?
+     and        tb_chat.bt_autorizado = true;`
     const [resposta] = await con.query(comando, [userId]);
     return resposta;
 }
@@ -30,7 +31,8 @@ export async function psiConversation(psiId) {
             tb_usuario.nm_usuario		userName
       from	tb_chat
 inner join  tb_usuario on tb_usuario.id_usuario = tb_chat.id_usuario 
-     where	tb_chat.id_psicologo = ?;`
+     where	tb_chat.id_psicologo = ?
+     and        tb_chat.bt_autorizado = true;`
     const [resposta] = await con.query(comando, [psiId]);
     return resposta;
 }

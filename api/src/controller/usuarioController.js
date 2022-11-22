@@ -9,20 +9,17 @@ server.post('/usuario/cadastro', async (req, resp) => {
         
         
 
-        /*if (!email.trim())
+        if (!usuario.email.trim())
             throw new Error('Email é obrigatório!')
 
-        if (!nome.trim())
+        if (!usuario.nome.trim())
             throw new Error('Nome é obrigatório!')
 
-        if (!senha.trim())
+        if (!usuario.senha.trim())
             throw new Error('Senha é obrigatória!');
 
-        if (!telefone.trim())
-            throw new Error('Telefone é obrigatório!')
-
-        if(!resposta) 
-            throw new Error('Cadastro inválido!');*/
+        if (!usuario.telefone.trim())
+            throw new Error('Telefone é obrigatório!');
 
             const resposta = await Cadastro(usuario);
             resp.send(resposta);

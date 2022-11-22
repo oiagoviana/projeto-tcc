@@ -16,12 +16,7 @@ export default function Chat() {
     const [userInfo, setUserInfo] = useState([]);
     const navigate = useNavigate();
 
-    // document.addEventListener("keypress", function (e) {
-	// 	if (e.key === "Enter") {
-	// 		const btn = document.querySelector("#send");
-	// 		btn.click();
-	// 	}
-	// });
+    
 
     async function listUserChat() {
         const r = await listarConversa(psi.id, null)
@@ -110,7 +105,7 @@ export default function Chat() {
                                 })
                             }}>
                                 <div className='chatCard'>
-                                    <div className='div-nome'>
+                                    <div className='div-nome2'>
                                         <span className='letra'>{item.userName[0].toUpperCase()}</span>
                                         <span className='nomeCard'>{item.userName}</span>
                                     </div>
